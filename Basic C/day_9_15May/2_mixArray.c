@@ -1,5 +1,4 @@
-#include<stdio.h>
-
+/*
 int acceptArray();
 int addArray(int[],int,int[],int);
 int display(int [],int);
@@ -41,10 +40,10 @@ int acceptArray()
 int addArray(int arr1[],int size1,int arr2[],int size2)
 {
     int size3=size1+size2;
-    int arr3[size3],count=0;
-    for(int i=0;i<size3;i++)
+    int arr3[size3],count=0,i,j;
+    for(i=0,j=0;i<size3;i++)
     {
-        arr3[i]=arr1[i];
+        
 
     }
     display(arr3,size3);
@@ -58,3 +57,35 @@ int display(int arr3[],int size3)
     return 0;
 }
 
+*/
+
+#include<stdio.h>  
+  
+#define N 5  
+#define M (N * 2)  
+  
+int main()  
+{  
+    int a[N], b[N], c[M], i, k;  
+  
+    printf("Enter %d elements for array a\n", N);  
+    for(i = 0; i < N; i++)  
+        scanf("%d", &a[i]);  
+  
+    printf("Enter %d elements for array b\n", N);  
+    for(i = 0; i < N; i++)  
+        scanf("%d", &b[i]);  
+  
+    printf("\nMerging arrays a & b into c in alternate position\n");  
+    for(i = 0, k = 0; i < N; i++, k += 2)  
+        c[k] = a[i];  
+  
+    for(i = 0, k = 1; i < N; i++, k += 2)  
+        c[k] = b[i];  
+  
+    printf("Array elements of c is:\n");  
+    for(i = 0; i < M; i++)  
+        printf("%d\n", c[i]);  
+  
+    return 0;  
+} 
