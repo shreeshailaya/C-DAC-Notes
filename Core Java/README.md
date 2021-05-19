@@ -47,7 +47,15 @@
 
 - for run program javac _programName_.
 - javac -version is used to check the version of java.
-- Bytes code(.class) always based on class name.
+- * Bytes code(.class) always based on class name,if program name and class name is not equal then .class file name will be class name not a program name. *
+	> javac _programName_ 
+	> java _.classFileName_
 ---
 ---
+# 20/5
 
+
+
+
+
+Guide to design readme [click here](https://medium.com/analytics-vidhya/how-to-create-a-readme-md-file-8fb2e8ce24e3)
