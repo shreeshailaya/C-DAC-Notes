@@ -94,33 +94,33 @@
 
 ### Minor Piller 
 #### 1) Strong Typing
-	Perticular type of input of way of typing or wiritng code.
+- Perticular type of input of way of typing or wiritng code.
 #### 2) Concurrency
-	Simultaneous Execution eg. Notepad spelling check
+- Simultaneous Execution eg. Notepad spelling check
 #### 3) Persistance 
-	Perment Storage/Database
+- Perment Storage/Database
 ### Major Piller 
 #### 1) Abstraction
-	- Selective ignorance
-	- It helps in reducing the complixity of code.
-	- Process of seperation which take what is needed.
-	- It focous on what is needed/required and discart everything else.
+- Selective ignorance
+- It helps in reducing the complixity of code.
+- Process of seperation which take what is needed.
+- It focous on what is needed/required and discart everything else.
 #### 2) Encapsulation
-	- State(data) and Behavior(function) are inseparable thats why we use Encapsulation
-	- State and behavior will always together bundled into one unit is clalled Encapsulation.
-	- Advantage- 1.Data hiding/helps to restrict access of data 
-	- 2.Data Binding 
-	- 3.Complex functionlity can be hidden so that simple UI is used for use of object.
-	- 4.Hide Complixity and give simple functions to the user 
-	- Class is the best example of encapsulation.
+- State(data) and Behavior(function) are inseparable thats why we use Encapsulation
+- State and behavior will always together bundled into one unit is clalled Encapsulation.
+- Advantage- 1.Data hiding/helps to restrict access of data 
+- 2.Data Binding 
+- 3.Complex functionlity can be hidden so that simple UI is used for use of object.
+- 4.Hide Complixity and give simple functions to the user 
+- Class is the best example of encapsulation.
 #### 3) Inheritance
-	- Its about the "is a" relationship.
-	- If t entity having "is a" relationship then there is Inherantance.
-	- Adventage 1.Reusability/reusing of code.
-	- 2.It creates the basics of polymorphism
-	- Spealize entity from existing generalize entity by adding some extra state and behavior.
+- Its about the "is a" relationship.
+- If t entity having "is a" relationship then there is Inherantance.
+- Adventage 1.Reusability/reusing of code.
+- 2.It creates the basics of polymorphism
+- Spealize entity from existing generalize entity by adding some extra state and behavior.
 #### 4) Polymorphism
-	- Polymorphism:- Same massage given to common entity of different object.(different function defication) 
+- Polymorphism:- Same massage given to common entity of different object.(different function defication) 
 
 - Encaspulatio Unit 
 ```java
