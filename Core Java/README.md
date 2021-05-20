@@ -47,15 +47,49 @@
 
 - for run program javac _programName_.
 - javac -version is used to check the version of java.
-- * Bytes code(.class) always based on class name,if program name and class name is not equal then .class file name will be class name not a program name. *
+- *Bytes code(.class) always based on class name,if program name and class name is not equal then .class file name will be class name not a program name. *
 	> javac _programName_ 
+
 	> java _.classFileName_
 ---
 ---
 # 20/5
-
-
-
-
+## Introduction of Object Oriented Programming
+#### Procedural Programming
+	* It made with the functions.
+	* Co-ordinate with `main()`.
+	* Not working with entity.
+	* Real life modelling is not possible.
+	* Data Security (primery focous on procedurse not security)
+	* After some code modification of code is difficult. 
+- To overcome from this disadvantage they come up with new concept i.e OOP
+### Object Oriented Programming
+#### Object
+- It is instance of the class
+- It representing real life entity- customer,student, account
+- Object has some state and behavior.
+- Every object has some *identity* and *role* to be play in system
+- Some objects are actually physically present those are called as tangible entity/object.(eg. student, laptop,hard-disk)
+- Some objects are not actually physically present those are called as non-tangible entity/object (eg. data, account,software)
+- Object is something which present the real life tangiable non tangable entity which have some identity and role to be played.
+- State and behavior of objects
+	- Set of values given to the common attributes which are used for describing the object.
+	- State is description of the object.
+	- Eg. there is a car which has some compay name,color,number..etc
+	- So if the object is `MyCar` then the state of the object are Maruti,Black,mh14p8254..etc
+	- State is the description of object.
+	- There is some functionality/behavior/role of object like car speed in program it is like function.  
+	- State= Set of values 
+	- Identity is one of the state value which has some unique identity.
+## Four Major Piller of OOP
+### Major Piller 
+1) Abstration 
+2) Encapsulation
+3) Inheritance
+4) Polymorphim
+### Minor Piller 
+1) String typing
+2) Concurrency
+3) Persistance
 
 Guide to design readme [click here](https://medium.com/analytics-vidhya/how-to-create-a-readme-md-file-8fb2e8ce24e3)
