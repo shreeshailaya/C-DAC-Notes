@@ -88,8 +88,65 @@
 3) Inheritance
 4) Polymorphim
 ### Minor Piller 
-1) String typing
+1) Strong typing
 2) Concurrency
 3) Persistance
+
+### Minor Piller 
+#### 1) Strong Typing
+	Perticular type of input of way of typing or wiritng code.
+#### 2) Concurrency
+	Simultaneous Execution eg. Notepad spelling check
+#### 3) Persistance 
+	Perment Storage/Database
+### Major Piller 
+#### 1) Abstraction
+	- Selective ignorance
+	- It helps in reducing the complixity of code.
+	- Process of seperation which take what is needed.
+	- It focous on what is needed/required and discart everything else.
+#### 2) Encapsulation
+	- State(data) and Behavior(function) are inseparable thats why we use Encapsulation
+	- State and behavior will always together bundled into one unit is clalled Encapsulation.
+	- Advantage- 1.Data hiding/helps to restrict access of data 
+	- 2.Data Binding 
+	- 3.Complex functionlity can be hidden so that simple UI is used for use of object.
+	- 4.Hide Complixity and give simple functions to the user 
+	- Class is the best example of encapsulation.
+#### 3) Inheritance
+	- Its about the "is a" relationship.
+	- If t entity having "is a" relationship then there is Inherantance.
+	- Adventage 1.Reusability/reusing of code.
+	- 2.It creates the basics of polymorphism
+	- Spealize entity from existing generalize entity by adding some extra state and behavior.
+#### 4) Polymorphism
+	- Polymorphism:- Same massage given to common entity of different object.(different function defication) 
+
+- Encaspulatio Unit 
+```java
+class Date
+{
+	// state and beahvior 
+	// data members(private) + member methods(public)
+	private int dd;
+	private int mm;
+	private int yy; //state members 
+	
+	public void showDate()
+	{
+		System.out.println(dd+"/"+mm+"/"+yy);
+	}
+{
+
+public class DateDemo
+{
+	public static void main(String args[])
+	{
+		Date d1;		//Referance variable decleration
+		d1 = new Date();	//object creation
+		d1.shoowdate();
+	}
+}
+```
 
 Guide to design readme [click here](https://medium.com/analytics-vidhya/how-to-create-a-readme-md-file-8fb2e8ce24e3)
