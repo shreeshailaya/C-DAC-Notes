@@ -81,6 +81,8 @@
 	- There is some functionality/behavior/role of object like car speed in program it is like function.  
 	- State= Set of values 
 	- Identity is one of the state value which has some unique identity.
+![Object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/3_object.PNG)
+![object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/4_repState-.PNG)
 ## Four Major Piller of OOP
 ### Major Piller 
 1) Abstration 
@@ -148,5 +150,54 @@ public class DateDemo
 	}
 }
 ```
+***
+***
+#21/5
+#### Data Types 
+1. Value type (premative)
+	int,char,short,double,float
+	eg. char ch;
+2. Referance type (referance/non-premative(in c/c++))
+	class,array,interface
+	eg. Date d1;
+![Data type tree](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/5_dataType.PNG)
+#### Memory Management in java
+- main method variable is in stack.
+- Object are stored in heap.
+- `new` is going to create to object in heap 
+- heap data members(data in heap/object) are always initilize value 0.
+- Default value of object variable is 0.
+![Memory Management](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/6_Memory.PNG)
+- Garbage collector is actually removing the unreferancing objects from the heap.
+![Memory Management](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/7_size.PNG)
+![Memory Management](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/8_operator.PNG)
+- In java in switch case you can use int abd string also.
+- One advanced for loop(each for) is added in java.
+- Class(acts as encapsulation unit) never occupy any memory.
+#### Constructor
+- Is the function have same name as class.
+- If you dont write constructor there is default constractor(zero argument).
+- It has no any return type.
+- There is two type of constructor 1. parameterise 2.non-parameterise.
+- If you dont write any constructor then the default will be there if the you pass with argumrent you have to write the cinstructor.
+- If you write paramatrised constractor then the default is not avalible.
+- We can write N number of constructor but parameter should be different.
+	No constructor :- Default constructor call
+	Constructor with parameter :- have to define parametrised constructor
+	Both (para/non para) :- Both are avalible but parameter constructor have to define (eg. con(), con(int a, int b)) 
+- Constructor follow all the rules of polymorphism.
+- Constructor assign the loacal variable value to instamce variable.
+#### this 
+- `this` is the referance is refering to the current object(for which constructor is called)
+- Refer last point of constructor.
 
+	 instance variable = local variable
+	 this.dd = dd;
+	 this.mm = mm;
+	 this.yyyy = yyyy;
+
+- We are assigning the local variable to the instance variable.
+
+***
+***
 Guide to design readme [click here](https://medium.com/analytics-vidhya/how-to-create-a-readme-md-file-8fb2e8ce24e3)
