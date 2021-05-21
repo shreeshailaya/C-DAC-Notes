@@ -152,8 +152,8 @@ public class DateDemo
 ```
 ***
 ***
-#21/5
-#### Data Types 
+# 21/5
+### Data Types 
 1. Value type (premative)
 	int,char,short,double,float
 	eg. char ch;
@@ -161,7 +161,9 @@ public class DateDemo
 	class,array,interface
 	eg. Date d1;
 ![Data type tree](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/5_dataType.PNG)
-#### Memory Management in java
+![Memory Management](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/7_size.PNG)
+![Memory Management](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/8_operator.PNG)
+## Memory Management in java
 - main method variable is in stack.
 - Object are stored in heap.
 - `new` is going to create to object in heap 
@@ -169,12 +171,11 @@ public class DateDemo
 - Default value of object variable is 0.
 ![Memory Management](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/6_Memory.PNG)
 - Garbage collector is actually removing the unreferancing objects from the heap.
-![Memory Management](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/7_size.PNG)
-![Memory Management](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/8_operator.PNG)
 - In java in switch case you can use int abd string also.
 - One advanced for loop(each for) is added in java.
 - Class(acts as encapsulation unit) never occupy any memory.
-#### Constructor
+
+## Constructor
 - Is the function have same name as class.
 - If you dont write constructor there is default constractor(zero argument).
 - It has no any return type.
@@ -186,15 +187,16 @@ public class DateDemo
 	Constructor with parameter :- have to define parametrised constructor
 	Both (para/non para) :- Both are avalible but parameter constructor have to define (eg. con(), con(int a, int b)) 
 - Constructor follow all the rules of polymorphism.
-- Constructor assign the loacal variable value to instamce variable.
-#### this 
+- Constructor assign the local variable value to instance variable.
+### this 
 - `this` is the referance is refering to the current object(for which constructor is called)
 - Refer last point of constructor.
-
-	 instance variable = local variable
-	 this.dd = dd;
-	 this.mm = mm;
-	 this.yyyy = yyyy;
+	```
+	  instance variable = local variable
+	  this.dd = dd;
+	  this.mm = mm;
+	  this.yyyy = yyyy;
+	 ``` 
 
 - We are assigning the local variable to the instance variable.
 
