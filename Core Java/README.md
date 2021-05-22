@@ -202,4 +202,11 @@ public class DateDemo
 
 ***
 ***
+# 22/5
+#### revise 
+![Revise](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/9_revise.PNG)
+
+### Garbage Collector 
+- Static 
+- Static can access only static data
 Guide to design readme [click here](https://medium.com/analytics-vidhya/how-to-create-a-readme-md-file-8fb2e8ce24e3)
