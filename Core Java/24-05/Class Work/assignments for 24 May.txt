@@ -1,0 +1,4 @@
+1. Create a class person storing name and birthdate of the person (for    storing birthdate   use user defined date class). Display information    about person using display method. Prevent NullPointerException.
+2. Create a class Address having data members as area, city and pincode   (all are strings). Add appropriate constructors and display method.    Create a class Customer having data members as emailid and address.    Add the method for display.
+3. Create class Line having data members as Start Point and End Point.      Add appropriate constructors and display method which should display    about start point and end point. 
+4. Create array of 3  boxes. Display volume calculated for each box. Use    class Box which is already created.
