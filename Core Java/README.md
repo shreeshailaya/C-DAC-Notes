@@ -82,7 +82,7 @@
 	- State= Set of values 
 	- Identity is one of the state value which has some unique identity.
 ![Object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/3_object.PNG)
-![object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/4_repState-.PNG)
+![object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/4_repState-bev.PNG)
 ## Four Major Piller of OOP
 ### Major Piller 
 1) Abstration 
