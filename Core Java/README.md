@@ -209,4 +209,100 @@ public class DateDemo
 ### Garbage Collector 
 - Static 
 - Static can access only static data
-Guide to design readme [click here](https://medium.com/analytics-vidhya/how-to-create-a-readme-md-file-8fb2e8ce24e3)
+- Non static access both static and non static
+#### static block,static method,static variable
+
+#### Static , Array covered portion
+***
+***
+
+# 24/05
+ #### Referance equality
+ ![Referance Equality](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/10_referance_equ.png)
+
+### Association Relationship/has a relationship
+- General rule of Encaplusation is declear *Data Member as private* and method public.
+ ```java
+class Person
+{
+	private String name; //instance/non static-has
+	private Date bdate;  //referance variable-has
+	private int age;     // value type variable
+	
+	//person has name
+	//person has birthday
+	public Person(String name, int dd,int yy,int mm )
+	{
+		this.name=name;
+		this.bdate=new Date(dd,yy,mm);
+	}
+}	
+class Date
+{
+		int dd,yy,mm;
+		public Date(int dd,int yy, int mm)
+		{
+			this.dd=dd;
+			this.mm=mm;
+			this.yy=yy
+		}
+}
+
+class PersonMain()
+{
+	public static void main(String args [])
+	{
+		Person p1 = new Person("Shree",07,97,08);
+	}
+
+}```
+- One object inside/contain other object is called has relationship.
+- Object within object. 
+- Instance of one class contain instance of another class is called has a relationship.
+- Reusing the class 
+- If you do not assign any value to referance variable it will treat as null.
+- name and bdate will be null if you dont assign anything to it.
+- In Value type variable if you dont assign anything then it'll be zero. 
+- `int age` will be zero if you dont assign anything to it.
+- you cannot call methoth on null referance you will get error called  *null pointer expection*. 
+- Person is container and and bdate is component.
+- Adventage:- reusability. 
+
+### Object Array
+```java
+public class ObjectArray
+{
+	Date [] datearr;
+	datearr = new Date[3];
+	datearr[0]=new Date();
+	datearr[1]=new Date(11,12,99);
+	datearr[2]=new Date(12);
+	
+	// Short cut
+	//Date[] datearr = {new Date(),new Date(11,12,99),new Date(22)};
+
+for(int i=0;i<datearr.lenght;i++)
+{
+	datearr[i].showdate();
+}
+}
+```
+#### Wrapper Class
+- Is the classes which is replaced to treditional variables for using 100% oops concepts.
+- Example:-
+```java
+	int i=10;
+	Integer n = new Integer(23);
+	Integer n= i; //autoboxing feature-no need to write new  
+	// n is object
+	//i is value
+	int num = n; //auto unboxing
+```
+- It assign object to integer(auto unboxing) and integer to object(auto boxing)
+- Because of wrapper class java is pure object oriented.
+- There are 8 premative data type so there is 8 wrapper classes.
+- Specifically Wrapper classes used in collections.
+
+Compiled by [Shreeshailaya Vitkar](https://github.com/shreeshailaya)
+
+
