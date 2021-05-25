@@ -1,4 +1,4 @@
-# Core Java- 19/5
+# Core Java- 19/5(Intro,Features,JDK/JRE )
 ## Features
 - Simple
 - Platform Independent 
@@ -53,7 +53,7 @@
 	> java _.classFileName_
 ---
 ---
-# 20/5
+# 20/5 (OOPs,Major and Minor piller)
 ## Introduction of Object Oriented Programming
 #### Procedural Programming
 	* It made with the functions.
@@ -152,7 +152,7 @@ public class DateDemo
 ```
 ***
 ***
-# 21/5
+# 21/5 (Data Types, Memory Management, Constructor, this)
 ### Data Types 
 1. Value type (premative)
 	int,char,short,double,float
@@ -188,6 +188,8 @@ public class DateDemo
 	Both (para/non para) :- Both are avalible but parameter constructor have to define (eg. con(), con(int a, int b)) 
 - Constructor follow all the rules of polymorphism.
 - Constructor assign the local variable value to instance variable.
+- which constructor will use is depends on creation of object.
+- If you create a object of parameterised constructor then only parameterised constructor will call
 ### this 
 - `this` is the referance is refering to the current object(for which constructor is called)
 - Refer last point of constructor.
@@ -202,7 +204,7 @@ public class DateDemo
 
 ***
 ***
-# 22/5
+# 22/5 (Garbage Collector, Array)
 #### revise 
 ![Revise](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/9_revise.PNG)
 
@@ -216,13 +218,13 @@ public class DateDemo
 ***
 ***
 
-# 24/05
+# 24/05 (Association Relation, Wrapper Classes)
  #### Referance equality
  ![Referance Equality](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/10_referance_equ.png)
 
 ### Association Relationship/has a relationship
 - General rule of Encaplusation is declear *Data Member as private* and method public.
- ```java
+ ```java 
 class Person
 {
 	private String name; //instance/non static-has
@@ -293,17 +295,51 @@ for(int i=0;i<datearr.lenght;i++)
 - Example:-
 ```java
 	int i=10;
-	Integer n = new Integer(23);
-	Integer n= i; //autoboxing feature-no need to write new  
-	// n is object
+	Integer obj = new Integer(23);
+	Integer obj = i; //autoboxing feature-no need to write new  
+	// obj is object
 	//i is value
-	int num = n; //auto unboxing
+	int num = obj; //auto unboxing
 ```
 - It assign object to integer(auto unboxing) and integer to object(auto boxing)
 - Because of wrapper class java is pure object oriented.
 - There are 8 premative data type so there is 8 wrapper classes.
 - Specifically Wrapper classes used in collections.
 
-Compiled by [Shreeshailaya Vitkar](https://github.com/shreeshailaya)
+***
+***
+# 25/05 (Packages,IDE)
+### Packages
+- Packages is a namespace/collection of classes interfaces and sub-classes.
+- Conceptually its a File Manager/File system in our mobile and PC.
+- Easy to manage the things.
+- File with same name but in different folder (avoid name conflicts).
+- Example of build in package java.lang is base and java.io,java.util,java.sql are sub packages.
+- You can create your own package.
+- Package name always should start with small letter.
+- To start package you have to just put `package package_name;`.
+- Always start your program with package include.
+- Sub packages are imported as `package package_name.sub_package;`
+- When package is complied packages are reflected in folder hierarchy.
+- Helps in reusability.
+- Build in package java.lang API.
+![Package APi](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/11_package-api.png)
+
+- Package name should be short and small letter.
+- Command for package compile `javac -d dirpath javafilename`
+
+### Eclipse IDE
+- It gives Development support 
+- Eclipse is developed in JAVA
+- Plugin is avalible for extra features.
+- Workspace is a current working directory that has to be selected when eclipse is started
+- Perspective is combinition of views and editors that are required for a perticular type of application.
+- Use `ctr+space` for auto complete.
+- In project there is option `Build Automically` so thats why its compiling when you typing code.
+- Right click on code then source then generate const from superclass for creating constructor/with field(parameterized) autumatically.
+![Eclipse Code](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/12_eclipse.png)
+
+Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
+Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
 
