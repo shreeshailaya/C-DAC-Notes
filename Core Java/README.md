@@ -407,6 +407,9 @@ for(int i=0;i<datearr.lenght;i++)
 #### debug,scanner
 ### Scanner 
 ![Scanner](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/14_scanner.png)
+
+### Dynamic Binding
+
  - Whenever you create referance of super class you can create object of subclass `Person p = new Emp();`
  
 ![create obj](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/15_create-obj.png)
