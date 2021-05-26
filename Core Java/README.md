@@ -349,8 +349,7 @@ for(int i=0;i<datearr.lenght;i++)
 - Emp- empid,salary bev - calSalary()
 - `extends` is keyword for inheritance.
 
-
-- ``` java
+``` java
 	class Emp extends Person
 	{
 		//person is parent/super class
@@ -393,10 +392,9 @@ for(int i=0;i<datearr.lenght;i++)
 	}
 ```
 
-- recrusion is calling same method from same method.
-
-
+- Recrusion is calling same method from same method.
 ```java 
+
 	// Recursion
 	class Emp extends Person
 	{
@@ -405,11 +403,10 @@ for(int i=0;i<datearr.lenght;i++)
 			display();
 		}
 	}
-'''
+```
 #### debug,scanner
 ### Scanner 
- ![Scanner](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/14_scanner.png)
- 
+![Scanner](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/14_scanner.png)
  - Whenever you create referance of super class you can create object of subclass `Person p = new Emp();`
  
 ![create obj](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/15_create-obj.png)
