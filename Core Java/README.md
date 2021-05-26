@@ -339,6 +339,139 @@ for(int i=0;i<datearr.lenght;i++)
 - Right click on code then source then generate const from superclass for creating constructor/with field(parameterized) autumatically.
 ![Eclipse Code](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/12_eclipse.png)
 
+***
+***
+# 26/05(Inheritance,super(),Overriding, Dynamic Binding, Debug, Scanner)
+### Inheritance
+- It has is a relationship.
+- Creating specialized entity from existing generalized entity by adding extra state and behavior.
+- Person- name and bdate is state -display()
+- Emp- empid,salary bev - calSalary()
+- `extends` is keyword for inheritance.
+
+
+- ``` java
+	class Emp extends Person
+	{
+		//person is parent/super class
+		//emp is child/sub class
+	}
+```
+
+- It found is a relationship with each others.
+- It used for reusability.
+- Child class recive data members and methods.
+- Private members are restricted within the class so not avalible for child.
+- Super() is for accessing super class constructor.
+
+![Super](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/13_super.png)
+
+
+- We can access any constructor with the help of super()
+- super always should call first in subclass.
+- super() is a representation on the default constructor of the super class.
+- So if you dont write, it will defaultly call default constructor of super class.
+- Two methods of same name can be same in super and sub class because they are not in same class this is called method overriding.
+
+```java
+	// Method overriding
+	class Person
+	{
+		
+		display();
+	}
+	
+	class Emp extends Person
+	{
+		int id,salary;
+		public void display()
+		{
+			super.display();
+			syso("ID:-"+id);
+			syso("Salary:-"+salary)
+		}
+	}
+```
+
+- recrusion is calling same method from same method.
+
+
+```java 
+	// Recursion
+	class Emp extends Person
+	{
+		public void display()
+		{
+			display();
+		}
+	}
+'''
+#### debug,scanner
+### Scanner 
+ ![Scanner](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/14_scanner.png)
+ 
+ - Whenever you create referance of super class you can create object of subclass `Person p = new Emp();`
+ 
+![create obj](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/15_create-obj.png)
+ 
+ - If we call `p.display();` which display will call, to understand this we need to understand *static binding and dynamic binding*
+ 
+ #### static binding (Not used in JAVA)
+ - Binding takes place at compile time 
+ - It is based on type of invoking entity
+ - It will resolve on type of `p`/Person.
+ #### Dynmaic binding (used in java)
+ - Binding takes place at run time. 
+- It resolve on type of object refered by invoking entity i.e object of `p`/Empolyee.
+
+- All instance method calls are resolved dynamically so the display() called from empolyee.
+
+```java
+	// if you create referance of super class i.e Person p; (Person is super class)
+	
+	// You can create object of subclass i.e p=new Empolyee(); (Empolyee is subclass)
+	
+	// you cannot do Empolyee e = new Person();
+	
+	class Person 
+	{
+		display()
+		{
+			System.out.println("Person display");
+		}
+	}
+	
+	class Empolyee extends Person
+	{
+		dislay()
+		{
+			System.out.println("Empolyee display");
+		}
+	}
+	
+	pblic class MainClass
+	{
+		public static void main(String args)
+		{
+			//Now see the obj and referance 
+			
+			Person p = new Empolyee();
+			p.display();
+			
+			// so the question is which display will call Empolyee-> display() or Person-> display();
+			
+			//java used Dynamic Binding so it called Empolyee display
+		}
+	}
+	
+	
+```
+
+	> The output of the program 
+	> Empolyee display
+
+
+ 
 Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
 Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
