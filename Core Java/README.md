@@ -474,8 +474,57 @@ for(int i=0;i<datearr.lenght;i++)
 ***
 ***
 # 27/5
-- 
+### Class object
+- Hierarchy of class object 
+	object -> class Person -> class Emp
+	
+- Super class of Person is object and in object following are the methods
+- Methods oof class Object
 
+	public String toString();
+	public boolean equals();
+	public void wait();
+	public int hashCode();
+	protected void finalize();
+
+- By default this methods are present in every class that you create object.
+``` java 
+	p s v m(s [] a)
+	{
+		Person p = new Emp();
+		System.out.println(p);  //p.toString()
+		
+		//Person class has received toString() from class Object
+	}
+
+```
+
+- It will print hash map line `office.emps.Emp@262323a`
+
+#### Class object overiding 
+```java
+	// in Person class 
+	@override
+	public String toString()
+	{
+		return "Name: "+name+" Birdthdate:- " +bdate;
+		
+		//name.toString();  bdate.toString();
+	}
+```
+- Output of this code is `Name:- shree Birdthday:- utility.Date@5215525a;`
+
+- To avoid  `utility.Date@5215525a;` on the place of birdthdate you need to write return toString() in Date class.
+
+- If there is toString() is in Emp class then it will call Emp -> toString();
+- In below code Emp class don't contain toString() but its super class contain the toString() so it call Person -> toString();
+- And for birdthdate the flow is main -> Emp(not toString()) -> Person(super of Emp) -> toString -> Date -> toString();
+
+![Class Object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/16_classobj.png)
+
+- It represent object in string.
+- It convert object to string.
+- Purpose of toString() and display() are the same but toString print directly with the help of object.
 
 
 
