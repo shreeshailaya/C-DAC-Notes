@@ -323,6 +323,7 @@ for(int i=0;i<datearr.lenght;i++)
 - When package is complied packages are reflected in folder hierarchy.
 - Helps in reusability.
 - Build in package java.lang API.
+
 ![Package APi](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/11_package-api.png)
 
 - Package name should be short and small letter.
@@ -337,6 +338,7 @@ for(int i=0;i<datearr.lenght;i++)
 - Use `ctr+space` for auto complete.
 - In project there is option `Build Automically` so thats why its compiling when you typing code.
 - Right click on code then source then generate const from superclass for creating constructor/with field(parameterized) autumatically.
+
 ![Eclipse Code](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/12_eclipse.png)
 
 ***
@@ -404,6 +406,8 @@ for(int i=0;i<datearr.lenght;i++)
 		}
 	}
 ```
+- The difference between Inheritance and the import in import you cannot access data members of class but in inheritance you can access the data members of super class.
+
 #### debug,scanner
 ### Scanner 
 ![Scanner](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/14_scanner.png)
@@ -473,7 +477,7 @@ for(int i=0;i<datearr.lenght;i++)
 
 ***
 ***
-# 27/5
+# 27/5 (class objects, c-o overiding)
 ### Class object
 - Hierarchy of class object 
 	object -> class Person -> class Emp
@@ -481,11 +485,11 @@ for(int i=0;i<datearr.lenght;i++)
 - Super class of Person is object and in object following are the methods
 - Methods oof class Object
 
-	public String toString();
-	public boolean equals();
-	public void wait();
-	public int hashCode();
-	protected void finalize();
+	> public String toString();
+	> public boolean equals();
+	> public void wait();
+	> public int hashCode();
+	> protected void finalize();
 
 - By default this methods are present in every class that you create object.
 ``` java 
@@ -501,7 +505,7 @@ for(int i=0;i<datearr.lenght;i++)
 
 - It will print hash map line `office.emps.Emp@262323a`
 
-#### Class object overiding 
+#### Class object overiding
 ```java
 	// in Person class 
 	@override
