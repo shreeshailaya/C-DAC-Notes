@@ -585,7 +585,7 @@ for(int i=0;i<datearr.lenght;i++)
 
 - e.calsal(); will not call because it is not in Super class Emp.
 
-![Abstract](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/20__abstraction.png)
+![Abstract](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/20_abstraction.png)
 
 ```java
 public class Empolyee
