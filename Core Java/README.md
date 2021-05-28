@@ -565,7 +565,7 @@ for(int i=0;i<datearr.lenght;i++)
 - Thre is 4 access specifier public, private, protected and default
 - keywords are 3 and specificers are 4.
 
-![Access Specificers](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/17_access-spe.png)
+![Access Specificers](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/18_access-spe.png)
 
 ### Need of Abstract Method
 - Abstract methods that are not decleared in super class.
@@ -577,7 +577,7 @@ for(int i=0;i<datearr.lenght;i++)
 - non abstract classes are concrate class.
 - non abstract classes can be decleared as abstract
 
-![Abstract](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/18_abstract.png)
+![Abstract](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/19_abstract.png)
 
 
 
