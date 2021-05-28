@@ -8,7 +8,7 @@
 - JIT(Just in Time) Compilier:-
 	- work just before execuation.
 	- It conver some part of code directly into machine understanding.
-	- because of this language become faster it avoid read and convert time.
+- because of this language become faster it avoid read and convert time.
 
 - Security over the internet 
 - Robust(strong/tough)
@@ -529,6 +529,58 @@ for(int i=0;i<datearr.lenght;i++)
 - It represent object in string.
 - It convert object to string.
 - Purpose of toString() and display() are the same but toString print directly with the help of object.
+
+***
+***
+
+# 28/5(Multilevel Inheritance,foreach, Abstract class, access Specificer)
+### Multilevel Inheritance
+![Class Object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/16_classobj.png)
+
+- The flow of Executing constructor is Person()->Empolyee()->SalesManager()
+
+#### foreach loop
+
+```java
+	Emp [] allemps;
+	allemps = new Empolyee[3];
+	allemps[0] = new SalesManager();
+	allemps[1] = new Admin();
+	// Shortcut 
+	Empolyee [] allemps = {new SalesManager(), new Admin()};
+	
+	for (int i=0;i<allemps.length;i++);
+	
+	// Advanced for loop foreach.
+	for(Empolyee e : allemps) 
+	{
+		System.out.println(e); //e.toString;
+	}
+	
+	// here we achive polymorphism sending same data to every method but every methods acts diffently 
+```
+
+- Protected data members are accesssible to its sub classes
+- If you dont write access specificer then the scope is package
+- Thre is 4 access specifier public, private, protected and default
+- keywords are 3 and specificers are 4.
+
+![Access Specificers](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/17_access-spe.png)
+
+### Need of Abstract Method
+- Abstract methods that are not decleared in super class.
+- Methods that are not decleared are used for polyprism.
+- If one of the method in the class is decleared as abstract then class should be abstract.
+- Subclass must to complete abstract method if it fail to complete the abstract method then the subclass will be abstract.
+- creating instance of abstract class is not allow.
+- we cannot create object of abstract
+- non abstract classes are concrate class.
+- non abstract classes can be decleared as abstract
+
+![Abstract](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/18_abstract.png)
+
+
+
 
 
 
