@@ -533,8 +533,10 @@ for(int i=0;i<datearr.lenght;i++)
 ***
 ***
 
-# 28/5(Multilevel Inheritance,foreach, Abstract class, access Specificer)
+# 28/5(Multilevel Inheritance,foreach, Abstraction, Access Specificer)
+
 ### Multilevel Inheritance
+
 ![Class Object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/16_classobj.png)
 
 - The flow of Executing constructor is Person()->Empolyee()->SalesManager()
@@ -560,6 +562,8 @@ for(int i=0;i<datearr.lenght;i++)
 	// here we achive polymorphism sending same data to every method but every methods acts diffently 
 ```
 
+- foreach is only used for array.
+
 - Protected data members are accesssible to its sub classes
 - If you dont write access specificer then the scope is package
 - Thre is 4 access specifier public, private, protected and default
@@ -567,7 +571,7 @@ for(int i=0;i<datearr.lenght;i++)
 
 ![Access Specificers](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/18_access-spe.png)
 
-### Need of Abstract Method
+### Abstraction
 - Abstract methods that are not decleared in super class.
 - Methods that are not decleared are used for polyprism.
 - If one of the method in the class is decleared as abstract then class should be abstract.
@@ -579,10 +583,60 @@ for(int i=0;i<datearr.lenght;i++)
 
 ![Abstract](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/19_abstract.png)
 
+- e.calsal(); will not call because it is not in Super class Emp.
 
+![Abstract](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/20__abstraction.png)
 
+```java
+public class Empolyee
+{
+	public void display()
+	{
+		System.out.println("Empolyee Display");
+	}
+	
+	
+	public void accept()
+	{
+		System.out.println("Empolyee accept");
+	}
+}
 
+public class Manager extends Empolyee
+{
+	display();
+	accept();
+	calsal();
+}
 
+public class SalesPerson extends Empolyee
+{
+	display();
+	accept();
+	calsal();
+	bonous();
+}
+
+public class WageEmp()
+{
+	display();
+	accept();
+	calsal();
+}
+
+public class MainClass()
+{
+	Empolyee e = new Manager();
+	e.calSale(); //cannot be compile 
+	
+}
+```
+
+- In below code `e.calSale();` will not compile because It searches the function in super class i.e in Empolyee.
+- That is why abstration concept comes in picture.
+- So you can declear the method in super class but there is no need to declear that method.
+- You cannot create object of abstract class.
+- We cannot create object that's why we use array.
 
 
 Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
