@@ -150,6 +150,7 @@ public class DateDemo
 	}
 }
 ```
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/20-05)
 ***
 ***
 # 21/5 (Data Types, Memory Management, Constructor, this)
@@ -201,6 +202,8 @@ public class DateDemo
 	 ``` 
 
 - We are assigning the local variable to the instance variable.
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/21-05)
+
 
 ***
 ***
@@ -215,6 +218,7 @@ public class DateDemo
 #### static block,static method,static variable
 
 #### Static , Array covered portion
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/22-05)
 ***
 ***
 
@@ -305,6 +309,8 @@ for(int i=0;i<datearr.lenght;i++)
 - Because of wrapper class java is pure object oriented.
 - There are 8 premative data type so there is 8 wrapper classes.
 - Specifically Wrapper classes used in collections.
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/24-05)
+
 
 ***
 ***
@@ -340,6 +346,9 @@ for(int i=0;i<datearr.lenght;i++)
 - Right click on code then source then generate const from superclass for creating constructor/with field(parameterized) autumatically.
 
 ![Eclipse Code](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/12_eclipse.png)
+
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/25-05)
+
 
 ***
 ***
@@ -474,6 +483,8 @@ for(int i=0;i<datearr.lenght;i++)
 	> The output of the program 
 	> Empolyee display
 
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/26-05)
+
 
 ***
 ***
@@ -529,6 +540,8 @@ for(int i=0;i<datearr.lenght;i++)
 - It represent object in string.
 - It convert object to string.
 - Purpose of toString() and display() are the same but toString print directly with the help of object.
+
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/27-05)
 
 ***
 ***
@@ -637,6 +650,7 @@ public class MainClass()
 - So you can declear the method in super class but there is no need to declear that method.
 - You cannot create object of abstract class.
 - We cannot create object that's why we use array.
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/28-05)
 
 ***
 ***
@@ -776,7 +790,9 @@ class X implements B
 	* interface ---> (extends)---> interface
 - Abstract class and Interface cannot create object.
 - Make difference between class and Interface.
- 
+
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/29-05)
+
 Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
 Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
