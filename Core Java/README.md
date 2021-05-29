@@ -771,9 +771,9 @@ class X implements B
 - If two interfaces are extend with each others (A and B)
 - Then in implement class i.e (X) need to implement both interface methods.
 - Class and Interface relation
-	> class ---> (extends)---> class
-	> class ---> (implements)---> interface
-	> interface ---> (extends)---> interface
+	* class ---> (extends)---> class
+	* class ---> (implements)---> interface
+	* interface ---> (extends)---> interface
 - Abstract class and Interface cannot create object.
 - Make difference between class and Interface.
  
