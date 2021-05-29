@@ -638,7 +638,145 @@ public class MainClass()
 - You cannot create object of abstract class.
 - We cannot create object that's why we use array.
 
+***
+***
+# 29/5(geter/seter,final,Interface)
 
+### geter/seter
+- The rule says that class data members should be decleared as private.
+- Because of this its unable to access in subclass.
+- So there is 2 options to access that data member i.e 1. make it protected so it will accessable to sub class.
+- And 2nd option is geter and seter methods.
+- geter() method return private data member.
+- seter() set new value to private data members.
+
+```java
+public class Account
+{
+	private String name;
+	private int no;
+}
+public String getName()
+{
+	return name;
+}
+
+public String setName(String name)
+{
+	this.name = name;
+	return name;
+}
+
+public int getNo()
+{
+	return no;
+}
+public int setNo(int no)
+{
+	this.no=no;
+}
+```
+
+### final 
+- final is the keyword in java.
+- It is exactly opposite abstract.
+- It cannot be modified/change.
+- it is fully defined.
+- It can be used in variable,methods and classes.
+- final is replacement of const in java.
+- We can only declear final but you have to initilize it afterwords.
+- fianl variable decleared all in capital i.e final String NAME="shree"
+
+- final Methods cannot be overriden.
+- eg.class object methods wait(),notify(),notifyAll() are defined final.
+
+- final classs cannot be modified 
+- String class in java library is decleared as final.
+- Because you cannot modified final class, fianl class cannot acts as super class.
+
+![final](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/21_methods.PNG)
+
+- final keyword for array.
+
+![final](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/22_finalarr.PNG)
+
+### Interfaces
+- Interfaces are 100% incomplete.
+- In interface there are abstract methods and concrete methods.
+- In Inteface there is only final variable and abstract methods (for now)
+
+![Interface](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/23_interface.PNG)
+
+- Multiple interheritance through the classes is not allow but using interface its allow.
+
+![Interface](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/24_interface1.PNG)
+
+- Anything you write in interface it will default take `public static final`
+```java
+interface Drawable
+{
+	static double PI = 3.14; //public static and final
+	double calArea(); //it can only decleared as public andabstract
+	void drawShape(); //methods are bydefault treated as abstract
+}
+
+class Rectangle implements Drawable 
+{
+	privete double lenght,breadth;
+	//constractor 
+	// here toString method is avalible
+	double calArea()
+	{
+		
+	}
+	void drawShape()
+	{
+		
+	}	
+}
+
+class MainClass
+{
+	public static void main(String [] args)
+	{
+	Drawable d = new Circle();
+	//interface referance = implementing class instance
+	//super class referance = sub class instance
+	d.calArea(); // Instance and non static methods resolve using dynamic binding
+	//so it will call from the Circle class. 
+	}	
+}
+```
+- It has is a relationship.
+- You cannot create a object but you can create a referance of interface.
+- You can create only referance of Interface.
+- There is no any concerete method in interface( upto java 1.7). 
+- Complesary you have to implement all the methods in sub class.
+
+```java
+interface A
+{
+	void m1();
+}
+interface B extends A
+{
+	void m2();
+}
+class X implements B
+{
+	void m1(){}
+	void m2(){}
+}
+```
+- If two interfaces are extend with each others (A and B)
+- Then in implement class i.e (X) need to implement both interface methods.
+- Class and Interface relation
+	> class ---> (extends)---> class
+	> class ---> (implements)---> interface
+	> interface ---> (extends)---> interface
+- Abstract class and Interface cannot create object.
+- Make difference between class and Interface.
+ 
 Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
 Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
