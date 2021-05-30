@@ -793,6 +793,30 @@ class X implements B
 
 - [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/29-05)
 
+***
+***
+
+| Concept | What | Why | Where | Comment | Referance |
+|---|---|---|---|---|---|
+| Java | Programming language | For building applications(web,mobile) | All over industry | It is a programming language based on OOP's concepts | [Notes](https://github.com/shreeshailaya/c-dac/), [official docs](https://docs.oracle.com/en/java/)
+
+| JVM | Java Virtual Machine | Running Java | Installed in system for running java | To allow Java programs to run on any device or operating system (known as the "Write once, run anywhere" principle), and to manage and optimize program memory | [Infoworld](https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html) |
+
+| JDK | Java Development Kit | Required by developers for developing and testing the application | In development enviroment | -- | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#jdkjre), [Java docs](https://jdk.java.net/16/)
+
+| JRE | Java Runtime Environment  | It is needed by client machine to run existing java application (already compiled) | In development enviroment | -- | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#jdkjre)
+
+| OOP | Object Orinted Programming | Structuring the programming language | Used in programming languages like c++/java | Object-oriented programming is a programming paradigm based on the concept of "objects", which can contain data and code | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#object-oriented-programming), [Wikipedia](https://en.wikipedia.org/wiki/Object-oriented_programming) |
+
+| Major Piller of OOP | --  | -- | -- | Abstration, Encapsulation, Inheritance, Polymorphim | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#four-major-piller-of-oop)
+
+| Minor Piller of OOP | --  | -- | -- | Strong typing, Concurrency, Persistance| [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#four-major-piller-of-oop) |
+
+
+
+
+***
+***
 Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
 Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
