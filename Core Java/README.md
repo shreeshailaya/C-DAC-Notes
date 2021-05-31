@@ -795,29 +795,129 @@ class X implements B
 
 ***
 ***
+# 31/5(typecast, instanceof, interface of java8)
+### Types of methods 
+- Final Methods 
+	* Final methods are defined final it will not modified/override furtere
+- Concrete Methods
+	* In concrete methods we can override or not also. 
+- Abstract Methods
+	* Abstract methods should be complesary override in subclass
+- Default Methods 
+	* Default methods are decleared in inheritance onwards java8 as concrete methods in inheritance
+	
+### How multiple inheritance replaced by interfaces 
+
+![Interface](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/25_interface2.png)
+
+- We can use extend and implement both on one class
+
+```java
+public class SalesManager extends Empolyee implement ITraveller
+{
+	//add all unimplemented methods in ITraveller 
+	//ITraveller is interface so you have to implement all methods which in ITraveller
+}
+```
+### typecast
+- Convert the type of variable/object
+- double d=4.6; ---> float f=(float)d;
+```java
+	Empolyee [] allEmp;
+	allEmp = new Empolyee[3];
+	allEmp[0]=new SalesPerson("",,,,);
+	allEmp[1]=new SalesPerson("",,,,);
+	allEmp[2]=new SalesPerson("",,,,);
+	for (Emp e : allEmp)
+	{
+		if(e instanceof ITreaveller)	//It checks e can be typecasted toITreaveller so remove error that is showed in typecast
+		{
+		System.out.println("TA:  "+((ITraveller)e).calculateTA());
+		}
+	}
+```
+### instanceof and typecast
+- instanceof is a operator
+
+![Typecast error](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/26_typecast.png)
+
+- It return true and false value 
+- Referance below code and error ---> It checks e can be typecasted toITreaveller so remove error that is showed in typecast
+- syntax
+	> e instanceof iTreaveller
+	> e source, ITreaveller is destination
+- It avoid error in runtime
+- It is intelligent way of checking typecast is valid or not
+- upcasting is not required (super calss methods are avalible for subclass as it is)
+- Downcast is required (because subclass methods are not avalible in super class)
+
+![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/27_typecast1.png)
+
+![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/28_typecast2.png)
+
+- Extra ↓
+
+![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/29_typecast3.png)
+
+![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/30_typecast4.png)
+
+- It verified calsalary(); is avalible in person or not 
+
+### Interface onwards java 8
+- Previously interface only contain abstract methods 
+- If i go and suddenly add abstract method in interface will breakdown existing classes
+- When this is realize by the oracal and other developers
+- Now do not add suddenly any abstract method insted of that use default keyword
+- Also you can add static method in interface
+- Now there are three type of methods in interface
+	* Static (not expect to rewrire or overide)
+	* Abstract (compulsory override)
+	* default (do or don't)
+```java 
+interface A
+{
+	void m1();		// compulsory to implement
+	default void m2()	// not compulsory use it or not 
+	{}
+	
+	static void m3()
+	{
+	}
+
+}
+class MyClass implements A
+{
+	void m1(){}
+	void m2(){}
+}
+```
+- Interface can be implement across the hierarchy (Not abstract classes)
+- Interface deside what to do
+- Class decide how to do it
+![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/31_interface.png)
+- [Download and see code here](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java/31-05)
+
+***
+***
 
 | Concept | What | Why | Where | Comment | Referance |
 |---|---|---|---|---|---|
 | Java | Programming language | For building applications(web,mobile) | All over industry | It is a programming language based on OOP's concepts | [Notes](https://github.com/shreeshailaya/c-dac/), [official docs](https://docs.oracle.com/en/java/)
-
 | JVM | Java Virtual Machine | Running Java | Installed in system for running java | To allow Java programs to run on any device or operating system (known as the "Write once, run anywhere" principle), and to manage and optimize program memory | [Infoworld](https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html) |
-
 | JDK | Java Development Kit | Required by developers for developing and testing the application | In development enviroment | -- | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#jdkjre), [Java docs](https://jdk.java.net/16/)
-
 | JRE | Java Runtime Environment  | It is needed by client machine to run existing java application (already compiled) | In development enviroment | -- | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#jdkjre)
-
 | OOP | Object Orinted Programming | Structuring the programming language | Used in programming languages like c++/java | Object-oriented programming is a programming paradigm based on the concept of "objects", which can contain data and code | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#object-oriented-programming), [Wikipedia](https://en.wikipedia.org/wiki/Object-oriented_programming) |
-
 | Major Piller of OOP | --  | -- | -- | Abstration, Encapsulation, Inheritance, Polymorphim | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#four-major-piller-of-oop)
-
 | Minor Piller of OOP | --  | -- | -- | Strong typing, Concurrency, Persistance| [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#four-major-piller-of-oop) |
 
 
 
 
 ***
-***
+
 Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
 Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
+***
+***
 
