@@ -550,7 +550,7 @@ for(int i=0;i<datearr.lenght;i++)
 
 ### Multilevel Inheritance
 
-![Class Object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/16_classobj.png)
+![Class Object](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/17_multilevel.png)
 
 - The flow of Executing constructor is Person()->Empolyee()->SalesManager()
 
@@ -919,5 +919,5 @@ Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
 Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
 ***
-***
+
 
