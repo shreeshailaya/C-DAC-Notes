@@ -910,7 +910,7 @@ class MyClass implements A
 - Runtime errors are not under the control of the programmer.
 - Java library many exception classes are already defined
 - Exception object are thrown 
-![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/32_expection.png)
+![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/32_exception.png)
 - Expection handling revolves around 5 keywords try catch finally and through
 
 ```java
