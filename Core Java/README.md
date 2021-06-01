@@ -900,6 +900,53 @@ class MyClass implements A
 ***
 ***
 
+# 1/6
+### Exception Handling 
+- Handling the error occured during run time
+- Ther is three type of error 
+	> Compilation
+	> logical
+	> run time 
+- Runtime errors are not under the control of the programmer.
+- Java library many exception classes are already defined
+- Exception object are thrown 
+![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/32_expection.png)
+- Expection handling revolves around 5 keywords try catch finally and through
+
+```java
+public class ExpectionDemo
+{
+	public static void main(String [] args)
+	{
+		try
+		{
+			int n1= Integer.parseInt(args[0]);
+			int n2= Integer.parseInt(args[1]);
+			Syso("Division:"+(n1/n2));
+		}
+		catch(Expection e)
+		{
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+```
+try-catch
+try-catch-catch
+try-finally
+try-catch-catch-finally
+```
+### Finally block
+- Real purpose of finally block is not to handle expection.
+- Even if there is no expection still finally block always get executed
+
+***
+***
+
+# what why where
+
 | Concept | What | Why | Where | Comment | Referance |
 |---|---|---|---|---|---|
 | Java | Programming language | For building applications(web,mobile) | All over industry | It is a programming language based on OOP's concepts | [Notes](https://github.com/shreeshailaya/c-dac/), [official docs](https://docs.oracle.com/en/java/)
