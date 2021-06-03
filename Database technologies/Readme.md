@@ -84,3 +84,14 @@
 
 - Foreign key is the if the data of any coloum is calidated with primary key of other table or same table then it is called primary key
 - The rule that make foreign key is referential integrity
+
+***
+***
+# 3/6
+## Features 
+- Easy to share a data 
+- redundency can be removed
+- integriity
+- consistency
+
+
