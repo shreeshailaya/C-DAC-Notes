@@ -1,7 +1,4 @@
 
-![assignments](https://github.com/shreeshailaya/c-dac/blob/main/Database%20technologies/Media/Assignments/3-6.png)
-![assignments](https://github.com/shreeshailaya/c-dac/blob/main/Database%20technologies/Media/Assignments/3-6-1.png)
-![assignments](https://github.com/shreeshailaya/c-dac/blob/main/Database%20technologies/Media/Assignments/3-6-2.png)
 
 mysql> select * from EMP;
 +-------+--------+-----------+------+------------+---------+---------+--------+
@@ -309,6 +306,7 @@ mysql> select * from EMP where HIREDATE<"1986-01-01" and SAL between 1200 and 25
 6 rows in set (0.03 sec)
 
 ### 4
+
 mysql> select EMPNO, ENAME, DEPTNO from EMP where EMPNO=7698;
 +-------+-------+--------+
 | EMPNO | ENAME | DEPTNO |
@@ -318,6 +316,7 @@ mysql> select EMPNO, ENAME, DEPTNO from EMP where EMPNO=7698;
 1 row in set (0.00 sec)
 
 ### 5
+
 mysql> select ENAME,JOB,SAL,DEPTNO from EMP where DEPTNO=10 or DEPTNO=30;
 +--------+-----------+---------+--------+
 | ENAME  | JOB       | SAL     | DEPTNO |
@@ -335,4 +334,49 @@ mysql> select ENAME,JOB,SAL,DEPTNO from EMP where DEPTNO=10 or DEPTNO=30;
 9 rows in set (0.00 sec)
 
 ### 6
+mysql> select ENAME,DEPTNO,CONCAT(ENAME,"     ",DEPTNO)"Emp Info" from EMP;
++--------+--------+---------------+
+| ENAME  | DEPTNO | Emp Info      |
++--------+--------+---------------+
+| SMITH  |     20 | SMITH     20  |
+| ALLEN  |     30 | ALLEN     30  |
+| WARD   |     30 | WARD     30   |
+| JONES  |     20 | JONES     20  |
+| MARTIN |     30 | MARTIN     30 |
+| BLAKE  |     30 | BLAKE     30  |
+| CLARK  |     10 | CLARK     10  |
+| SCOTT  |     20 | SCOTT     20  |
+| KING   |     10 | KING     10   |
+| TURNER |     30 | TURNER     30 |
+| ADAMS  |     20 | ADAMS     20  |
+| JAMES  |     30 | JAMES     30  |
+| FORD   |     20 | FORD     20   |
+| MILLER |     10 | MILLER     10 |
++--------+--------+---------------+
+14 rows in set (0.00 sec)
+
+### 7
+
+mysql> select * from EMP where JOB not like"MANAGER";
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+11 rows in set (0.03 sec)
+
+### 8
+
+
+
 
