@@ -94,4 +94,14 @@
 - integriity
 - consistency
 
+***
+***
+# 4/6
+- current time and date 
+now()
+- Current date 
+curdate()
+- Date formate 
+select date_format(curdate(),'%d-%m-%y');
+ capital name 
 
