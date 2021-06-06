@@ -1,6 +1,11 @@
-### 2
+### 2 Display the Highest, Lowest, Total & Average salary of all employee. Label the columns Maximum, Minimum, Total and Average respectively for each Department. Also round the result to the nearest whole number.
 
 mysql> select min(SAL)"Minimum",max(SAL)"Maximum",sum(SAL)"TOTAL",avg(SAL)"Average" from EMP;
+ 
+ OR
+ 
+ SELECT sal,max(sal) "maximum",min(sal)"minimum",floor(sum(sal))"total", floor(avg(sal)) "Average" 
+FROM emp;
 +---------+---------+----------+-------------+
 | Minimum | Maximum | TOTAL    | Average     |
 +---------+---------+----------+-------------+
@@ -8,21 +13,44 @@ mysql> select min(SAL)"Minimum",max(SAL)"Maximum",sum(SAL)"TOTAL",avg(SAL)"Avera
 +---------+---------+----------+-------------+
 1 row in set (0.02 sec)
 
-### 3
+### 3  Display Department no and number of managers working in that department. Label the column as ?Total Number of Managers? for each department.
 
-### Q-2 -1
+mysql> SELECT deptno,count(mgr)"Total no of managers for each dept" FROM EMP  GROUP BY deptno;
++--------+------------------------------------+
+| deptno | Total no of managers for each dept |
++--------+------------------------------------+
+|     20 |                                  5 |
+|     30 |                                  6 |
+|     10 |                                  2 |
++--------+------------------------------------+
+3 rows in set (0.23 sec)
 
-mysql> select * from EMP where SAL>1250 and DEPTNO="30";
-+-------+--------+----------+------+------------+---------+--------+--------+
-| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL     | COMM   | DEPTNO |
-+-------+--------+----------+------+------------+---------+--------+--------+
-|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1600.00 | 300.00 |     30 |
-|  7698 | BLAKE  | MANAGER  | 7839 | 1981-05-01 | 2850.00 |   NULL |     30 |
-|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1500.00 |   0.00 |     30 |
-+-------+--------+----------+------+------------+---------+--------+--------+
-3 rows in set (0.06 sec)
+### 4 Get the Department number, and sum of Salary of all non managers WHERE the sum is greater than 20000.
 
-### 2
+
+mysql> SELECT deptno,sum(sal) FROM EMP WHERE job !='MANAGER' GROUP BY deptno HAVING sum(sal)>7000;
++--------+----------+
+| deptno | sum(sal) |
++--------+----------+
+|     20 |  7900.00 |
++--------+----------+
+1 row in set (0.02 sec)
+
+
+### Q-2 -1 To find all managers with salary >1500
+
+mysql> SELECT * FROM EMP  WHERE  sal >1500 and job='MANAGER';
++-------+-------+---------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+---------+------+------------+---------+------+--------+
+|  7566 | JONES | MANAGER | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+|  7698 | BLAKE | MANAGER | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+|  7782 | CLARK | MANAGER | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
++-------+-------+---------+------+------------+---------+------+--------+
+3 rows in set (0.02 sec)
+
+
+### 2 ist all employees with sal >1360 and < 3000
 
 mysql> SELECT * FROM EMP 
     -> WHERE sal>=1360 and sal<=3000;
