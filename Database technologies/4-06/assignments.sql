@@ -1,4 +1,4 @@
-### 2 Display the Highest, Lowest, Total & Average salary of all employee. Label the columns Maximum, Minimum, Total and Average respectively for each Department. Also round the result to the nearest whole number.
+### 1 Display the Highest, Lowest, Total & Average salary of all employee. Label the columns Maximum, Minimum, Total and Average respectively for each Department. Also round the result to the nearest whole number.
 
 mysql> select min(SAL)"Minimum",max(SAL)"Maximum",sum(SAL)"TOTAL",avg(SAL)"Average" from EMP;
  
@@ -25,7 +25,7 @@ mysql> SELECT deptno,count(mgr)"Total no of managers for each dept" FROM EMP  GR
 +--------+------------------------------------+
 3 rows in set (0.23 sec)
 
-### 4 Get the Department number, and sum of Salary of all non managers WHERE the sum is greater than 20000.
+### 4 Get the Department number, and sum of Salary of all non managers WHERE the sum is greater than 7000.
 
 
 mysql> SELECT deptno,sum(sal) FROM EMP WHERE job !='MANAGER' GROUP BY deptno HAVING sum(sal)>7000;
@@ -50,7 +50,7 @@ mysql> SELECT * FROM EMP  WHERE  sal >1500 and job='MANAGER';
 3 rows in set (0.02 sec)
 
 
-### 2 ist all employees with sal >1360 and < 3000
+### 2 list all employees with salary >=1250 and <= 3000
 
 mysql> SELECT * FROM EMP 
     -> WHERE sal>=1360 and sal<=3000;
@@ -67,7 +67,7 @@ mysql> SELECT * FROM EMP
 +-------+--------+----------+------+------------+---------+--------+--------+
 7 rows in set (0.00 sec)
 
-### 3
+### 3 list all employees with salary >1250 and < 3000
 
 mysql> SELECT * FROM EMP
     -> WHERE sal > 1250 and sal < 3000;
@@ -83,7 +83,7 @@ mysql> SELECT * FROM EMP
 +-------+--------+----------+------+------------+---------+--------+--------+
 6 rows in set (0.02 sec)
 
-### 4
+### 4 list all employees with salary either equal to 3000 or 1250 or 2500
 
 mysql> SELECT * FROM EMP
     -> WHERE sal=3000 or sal=1250 or sal=2500;
@@ -97,7 +97,7 @@ mysql> SELECT * FROM EMP
 +-------+--------+----------+------+------------+---------+---------+--------+
 4 rows in set (0.00 sec)
 
-### 5
+### 5 list all employee with name=SMITH
 
 mysql> SELECT * FROM EMP 
     -> WHERE ename="SMITH";
@@ -108,7 +108,7 @@ mysql> SELECT * FROM EMP
 +-------+-------+-------+------+------------+--------+------+--------+
 1 row in set (0.09 sec)
 
-### 6
+### 6 list all employees with name starting with S
 
 mysql> SELECT * FROM EMP 
     -> WHERE ENAME LIKE"S%";
@@ -121,7 +121,7 @@ mysql> SELECT * FROM EMP
 2 rows in set (0.10 sec)
 
 
-### 7
+### 7 list all employees with name ending with S
 
 mysql> SELECT * FROM EMP
     -> WHERE ename LIKE "%s";
@@ -134,7 +134,7 @@ mysql> SELECT * FROM EMP
 +-------+-------+---------+------+------------+---------+------+--------+
 3 rows in set (0.00 sec)
 
-### 8
+### 8 list all employees with name contains I at 2nd position
 
 mysql> SELECT * FROM EMP WHERE ename LIKE "_I%";
 +-------+--------+-----------+------+------------+---------+------+--------+
@@ -145,7 +145,7 @@ mysql> SELECT * FROM EMP WHERE ename LIKE "_I%";
 +-------+--------+-----------+------+------------+---------+------+--------+
 2 rows in set (0.00 sec)
 
-### 9
+### 9  list all employees with name starts with A ends witn N and someWHERE in between L is there
 
 mysql> SELECT * FROM EMP WHERE ename LIKE "A%L%N";
 +-------+-------+----------+------+------------+---------+--------+--------+
@@ -155,13 +155,13 @@ mysql> SELECT * FROM EMP WHERE ename LIKE "A%L%N";
 +-------+-------+----------+------+------------+---------+--------+--------+
 1 row in set (0.00 sec)
 
-### 10
+### 10 list all employees with name starts with A and B at 3 rd position and P at second last position
 
 mysql> SELECT * FROM EMP  WHERE ename LIKE "A_B%P%";
 Empty set (0.01 sec)
 
 
-### 11
+### 11 List all employees with name starts with either A or starts with S or starts with W
 
 mysql> SELECT * FROM EMP WHERE ename LIKE "A%" OR ename LIKE "S%" OR ename LIKE "W%";
 +-------+-------+----------+------+------------+---------+--------+--------+
@@ -175,7 +175,8 @@ mysql> SELECT * FROM EMP WHERE ename LIKE "A%" OR ename LIKE "S%" OR ename LIKE 
 +-------+-------+----------+------+------------+---------+--------+--------+
 5 rows in set (0.00 sec)
 
-### 12
+### 12 find max sal and min sal for each job
+
 mysql> select max(sal),min(sal),job from EMP group by job;
 +----------+----------+-----------+
 | max(sal) | min(sal) | job       |
@@ -188,7 +189,7 @@ mysql> select max(sal),min(sal),job from EMP group by job;
 +----------+----------+-----------+
 5 rows in set (0.53 sec)
 
-### 13
+### 13 find how many employess have not received commission
 
 mysql> SELECT * FROM EMP WHERE COMM is NULL;
 +-------+--------+-----------+------+------------+---------+------+--------+
@@ -207,7 +208,7 @@ mysql> SELECT * FROM EMP WHERE COMM is NULL;
 +-------+--------+-----------+------+------------+---------+------+--------+
 10 rows in set (0.02 sec)
 
-### 14
+### 14 ind sum of sal of all employees working in dept no 10
 
 mysql> SELECT SUM(sal) FROM EMP WHERE deptno=10;
 +----------+
@@ -217,7 +218,7 @@ mysql> SELECT SUM(sal) FROM EMP WHERE deptno=10;
 +----------+
 1 row in set (0.00 sec)
 
-### 15
+### 15 find maximum salary,average sal for each job in every department
 
 mysql> select max(sal),avg(sal) from EMP group by DEPTNO;
 +----------+-------------+
@@ -242,7 +243,7 @@ mysql> select max(sal),avg(sal),deptno from EMP group by DEPTNO;
 +----------+-------------+--------+
 3 rows in set (0.00 sec)
 
-### 17
+### 17 find sum salary for every department if sum is > 3000
 
 
 mysql> select sum(sal),deptno from EMP group by deptno having sum(sal)>3000;
@@ -256,7 +257,7 @@ mysql> select sum(sal),deptno from EMP group by deptno having sum(sal)>3000;
 3 rows in set (0.03 sec)
 
 
-### 18
+### 18 list all department which has minimum 5 employees
 
 mysql>  SELECT count(*) FROM EMP GROUP BY deptno HAVING count(*)<=5;
 +----------+
@@ -267,7 +268,7 @@ mysql>  SELECT count(*) FROM EMP GROUP BY deptno HAVING count(*)<=5;
 +----------+
 2 rows in set (0.00 sec)
 
-### 19
+### 19 count how many employees earn salary more than 2000 in each job
 
 mysql> SELECT COUNT(*) FROM EMP WHERE sal>2000 GROUP BY job;
 +----------+
@@ -279,7 +280,7 @@ mysql> SELECT COUNT(*) FROM EMP WHERE sal>2000 GROUP BY job;
 +----------+
 3 rows in set (0.03 sec)
 
-### 20
+### 20 list all names and jobs so that the length of name should be 15 if it is smaller then add spaces to left.
 
 mysql> SELECT lpad(ename,15,'*'),lpad(job,15,'*')  FROM EMP;
 +--------------------+------------------+
@@ -301,6 +302,108 @@ mysql> SELECT lpad(ename,15,'*'),lpad(job,15,'*')  FROM EMP;
 | *********MILLER    | **********CLERK  |
 +--------------------+------------------+
 14 rows in set (0.00 sec)
+
+
+### 21 display min sal,max sal, average sal for all employees working under same manager
+
+mysql> SELECT mgr,min(sal), max(sal),avg(sal) FROM EMP  GROUP BY mgr;
++------+----------+----------+-------------+
+| mgr  | min(sal) | max(sal) | avg(sal)    |
++------+----------+----------+-------------+
+| 7902 |   800.00 |   800.00 |  800.000000 |
+| 7698 |   950.00 |  1600.00 | 1310.000000 |
+| 7839 |  2450.00 |  2975.00 | 2758.333333 |
+| 7566 |  3000.00 |  3000.00 | 3000.000000 |
+| NULL |  5000.00 |  5000.00 | 5000.000000 |
+| 7788 |  1100.00 |  1100.00 | 1100.000000 |
+| 7782 |  1300.00 |  1300.00 | 1300.000000 |
++------+----------+----------+-------------+
+7 rows in set (0.42 sec)
+
+
+
+### 22 find sum of total earnings(sal+comm), average of sal+comm for all employees who earn sal > 2000 and work in either dept no 10 or 20
+
+mysql> SELECT sum(sal+COALESCE(comm,0)),avg(sal+coalesce(comm,0))  FROM EMP WHER
+E sal>2000 
++---------------------------+---------------------------+
+| sum(sal+COALESCE(comm,0)) | avg(sal+coalesce(comm,0)) |
++---------------------------+---------------------------+
+|                  16425.00 |               3285.000000 |
++---------------------------+---------------------------+
+1 row in set (0.02 sec)
+
+
+### 23 list all employees who joined in FEB 1981 and salary is >1500 and < 2500
+
+mysql> SELECT * FROM EMP  WHERE sal between 1501 and 2401 and (year(hiredate)=1981 and month(hiredate)=2);
++-------+-------+----------+------+------------+---------+--------+--------+
+| EMPNO | ENAME | JOB      | MGR  | HIREDATE   | SAL     | COMM   | DEPTNO |
++-------+-------+----------+------+------------+---------+--------+--------+
+|  7499 | ALLEN | SALESMAN | 7698 | 1981-02-20 | 1600.00 | 300.00 |     30 |
++-------+-------+----------+------+------------+---------+--------+--------+
+1 row in set (0.01 sec)
+
+
+### 24  list all employees joined in either aug or may or dec
+
+mysql> SELECT ename,hiredate FROM EMP WHERE month(hiredate) in (5,8,12);
++-------+------------+
+| ename | hiredate   |
++-------+------------+
+| SMITH | 1980-12-17 |
+| BLAKE | 1981-05-01 |
+| SCOTT | 1982-12-09 |
+| JAMES | 1981-12-03 |
+| FORD  | 1981-12-03 |
++-------+------------+
+5 rows in set (0.00 sec)
+
+
+### 25 display name and hiredate in dd/mm/yy format for all employees whose job is clerk and they earn some commission
+
+mysql> SELECT ename , date_format(hiredate,'DD/MM/YY')  FROM EMP  WHERE job='CLERK' and (Comm is not null or comm!=0); 
+Empty set (0.00 sec)
+
+
+mysql> select job, comm from EMP where job like 'clerk';
++-------+------+
+| job   | comm |
++-------+------+
+| CLERK | NULL |
+| CLERK | NULL |
+| CLERK | NULL |
+| CLERK | NULL |
++-------+------+
+4 rows in set (0.00 sec)
+
+
+### 26 list empcode,empno,name and job for each employee. (note :empcode is 3 to 5 characters FROM name and last 2 characters of job)
+
+mysql>  SELECT substr(ename,3,5) ||substr(job,length(job)-2,length(job))empcode,ename,job
+    ->   FROM EMP;
++---------+--------+-----------+
+| empcode | ename  | job       |
++---------+--------+-----------+
+|       0 | SMITH  | CLERK     |
+|       0 | ALLEN  | SALESMAN  |
+|       0 | WARD   | SALESMAN  |
+|       0 | JONES  | MANAGER   |
+|       0 | MARTIN | SALESMAN  |
+|       0 | BLAKE  | MANAGER   |
+|       0 | CLARK  | MANAGER   |
+|       0 | SCOTT  | ANALYST   |
+|       0 | KING   | PRESIDENT |
+|       0 | TURNER | SALESMAN  |
+|       0 | ADAMS  | CLERK     |
+|       0 | JAMES  | CLERK     |
+|       0 | FORD   | ANALYST   |
+|       0 | MILLER | CLERK     |
++---------+--------+-----------+
+14 rows in set, 29 warnings (0.24 sec)
+
+
+
 
 
 
