@@ -1,0 +1,3157 @@
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.22 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use knowitdb
+Database changed
+mysql> select * from mep;
+ERROR 1146 (42S02): Table 'knowitdb.mep' doesn't exist
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3456.00 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.01 sec)
+
+mysql> select distinct deptno
+    -> from emp;
++--------+
+| deptno |
++--------+
+|     20 |
+|     30 |
+|     10 |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select deptno,dname
+    -> from dept
+    -> where not exists(select *
+    -> from emp
+    -> where emp.deptno=dept.deptno);
++--------+------------+
+| deptno | dname      |
++--------+------------+
+|     40 | OPERATIONS |
++--------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3456.00 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select empno,ename
+    -> from emp
+    -> where not exists(select *
+    ->                  from emp
+    ->                  where ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
+mysql> select empno,ename
+    -> from emp e
+    -> where not exists(select *
+    ->                  from emp
+    ->                  m where m.mgr=e.empno);
++-------+---------+
+| empno | ename   |
++-------+---------+
+|  7369 | SMITH   |
+|  7499 | ALLEN   |
+|  7521 | WARD    |
+|  7654 | MARTIN  |
+|  7844 | TURNER  |
+|  7876 | ADAMS   |
+|  7900 | JAMES   |
+|     1 | kishori |
++-------+---------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp e
+    -> where exists (select *
+    -> from emp m
+    -> where m.mgr=e.empno);
++-------+--------+-----------+------+------------+---------+------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+--------+-----------+------+------------+---------+------+--------+
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 | NULL |     10 |
++-------+--------+-----------+------+------------+---------+------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from product;
+ERROR 1146 (42S02): Table 'knowitdb.product' doesn't exist
+mysql> use test
+Database changed
+mysql> show tables
+    -> ;
++----------------+
+| Tables_in_test |
++----------------+
+| address        |
+| addressmany    |
+| addressmany1   |
+| category       |
+| custtab1       |
+| custtab11      |
+| emptab1        |
+| emptab11       |
+| myprod11       |
+| myproduct      |
+| myuser         |
+| myuser12       |
+| orderitem      |
+| persontab      |
+| pertab11       |
+| product        |
+| quetions       |
+| student        |
+| user           |
+| user_address   |
+| useraddress    |
+| userentity     |
+| usermany       |
+| usermany1      |
++----------------+
+24 rows in set (0.01 sec)
+
+mysql> select * from category;
++------+-----------+-----------------+
+| cid  | cname     | cdesc           |
++------+-----------+-----------------+
+|    1 | chips     | very crispy     |
+|    2 | biscuits  | sweet and tasty |
+|    3 | chocolate | yummmmmy        |
++------+-----------+-----------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from product;
++------+---------------+------+--------+------+
+| pid  | pname         | qty  | price  | cid  |
++------+---------------+------+--------+------+
+|    2 | Nachos123     |  302 | 150.00 |    1 |
+|    3 | Pringles123   |   12 | 150.00 |    1 |
+|    4 | Marie gold    |   20 |  50.00 |    2 |
+|    5 | nice1234      |   35 |  45.00 |    2 |
+|    6 | good day123   |   45 |  60.00 |    2 |
+|   20 | Hide and seek |   45 |  40.00 |    2 |
+|  123 | sfgdfg        |   45 | 123.00 |    3 |
++------+---------------+------+--------+------+
+7 rows in set (0.00 sec)
+
+mysql> insert into category values(4,'cold drinks','thanda thanda cool cool');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from category;
++------+-------------+-------------------------+
+| cid  | cname       | cdesc                   |
++------+-------------+-------------------------+
+|    1 | chips       | very crispy             |
+|    2 | biscuits    | sweet and tasty         |
+|    3 | chocolate   | yummmmmy                |
+|    4 | cold drinks | thanda thanda cool cool |
++------+-------------+-------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select *
+    -> from category c
+    -> where not exists(select *
+    -> from product p
+    -> where p.cid=c.cid);
++------+-------------+-------------------------+
+| cid  | cname       | cdesc                   |
++------+-------------+-------------------------+
+|    4 | cold drinks | thanda thanda cool cool |
++------+-------------+-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select *
+    -> from category c
+    -> where exists(select *
+    -> from product p
+    -> where p.cid=c.cid);
++------+-----------+-----------------+
+| cid  | cname     | cdesc           |
++------+-----------+-----------------+
+|    1 | chips     | very crispy     |
+|    2 | biscuits  | sweet and tasty |
+|    3 | chocolate | yummmmmy        |
++------+-----------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp e
+    ->     -> where exists (select *
+    ->     -> from emp m
+    ->     -> where m.mgr=e.empno);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> where exists (select *
+    -> from emp m
+    -> where m.mgr=e.empno)' at line 2
+mysql> select * from emp e
+    -> where exists (select *
+    ->               from emp m
+    ->               where m.mgr=e.empno) and job!='MANAGER';
+ERROR 1146 (42S02): Table 'test.emp' doesn't exist
+mysql> use knowitdb
+Database changed
+mysql> select * from emp e
+    -> where exists (select *
+    ->               from emp m
+    ->               where m.mgr=e.empno) and job!='MANAGER';
++-------+--------+-----------+------+------------+---------+------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+--------+-----------+------+------------+---------+------+--------+
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 | NULL |     10 |
++-------+--------+-----------+------+------------+---------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> use test;
+Database changed
+mysql> show tables
+    -> ;
++----------------+
+| Tables_in_test |
++----------------+
+| address        |
+| addressmany    |
+| addressmany1   |
+| category       |
+| custtab1       |
+| custtab11      |
+| emptab1        |
+| emptab11       |
+| myprod11       |
+| myproduct      |
+| myuser         |
+| myuser12       |
+| orderitem      |
+| persontab      |
+| pertab11       |
+| product        |
+| quetions       |
+| student        |
+| user           |
+| user_address   |
+| useraddress    |
+| userentity     |
+| usermany       |
+| usermany1      |
++----------------+
+24 rows in set (0.00 sec)
+
+mysql> use knowitdb
+Database changed
+mysql> create table category(
+    -> cid int primary key,
+    -> cname varchar(20) unique,
+    -> description varchar(20));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc category
+    -> ;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| cid         | int         | NO   | PRI | NULL    |       |
+| cname       | varchar(20) | YES  | UNI | NULL    |       |
+| description | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> create table salesman(
+    -> sid int primary key,
+    -> sname varchar(20) not null,
+    -> address varchar(30))
+    -> ;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table product(
+    -> pid int primary key,
+    -> pname varchar(20) not null,
+    -> exp_dt date,
+    -> price decimal(9,2),
+    -> qty int check(qty>0)
+    -> cid int references  category(cid)
+    -> on delete set null
+    -> on update cascade,
+    -> sid int references  salesman(sid)
+    -> on delete no action,
+    -> on update cascade);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cid int references  category(cid)
+on delete set null
+on update cascade,
+sid i' at line 7
+mysql> create table product(
+    -> pid int primary key,
+    -> pname varchar(20) not null,
+    -> exp_dt date,
+    -> price decimal(9,2),
+    -> qty int check(qty>0)
+    -> cid int references  category(cid)
+    -> on delete set null
+    -> on update cascade,
+    -> sid int references  salesman(sid)
+    -> on delete no action
+    -> on update cascade);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cid int references  category(cid)
+on delete set null
+on update cascade,
+sid i' at line 7
+mysql> create table product(
+    -> pid int primary key,
+    -> pname varchar(20) not null,
+    -> exp_dt date,
+    -> price decimal(9,2),
+    -> qty int check(qty>0),
+    -> cid int references  category(cid)
+    -> on delete set null
+    -> on update cascade,
+    -> sid int references  salesman(sid)
+    -> on delete no action
+    -> on update cascade);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> insert into category values(1,'chips','crispy');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into category values(1,'biscuits','sweet');
+ERROR 1062 (23000): Duplicate entry '1' for key 'category.PRIMARY'
+mysql> insert into category values(2,'biscuits','sweet');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into category values(3,'biscuits','sweet');
+ERROR 1062 (23000): Duplicate entry 'biscuits' for key 'category.cname'
+mysql> insert into category values(3,'chocolate','sweet');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from category;
++-----+-----------+-------------+
+| cid | cname     | description |
++-----+-----------+-------------+
+|   1 | chips     | crispy      |
+|   2 | biscuits  | sweet       |
+|   3 | chocolate | sweet       |
++-----+-----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into category(cid,description) values(4,'sweet1234');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from category;
++-----+-----------+-------------+
+| cid | cname     | description |
++-----+-----------+-------------+
+|   1 | chips     | crispy      |
+|   2 | biscuits  | sweet       |
+|   3 | chocolate | sweet       |
+|   4 | NULL      | sweet1234   |
++-----+-----------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into category(cname,description) values('xxx','sweet1234');
+ERROR 1364 (HY000): Field 'cid' doesn't have a default value
+mysql> insert into salesman values(11,'Ashu','Pune');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into salesman values(12,'Ashu','Mumbai');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into salesman values(13,'Ashu','Mumbai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into salesman(sid,address) values(13,'Mumbai');
+ERROR 1364 (HY000): Field 'sname' doesn't have a default value
+mysql> insert into salesman(sid,address) values(13,'Mumbai');
+ERROR 1364 (HY000): Field 'sname' doesn't have a default value
+mysql> insert into salesman values(14,'Nikhil','Mumbai');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from salesman;
++-----+--------+---------+
+| sid | sname  | address |
++-----+--------+---------+
+|  11 | Ashu   | Pune    |
+|  12 | Ashu   | Mumbai  |
+|  13 | Ashu   | Mumbai  |
+|  14 | Nikhil | Mumbai  |
++-----+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> update salesman
+    -> set sname='Rashmi'
+    -> where sid=13;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from salesman;
++-----+--------+---------+
+| sid | sname  | address |
++-----+--------+---------+
+|  11 | Ashu   | Pune    |
+|  12 | Ashu   | Mumbai  |
+|  13 | Rashmi | Mumbai  |
+|  14 | Nikhil | Mumbai  |
++-----+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> desc product;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| pid    | int          | NO   | PRI | NULL    |       |
+| pname  | varchar(20)  | NO   |     | NULL    |       |
+| exp_dt | date         | YES  |     | NULL    |       |
+| price  | decimal(9,2) | YES  |     | NULL    |       |
+| qty    | int          | YES  |     | NULL    |       |
+| cid    | int          | YES  |     | NULL    |       |
+| sid    | int          | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> insert into product values(1,'lays','2022-01-01',40.00,34,1,11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into product values(2,'lays','2022-01-01',40.00,-34,1,11);
+ERROR 3819 (HY000): Check constraint 'product_chk_1' is violated.
+mysql> insert into product values(2,'lays','2022-01-01',40.00,12,1,11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into product values(3,'nachos','2021-12-01',120.00,12,10,11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from category;
++-----+-----------+-------------+
+| cid | cname     | description |
++-----+-----------+-------------+
+|   1 | chips     | crispy      |
+|   2 | biscuits  | sweet       |
+|   3 | chocolate | sweet       |
+|   4 | NULL      | sweet1234   |
++-----+-----------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> desc product;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| pid    | int          | NO   | PRI | NULL    |       |
+| pname  | varchar(20)  | NO   |     | NULL    |       |
+| exp_dt | date         | YES  |     | NULL    |       |
+| price  | decimal(9,2) | YES  |     | NULL    |       |
+| qty    | int          | YES  |     | NULL    |       |
+| cid    | int          | YES  |     | NULL    |       |
+| sid    | int          | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> insert into product values(3,'nachos','2021-12-01',120.00,12,10,100);
+ERROR 1062 (23000): Duplicate entry '3' for key 'product.PRIMARY'
+mysql> insert into product values(4,'maggi','2021-12-01',120.00,12,10,100);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from product;
++-----+--------+------------+--------+------+------+------+
+| pid | pname  | exp_dt     | price  | qty  | cid  | sid  |
++-----+--------+------------+--------+------+------+------+
+|   1 | lays   | 2022-01-01 |  40.00 |   34 |    1 |   11 |
+|   2 | lays   | 2022-01-01 |  40.00 |   12 |    1 |   11 |
+|   3 | nachos | 2021-12-01 | 120.00 |   12 |   10 |   11 |
+|   4 | maggi  | 2021-12-01 | 120.00 |   12 |   10 |  100 |
++-----+--------+------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from knowitdb.product;
++-----+--------+------------+--------+------+------+------+
+| pid | pname  | exp_dt     | price  | qty  | cid  | sid  |
++-----+--------+------------+--------+------+------+------+
+|   1 | lays   | 2022-01-01 |  40.00 |   34 |    1 |   11 |
+|   2 | lays   | 2022-01-01 |  40.00 |   12 |    1 |   11 |
+|   3 | nachos | 2021-12-01 | 120.00 |   12 |   10 |   11 |
+|   4 | maggi  | 2021-12-01 | 120.00 |   12 |   10 |  100 |
++-----+--------+------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> drop table product;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table product(
+    -> pid int,
+    -> pname varchar(20) not null,
+    -> exp_dt date,
+    -> price decimal(9,2) default 100.00,
+    -> qty int check(qty>0),
+    -> cid int,
+    -> sid int ,
+    -> constraint pk_pid primary key(pid),
+    -> constraint fk_cid foreign key(cid) references  category(cid)
+    -> on delete set null
+    -> on update cascade,
+    -> constraint fk_sid foreign key(sid)
+    -> references  salesman(sid)
+    -> on delete no action
+    -> on update cascade);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> insert into product values(1,'lays','2022-01-01',40.00,34,1,11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into product values(2,'nachos','2022-01-01',120.00,34,10,11);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`knowitdb`.`product`, CONSTRAINT `fk_cid` FOREIGN KEY (`cid`) REFERENCES `category` (`cid`) ON DELETE SET NULL ON UPDATE CASCADE)
+mysql> insert into product values(2,'nachos','2022-01-01',120.00,34,1,111);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`knowitdb`.`product`, CONSTRAINT `fk_sid` FOREIGN KEY (`sid`) REFERENCES `salesman` (`sid`) ON UPDATE CASCADE)
+mysql> insert into product values(2,'nachos','2022-01-01',120.00,34,1,12);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into product values(3,'maggie','2021-12-01',120.00,34,1,12);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into product values(4,'pringles','2021-12-01',120.00,34,1,12);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------+------+------+------+
+| pid | pname    | exp_dt     | price  | qty  | cid  | sid  |
++-----+----------+------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 |  40.00 |   34 |    1 |   11 |
+|   2 | nachos   | 2022-01-01 | 120.00 |   34 |    1 |   12 |
+|   3 | maggie   | 2021-12-01 | 120.00 |   34 |    1 |   12 |
+|   4 | pringles | 2021-12-01 | 120.00 |   34 |    1 |   12 |
++-----+----------+------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> insert into product values(5,'Marie','2021-12-01',20.00,34,2,11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into product values(6,'Good day','2021-12-01',45.00,34,2,11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into product(pid,pname,exp_dt,qty,cid,sid) values(7,'50-50','2021-12-01',34,2,11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------+------+------+------+
+| pid | pname    | exp_dt     | price  | qty  | cid  | sid  |
++-----+----------+------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 |  40.00 |   34 |    1 |   11 |
+|   2 | nachos   | 2022-01-01 | 120.00 |   34 |    1 |   12 |
+|   3 | maggie   | 2021-12-01 | 120.00 |   34 |    1 |   12 |
+|   4 | pringles | 2021-12-01 | 120.00 |   34 |    1 |   12 |
+|   5 | Marie    | 2021-12-01 |  20.00 |   34 |    2 |   11 |
+|   6 | Good day | 2021-12-01 |  45.00 |   34 |    2 |   11 |
+|   7 | 50-50    | 2021-12-01 | 100.00 |   34 |    2 |   11 |
++-----+----------+------------+--------+------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> select * from salesman;
++-----+--------+---------+
+| sid | sname  | address |
++-----+--------+---------+
+|  11 | Ashu   | Pune    |
+|  12 | Ashu   | Mumbai  |
+|  13 | Rashmi | Mumbai  |
+|  14 | Nikhil | Mumbai  |
++-----+--------+---------+
+4 rows in set (0.01 sec)
+
+mysql> update salesman
+    -> set sid=10
+    -> where sid=11;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from salesman;
++-----+--------+---------+
+| sid | sname  | address |
++-----+--------+---------+
+|  10 | Ashu   | Pune    |
+|  12 | Ashu   | Mumbai  |
+|  13 | Rashmi | Mumbai  |
+|  14 | Nikhil | Mumbai  |
++-----+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------+------+------+------+
+| pid | pname    | exp_dt     | price  | qty  | cid  | sid  |
++-----+----------+------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 |  40.00 |   34 |    1 |   10 |
+|   2 | nachos   | 2022-01-01 | 120.00 |   34 |    1 |   12 |
+|   3 | maggie   | 2021-12-01 | 120.00 |   34 |    1 |   12 |
+|   4 | pringles | 2021-12-01 | 120.00 |   34 |    1 |   12 |
+|   5 | Marie    | 2021-12-01 |  20.00 |   34 |    2 |   10 |
+|   6 | Good day | 2021-12-01 |  45.00 |   34 |    2 |   10 |
+|   7 | 50-50    | 2021-12-01 | 100.00 |   34 |    2 |   10 |
++-----+----------+------------+--------+------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> delete from salesman where sid=12;
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`knowitdb`.`product`, CONSTRAINT `fk_sid` FOREIGN KEY (`sid`) REFERENCES `salesman` (`sid`) ON UPDATE CASCADE)
+mysql> select * from product;
++-----+----------+------------+--------+------+------+------+
+| pid | pname    | exp_dt     | price  | qty  | cid  | sid  |
++-----+----------+------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 |  40.00 |   34 |    1 |   10 |
+|   2 | nachos   | 2022-01-01 | 120.00 |   34 |    1 |   12 |
+|   3 | maggie   | 2021-12-01 | 120.00 |   34 |    1 |   12 |
+|   4 | pringles | 2021-12-01 | 120.00 |   34 |    1 |   12 |
+|   5 | Marie    | 2021-12-01 |  20.00 |   34 |    2 |   10 |
+|   6 | Good day | 2021-12-01 |  45.00 |   34 |    2 |   10 |
+|   7 | 50-50    | 2021-12-01 | 100.00 |   34 |    2 |   10 |
++-----+----------+------------+--------+------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> select * from category;
++-----+-----------+-------------+
+| cid | cname     | description |
++-----+-----------+-------------+
+|   1 | chips     | crispy      |
+|   2 | biscuits  | sweet       |
+|   3 | chocolate | sweet       |
+|   4 | NULL      | sweet1234   |
++-----+-----------+-------------+
+4 rows in set (0.01 sec)
+
+mysql> delete from category where cid=2;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------+------+------+------+
+| pid | pname    | exp_dt     | price  | qty  | cid  | sid  |
++-----+----------+------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 |  40.00 |   34 |    1 |   10 |
+|   2 | nachos   | 2022-01-01 | 120.00 |   34 |    1 |   12 |
+|   3 | maggie   | 2021-12-01 | 120.00 |   34 |    1 |   12 |
+|   4 | pringles | 2021-12-01 | 120.00 |   34 |    1 |   12 |
+|   5 | Marie    | 2021-12-01 |  20.00 |   34 | NULL |   10 |
+|   6 | Good day | 2021-12-01 |  45.00 |   34 | NULL |   10 |
+|   7 | 50-50    | 2021-12-01 | 100.00 |   34 | NULL |   10 |
++-----+----------+------------+--------+------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> delete from salesman where sid=12;
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`knowitdb`.`product`, CONSTRAINT `fk_sid` FOREIGN KEY (`sid`) REFERENCES `salesman` (`sid`) ON UPDATE CASCADE)
+mysql> delete from product where sid=12;
+Query OK, 3 rows affected (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------+------+------+------+
+| pid | pname    | exp_dt     | price  | qty  | cid  | sid  |
++-----+----------+------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 |  40.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 |  20.00 |   34 | NULL |   10 |
+|   6 | Good day | 2021-12-01 |  45.00 |   34 | NULL |   10 |
+|   7 | 50-50    | 2021-12-01 | 100.00 |   34 | NULL |   10 |
++-----+----------+------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> delete from salesman where sid=12;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> desc room
+    -> ;
+ERROR 1146 (42S02): Table 'knowitdb.room' doesn't exist
+mysql> create table room(
+    -> rid int auto_increament,
+    -> rname varchar(20) unique not null,
+    -> rloc varchar(20),
+    -> constraint rp_rid primary key(rid)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'auto_increament,
+rname varchar(20) unique not null,
+rloc varchar(20),
+constraint' at line 2
+mysql> create table room(
+    -> rid int auto_increment,
+    -> rname varchar(20) unique not null,
+    -> rloc varchar(20),
+    -> constraint rp_rid primary key(rid)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> insert into room values(1,'Mogra','first floor');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into room values(default,'Mogra','first floor');
+ERROR 1062 (23000): Duplicate entry 'Mogra' for key 'room.rname'
+mysql> delete from room
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into room values(default,'Mogra','first floor');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from room;
++-----+-------+-------------+
+| rid | rname | rloc        |
++-----+-------+-------------+
+|   3 | Mogra | first floor |
++-----+-------+-------------+
+1 row in set (0.00 sec)
+
+mysql> insert into room values(default,'Mogra','first floor');
+ERROR 1062 (23000): Duplicate entry 'Mogra' for key 'room.rname'
+mysql> insert into room values(default,'Jasmin','first floor');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from room;
++-----+--------+-------------+
+| rid | rname  | rloc        |
++-----+--------+-------------+
+|   3 | Mogra  | first floor |
+|   5 | Jasmin | first floor |
++-----+--------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into room values(default,'Lotus','first floor');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from room;
++-----+--------+-------------+
+| rid | rname  | rloc        |
++-----+--------+-------------+
+|   3 | Mogra  | first floor |
+|   5 | Jasmin | first floor |
+|   6 | Lotus  | first floor |
++-----+--------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into room(rname,rloc) values('Rose','first floor');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from room;
++-----+--------+-------------+
+| rid | rname  | rloc        |
++-----+--------+-------------+
+|   3 | Mogra  | first floor |
+|   5 | Jasmin | first floor |
+|   6 | Lotus  | first floor |
+|   7 | Rose   | first floor |
++-----+--------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into room values(default,'xxx','vvv');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from room;
++-----+--------+-------------+
+| rid | rname  | rloc        |
++-----+--------+-------------+
+|   3 | Mogra  | first floor |
+|   5 | Jasmin | first floor |
+|   6 | Lotus  | first floor |
+|   7 | Rose   | first floor |
+|   8 | xxx    | vvv         |
++-----+--------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into room(rname,rloc) values('vvv','ssss')
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from room;
++-----+--------+-------------+
+| rid | rname  | rloc        |
++-----+--------+-------------+
+|   3 | Mogra  | first floor |
+|   5 | Jasmin | first floor |
+|   6 | Lotus  | first floor |
+|   7 | Rose   | first floor |
+|   8 | xxx    | vvv         |
+|   9 | vvv    | ssss        |
++-----+--------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into room values(default,'xxx','vvv');
+ERROR 1062 (23000): Duplicate entry 'xxx' for key 'room.rname'
+mysql> insert into room values(default,'xxx111','vvv');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from room;
++-----+--------+-------------+
+| rid | rname  | rloc        |
++-----+--------+-------------+
+|   3 | Mogra  | first floor |
+|   5 | Jasmin | first floor |
+|   6 | Lotus  | first floor |
+|   7 | Rose   | first floor |
+|   8 | xxx    | vvv         |
+|   9 | vvv    | ssss        |
+|  11 | xxx111 | vvv         |
++-----+--------+-------------+
+7 rows in set (0.00 sec)
+
+mysql> insert into room values(9,'asdf','tttttssss');
+ERROR 1062 (23000): Duplicate entry '9' for key 'room.PRIMARY'
+mysql> desc information_scheme
+    -> ;
+ERROR 1146 (42S02): Table 'knowitdb.information_scheme' doesn't exist
+mysql> desc information_schema
+    -> ;
+ERROR 1146 (42S02): Table 'knowitdb.information_schema' doesn't exist
+mysql> use test
+Database changed
+mysql> select *
+    -> from emp e full join dept d on e.deptno=d.deptno;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    9
+Current database: test
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'full join dept d on e.deptno=d.deptno' at line 2
+mysql> select * from room;
+ERROR 1146 (42S02): Table 'test.room' doesn't exist
+mysql> use knowitdb
+Database changed
+mysql> select * from room;
++-----+--------+-------------+
+| rid | rname  | rloc        |
++-----+--------+-------------+
+|   3 | Mogra  | first floor |
+|   5 | Jasmin | first floor |
+|   6 | Lotus  | first floor |
+|   7 | Rose   | first floor |
+|   8 | xxx    | vvv         |
+|   9 | vvv    | ssss        |
+|  11 | xxx111 | vvv         |
++-----+--------+-------------+
+7 rows in set (0.00 sec)
+
+mysql> drop table room;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from room;
+ERROR 1146 (42S02): Table 'knowitdb.room' doesn't exist
+mysql> create table room(
+    -> rid int auto_increment,
+    -> rname varchar(20),
+    -> rloc varchar(20),
+    -> constraint pk_key primary key(rid));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> alter table room auto_increment=100;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into room values(default,'Rose','first');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from room;
++-----+-------+-------+
+| rid | rname | rloc  |
++-----+-------+-------+
+| 100 | Rose  | first |
++-----+-------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into room values(default,'jasmin','first');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from room;
++-----+--------+-------+
+| rid | rname  | rloc  |
++-----+--------+-------+
+| 100 | Rose   | first |
+| 101 | jasmin | first |
++-----+--------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc
+    -> room;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| rid   | int         | NO   | PRI | NULL    | auto_increment |
+| rname | varchar(20) | YES  |     | NULL    |                |
+| rloc  | varchar(20) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.01 sec)
+
+mysql> alter table room
+    -> add rdesc varchar(20);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc room;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| rid   | int         | NO   | PRI | NULL    | auto_increment |
+| rname | varchar(20) | YES  |     | NULL    |                |
+| rloc  | varchar(20) | YES  |     | NULL    |                |
+| rdesc | varchar(20) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from room;
++-----+--------+-------+-------+
+| rid | rname  | rloc  | rdesc |
++-----+--------+-------+-------+
+| 100 | Rose   | first | NULL  |
+| 101 | jasmin | first | NULL  |
++-----+--------+-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table room
+    -> add details varchar(20) after rname;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc room;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| rid     | int         | NO   | PRI | NULL    | auto_increment |
+| rname   | varchar(20) | YES  |     | NULL    |                |
+| details | varchar(20) | YES  |     | NULL    |                |
+| rloc    | varchar(20) | YES  |     | NULL    |                |
+| rdesc   | varchar(20) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)
+
+mysql> desc product
+    -> ;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| pid    | int          | NO   | PRI | NULL    |       |
+| pname  | varchar(20)  | NO   |     | NULL    |       |
+| exp_dt | date         | YES  |     | NULL    |       |
+| price  | decimal(9,2) | YES  |     | 100.00  |       |
+| qty    | int          | YES  |     | NULL    |       |
+| cid    | int          | YES  | MUL | NULL    |       |
+| sid    | int          | YES  | MUL | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table product
+    -> add description1 varchar(20) after exp_dt;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc product;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| pid          | int          | NO   | PRI | NULL    |       |
+| pname        | varchar(20)  | NO   |     | NULL    |       |
+| exp_dt       | date         | YES  |     | NULL    |       |
+| description1 | varchar(20)  | YES  |     | NULL    |       |
+| price        | decimal(9,2) | YES  |     | 100.00  |       |
+| qty          | int          | YES  |     | NULL    |       |
+| cid          | int          | YES  | MUL | NULL    |       |
+| sid          | int          | YES  | MUL | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table product
+    -> modify description1 varchar(50);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc product;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| pid          | int          | NO   | PRI | NULL    |       |
+| pname        | varchar(20)  | NO   |     | NULL    |       |
+| exp_dt       | date         | YES  |     | NULL    |       |
+| description1 | varchar(50)  | YES  |     | NULL    |       |
+| price        | decimal(9,2) | YES  |     | 100.00  |       |
+| qty          | int          | YES  |     | NULL    |       |
+| cid          | int          | YES  | MUL | NULL    |       |
+| sid          | int          | YES  | MUL | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table product
+    -> drop primary key pk_pid;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pk_pid' at line 2
+mysql> alter table product
+    -> drop primary key pk_id
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pk_id' at line 2
+mysql> alter table product
+    -> drop primary key 'pk_id'
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pk_id'' at line 2
+mysql> alter table product
+    -> drop primary key;
+Query OK, 4 rows affected (0.06 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> desc product;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| pid          | int          | NO   |     | NULL    |       |
+| pname        | varchar(20)  | NO   |     | NULL    |       |
+| exp_dt       | date         | YES  |     | NULL    |       |
+| description1 | varchar(50)  | YES  |     | NULL    |       |
+| price        | decimal(9,2) | YES  |     | 100.00  |       |
+| qty          | int          | YES  |     | NULL    |       |
+| cid          | int          | YES  | MUL | NULL    |       |
+| sid          | int          | YES  | MUL | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> alter table
+    -> drop foreign key fk_cid;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'drop foreign key fk_cid' at line 2
+mysql> alter table product
+    -> drop foreign key fk_cid;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc emp;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| EMPNO    | int          | NO   |     | NULL    |       |
+| ENAME    | varchar(10)  | YES  |     | NULL    |       |
+| JOB      | varchar(9)   | YES  |     | NULL    |       |
+| MGR      | int          | YES  |     | NULL    |       |
+| HIREDATE | date         | YES  |     | NULL    |       |
+| SAL      | decimal(7,2) | YES  |     | NULL    |       |
+| COMM     | decimal(7,2) | YES  |     | NULL    |       |
+| DEPTNO   | int          | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> desc dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| DEPTNO | int         | YES  |     | NULL    |       |
+| DNAME  | varchar(14) | YES  |     | NULL    |       |
+| LOC    | varchar(13) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc salgrad;
+ERROR 1146 (42S02): Table 'knowitdb.salgrad' doesn't exist
+mysql> desc salgrade;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| GRADE | int  | YES  |     | NULL    |       |
+| LOSAL | int  | YES  |     | NULL    |       |
+| HISAL | int  | YES  |     | NULL    |       |
++-------+------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> show tables
+    -> ;
++--------------------+
+| Tables_in_knowitdb |
++--------------------+
+| bonus              |
+| category           |
+| dept               |
+| dummy              |
+| emp                |
+| product            |
+| room               |
+| salesman           |
+| salgrade           |
+| testing            |
++--------------------+
+10 rows in set (0.00 sec)
+
+mysql> select COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_COLUMN_NAME, REFERENCED_TABLE_NAME
+    -> from information_schema.KEY_COLUMN_USAGE
+    -> where TABLE_NAME = 'product';
++-------------+-----------------+------------------------+-----------------------+
+| COLUMN_NAME | CONSTRAINT_NAME | REFERENCED_COLUMN_NAME | REFERENCED_TABLE_NAME |
++-------------+-----------------+------------------------+-----------------------+
+| sid         | fk_sid          | sid                    | salesman              |
+| pid         | PRIMARY         | NULL                   | NULL                  |
++-------------+-----------------+------------------------+-----------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         |  40.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  20.00 |   34 | NULL |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 | NULL |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 100.00 |   34 | NULL |   10 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> update product
+    -> set price=(select price from product where pname='50-50')
+    -> where pname='lays';
+ERROR 1093 (HY000): You can't specify target table 'product' for update in FROM clause
+mysql> update product
+    -> set price=123
+    -> where price>(select price
+    -> from product
+    -> where pname='Good day');
+ERROR 1093 (HY000): You can't specify target table 'product' for update in FROM clause
+mysql> update product
+    -> set price=123
+    -> where price>(select price
+    -> from (select * from product)
+    -> where pname='Good day');
+ERROR 1248 (42000): Every derived table must have its own alias
+mysql> update product
+    -> from (select * from product) p
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from (select * from product) p' at line 2
+mysql> update product
+    -> set price=123
+    -> where price>(select price
+    -> from (select * from product) p
+    -> where pname='Good day');
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         |  40.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  20.00 |   34 | NULL |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 | NULL |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 123.00 |   34 | NULL |   10 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> update product
+    -> set price=(select price from (select * from product) p
+    ->  where pname='50-50')
+    -> where pname='lays';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *
+    -> from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3456.00 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+mysql> upadate product
+    -> set price=(select price where ename='good day')
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'upadate product
+set price=(select price where ename='good day')' at line 1
+mysql> update product
+    -> set price=(select price where pname='good day')
+    -> where pname='marie';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 123.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |   NULL |   34 | NULL |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 | NULL |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 123.00 |   34 | NULL |   10 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> update product
+    -> set price=(select price from (select * from product) p where pname='good day')
+    -> where pname='marie';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 123.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 | NULL |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 | NULL |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 123.00 |   34 | NULL |   10 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> update product
+    -> set price=150.00
+    -> where price>(select price from (select * from product) p where pname='marie');
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 | NULL |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 | NULL |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 | NULL |   10 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from mep;
+ERROR 1146 (42S02): Table 'knowitdb.mep' doesn't exist
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3456.00 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select empno,ename,e.deptno,d.deptno,dname
+    -> from emp e,dept d
+    -> ;
++-------+---------+--------+--------+------------+
+| empno | ename   | deptno | deptno | dname      |
++-------+---------+--------+--------+------------+
+|  7369 | SMITH   |     20 |     10 | ACCOUNTING |
+|  7369 | SMITH   |     20 |     20 | RESEARCH   |
+|  7369 | SMITH   |     20 |     30 | SALES      |
+|  7369 | SMITH   |     20 |     40 | OPERATIONS |
+|  7499 | ALLEN   |     30 |     10 | ACCOUNTING |
+|  7499 | ALLEN   |     30 |     20 | RESEARCH   |
+|  7499 | ALLEN   |     30 |     30 | SALES      |
+|  7499 | ALLEN   |     30 |     40 | OPERATIONS |
+|  7521 | WARD    |     30 |     10 | ACCOUNTING |
+|  7521 | WARD    |     30 |     20 | RESEARCH   |
+|  7521 | WARD    |     30 |     30 | SALES      |
+|  7521 | WARD    |     30 |     40 | OPERATIONS |
+|  7566 | JONES   |     20 |     10 | ACCOUNTING |
+|  7566 | JONES   |     20 |     20 | RESEARCH   |
+|  7566 | JONES   |     20 |     30 | SALES      |
+|  7566 | JONES   |     20 |     40 | OPERATIONS |
+|  7654 | MARTIN  |     30 |     10 | ACCOUNTING |
+|  7654 | MARTIN  |     30 |     20 | RESEARCH   |
+|  7654 | MARTIN  |     30 |     30 | SALES      |
+|  7654 | MARTIN  |     30 |     40 | OPERATIONS |
+|  7698 | BLAKE   |     30 |     10 | ACCOUNTING |
+|  7698 | BLAKE   |     30 |     20 | RESEARCH   |
+|  7698 | BLAKE   |     30 |     30 | SALES      |
+|  7698 | BLAKE   |     30 |     40 | OPERATIONS |
+|  7782 | CLARK   |     10 |     10 | ACCOUNTING |
+|  7782 | CLARK   |     10 |     20 | RESEARCH   |
+|  7782 | CLARK   |     10 |     30 | SALES      |
+|  7782 | CLARK   |     10 |     40 | OPERATIONS |
+|  7788 | SCOTT   |     20 |     10 | ACCOUNTING |
+|  7788 | SCOTT   |     20 |     20 | RESEARCH   |
+|  7788 | SCOTT   |     20 |     30 | SALES      |
+|  7788 | SCOTT   |     20 |     40 | OPERATIONS |
+|  7839 | KING    |     10 |     10 | ACCOUNTING |
+|  7839 | KING    |     10 |     20 | RESEARCH   |
+|  7839 | KING    |     10 |     30 | SALES      |
+|  7839 | KING    |     10 |     40 | OPERATIONS |
+|  7844 | TURNER  |     30 |     10 | ACCOUNTING |
+|  7844 | TURNER  |     30 |     20 | RESEARCH   |
+|  7844 | TURNER  |     30 |     30 | SALES      |
+|  7844 | TURNER  |     30 |     40 | OPERATIONS |
+|  7876 | ADAMS   |     20 |     10 | ACCOUNTING |
+|  7876 | ADAMS   |     20 |     20 | RESEARCH   |
+|  7876 | ADAMS   |     20 |     30 | SALES      |
+|  7876 | ADAMS   |     20 |     40 | OPERATIONS |
+|  7900 | JAMES   |     30 |     10 | ACCOUNTING |
+|  7900 | JAMES   |     30 |     20 | RESEARCH   |
+|  7900 | JAMES   |     30 |     30 | SALES      |
+|  7900 | JAMES   |     30 |     40 | OPERATIONS |
+|  7902 | FORD    |     20 |     10 | ACCOUNTING |
+|  7902 | FORD    |     20 |     20 | RESEARCH   |
+|  7902 | FORD    |     20 |     30 | SALES      |
+|  7902 | FORD    |     20 |     40 | OPERATIONS |
+|  7934 | MILLER  |     10 |     10 | ACCOUNTING |
+|  7934 | MILLER  |     10 |     20 | RESEARCH   |
+|  7934 | MILLER  |     10 |     30 | SALES      |
+|  7934 | MILLER  |     10 |     40 | OPERATIONS |
+|     1 | kishori |     10 |     10 | ACCOUNTING |
+|     1 | kishori |     10 |     20 | RESEARCH   |
+|     1 | kishori |     10 |     30 | SALES      |
+|     1 | kishori |     10 |     40 | OPERATIONS |
++-------+---------+--------+--------+------------+
+60 rows in set (0.00 sec)
+
+mysql> select empno,ename,e.deptno,d.deptno,dname
+    -> from emp e,dept d
+    -> where e.deptno=d.deptno;
++-------+---------+--------+--------+------------+
+| empno | ename   | deptno | deptno | dname      |
++-------+---------+--------+--------+------------+
+|  7369 | SMITH   |     20 |     20 | RESEARCH   |
+|  7499 | ALLEN   |     30 |     30 | SALES      |
+|  7521 | WARD    |     30 |     30 | SALES      |
+|  7566 | JONES   |     20 |     20 | RESEARCH   |
+|  7654 | MARTIN  |     30 |     30 | SALES      |
+|  7698 | BLAKE   |     30 |     30 | SALES      |
+|  7782 | CLARK   |     10 |     10 | ACCOUNTING |
+|  7788 | SCOTT   |     20 |     20 | RESEARCH   |
+|  7839 | KING    |     10 |     10 | ACCOUNTING |
+|  7844 | TURNER  |     30 |     30 | SALES      |
+|  7876 | ADAMS   |     20 |     20 | RESEARCH   |
+|  7900 | JAMES   |     30 |     30 | SALES      |
+|  7902 | FORD    |     20 |     20 | RESEARCH   |
+|  7934 | MILLER  |     10 |     10 | ACCOUNTING |
+|     1 | kishori |     10 |     10 | ACCOUNTING |
++-------+---------+--------+--------+------------+
+15 rows in set (0.00 sec)
+
+mysql> select *
+    -> from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3456.00 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3456.00 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select e.empno,e.ename,m.empno "mgrno",m.ename "mgrname"
+    -> from emp e,emp m
+    -> where e.mgr=m.empno;
++-------+---------+-------+---------+
+| empno | ename   | mgrno | mgrname |
++-------+---------+-------+---------+
+|  7788 | SCOTT   |  7566 | JONES   |
+|  7902 | FORD    |  7566 | JONES   |
+|  7499 | ALLEN   |  7698 | BLAKE   |
+|  7521 | WARD    |  7698 | BLAKE   |
+|  7654 | MARTIN  |  7698 | BLAKE   |
+|  7844 | TURNER  |  7698 | BLAKE   |
+|  7900 | JAMES   |  7698 | BLAKE   |
+|  7934 | MILLER  |  7782 | CLARK   |
+|  7876 | ADAMS   |  7788 | SCOTT   |
+|  7566 | JONES   |  7839 | KING    |
+|  7698 | BLAKE   |  7839 | KING    |
+|  7782 | CLARK   |  7839 | KING    |
+|  7369 | SMITH   |  7902 | FORD    |
+|     1 | kishori |  7934 | MILLER  |
++-------+---------+-------+---------+
+14 rows in set (0.00 sec)
+
+mysql> select * product;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'product' at line 1
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 | NULL |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 | NULL |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 | NULL |   10 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from category;
++-----+-----------+-------------+
+| cid | cname     | description |
++-----+-----------+-------------+
+|   1 | chips     | crispy      |
+|   3 | chocolate | sweet       |
+|   4 | NULL      | sweet1234   |
++-----+-----------+-------------+
+3 rows in set (0.01 sec)
+
+mysql> update product
+    -> set cid=3
+    -> where cid is null;
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   10 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> update category
+    -> set cname='biscuits',description='tasty'
+    -> where cid=3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from category;
++-----+----------+-------------+
+| cid | cname    | description |
++-----+----------+-------------+
+|   1 | chips    | crispy      |
+|   3 | biscuits | tasty       |
+|   4 | NULL     | sweet1234   |
++-----+----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select p.pid,p.pname,p.cid,c.cid "category id", c.cname "category name"
+    -> from product p,category c
+    -> where c.cid=p.cid;
++-----+----------+------+-------------+---------------+
+| pid | pname    | cid  | category id | category name |
++-----+----------+------+-------------+---------------+
+|   1 | lays     |    1 |           1 | chips         |
+|   5 | Marie    |    3 |           3 | biscuits      |
+|   6 | Good day |    3 |           3 | biscuits      |
+|   7 | 50-50    |    3 |           3 | biscuits      |
++-----+----------+------+-------------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> select p.pid,p.pname,p.cid,c.cid "category id", c.cname "category name"
+    -> from product p,category c
+    -> where c.cid=p.cid and c.cid=3;
++-----+----------+------+-------------+---------------+
+| pid | pname    | cid  | category id | category name |
++-----+----------+------+-------------+---------------+
+|   5 | Marie    |    3 |           3 | biscuits      |
+|   6 | Good day |    3 |           3 | biscuits      |
+|   7 | 50-50    |    3 |           3 | biscuits      |
++-----+----------+------+-------------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from salesman;
++-----+--------+---------+
+| sid | sname  | address |
++-----+--------+---------+
+|  10 | Ashu   | Pune    |
+|  13 | Rashmi | Mumbai  |
+|  14 | Nikhil | Mumbai  |
++-----+--------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   10 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select pid,pname,p.sid,s.sid,sname
+    -> from product p,salesman s
+    -> where p.sid=s.sid;
++-----+----------+------+-----+-------+
+| pid | pname    | sid  | sid | sname |
++-----+----------+------+-----+-------+
+|   1 | lays     |   10 |  10 | Ashu  |
+|   5 | Marie    |   10 |  10 | Ashu  |
+|   6 | Good day |   10 |  10 | Ashu  |
+|   7 | 50-50    |   10 |  10 | Ashu  |
++-----+----------+------+-----+-------+
+4 rows in set (0.00 sec)
+
+mysql> update product
+    -> set sid=13
+    -> where pname='50-50';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   13 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select pid,pname,p.sid,s.sid,sname
+    -> from product p,salesman s
+    -> where p.sid=s.sid;
++-----+----------+------+-----+--------+
+| pid | pname    | sid  | sid | sname  |
++-----+----------+------+-----+--------+
+|   1 | lays     |   10 |  10 | Ashu   |
+|   5 | Marie    |   10 |  10 | Ashu   |
+|   6 | Good day |   10 |  10 | Ashu   |
+|   7 | 50-50    |   13 |  13 | Rashmi |
++-----+----------+------+-----+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   13 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from category;
++-----+----------+-------------+
+| cid | cname    | description |
++-----+----------+-------------+
+|   1 | chips    | crispy      |
+|   3 | biscuits | tasty       |
+|   4 | NULL     | sweet1234   |
++-----+----------+-------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from salesman;
++-----+--------+---------+
+| sid | sname  | address |
++-----+--------+---------+
+|  10 | Ashu   | Pune    |
+|  13 | Rashmi | Mumbai  |
+|  14 | Nikhil | Mumbai  |
++-----+--------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select pname,cname,sname
+    -> from product p,category c,salesman s
+    -> where p.cid=c.cid and p.sid=s.sid;
++----------+----------+--------+
+| pname    | cname    | sname  |
++----------+----------+--------+
+| lays     | chips    | Ashu   |
+| Marie    | biscuits | Ashu   |
+| Good day | biscuits | Ashu   |
+| 50-50    | biscuits | Rashmi |
++----------+----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3456.00 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select * from salgrade;
++-------+-------+-------+
+| GRADE | LOSAL | HISAL |
++-------+-------+-------+
+|     1 |   700 |  1200 |
+|     2 |  1201 |  1400 |
+|     3 |  1401 |  2000 |
+|     4 |  2001 |  3000 |
+|     5 |  3001 |  9999 |
++-------+-------+-------+
+5 rows in set (0.01 sec)
+
+mysql> select empno,ename,sal,grade,losal,hisal
+    -> from salgrade s,emp e
+    -> where sal between losal and highsal;
+ERROR 1054 (42S22): Unknown column 'highsal' in 'where clause'
+mysql> select empno,ename,sal,grade,losal,hisal
+    -> from salgrade s,emp e
+    -> where sal between losal and hisal;
++-------+---------+---------+-------+-------+-------+
+| empno | ename   | sal     | grade | losal | hisal |
++-------+---------+---------+-------+-------+-------+
+|  7369 | SMITH   |  800.00 |     1 |   700 |  1200 |
+|  7499 | ALLEN   | 1600.00 |     3 |  1401 |  2000 |
+|  7521 | WARD    | 1250.00 |     2 |  1201 |  1400 |
+|  7566 | JONES   | 2975.00 |     4 |  2001 |  3000 |
+|  7654 | MARTIN  | 1250.00 |     2 |  1201 |  1400 |
+|  7698 | BLAKE   | 2850.00 |     4 |  2001 |  3000 |
+|  7782 | CLARK   | 2450.00 |     4 |  2001 |  3000 |
+|  7788 | SCOTT   | 3000.00 |     4 |  2001 |  3000 |
+|  7839 | KING    | 5000.00 |     5 |  3001 |  9999 |
+|  7844 | TURNER  | 1500.00 |     3 |  1401 |  2000 |
+|  7876 | ADAMS   | 1100.00 |     1 |   700 |  1200 |
+|  7900 | JAMES   |  950.00 |     1 |   700 |  1200 |
+|  7902 | FORD    | 3000.00 |     4 |  2001 |  3000 |
+|  7934 | MILLER  | 1300.00 |     2 |  1201 |  1400 |
+|     1 | kishori | 3456.00 |     5 |  3001 |  9999 |
++-------+---------+---------+-------+-------+-------+
+15 rows in set (0.00 sec)
+
+mysql> select empno,ename,sal,grade,losal,hisal
+    -> from salgrade s inner join emp e on sal between losal and hisal;
++-------+---------+---------+-------+-------+-------+
+| empno | ename   | sal     | grade | losal | hisal |
++-------+---------+---------+-------+-------+-------+
+|  7369 | SMITH   |  800.00 |     1 |   700 |  1200 |
+|  7499 | ALLEN   | 1600.00 |     3 |  1401 |  2000 |
+|  7521 | WARD    | 1250.00 |     2 |  1201 |  1400 |
+|  7566 | JONES   | 2975.00 |     4 |  2001 |  3000 |
+|  7654 | MARTIN  | 1250.00 |     2 |  1201 |  1400 |
+|  7698 | BLAKE   | 2850.00 |     4 |  2001 |  3000 |
+|  7782 | CLARK   | 2450.00 |     4 |  2001 |  3000 |
+|  7788 | SCOTT   | 3000.00 |     4 |  2001 |  3000 |
+|  7839 | KING    | 5000.00 |     5 |  3001 |  9999 |
+|  7844 | TURNER  | 1500.00 |     3 |  1401 |  2000 |
+|  7876 | ADAMS   | 1100.00 |     1 |   700 |  1200 |
+|  7900 | JAMES   |  950.00 |     1 |   700 |  1200 |
+|  7902 | FORD    | 3000.00 |     4 |  2001 |  3000 |
+|  7934 | MILLER  | 1300.00 |     2 |  1201 |  1400 |
+|     1 | kishori | 3456.00 |     5 |  3001 |  9999 |
++-------+---------+---------+-------+-------+-------+
+15 rows in set (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   13 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * fom category;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fom category' at line 1
+mysql> select * from category;
++-----+----------+-------------+
+| cid | cname    | description |
++-----+----------+-------------+
+|   1 | chips    | crispy      |
+|   3 | biscuits | tasty       |
+|   4 | NULL     | sweet1234   |
++-----+----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from salesman;
++-----+--------+---------+
+| sid | sname  | address |
++-----+--------+---------+
+|  10 | Ashu   | Pune    |
+|  13 | Rashmi | Mumbai  |
+|  14 | Nikhil | Mumbai  |
++-----+--------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select pname,cname,sname,address
+    -> from product p inner join category c on p.cid=c.cid inner join salesman s on p.sid=s.sid;
++----------+----------+--------+---------+
+| pname    | cname    | sname  | address |
++----------+----------+--------+---------+
+| lays     | chips    | Ashu   | Pune    |
+| Marie    | biscuits | Ashu   | Pune    |
+| Good day | biscuits | Ashu   | Pune    |
+| 50-50    | biscuits | Rashmi | Mumbai  |
++----------+----------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select pname,cname,sname,address
+    -> from product p inner join category c on p.cid=c.cid inner join salesman s on p.sid=s.sid
+    -> where address='pune;
+    '> ;
+    '> ^C
+mysql> select pname,cname,sname,address
+    -> from product p inner join category c on p.cid=c.cid inner join salesman s on p.sid=s.sid
+    -> where address='pune';
++----------+----------+-------+---------+
+| pname    | cname    | sname | address |
++----------+----------+-------+---------+
+| lays     | chips    | Ashu  | Pune    |
+| Marie    | biscuits | Ashu  | Pune    |
+| Good day | biscuits | Ashu  | Pune    |
++----------+----------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from empl
+    -> ;
+ERROR 1146 (42S02): Table 'knowitdb.empl' doesn't exist
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3456.00 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select empno,ename,e.deptno,d.deptno,dname
+    -> from emp e inner join dept d on e.deptno=d.deptno;
++-------+---------+--------+--------+------------+
+| empno | ename   | deptno | deptno | dname      |
++-------+---------+--------+--------+------------+
+|  7369 | SMITH   |     20 |     20 | RESEARCH   |
+|  7499 | ALLEN   |     30 |     30 | SALES      |
+|  7521 | WARD    |     30 |     30 | SALES      |
+|  7566 | JONES   |     20 |     20 | RESEARCH   |
+|  7654 | MARTIN  |     30 |     30 | SALES      |
+|  7698 | BLAKE   |     30 |     30 | SALES      |
+|  7782 | CLARK   |     10 |     10 | ACCOUNTING |
+|  7788 | SCOTT   |     20 |     20 | RESEARCH   |
+|  7839 | KING    |     10 |     10 | ACCOUNTING |
+|  7844 | TURNER  |     30 |     30 | SALES      |
+|  7876 | ADAMS   |     20 |     20 | RESEARCH   |
+|  7900 | JAMES   |     30 |     30 | SALES      |
+|  7902 | FORD    |     20 |     20 | RESEARCH   |
+|  7934 | MILLER  |     10 |     10 | ACCOUNTING |
+|     1 | kishori |     10 |     10 | ACCOUNTING |
++-------+---------+--------+--------+------------+
+15 rows in set (0.00 sec)
+
+mysql> select empno,ename,e.deptno,d.deptno,dname
+    -> from emp e right join dept d on e.deptno=d.deptno;
++-------+---------+--------+--------+------------+
+| empno | ename   | deptno | deptno | dname      |
++-------+---------+--------+--------+------------+
+|  7782 | CLARK   |     10 |     10 | ACCOUNTING |
+|  7839 | KING    |     10 |     10 | ACCOUNTING |
+|  7934 | MILLER  |     10 |     10 | ACCOUNTING |
+|     1 | kishori |     10 |     10 | ACCOUNTING |
+|  7369 | SMITH   |     20 |     20 | RESEARCH   |
+|  7566 | JONES   |     20 |     20 | RESEARCH   |
+|  7788 | SCOTT   |     20 |     20 | RESEARCH   |
+|  7876 | ADAMS   |     20 |     20 | RESEARCH   |
+|  7902 | FORD    |     20 |     20 | RESEARCH   |
+|  7499 | ALLEN   |     30 |     30 | SALES      |
+|  7521 | WARD    |     30 |     30 | SALES      |
+|  7654 | MARTIN  |     30 |     30 | SALES      |
+|  7698 | BLAKE   |     30 |     30 | SALES      |
+|  7844 | TURNER  |     30 |     30 | SALES      |
+|  7900 | JAMES   |     30 |     30 | SALES      |
+|  NULL | NULL    |   NULL |     40 | OPERATIONS |
++-------+---------+--------+--------+------------+
+16 rows in set (0.00 sec)
+
+mysql> select empno,ename,e.deptno,d.deptno,dname
+    -> from dept d left join emp e on e.deptno=d.deptno;
++-------+---------+--------+--------+------------+
+| empno | ename   | deptno | deptno | dname      |
++-------+---------+--------+--------+------------+
+|  7782 | CLARK   |     10 |     10 | ACCOUNTING |
+|  7839 | KING    |     10 |     10 | ACCOUNTING |
+|  7934 | MILLER  |     10 |     10 | ACCOUNTING |
+|     1 | kishori |     10 |     10 | ACCOUNTING |
+|  7369 | SMITH   |     20 |     20 | RESEARCH   |
+|  7566 | JONES   |     20 |     20 | RESEARCH   |
+|  7788 | SCOTT   |     20 |     20 | RESEARCH   |
+|  7876 | ADAMS   |     20 |     20 | RESEARCH   |
+|  7902 | FORD    |     20 |     20 | RESEARCH   |
+|  7499 | ALLEN   |     30 |     30 | SALES      |
+|  7521 | WARD    |     30 |     30 | SALES      |
+|  7654 | MARTIN  |     30 |     30 | SALES      |
+|  7698 | BLAKE   |     30 |     30 | SALES      |
+|  7844 | TURNER  |     30 |     30 | SALES      |
+|  7900 | JAMES   |     30 |     30 | SALES      |
+|  NULL | NULL    |   NULL |     40 | OPERATIONS |
++-------+---------+--------+--------+------------+
+16 rows in set (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   13 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from category;
++-----+----------+-------------+
+| cid | cname    | description |
++-----+----------+-------------+
+|   1 | chips    | crispy      |
+|   3 | biscuits | tasty       |
+|   4 | NULL     | sweet1234   |
++-----+----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> update category
+    -> set cname='chococlate'
+    -> where cid=4;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from categoryl
+    ->
+    -> ;
+ERROR 1146 (42S02): Table 'knowitdb.categoryl' doesn't exist
+mysql> select * from category;
++-----+------------+-------------+
+| cid | cname      | description |
++-----+------------+-------------+
+|   1 | chips      | crispy      |
+|   3 | biscuits   | tasty       |
+|   4 | chococlate | sweet1234   |
++-----+------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   13 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select pid,pname,p.cid,c.cname
+    -> from product p inner join category c on p.cid=c.cid;
++-----+----------+------+----------+
+| pid | pname    | cid  | cname    |
++-----+----------+------+----------+
+|   1 | lays     |    1 | chips    |
+|   5 | Marie    |    3 | biscuits |
+|   6 | Good day |    3 | biscuits |
+|   7 | 50-50    |    3 | biscuits |
++-----+----------+------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select pid,pname,p.cid,c.cname
+    -> from product p right join category c on p.cid=c.cid;
++------+----------+------+------------+
+| pid  | pname    | cid  | cname      |
++------+----------+------+------------+
+|    5 | Marie    |    3 | biscuits   |
+|    6 | Good day |    3 | biscuits   |
+|    7 | 50-50    |    3 | biscuits   |
+|    1 | lays     |    1 | chips      |
+| NULL | NULL     | NULL | chococlate |
++------+----------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select pid,pname,p.cid,c.cid,c.cname
+    -> from product p right join category c on p.cid=c.cid;
++------+----------+------+-----+------------+
+| pid  | pname    | cid  | cid | cname      |
++------+----------+------+-----+------------+
+|    5 | Marie    |    3 |   3 | biscuits   |
+|    6 | Good day |    3 |   3 | biscuits   |
+|    7 | 50-50    |    3 |   3 | biscuits   |
+|    1 | lays     |    1 |   1 | chips      |
+| NULL | NULL     | NULL |   4 | chococlate |
++------+----------+------+-----+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from product;
++-----+----------+------------+--------------+--------+------+------+------+
+| pid | pname    | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+----------+------------+--------------+--------+------+------+------+
+|   1 | lays     | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie    | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50    | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   13 |
++-----+----------+------------+--------------+--------+------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> insert into product(pid,pname,exp_dt,price) values(10,'coca cola','2021-06-30',40.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from product;
++-----+-----------+------------+--------------+--------+------+------+------+
+| pid | pname     | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+-----------+------------+--------------+--------+------+------+------+
+|   1 | lays      | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie     | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day  | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50     | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   13 |
+|  10 | coca cola | 2021-06-30 | NULL         |  40.00 | NULL | NULL | NULL |
++-----+-----------+------------+--------------+--------+------+------+------+
+5 rows in set (0.00 sec)
+
+mysql> select pid,pname,p.cid,c.cid,cname
+    -> from product p left join category c on p.cid=c.cid
+    -> union
+    -> select pid,pname,p.cid,c.cid,cname
+    -> from product p right join category c on p.cid=c.cid;
++------+-----------+------+------+------------+
+| pid  | pname     | cid  | cid  | cname      |
++------+-----------+------+------+------------+
+|    1 | lays      |    1 |    1 | chips      |
+|    5 | Marie     |    3 |    3 | biscuits   |
+|    6 | Good day  |    3 |    3 | biscuits   |
+|    7 | 50-50     |    3 |    3 | biscuits   |
+|   10 | coca cola | NULL | NULL | NULL       |
+| NULL | NULL      | NULL |    4 | chococlate |
++------+-----------+------+------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select empno,ename
+    -> from emp
+    -> where comm is not null and comm !=0
+    -> ;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    10
+Current database: knowitdb
+
++-------+---------+
+| empno | ename   |
++-------+---------+
+|  7499 | ALLEN   |
+|  7521 | WARD    |
+|  7654 | MARTIN  |
+|     1 | kishori |
++-------+---------+
+4 rows in set (0.02 sec)
+
+mysql> select empno,ename,sal,comm
+    -> from emp
+    -> where comm is not null and comm !=0
+    -> ;
++-------+---------+---------+---------+
+| empno | ename   | sal     | comm    |
++-------+---------+---------+---------+
+|  7499 | ALLEN   | 1600.00 |  300.00 |
+|  7521 | WARD    | 1250.00 |  500.00 |
+|  7654 | MARTIN  | 1250.00 | 1400.00 |
+|     1 | kishori | 3456.00 |  678.00 |
++-------+---------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3456.00 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+mysql> update emp
+    -> set sal=1.15*sal
+    -> where comm is not null and comm!=0;
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1840.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1437.50 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1437.50 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3974.40 |  678.00 |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+15 rows in set (0.00 sec)
+
+mysql> insert into emp(empno,ename,job,mgr,hiredate,sal) values(2,'Rajan','CLERK',102,'1992-02-03',5000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1840.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1437.50 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1437.50 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3974.40 |  678.00 |     10 |
+|     2 | Rajan   | CLERK     |  102 | 1992-02-03 | 5000.00 |    NULL |   NULL |
++-------+---------+-----------+------+------------+---------+---------+--------+
+16 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select empno,ename,e.deptno,d.deptno,dname
+    -> from emp e inner join dept d on e.deptno=d.deptno;
++-------+---------+--------+--------+------------+
+| empno | ename   | deptno | deptno | dname      |
++-------+---------+--------+--------+------------+
+|  7369 | SMITH   |     20 |     20 | RESEARCH   |
+|  7499 | ALLEN   |     30 |     30 | SALES      |
+|  7521 | WARD    |     30 |     30 | SALES      |
+|  7566 | JONES   |     20 |     20 | RESEARCH   |
+|  7654 | MARTIN  |     30 |     30 | SALES      |
+|  7698 | BLAKE   |     30 |     30 | SALES      |
+|  7782 | CLARK   |     10 |     10 | ACCOUNTING |
+|  7788 | SCOTT   |     20 |     20 | RESEARCH   |
+|  7839 | KING    |     10 |     10 | ACCOUNTING |
+|  7844 | TURNER  |     30 |     30 | SALES      |
+|  7876 | ADAMS   |     20 |     20 | RESEARCH   |
+|  7900 | JAMES   |     30 |     30 | SALES      |
+|  7902 | FORD    |     20 |     20 | RESEARCH   |
+|  7934 | MILLER  |     10 |     10 | ACCOUNTING |
+|     1 | kishori |     10 |     10 | ACCOUNTING |
++-------+---------+--------+--------+------------+
+15 rows in set (0.00 sec)
+
+mysql> select empno,ename,e.deptno,d.deptno,dname
+    -> from emp e left join dept d on e.deptno=d.deptno;
++-------+---------+--------+--------+------------+
+| empno | ename   | deptno | deptno | dname      |
++-------+---------+--------+--------+------------+
+|  7369 | SMITH   |     20 |     20 | RESEARCH   |
+|  7499 | ALLEN   |     30 |     30 | SALES      |
+|  7521 | WARD    |     30 |     30 | SALES      |
+|  7566 | JONES   |     20 |     20 | RESEARCH   |
+|  7654 | MARTIN  |     30 |     30 | SALES      |
+|  7698 | BLAKE   |     30 |     30 | SALES      |
+|  7782 | CLARK   |     10 |     10 | ACCOUNTING |
+|  7788 | SCOTT   |     20 |     20 | RESEARCH   |
+|  7839 | KING    |     10 |     10 | ACCOUNTING |
+|  7844 | TURNER  |     30 |     30 | SALES      |
+|  7876 | ADAMS   |     20 |     20 | RESEARCH   |
+|  7900 | JAMES   |     30 |     30 | SALES      |
+|  7902 | FORD    |     20 |     20 | RESEARCH   |
+|  7934 | MILLER  |     10 |     10 | ACCOUNTING |
+|     1 | kishori |     10 |     10 | ACCOUNTING |
+|     2 | Rajan   |   NULL |   NULL | NULL       |
++-------+---------+--------+--------+------------+
+16 rows in set (0.00 sec)
+
+mysql> select empno,ename,e.deptno,d.deptno,dname
+    -> from emp e right join dept d on e.deptno=d.deptno;
++-------+---------+--------+--------+------------+
+| empno | ename   | deptno | deptno | dname      |
++-------+---------+--------+--------+------------+
+|  7782 | CLARK   |     10 |     10 | ACCOUNTING |
+|  7839 | KING    |     10 |     10 | ACCOUNTING |
+|  7934 | MILLER  |     10 |     10 | ACCOUNTING |
+|     1 | kishori |     10 |     10 | ACCOUNTING |
+|  7369 | SMITH   |     20 |     20 | RESEARCH   |
+|  7566 | JONES   |     20 |     20 | RESEARCH   |
+|  7788 | SCOTT   |     20 |     20 | RESEARCH   |
+|  7876 | ADAMS   |     20 |     20 | RESEARCH   |
+|  7902 | FORD    |     20 |     20 | RESEARCH   |
+|  7499 | ALLEN   |     30 |     30 | SALES      |
+|  7521 | WARD    |     30 |     30 | SALES      |
+|  7654 | MARTIN  |     30 |     30 | SALES      |
+|  7698 | BLAKE   |     30 |     30 | SALES      |
+|  7844 | TURNER  |     30 |     30 | SALES      |
+|  7900 | JAMES   |     30 |     30 | SALES      |
+|  NULL | NULL    |   NULL |     40 | OPERATIONS |
++-------+---------+--------+--------+------------+
+16 rows in set (0.00 sec)
+
+mysql> select empno,ename,e.deptno,d.deptno,dname
+    -> from emp e left join dept d on e.deptno=d.deptno
+    -> union
+    -> select empno,ename,e.deptno,d.deptno,dname
+    -> from emp e right join dept d on e.deptno=d.deptno;
++-------+---------+--------+--------+------------+
+| empno | ename   | deptno | deptno | dname      |
++-------+---------+--------+--------+------------+
+|  7369 | SMITH   |     20 |     20 | RESEARCH   |
+|  7499 | ALLEN   |     30 |     30 | SALES      |
+|  7521 | WARD    |     30 |     30 | SALES      |
+|  7566 | JONES   |     20 |     20 | RESEARCH   |
+|  7654 | MARTIN  |     30 |     30 | SALES      |
+|  7698 | BLAKE   |     30 |     30 | SALES      |
+|  7782 | CLARK   |     10 |     10 | ACCOUNTING |
+|  7788 | SCOTT   |     20 |     20 | RESEARCH   |
+|  7839 | KING    |     10 |     10 | ACCOUNTING |
+|  7844 | TURNER  |     30 |     30 | SALES      |
+|  7876 | ADAMS   |     20 |     20 | RESEARCH   |
+|  7900 | JAMES   |     30 |     30 | SALES      |
+|  7902 | FORD    |     20 |     20 | RESEARCH   |
+|  7934 | MILLER  |     10 |     10 | ACCOUNTING |
+|     1 | kishori |     10 |     10 | ACCOUNTING |
+|     2 | Rajan   |   NULL |   NULL | NULL       |
+|  NULL | NULL    |   NULL |     40 | OPERATIONS |
++-------+---------+--------+--------+------------+
+17 rows in set (0.00 sec)
+
+mysql> select empno,e.deptno,d.deptno
+    -> from emp e inner join dept d;
++-------+--------+--------+
+| empno | deptno | deptno |
++-------+--------+--------+
+|  7369 |     20 |     10 |
+|  7369 |     20 |     20 |
+|  7369 |     20 |     30 |
+|  7369 |     20 |     40 |
+|  7499 |     30 |     10 |
+|  7499 |     30 |     20 |
+|  7499 |     30 |     30 |
+|  7499 |     30 |     40 |
+|  7521 |     30 |     10 |
+|  7521 |     30 |     20 |
+|  7521 |     30 |     30 |
+|  7521 |     30 |     40 |
+|  7566 |     20 |     10 |
+|  7566 |     20 |     20 |
+|  7566 |     20 |     30 |
+|  7566 |     20 |     40 |
+|  7654 |     30 |     10 |
+|  7654 |     30 |     20 |
+|  7654 |     30 |     30 |
+|  7654 |     30 |     40 |
+|  7698 |     30 |     10 |
+|  7698 |     30 |     20 |
+|  7698 |     30 |     30 |
+|  7698 |     30 |     40 |
+|  7782 |     10 |     10 |
+|  7782 |     10 |     20 |
+|  7782 |     10 |     30 |
+|  7782 |     10 |     40 |
+|  7788 |     20 |     10 |
+|  7788 |     20 |     20 |
+|  7788 |     20 |     30 |
+|  7788 |     20 |     40 |
+|  7839 |     10 |     10 |
+|  7839 |     10 |     20 |
+|  7839 |     10 |     30 |
+|  7839 |     10 |     40 |
+|  7844 |     30 |     10 |
+|  7844 |     30 |     20 |
+|  7844 |     30 |     30 |
+|  7844 |     30 |     40 |
+|  7876 |     20 |     10 |
+|  7876 |     20 |     20 |
+|  7876 |     20 |     30 |
+|  7876 |     20 |     40 |
+|  7900 |     30 |     10 |
+|  7900 |     30 |     20 |
+|  7900 |     30 |     30 |
+|  7900 |     30 |     40 |
+|  7902 |     20 |     10 |
+|  7902 |     20 |     20 |
+|  7902 |     20 |     30 |
+|  7902 |     20 |     40 |
+|  7934 |     10 |     10 |
+|  7934 |     10 |     20 |
+|  7934 |     10 |     30 |
+|  7934 |     10 |     40 |
+|     1 |     10 |     10 |
+|     1 |     10 |     20 |
+|     1 |     10 |     30 |
+|     1 |     10 |     40 |
+|     2 |   NULL |     10 |
+|     2 |   NULL |     20 |
+|     2 |   NULL |     30 |
+|     2 |   NULL |     40 |
++-------+--------+--------+
+64 rows in set (0.00 sec)
+
+mysql> select emp.deptno from emp inner join dept on dept.deptno=emp.deptno;
++--------+
+| deptno |
++--------+
+|     20 |
+|     30 |
+|     30 |
+|     20 |
+|     30 |
+|     30 |
+|     10 |
+|     20 |
+|     10 |
+|     30 |
+|     20 |
+|     30 |
+|     20 |
+|     10 |
+|     10 |
++--------+
+15 rows in set (0.00 sec)
+
+mysql> select emp.deptno,dept.deptno,ename from emp inner join dept on dept.deptno=emp.deptno;
++--------+--------+---------+
+| deptno | deptno | ename   |
++--------+--------+---------+
+|     20 |     20 | SMITH   |
+|     30 |     30 | ALLEN   |
+|     30 |     30 | WARD    |
+|     20 |     20 | JONES   |
+|     30 |     30 | MARTIN  |
+|     30 |     30 | BLAKE   |
+|     10 |     10 | CLARK   |
+|     20 |     20 | SCOTT   |
+|     10 |     10 | KING    |
+|     30 |     30 | TURNER  |
+|     20 |     20 | ADAMS   |
+|     30 |     30 | JAMES   |
+|     20 |     20 | FORD    |
+|     10 |     10 | MILLER  |
+|     10 |     10 | kishori |
++--------+--------+---------+
+15 rows in set (0.00 sec)
+
+mysql> create index sal_idx
+    -> on emp(sal);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *
+    -> from emp
+    -> where sal>2000;
++-------+---------+-----------+------+------------+---------+--------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM   | DEPTNO |
++-------+---------+-----------+------+------------+---------+--------+--------+
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |   NULL |     10 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |   NULL |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |   NULL |     20 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |   NULL |     20 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |   NULL |     20 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3974.40 | 678.00 |     10 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |   NULL |     10 |
+|     2 | Rajan   | CLERK     |  102 | 1992-02-03 | 5000.00 |   NULL |   NULL |
++-------+---------+-----------+------+------------+---------+--------+--------+
+8 rows in set (0.00 sec)
+
+mysql> show indexes from emp;
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| emp   |          1 | sal_idx  |            1 | SAL         | A         |          13 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+1 row in set (0.01 sec)
+
+mysql> desc emp;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| EMPNO    | int          | NO   |     | NULL    |       |
+| ENAME    | varchar(10)  | YES  |     | NULL    |       |
+| JOB      | varchar(9)   | YES  |     | NULL    |       |
+| MGR      | int          | YES  |     | NULL    |       |
+| HIREDATE | date         | YES  |     | NULL    |       |
+| SAL      | decimal(7,2) | YES  | MUL | NULL    |       |
+| COMM     | decimal(7,2) | YES  |     | NULL    |       |
+| DEPTNO   | int          | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> show indexes from salesman;
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table    | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| salesman |          0 | PRIMARY  |            1 | sid         | A         |           3 |     NULL |   NULL |      | BTREE      |         |               | YES     | NULL       |
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+1 row in set (0.01 sec)
+
+mysql> drop index sal_idx on emp;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> explain select *
+    -> ;
+ERROR 1096 (HY000): No tables used
+mysql> create index sal_idx
+    -> on emp(sal);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> explain select *
+    -> from emp
+    -> where sal>2000;
++----+-------------+-------+------------+-------+---------------+---------+---------+------+------+----------+-----------------------+
+| id | select_type | table | partitions | type  | possible_keys | key     | key_len | ref  | rows | filtered | Extra                 |
++----+-------------+-------+------------+-------+---------------+---------+---------+------+------+----------+-----------------------+
+|  1 | SIMPLE      | emp   | NULL       | range | sal_idx       | sal_idx | 5       | NULL |    8 |   100.00 | Using index condition |
++----+-------------+-------+------------+-------+---------------+---------+---------+------+------+----------+-----------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> create index ename_idx
+    -> on emp(ename desc);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> explain select *
+    -> from emp
+    -> where ename='SMITH'
+    -> ;
++----+-------------+-------+------------+------+---------------+-----------+---------+-------+------+----------+-------+
+| id | select_type | table | partitions | type | possible_keys | key       | key_len | ref   | rows | filtered | Extra |
++----+-------------+-------+------------+------+---------------+-----------+---------+-------+------+----------+-------+
+|  1 | SIMPLE      | emp   | NULL       | ref  | ename_idx     | ename_idx | 43      | const |    1 |   100.00 | NULL  |
++----+-------------+-------+------------+------+---------------+-----------+---------+-------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select * from emp
+    -> where ename='SMITH'
+    -> ;
++-------+-------+-------+------+------------+--------+------+--------+
+| EMPNO | ENAME | JOB   | MGR  | HIREDATE   | SAL    | COMM | DEPTNO |
++-------+-------+-------+------+------------+--------+------+--------+
+|  7369 | SMITH | CLERK | 7902 | 1980-12-17 | 800.00 | NULL |     20 |
++-------+-------+-------+------+------------+--------+------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from  emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1840.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1437.50 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1437.50 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3974.40 |  678.00 |     10 |
+|     2 | Rajan   | CLERK     |  102 | 1992-02-03 | 5000.00 |    NULL |   NULL |
++-------+---------+-----------+------+------------+---------+---------+--------+
+16 rows in set (0.00 sec)
+
+mysql> create view mgr10
+    -> as
+    -> select empno,ename,sal,job
+    -> from emp
+    -> where deptno=10;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from mgr10;
++-------+---------+---------+-----------+
+| empno | ename   | sal     | job       |
++-------+---------+---------+-----------+
+|  7782 | CLARK   | 2450.00 | MANAGER   |
+|  7839 | KING    | 5000.00 | PRESIDENT |
+|  7934 | MILLER  | 1300.00 | CLERK     |
+|     1 | kishori | 3974.40 | MANAGER   |
++-------+---------+---------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> insert into emp values(12,'Revati','ux designer',7934,'200-04-27',3456,456,10)
+    -> ;
+ERROR 1406 (22001): Data too long for column 'JOB' at row 1
+mysql> insert into emp values(12,'Revati','designer',7934,'200-04-27',3456,456,10)
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from mgr10;
++-------+---------+---------+-----------+
+| empno | ename   | sal     | job       |
++-------+---------+---------+-----------+
+|  7782 | CLARK   | 2450.00 | MANAGER   |
+|  7839 | KING    | 5000.00 | PRESIDENT |
+|  7934 | MILLER  | 1300.00 | CLERK     |
+|     1 | kishori | 3974.40 | MANAGER   |
+|    12 | Revati  | 3456.00 | designer  |
++-------+---------+---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into emp values(15,'Rajan','designer',7934,'200-04-27',3456,456,20)
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from mgr10;
++-------+---------+---------+-----------+
+| empno | ename   | sal     | job       |
++-------+---------+---------+-----------+
+|  7782 | CLARK   | 2450.00 | MANAGER   |
+|  7839 | KING    | 5000.00 | PRESIDENT |
+|  7934 | MILLER  | 1300.00 | CLERK     |
+|     1 | kishori | 3974.40 | MANAGER   |
+|    12 | Revati  | 3456.00 | designer  |
++-------+---------+---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into mgr10 values(2345,'xxx',3456,'xxxxddd');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 1840.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1437.50 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1437.50 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 3974.40 |  678.00 |     10 |
+|     2 | Rajan   | CLERK     |  102 | 1992-02-03 | 5000.00 |    NULL |   NULL |
+|    12 | Revati  | designer  | 7934 | 0200-04-27 | 3456.00 |  456.00 |     10 |
+|    15 | Rajan   | designer  | 7934 | 0200-04-27 | 3456.00 |  456.00 |     20 |
+|  2345 | xxx     | xxxxddd   | NULL | NULL       | 3456.00 |    NULL |   NULL |
++-------+---------+-----------+------+------------+---------+---------+--------+
+19 rows in set (0.00 sec)
+
+mysql> select * from mgr10;
++-------+---------+---------+-----------+
+| empno | ename   | sal     | job       |
++-------+---------+---------+-----------+
+|  7782 | CLARK   | 2450.00 | MANAGER   |
+|  7839 | KING    | 5000.00 | PRESIDENT |
+|  7934 | MILLER  | 1300.00 | CLERK     |
+|     1 | kishori | 3974.40 | MANAGER   |
+|    12 | Revati  | 3456.00 | designer  |
++-------+---------+---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> create view mgr10_11
+    -> as
+    -> select empno,ename,job,sal,deptno
+    -> from emp
+    -> where deptno=10
+    -> with check option constraint cn;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'constraint cn' at line 6
+mysql> select empno,ename,job,sal,deptno
+    -> ;
+ERROR 1054 (42S22): Unknown column 'empno' in 'field list'
+mysql> create view mgr10_11
+    -> as
+    -> select empno,ename,job,sal,deptno
+    -> from emp
+    -> where deptno=10
+    -> with check constraint cn;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'constraint cn' at line 6
+mysql> create view mgr10_11
+    -> as
+    -> select empno,ename,job,sal,deptno
+    -> from emp
+    -> where deptno=10
+    -> with check option;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into mgr10_11 values(123,'deepa','ANALYST',3456,10);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into mgr10_11 values(111,'Ashu','ANALYST',3456,20);
+ERROR 1369 (HY000): CHECK OPTION failed 'knowitdb.mgr10_11'
+mysql> create table inia_emp(
+    -> empno int,
+    -> ename varchar(20);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> create table india_emp
+    -> (empno int,ename varchar(20),sal int);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table US_emp
+    ->
+    -> (empno int,ename varchar(20),sal int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table japan_emp
+    -> (empno int,ename varchar(20),sal int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into india_emp values(123,'cccc',2345)
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into india_emp values(124,'aaa',2345);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into india_emp values(125,'bbb',5678);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from india_emp
+    -> ;
++-------+-------+------+
+| empno | ename | sal  |
++-------+-------+------+
+|   123 | cccc  | 2345 |
+|   124 | aaa   | 2345 |
+|   125 | bbb   | 5678 |
++-------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> insert into us_emp values(125,'bbb',5678);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into us_emp values(100,'vvv',5678);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into us_emp values(101,'xxx',6756);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from us_emp;
++-------+-------+------+
+| empno | ename | sal  |
++-------+-------+------+
+|   125 | bbb   | 5678 |
+|   100 | vvv   | 5678 |
+|   101 | xxx   | 6756 |
++-------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> insert into japan_emp values(101,'xxx',6756);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into japan_emp values(102,'ttt',111);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from japan_emp;
++-------+-------+------+
+| empno | ename | sal  |
++-------+-------+------+
+|   101 | xxx   | 6756 |
+|   102 | ttt   |  111 |
++-------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select *
+    -> from india_emp;
++-------+-------+------+
+| empno | ename | sal  |
++-------+-------+------+
+|   123 | cccc  | 2345 |
+|   124 | aaa   | 2345 |
+|   125 | bbb   | 5678 |
++-------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> select *
+    -> from india_emp
+    -> union
+    -> select * from us_emp
+    -> union
+    -> select * from japan+emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '+emp' at line 6
+mysql> select * from india_emp
+    -> union
+    -> select * from us_emp
+    -> union
+    -> select * from japan_emp;
++-------+-------+------+
+| empno | ename | sal  |
++-------+-------+------+
+|   123 | cccc  | 2345 |
+|   124 | aaa   | 2345 |
+|   125 | bbb   | 5678 |
+|   100 | vvv   | 5678 |
+|   101 | xxx   | 6756 |
+|   102 | ttt   |  111 |
++-------+-------+------+
+6 rows in set (0.00 sec)
+
+mysql> create view all_emp
+    -> as
+    -> select * from india_emp
+    -> union
+    -> select * from us_emp
+    -> union
+    -> select * from japan_emp;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from all_emp;
++-------+-------+------+
+| empno | ename | sal  |
++-------+-------+------+
+|   123 | cccc  | 2345 |
+|   124 | aaa   | 2345 |
+|   125 | bbb   | 5678 |
+|   100 | vvv   | 5678 |
+|   101 | xxx   | 6756 |
+|   102 | ttt   |  111 |
++-------+-------+------+
+6 rows in set (0.00 sec)
+
+mysql> insert into all_emp values(124,'sdsd',3456);
+ERROR 1471 (HY000): The target table all_emp of the INSERT is not insertable-into
+mysql> select ename,dname
+    -> from emp e inner join dept d on e.deptno=d.deptno
+    -> where sal>2000;
++---------+------------+
+| ename   | dname      |
++---------+------------+
+| JONES   | RESEARCH   |
+| BLAKE   | SALES      |
+| CLARK   | ACCOUNTING |
+| SCOTT   | RESEARCH   |
+| KING    | ACCOUNTING |
+| FORD    | RESEARCH   |
+| kishori | ACCOUNTING |
+| Revati  | ACCOUNTING |
+| Rajan   | RESEARCH   |
+| deepa   | ACCOUNTING |
++---------+------------+
+10 rows in set (0.00 sec)
+
+mysql> create view emp_dept
+    -> as
+    -> select ename,dname
+    -> from emp e inner join dept d on e.deptno=d.deptno
+    -> where sal>2000;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from emp_dept;
++---------+------------+
+| ename   | dname      |
++---------+------------+
+| JONES   | RESEARCH   |
+| BLAKE   | SALES      |
+| CLARK   | ACCOUNTING |
+| SCOTT   | RESEARCH   |
+| KING    | ACCOUNTING |
+| FORD    | RESEARCH   |
+| kishori | ACCOUNTING |
+| Revati  | ACCOUNTING |
+| Rajan   | RESEARCH   |
+| deepa   | ACCOUNTING |
++---------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select table_name from information_schema.tables where table_type='VIEW' and table_schema like 'knowitdb';
++------------+
+| TABLE_NAME |
++------------+
+| mgr10      |
+| mgr10_11   |
+| all_emp    |
+| emp_dept   |
++------------+
+4 rows in set (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> insert into dept values(50,'purchase','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
++--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
++--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into dept values(51,'xxx','pune');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     51 | xxx        | pune     |
++--------+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
++--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into dept values(51,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into dept values(52,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into dept values(53,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into dept values(54,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     51 | xxx        | pune     |
+|     52 | xxx        | pune     |
+|     53 | xxx        | pune     |
+|     54 | xxx        | pune     |
++--------+------------+----------+
+9 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
++--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into dept values(51,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into dept values(52,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint A
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into dept values(53,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into dept values(54,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint B
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     51 | xxx        | pune     |
+|     52 | xxx        | pune     |
+|     53 | xxx        | pune     |
+|     54 | xxx        | pune     |
++--------+------------+----------+
+9 rows in set (0.00 sec)
+
+mysql> insert into dept values(55,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     51 | xxx        | pune     |
+|     52 | xxx        | pune     |
+|     53 | xxx        | pune     |
+|     54 | xxx        | pune     |
+|     55 | xxx        | pune     |
++--------+------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> rollback to B
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     51 | xxx        | pune     |
+|     52 | xxx        | pune     |
+|     53 | xxx        | pune     |
+|     54 | xxx        | pune     |
++--------+------------+----------+
+9 rows in set (0.00 sec)
+
+mysql> rollback to A
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     51 | xxx        | pune     |
+|     52 | xxx        | pune     |
++--------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     51 | xxx        | pune     |
+|     52 | xxx        | pune     |
++--------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> delete from dept where dname='xxx';
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
++--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     51 | xxx        | pune     |
+|     52 | xxx        | pune     |
++--------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> delete from dept where dname='xxx';
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into dept values(55,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint A
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into dept values(56,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint A;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
++--------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> rollback to A;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
++--------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> insert into dept values(57,'xxx','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
+|     57 | xxx        | pune     |
++--------+------------+----------+
+8 rows in set (0.00 sec)
+
+mysql> rollback to A;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
++--------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> set autocommit=1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
