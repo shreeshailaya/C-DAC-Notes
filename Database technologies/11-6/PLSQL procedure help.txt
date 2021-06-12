@@ -1,0 +1,654 @@
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.22 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
+ERROR 1046 (3D000): No database selected
+mysql> use knowitdb;
+Database changed
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
++--------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> delete from dept where deptno in (55,56);
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
++--------+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
++--------+------------+----------+
+7 rows in set (0.00 sec)
+
+mysql> insert into dept values(51,'aaa','ddd');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into dept values(52,'zzz','ddd');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> savepoint A
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into dept values(54,'ccc','ddd');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into dept values(57,'ccc','ddd');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint B
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into dept values(58,'ccc','ddd');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
+|     51 | aaa        | ddd      |
+|     52 | zzz        | ddd      |
+|     54 | ccc        | ddd      |
+|     57 | ccc        | ddd      |
+|     58 | ccc        | ddd      |
++--------+------------+----------+
+12 rows in set (0.00 sec)
+
+mysql> rollback to A
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
+|     51 | aaa        | ddd      |
+|     52 | zzz        | ddd      |
++--------+------------+----------+
+9 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
+|     51 | aaa        | ddd      |
+|     52 | zzz        | ddd      |
++--------+------------+----------+
+9 rows in set (0.00 sec)
+
+mysql> set autocommit=1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for root;
+ERROR 1141 (42000): There is no such grant defined for user 'root' on host '%'
+mysql> select current_user()
+    -> ;
++----------------+
+| current_user() |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select user from mysql.user;
++------------------+
+| user             |
++------------------+
+| mysql.infoschema |
+| mysql.session    |
+| mysql.sys        |
+| root             |
++------------------+
+4 rows in set (0.01 sec)
+
+mysql> show tables
+    -> ;
++--------------------+
+| Tables_in_knowitdb |
++--------------------+
+| all_emp            |
+| bonus              |
+| category           |
+| dept               |
+| dummy              |
+| emp                |
+| emp_allowance      |
+| emp_back           |
+| emp_dept           |
+| india_emp          |
+| japan_emp          |
+| mgr10              |
+| mgr10_11           |
+| product            |
+| room               |
+| salesman           |
+| salgrade           |
+| testing            |
+| us_emp             |
+| vehicle_history    |
++--------------------+
+20 rows in set (0.01 sec)
+
+mysql> use test;
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_test |
++----------------+
+| address        |
+| addressmany    |
+| addressmany1   |
+| category       |
+| custtab1       |
+| custtab11      |
+| emptab1        |
+| emptab11       |
+| myprod11       |
+| myproduct      |
+| myuser         |
+| myuser12       |
+| orderitem      |
+| persontab      |
+| pertab11       |
+| product        |
+| quetions       |
+| student        |
+| user           |
+| user_address   |
+| useraddress    |
+| userentity     |
+| usermany       |
+| usermany1      |
++----------------+
+24 rows in set (0.00 sec)
+
+mysql> use information_schema;
+Database changed
+mysql> show tables;
++---------------------------------------+
+| Tables_in_information_schema          |
++---------------------------------------+
+| ADMINISTRABLE_ROLE_AUTHORIZATIONS     |
+| APPLICABLE_ROLES                      |
+| CHARACTER_SETS                        |
+| CHECK_CONSTRAINTS                     |
+| COLLATION_CHARACTER_SET_APPLICABILITY |
+| COLLATIONS                            |
+| COLUMN_PRIVILEGES                     |
+| COLUMN_STATISTICS                     |
+| COLUMNS                               |
+| COLUMNS_EXTENSIONS                    |
+| ENABLED_ROLES                         |
+| ENGINES                               |
+| EVENTS                                |
+| FILES                                 |
+| INNODB_BUFFER_PAGE                    |
+| INNODB_BUFFER_PAGE_LRU                |
+| INNODB_BUFFER_POOL_STATS              |
+| INNODB_CACHED_INDEXES                 |
+| INNODB_CMP                            |
+| INNODB_CMP_PER_INDEX                  |
+| INNODB_CMP_PER_INDEX_RESET            |
+| INNODB_CMP_RESET                      |
+| INNODB_CMPMEM                         |
+| INNODB_CMPMEM_RESET                   |
+| INNODB_COLUMNS                        |
+| INNODB_DATAFILES                      |
+| INNODB_FIELDS                         |
+| INNODB_FOREIGN                        |
+| INNODB_FOREIGN_COLS                   |
+| INNODB_FT_BEING_DELETED               |
+| INNODB_FT_CONFIG                      |
+| INNODB_FT_DEFAULT_STOPWORD            |
+| INNODB_FT_DELETED                     |
+| INNODB_FT_INDEX_CACHE                 |
+| INNODB_FT_INDEX_TABLE                 |
+| INNODB_INDEXES                        |
+| INNODB_METRICS                        |
+| INNODB_SESSION_TEMP_TABLESPACES       |
+| INNODB_TABLES                         |
+| INNODB_TABLESPACES                    |
+| INNODB_TABLESPACES_BRIEF              |
+| INNODB_TABLESTATS                     |
+| INNODB_TEMP_TABLE_INFO                |
+| INNODB_TRX                            |
+| INNODB_VIRTUAL                        |
+| KEY_COLUMN_USAGE                      |
+| KEYWORDS                              |
+| OPTIMIZER_TRACE                       |
+| PARAMETERS                            |
+| PARTITIONS                            |
+| PLUGINS                               |
+| PROCESSLIST                           |
+| PROFILING                             |
+| REFERENTIAL_CONSTRAINTS               |
+| RESOURCE_GROUPS                       |
+| ROLE_COLUMN_GRANTS                    |
+| ROLE_ROUTINE_GRANTS                   |
+| ROLE_TABLE_GRANTS                     |
+| ROUTINES                              |
+| SCHEMA_PRIVILEGES                     |
+| SCHEMATA                              |
+| SCHEMATA_EXTENSIONS                   |
+| ST_GEOMETRY_COLUMNS                   |
+| ST_SPATIAL_REFERENCE_SYSTEMS          |
+| ST_UNITS_OF_MEASURE                   |
+| STATISTICS                            |
+| TABLE_CONSTRAINTS                     |
+| TABLE_CONSTRAINTS_EXTENSIONS          |
+| TABLE_PRIVILEGES                      |
+| TABLES                                |
+| TABLES_EXTENSIONS                     |
+| TABLESPACES                           |
+| TABLESPACES_EXTENSIONS                |
+| TRIGGERS                              |
+| USER_ATTRIBUTES                       |
+| USER_PRIVILEGES                       |
+| VIEW_ROUTINE_USAGE                    |
+| VIEW_TABLE_USAGE                      |
+| VIEWS                                 |
++---------------------------------------+
+79 rows in set (0.01 sec)
+
+mysql> use knowitdb;
+Database changed
+mysql> delimiter //
+mysql> create procedure myproc(in pdeptno int ,out pcnt int)
+    -> begin
+    ->       set pcnt=0;
+    ->       select count(*) into pcnt
+    ->       from emp
+    ->       where deptno=pdeptno;
+    -> end//
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    14
+Current database: knowitdb
+
+Query OK, 0 rows affected (0.09 sec)
+
+mysql>
+mysql> delimiter ;
+mysql> call myproc(10,@cnt);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select @cnt;
++------+
+| @cnt |
++------+
+|    6 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from emp where deptno=10;'
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+    '>
+    '> select count(*) from emp where deptno=20;
+    '> ^C
+mysql> select count(*) from emp where deptno=20;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> call myproc(20,@cnt);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> drop procedure myproc;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter //
+mysql> create procedure myproc(in pdeptno int)
+    -> begin
+    ->    select count(*)
+    -> from emp
+    -> where deptno=pdeptno;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call myproc(10);
+    -> //
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter //
+mysql> drop procedure myproc;
+    -> ;
+    -> //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure myproc(pdeptno in)
+    -> begin
+    ->    //
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'in)
+begin' at line 1
+mysql> create procedure myproc(pdeptno int)
+    -> begin
+    ->    select count(*)
+    ->    from emp;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call myproc(10);
+    -> //
++----------+
+| count(*) |
++----------+
+|       20 |
++----------+
+1 row in set (0.02 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop procedure myproc;
+    -> //
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create procedure myproc(pdeptno int)
+    -> begin
+    ->    select count(*)
+    ->    from emp
+    ->    where deptno=pdeptno;
+    -> end//
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call myproc(10);
+    -> //
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter ;
+mysql> select * from dept
+    -> ;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
+|     51 | aaa        | ddd      |
+|     52 | zzz        | ddd      |
++--------+------------+----------+
+9 rows in set (0.00 sec)
+
+mysql> create procedure myproc11
+    -> begin
+    ->    select *
+    ->     from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'begin
+   select *
+    from emp' at line 2
+mysql> delimiter //
+mysql> create procedure myproc11
+    -> begin
+    ->    select *
+    ->     from emp;
+    ->    select * from dept;
+    ->    select * from grade;
+    ->    select * from product
+    -> end//
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'begin
+   select *
+    from emp;
+   select * from dept;
+   select * from grade;
+ ' at line 2
+mysql> create procedure myproc11()
+    -> begin
+    ->    select *
+    ->     from emp;
+    ->    select * from dept;
+    ->    select * from product
+    -> end//
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 7
+mysql> create procedure myproc11()
+    -> begin
+    ->    select *
+    ->     from emp;
+    ->    select * from dept;
+    ->    select * from product;
+    ->   end//
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from emp
+    -> ;
+    -> //
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 | 1000.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 2300.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1796.88 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 3718.75 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1796.88 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 3562.50 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 3062.50 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3600.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 6250.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1875.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1320.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 | 1187.50 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3750.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1625.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 4968.00 |  678.00 |     10 |
+|     2 | Rajan   | CLERK     |  102 | 1992-02-03 | 6250.00 |    NULL |   NULL |
+|    12 | Revati  | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     10 |
+|    15 | Rajan   | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     20 |
+|  2345 | xxx     | xxxxddd   | NULL | NULL       | 4320.00 |    NULL |   NULL |
+|   123 | deepa   | ANALYST   | NULL | NULL       | 4320.00 |    NULL |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+20 rows in set (0.00 sec)
+
+mysql> delimiter {
+mysql> create procedure test()
+    -> begin
+    ->     select * from emp;
+    -> end{
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call myproc11();
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 | 1000.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 2300.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1796.88 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 3718.75 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1796.88 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 3562.50 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 3062.50 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3600.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 6250.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1875.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1320.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 | 1187.50 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3750.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1625.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 4968.00 |  678.00 |     10 |
+|     2 | Rajan   | CLERK     |  102 | 1992-02-03 | 6250.00 |    NULL |   NULL |
+|    12 | Revati  | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     10 |
+|    15 | Rajan   | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     20 |
+|  2345 | xxx     | xxxxddd   | NULL | NULL       | 4320.00 |    NULL |   NULL |
+|   123 | deepa   | ANALYST   | NULL | NULL       | 4320.00 |    NULL |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+20 rows in set (0.00 sec)
+
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
+|     51 | aaa        | ddd      |
+|     52 | zzz        | ddd      |
++--------+------------+----------+
+9 rows in set (0.11 sec)
+
++-----+-----------+------------+--------------+--------+------+------+------+
+| pid | pname     | exp_dt     | description1 | price  | qty  | cid  | sid  |
++-----+-----------+------------+--------------+--------+------+------+------+
+|   1 | lays      | 2022-01-01 | NULL         | 150.00 |   34 |    1 |   10 |
+|   5 | Marie     | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   6 | Good day  | 2021-12-01 | NULL         |  45.00 |   34 |    3 |   10 |
+|   7 | 50-50     | 2021-12-01 | NULL         | 150.00 |   34 |    3 |   13 |
+|  10 | coca cola | 2021-06-30 | NULL         |  40.00 | NULL | NULL | NULL |
++-----+-----------+------------+--------------+--------+------+------+------+
+5 rows in set (0.16 sec)
+
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> delimiter //
+mysql> create procedure calcBonus(in pname varchar(20))
+    -> begin
+    -> declare vcomm,vsal,vbonus int;
+    -> select sal,comm into vsal,vcomm
+    -> from emp
+    -> where ename=pname;
+    -> if vsal<2000 then
+    ->          set vbonus=vsal*0.10+ifnull(vcomm,0);
+    -> else
+    ->      set vbonus=vsal*0.15+ifnull(vcomm,0);
+    -> end if;
+    -> select pname,vsal,vcomm,vbonus
+    -> end//
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 13
+mysql>
+mysql> delimiter //
+mysql> create procedure calcBonus(in pname varchar(20))
+    -> begin
+    -> declare vcomm,vsal,vbonus int;
+    -> select sal,comm into vsal,vcomm
+    -> from emp
+    -> where ename=pname;
+    -> if vsal<2000 then
+    ->          set vbonus=vsal*0.10+ifnull(vcomm,0);
+    -> else
+    ->      set vbonus=vsal*0.15+ifnull(vcomm,0);
+    -> end if;
+    -> select pname,vsal,vcomm,vbonus;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call calcBonus('SMITH');
++-------+------+-------+--------+
+| pname | vsal | vcomm | vbonus |
++-------+------+-------+--------+
+| SMITH | 1000 |  NULL |    100 |
++-------+------+-------+--------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call calcBonus('KING');
++-------+------+-------+--------+
+| pname | vsal | vcomm | vbonus |
++-------+------+-------+--------+
+| KING  | 6250 |  NULL |    938 |
++-------+------+-------+--------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
