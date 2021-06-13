@@ -1,0 +1,1851 @@
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.22 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use knowitdb
+Database changed
+mysql> delimiter //
+mysql> create procedure test_while()
+    -> begin
+    -> declare x int default 1;
+    -> declare data varchar(20);
+    -> set str='';
+    -> while x<=5 DO
+    ->        set str=concat(str,x,',');
+    ->        set x=x+1;
+    -> end while;
+    -> select str;
+    -> end//
+ERROR 1193 (HY000): Unknown system variable 'str'
+mysql> delimiter ;
+mysql> delimiter //
+mysql> create procedure test_while()
+    -> begin
+    -> declare x int default 1;
+    -> declare data varchar(20);
+    -> set data='';
+    -> while x<=5 DO
+    ->        set data=concat(data,x,',');
+    ->        set x=x+1;
+    -> end while;
+    -> select data;
+    -> end//
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> delimiter ;
+mysql> call test_while()
+    -> ;
++------------+
+| data       |
++------------+
+| 1,2,3,4,5, |
++------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists test_repeat//
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+mysql> create procedure test_repeat()
+    -> begin
+    ->   declare x int deafault 1;
+    ->   declare data varchar(20);
+    ->   set data='';
+    ->   repeat
+    ->      set data=concat(data,x,',');
+    ->      set x=x+1;
+    ->
+    ->   until x > 5
+    ->   end repeat;
+    ->   select data;
+    ->
+    -> end//
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'deafault 1;
+  declare data varchar(20);
+  set data='';
+  repeat
+     set data=co' at line 3
+mysql> delimiter //
+mysql> drop procedure if exists test_repeat//
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> create procedure test_repeat()
+    -> begin
+    ->   declare x int default 1;
+    ->   declare data varchar(20);
+    ->   set data='';
+    ->   repeat
+    ->      set data=concat(data,x,',');
+    ->      set x=x+1;
+    ->
+    ->   until x > 5
+    ->   end repeat;
+    ->   select data;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call test_repeat()
+    -> ;
++------------+
+| data       |
++------------+
+| 1,2,3,4,5, |
++------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists test_repeat//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure test_loop()
+    -> begin
+    ->    declare x int default 1;
+    ->    declare data varchar(20);
+    ->    set data='';
+    ->    label1:loop
+    ->      if x>5 then
+    ->         leave label1;
+    ->      end if;
+    ->
+    ->      set data=concat(data,x,',');
+    ->      set x=x+1;
+    ->      iterate label1;
+    ->     end loop;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call test_loop();
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists test_repeat//
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> create procedure test_loop()
+    -> begin
+    ->    declare x int default 1;
+    ->    declare data varchar(20);
+    ->    set data='';
+    ->    label1:loop
+    ->      if x>5 then
+    ->         leave label1;
+    ->      end if;
+    ->
+    ->      set data=concat(data,x,',');
+    ->      set x=x+1;
+    ->      iterate label1;
+    ->     end loop;
+    ->     select data;
+    ->
+    -> end//
+ERROR 1304 (42000): PROCEDURE test_loop already exists
+mysql> delimiter //
+mysql> drop procedure if exists test_loop//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure test_loop()
+    -> begin
+    ->    declare x int default 1;
+    ->    declare data varchar(20);
+    ->    set data='';
+    ->    label1:loop
+    ->      if x>5 then
+    ->         leave label1;
+    ->      end if;
+    ->
+    ->      set data=concat(data,x,',');
+    ->      set x=x+1;
+    ->      iterate label1;
+    ->     end loop;
+    ->     select data;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call test_loop();
+    -> //
++------------+
+| data       |
++------------+
+| 1,2,3,4,5, |
++------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists test_loop//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure test_loop()
+    -> begin
+    ->    declare x int default 10;
+    ->    declare data varchar(20);
+    ->    set data='';
+    ->    label1:loop
+    ->      if x>20 then
+    ->         leave label1;
+    ->      end if;
+    ->      set x=x+1;
+    ->      if (x mod 5 !=0) then
+    ->
+    ->          iterate label1;
+    ->      else
+    ->          set data=concat(data,x,',');
+    ->      end if;
+    ->     end loop;
+    ->     select data;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> call test_loop();
+    -> //
++--------+
+| data   |
++--------+
+| 15,20, |
++--------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> delimiter //
+mysql> drop procedure if exists display_enames_dept//
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+mysql> create procedure display_enames_dept()
+    -> begin
+    ->    declare cset int default 0;
+    ->    declare veno int;
+    ->
+    ->    declare vename varchar(20);
+    ->    declare empcur cursor for select empno,ename from emp where deptno=10;
+    ->    declare continue handler for NOT FOUND set cset=1;
+    ->    open empcur;
+    ->    label1:loop
+    ->       fetch empcur into veno,vename;
+    ->       if cset=1 then
+    ->           leave label1
+    ->       end if;
+    ->       select veno,vename;
+    ->    end loop;
+    ->    close empcur;
+    ->
+    -> end//
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'end if;
+      select veno,vename;
+   end loop;
+   close empcur;
+
+end' at line 14
+mysql> delimiter //
+mysql> drop procedure if exists display_enames_dept//
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> create procedure display_enames_dept()
+    -> begin
+    ->    declare cset int default 0;
+    ->    declare veno int;
+    ->
+    ->    declare vename varchar(20);
+    ->    declare empcur cursor for select empno,ename from emp where deptno=10;
+    ->    declare continue handler for NOT FOUND set cset=1;
+    ->    open empcur;
+    ->    label1:loop
+    ->       fetch empcur into veno,vename;
+    ->       if cset=1 then
+    ->           leave label1;
+    ->       end if;
+    ->       select veno,vename;
+    ->    end loop;
+    ->    close empcur;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call display_enames_dept();
+    -> //
++------+--------+
+| veno | vename |
++------+--------+
+| 7782 | CLARK  |
++------+--------+
+1 row in set (0.02 sec)
+
++------+--------+
+| veno | vename |
++------+--------+
+| 7839 | KING   |
++------+--------+
+1 row in set (0.02 sec)
+
++------+--------+
+| veno | vename |
++------+--------+
+| 7934 | MILLER |
++------+--------+
+1 row in set (0.04 sec)
+
++------+---------+
+| veno | vename  |
++------+---------+
+|    1 | kishori |
++------+---------+
+1 row in set (0.04 sec)
+
++------+--------+
+| veno | vename |
++------+--------+
+|   12 | Revati |
++------+--------+
+1 row in set (0.05 sec)
+
++------+--------+
+| veno | vename |
++------+--------+
+|  123 | deepa  |
++------+--------+
+1 row in set (0.05 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create procedure myproc111()
+    -> begin
+    ->    select *
+    ->    from emp
+    ->    where deptno=10;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call myproc1111();
+    -> //
+ERROR 1305 (42000): PROCEDURE knowitdb.myproc1111 does not exist
+mysql> call myproc111();;
+    -> //
++-------+---------+-----------+------+------------+---------+--------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM   | DEPTNO |
++-------+---------+-----------+------+------------+---------+--------+--------+
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 3062.50 |   NULL |     10 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 6250.00 |   NULL |     10 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1625.00 |   NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 4968.00 | 678.00 |     10 |
+|    12 | Revati  | designer  | 7934 | 0200-04-27 | 4320.00 | 456.00 |     10 |
+|   123 | deepa   | ANALYST   | NULL | NULL       | 4320.00 |   NULL |     10 |
++-------+---------+-----------+------+------------+---------+--------+--------+
+6 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists display_enames_list//
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> create procedure display_enames_list()
+    -> begin
+    ->    declare cset int default 0;
+    ->    declare veno int;
+    ->    declare namelist varchar(200);
+    ->    declare vename varchar(20);
+    ->    declare empcur cursor for select empno,ename from emp where deptno=10;
+    ->    declare continue handler for NOT FOUND set cset=1;
+    ->    open empcur;
+    ->    set namelist='';
+    ->    label1:loop
+    ->       fetch empcur into veno,vename;
+    ->       if cset=1 then
+    ->           leave label1;
+    ->       end if;
+    ->       set namelist=concat(namelist,vename,',');
+    ->    end loop;
+    ->    select namelist;
+    ->    close empcur;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call display_enames_list();
+    -> //
++-----------------------------------------+
+| namelist                                |
++-----------------------------------------+
+| CLARK,KING,MILLER,kishori,Revati,deepa, |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select *
+    -> from emp
+    -> where deptno=10;
+    -> //
++-------+---------+-----------+------+------------+---------+--------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM   | DEPTNO |
++-------+---------+-----------+------+------------+---------+--------+--------+
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 3062.50 |   NULL |     10 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 6250.00 |   NULL |     10 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1625.00 |   NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 4968.00 | 678.00 |     10 |
+|    12 | Revati  | designer  | 7934 | 0200-04-27 | 4320.00 | 456.00 |     10 |
+|   123 | deepa   | ANALYST   | NULL | NULL       | 4320.00 |   NULL |     10 |
++-------+---------+-----------+------+------------+---------+--------+--------+
+6 rows in set (0.00 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists display_enames_list//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure display_enames_list()
+    -> begin
+    ->    declare cset int default 0;
+    ->    declare veno int;
+    ->    declare namelist varchar(200);
+    ->    declare vename varchar(20);
+    ->    declare empcur cursor for select empno,ename from emp where deptno=10;
+    ->    declare continue handler for NOT FOUND set cset=1;
+    ->    open empcur;
+    ->    set namelist='';
+    ->    label1:loop
+    ->       fetch empcur into veno,vename;
+    ->       if cset=1 then
+    ->           leave label1;
+    ->       end if;
+    ->       set namelist=concat(namelist,veno,"---",vename,',');
+    ->    end loop;
+    ->    select namelist;
+    ->    close empcur;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call display_enames_list();
+    -> //
++-----------------------------------------------------------------------------+
+| namelist                                                                    |
++-----------------------------------------------------------------------------+
+| 7782---CLARK,7839---KING,7934---MILLER,1---kishori,12---Revati,123---deepa, |
++-----------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> delimiter //
+mysql> drop procedure if exists display_enames_list//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure display_enames_list()
+    -> begin
+    ->    declare cset int default 0;
+    ->    declare veno int;
+    ->    declare namelist varchar(200);
+    ->    declare vename varchar(20);
+    ->    declare empcur cursor for select empno,ename from emp where deptno=10;
+    ->    declare continue handler for NOT FOUND set cset=1;
+    ->    open empcur;
+    ->    set namelist='';
+    ->    label1:loop
+    ->       fetch empcur into veno,vename;
+    ->       if cset=1 then
+    ->           leave label1;
+    ->       end if;
+    ->       set namelist=concat(namelist,veno,"---",vename,',');
+    ->    end loop;
+    ->    select namelist;
+    ->    close empcur;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists update_sal//
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> create procedure update_sal()
+    -> begin
+    ->    declare cset int default 0;
+    ->    declare veno,sal int;
+    ->    declare vjob,vename varchar(20);
+    ->
+    ->    declare empcur cursor for select empno,ename,job,sal from emp;
+    ->    declare continue handler for NOT FOUND set cset=1;
+    ->    open empcur;
+    ->
+    ->    label1:loop
+    ->       fetch empcur into veno,vename,job,sal;
+    ->       if cset=1 then
+    ->           leave label1;
+    ->       end if;
+    ->       if vjob='MANAGER' then
+    ->          update emp
+    ->          set sal=sal*1.10
+    ->          where empno=veno;
+    ->       elseif vjob='ANALYST' then
+    ->          update emp
+    ->          set sal=sal*1.15
+    ->          where empno=veno;
+    ->       elseif vjob='CLERK' then
+    ->          update emp
+    ->          set sal=sal*1.30
+    ->          where empno=veno;
+    ->        end if;
+    ->    end loop;
+    ->    close empcur;
+    ->     select * from emp;
+    -> end//
+ERROR 1327 (42000): Undeclared variable: job
+mysql> delimiter //
+mysql> drop procedure if exists update_sal//
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+mysql> create procedure update_sal()
+    -> begin
+    ->    declare cset int default 0;
+    ->    declare veno,vsal int;
+    ->    declare vjob,vename varchar(20);
+    ->
+    ->    declare empcur cursor for select empno,ename,job,sal from emp;
+    ->    declare continue handler for NOT FOUND set cset=1;
+    ->    open empcur;
+    ->
+    ->    label1:loop
+    ->       fetch empcur into veno,vename,vjob,vsal;
+    ->       if cset=1 then
+    ->           leave label1;
+    ->       end if;
+    ->       if vjob='MANAGER' then
+    ->          update emp
+    ->          set sal=vsal*1.10
+    ->          where empno=veno;
+    ->       elseif vjob='ANALYST' then
+    ->          update emp
+    ->          set sal=vsal*1.15
+    ->          where empno=veno;
+    ->       elseif vjob='CLERK' then
+    ->          update emp
+    ->          set sal=vsal*1.30
+    ->          where empno=veno;
+    ->        end if;
+    ->    end loop;
+    ->    close empcur;
+    ->     select * from emp;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 | 1000.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 2300.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1796.88 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 3718.75 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1796.88 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 3562.50 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 3062.50 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 3600.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 6250.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1875.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1320.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 | 1187.50 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 3750.00 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 1625.00 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 4968.00 |  678.00 |     10 |
+|     2 | Rajan   | CLERK     |  102 | 1992-02-03 | 6250.00 |    NULL |   NULL |
+|    12 | Revati  | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     10 |
+|    15 | Rajan   | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     20 |
+|  2345 | xxx     | xxxxddd   | NULL | NULL       | 4320.00 |    NULL |   NULL |
+|   123 | deepa   | ANALYST   | NULL | NULL       | 4320.00 |    NULL |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+20 rows in set (0.00 sec)
+
+mysql> call update_sal();
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 | 1300.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 2300.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1796.88 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 4090.90 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1796.88 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 3919.30 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 3369.30 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 4140.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 6250.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1875.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1716.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 | 1544.40 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 4312.50 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 2112.50 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 5464.80 |  678.00 |     10 |
+|     2 | Rajan   | CLERK     |  102 | 1992-02-03 | 8125.00 |    NULL |   NULL |
+|    12 | Revati  | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     10 |
+|    15 | Rajan   | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     20 |
+|  2345 | xxx     | xxxxddd   | NULL | NULL       | 4320.00 |    NULL |   NULL |
+|   123 | deepa   | ANALYST   | NULL | NULL       | 4968.00 |    NULL |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+20 rows in set (0.05 sec)
+
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> delimiter //
+mysql>
+mysql> create procedure display_type_emp()
+    -> begin
+    -> declare cset int default 0;
+    -> declare veno,vexp int;
+    -> declare vsal decimal(2,2);
+    -> declare vhiredate date;
+    -> declare vename,vstatus varchar(20);
+    -> declare empcur cursor for select empno,ename,hiredate,sal from emp;
+    -> declare continue handler for NOT FOUND set cset=1;
+    -> open empcur;
+    -> label1: loop
+    -> fetch empcur into veno,vename,vhiredate,vsal;
+    -> if cset=1 then
+    ->   leave label1;
+    -> end if;
+    -> set vexp= floor(datediff(curdate(),hiredate)/365);
+    -> if vexp<38 then
+    ->      set vstatus='Junior';
+    -> elseif vexp >=38 and vexp<=39 then
+    ->       set vstatus='middle mgnt';
+    -> else
+    ->       set vstatus='senior';
+    -> end if;
+    -> select veno,vename,vhiredate,vexp,vsal,vstatus;
+    -> end loop;
+    -> close empcur;
+    ->
+    ->
+    ->
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call display_type_emp();
+    -> //
+ERROR 1264 (22003): Out of range value for column 'vsal' at row 1
+mysql> drop procedure if exists display_type_emp//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure display_type_emp()
+    -> begin
+    -> declare cset int default 0;
+    -> declare veno,vexp int;
+    -> declare vsal decimal(9,2);
+    -> declare vhiredate date;
+    -> declare vename,vstatus varchar(20);
+    -> declare empcur cursor for select empno,ename,hiredate,sal from emp;
+    -> declare continue handler for NOT FOUND set cset=1;
+    -> open empcur;
+    -> label1: loop
+    -> fetch empcur into veno,vename,vhiredate,vsal;
+    -> if cset=1 then
+    ->   leave label1;
+    -> end if;
+    -> set vexp= floor(datediff(curdate(),hiredate)/365);
+    -> if vexp<38 then
+    ->      set vstatus='Junior';
+    -> elseif vexp >=38 and vexp<=39 then
+    ->       set vstatus='middle mgnt';
+    -> else
+    ->       set vstatus='senior';
+    -> end if;
+    -> select veno,vename,vhiredate,vexp,vsal,vstatus;
+    -> end loop;
+    -> close empcur;
+    ->
+    ->
+    ->
+    ->
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call display_type_emp();
+    -> //
+ERROR 1054 (42S22): Unknown column 'hiredate' in 'field list'
+mysql> desc emp;
+    -> //
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| EMPNO    | int          | NO   |     | NULL    |       |
+| ENAME    | varchar(10)  | YES  | MUL | NULL    |       |
+| JOB      | varchar(9)   | YES  |     | NULL    |       |
+| MGR      | int          | YES  |     | NULL    |       |
+| HIREDATE | date         | YES  |     | NULL    |       |
+| SAL      | decimal(7,2) | YES  | MUL | NULL    |       |
+| COMM     | decimal(7,2) | YES  |     | NULL    |       |
+| DEPTNO   | int          | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql>
+mysql> drop procedure if exists display_type_emp//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure display_type_emp()
+    -> begin
+    -> declare cset int default 0;
+    -> declare veno,vexp int;
+    -> declare vsal decimal(9,2);
+    -> declare vhiredate date;
+    -> declare vename,vstatus varchar(20);
+    -> declare empcur cursor for select empno,ename,hiredate,sal from emp;
+    -> declare continue handler for NOT FOUND set cset=1;
+    -> open empcur;
+    -> label1: loop
+    -> fetch empcur into veno,vename,vhiredate,vsal;
+    -> if cset=1 then
+    ->   leave label1;
+    -> end if;
+    -> set vexp= floor(datediff(curdate(),vhiredate)/365);
+    -> if vexp<38 then
+    ->      set vstatus='Junior';
+    -> elseif vexp >=38 and vexp<=39 then
+    ->       set vstatus='middle mgnt';
+    -> else
+    ->       set vstatus='senior';
+    -> end if;
+    -> select veno,vename,vhiredate,vexp,vsal,vstatus;
+    -> end loop;
+    -> close empcur;
+    ->
+    ->
+    ->
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call diaplt_type_emp();
+    -> //
+ERROR 1305 (42000): PROCEDURE knowitdb.diaplt_type_emp does not exist
+mysql> call diaplay_type_emp();//
+ERROR 1305 (42000): PROCEDURE knowitdb.diaplay_type_emp does not exist
+mysql> call display_type_emp();//
++------+--------+------------+------+---------+---------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus |
++------+--------+------------+------+---------+---------+
+| 7369 | SMITH  | 1980-12-17 |   40 | 1300.00 | senior  |
++------+--------+------------+------+---------+---------+
+1 row in set (0.00 sec)
+
++------+--------+------------+------+---------+---------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus |
++------+--------+------------+------+---------+---------+
+| 7499 | ALLEN  | 1981-02-20 |   40 | 2300.00 | senior  |
++------+--------+------------+------+---------+---------+
+1 row in set (0.01 sec)
+
++------+--------+------------+------+---------+---------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus |
++------+--------+------------+------+---------+---------+
+| 7521 | WARD   | 1981-02-22 |   40 | 1796.88 | senior  |
++------+--------+------------+------+---------+---------+
+1 row in set (0.01 sec)
+
++------+--------+------------+------+---------+---------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus |
++------+--------+------------+------+---------+---------+
+| 7566 | JONES  | 1981-04-02 |   40 | 4090.90 | senior  |
++------+--------+------------+------+---------+---------+
+1 row in set (0.01 sec)
+
++------+--------+------------+------+---------+-------------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus     |
++------+--------+------------+------+---------+-------------+
+| 7654 | MARTIN | 1981-09-28 |   39 | 1796.88 | middle mgnt |
++------+--------+------------+------+---------+-------------+
+1 row in set (0.03 sec)
+
++------+--------+------------+------+---------+---------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus |
++------+--------+------------+------+---------+---------+
+| 7698 | BLAKE  | 1981-05-01 |   40 | 3919.30 | senior  |
++------+--------+------------+------+---------+---------+
+1 row in set (0.04 sec)
+
++------+--------+------------+------+---------+---------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus |
++------+--------+------------+------+---------+---------+
+| 7782 | CLARK  | 1981-06-09 |   40 | 3369.30 | senior  |
++------+--------+------------+------+---------+---------+
+1 row in set (0.07 sec)
+
++------+--------+------------+------+---------+-------------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus     |
++------+--------+------------+------+---------+-------------+
+| 7788 | SCOTT  | 1982-12-09 |   38 | 4140.00 | middle mgnt |
++------+--------+------------+------+---------+-------------+
+1 row in set (0.09 sec)
+
++------+--------+------------+------+---------+-------------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus     |
++------+--------+------------+------+---------+-------------+
+| 7839 | KING   | 1981-11-17 |   39 | 6250.00 | middle mgnt |
++------+--------+------------+------+---------+-------------+
+1 row in set (0.09 sec)
+
++------+--------+------------+------+---------+-------------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus     |
++------+--------+------------+------+---------+-------------+
+| 7844 | TURNER | 1981-09-08 |   39 | 1875.00 | middle mgnt |
++------+--------+------------+------+---------+-------------+
+1 row in set (0.12 sec)
+
++------+--------+------------+------+---------+-------------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus     |
++------+--------+------------+------+---------+-------------+
+| 7876 | ADAMS  | 1983-01-12 |   38 | 1716.00 | middle mgnt |
++------+--------+------------+------+---------+-------------+
+1 row in set (0.13 sec)
+
++------+--------+------------+------+---------+-------------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus     |
++------+--------+------------+------+---------+-------------+
+| 7900 | JAMES  | 1981-12-03 |   39 | 1544.40 | middle mgnt |
++------+--------+------------+------+---------+-------------+
+1 row in set (0.16 sec)
+
++------+--------+------------+------+---------+-------------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus     |
++------+--------+------------+------+---------+-------------+
+| 7902 | FORD   | 1981-12-03 |   39 | 4312.50 | middle mgnt |
++------+--------+------------+------+---------+-------------+
+1 row in set (0.19 sec)
+
++------+--------+------------+------+---------+-------------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus     |
++------+--------+------------+------+---------+-------------+
+| 7934 | MILLER | 1982-01-23 |   39 | 2112.50 | middle mgnt |
++------+--------+------------+------+---------+-------------+
+1 row in set (0.20 sec)
+
++------+---------+------------+------+---------+---------+
+| veno | vename  | vhiredate  | vexp | vsal    | vstatus |
++------+---------+------------+------+---------+---------+
+|    1 | kishori | 2018-02-04 |    3 | 5464.80 | Junior  |
++------+---------+------------+------+---------+---------+
+1 row in set (0.21 sec)
+
++------+--------+------------+------+---------+---------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus |
++------+--------+------------+------+---------+---------+
+|    2 | Rajan  | 1992-02-03 |   29 | 8125.00 | Junior  |
++------+--------+------------+------+---------+---------+
+1 row in set (0.23 sec)
+
++------+--------+------------+------+---------+---------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus |
++------+--------+------------+------+---------+---------+
+|   12 | Revati | 0200-04-27 | 1822 | 4320.00 | senior  |
++------+--------+------------+------+---------+---------+
+1 row in set (0.24 sec)
+
++------+--------+------------+------+---------+---------+
+| veno | vename | vhiredate  | vexp | vsal    | vstatus |
++------+--------+------------+------+---------+---------+
+|   15 | Rajan  | 0200-04-27 | 1822 | 4320.00 | senior  |
++------+--------+------------+------+---------+---------+
+1 row in set (0.26 sec)
+
++------+--------+-----------+------+---------+---------+
+| veno | vename | vhiredate | vexp | vsal    | vstatus |
++------+--------+-----------+------+---------+---------+
+| 2345 | xxx    | NULL      | NULL | 4320.00 | senior  |
++------+--------+-----------+------+---------+---------+
+1 row in set (0.28 sec)
+
++------+--------+-----------+------+---------+---------+
+| veno | vename | vhiredate | vexp | vsal    | vstatus |
++------+--------+-----------+------+---------+---------+
+|  123 | deepa  | NULL      | NULL | 4968.00 | senior  |
++------+--------+-----------+------+---------+---------+
+1 row in set (0.29 sec)
+
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> show tables
+    -> ;
+    -> //
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    9
+Current database: knowitdb
+
++--------------------+
+| Tables_in_knowitdb |
++--------------------+
+| all_emp            |
+| bonus              |
+| category           |
+| dept               |
+| dummy              |
+| emp                |
+| emp_allowance      |
+| emp_back           |
+| emp_dept           |
+| india_emp          |
+| japan_emp          |
+| mgr10              |
+| mgr10_11           |
+| product            |
+| room               |
+| salesman           |
+| salgrade           |
+| testing            |
+| us_emp             |
+| vehicle_history    |
++--------------------+
+20 rows in set (0.03 sec)
+
+mysql> desc room
+    -> ;//
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| rid     | int         | NO   | PRI | NULL    | auto_increment |
+| rname   | varchar(20) | YES  |     | NULL    |                |
+| details | varchar(20) | YES  |     | NULL    |                |
+| rloc    | varchar(20) | YES  |     | NULL    |                |
+| rdesc   | varchar(20) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from room;
+    -> //
++-----+--------+---------+-------+-------+
+| rid | rname  | details | rloc  | rdesc |
++-----+--------+---------+-------+-------+
+| 100 | Rose   | NULL    | first | NULL  |
+| 101 | jasmin | NULL    | first | NULL  |
++-----+--------+---------+-------+-------+
+2 rows in set (0.01 sec)
+
+mysql> insert into room values(102,'Lotus','first','cabin');
+    -> //
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into room values(102,'Lotus','jhddhd','first','cabin');
+    -> //
+Query OK, 1 row affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> insert into room values(102,'Lotus','jhddhd','first','cabin');
+ERROR 1062 (23000): Duplicate entry '102' for key 'room.PRIMARY'
+mysql> delimiter //
+mysql>
+mysql> create procedure insert_rec_room(proomno int,prname varchar(20),prloc varchar(20),pdetails varchar(20),pdesc varchar(20))
+    -> begin
+    ->
+    ->    insert into room values(proomno,prname,prloc,pdetails,pdesc);
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call insert_rec_room(103,'mogra','pune','ksh','jksdhfjh');
+    -> //
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from room;
+    -> //
++-----+--------+---------+-------+----------+
+| rid | rname  | details | rloc  | rdesc    |
++-----+--------+---------+-------+----------+
+| 100 | Rose   | NULL    | first | NULL     |
+| 101 | jasmin | NULL    | first | NULL     |
+| 102 | Lotus  | jhddhd  | first | cabin    |
+| 103 | mogra  | pune    | ksh   | jksdhfjh |
++-----+--------+---------+-------+----------+
+4 rows in set (0.00 sec)
+
+mysql> call insert_rec_room(103,'mogra','pune','ksh','sfdf');
+    -> //
+ERROR 1062 (23000): Duplicate entry '103' for key 'room.PRIMARY'
+mysql> delimiter //
+mysql> drop procedure if exists insert_rec_room//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure insert_rec_room(proomno int,prname varchar(20),prloc varchar(20),pdetails varchar(20),pdesc varchar(20))
+    -> begin
+    ->    declare continue handler for SQLEXCEPTION select 'Error occur';
+    ->    insert into room values(proomno,prname,prloc,pdetails,pdesc);
+    ->    select * from room;
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call insert_rec_room(104,'Lilly','pune','jsfhfkjd',',sdnfj');
+    -> //
++-----+--------+---------+----------+----------+
+| rid | rname  | details | rloc     | rdesc    |
++-----+--------+---------+----------+----------+
+| 100 | Rose   | NULL    | first    | NULL     |
+| 101 | jasmin | NULL    | first    | NULL     |
+| 102 | Lotus  | jhddhd  | first    | cabin    |
+| 103 | mogra  | pune    | ksh      | jksdhfjh |
+| 104 | Lilly  | pune    | jsfhfkjd | ,sdnfj   |
++-----+--------+---------+----------+----------+
+5 rows in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call insert_rec_room(104,'Lilly','pune','jsfhfkjd',',sdnfj');
+    -> //
++-------------+
+| Error occur |
++-------------+
+| Error occur |
++-------------+
+1 row in set (0.00 sec)
+
++-----+--------+---------+----------+----------+
+| rid | rname  | details | rloc     | rdesc    |
++-----+--------+---------+----------+----------+
+| 100 | Rose   | NULL    | first    | NULL     |
+| 101 | jasmin | NULL    | first    | NULL     |
+| 102 | Lotus  | jhddhd  | first    | cabin    |
+| 103 | mogra  | pune    | ksh      | jksdhfjh |
+| 104 | Lilly  | pune    | jsfhfkjd | ,sdnfj   |
++-----+--------+---------+----------+----------+
+5 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists insert_rec_room//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure insert_rec_room(proomno int,prname varchar(20),prloc varchar(20),pdetails varchar(20),pdesc varchar(20))
+    -> begin
+    ->    declare exit handler for SQLEXCEPTION select 'Error occur';
+    ->    insert into room values(proomno,prname,prloc,pdetails,pdesc);
+    ->    select * from room;
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter ;
+mysql> call insert_rec_room(104,'Lilly','pune','jsfhfkjd',',sdnfj');
++-------------+
+| Error occur |
++-------------+
+| Error occur |
++-------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> desc product;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| pid          | int          | NO   |     | NULL    |       |
+| pname        | varchar(20)  | NO   |     | NULL    |       |
+| exp_dt       | date         | YES  |     | NULL    |       |
+| description1 | varchar(50)  | YES  |     | NULL    |       |
+| price        | decimal(9,2) | YES  |     | 100.00  |       |
+| qty          | int          | YES  |     | NULL    |       |
+| cid          | int          | YES  | MUL | NULL    |       |
+| sid          | int          | YES  | MUL | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> insert into product values(1,'sdfs','2021-06-12','fgdf',2345,12,1000,1234);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`knowitdb`.`product`, CONSTRAINT `fk_sid` FOREIGN KEY (`sid`) REFERENCES `salesman` (`sid`) ON UPDATE CASCADE)
+mysql> delimiter //
+mysql> drop procedure if exists insert_rec_room//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create procedure insert_rec_room(proomno int,prname varchar(20),prloc varchar(20),pdetails varchar(20),pdesc varchar(20))
+    -> begin
+    ->    declare exit handler for 1062 select 'Duplicate key';
+    ->    declare exit handler for SQLEXCEPTION select 'Error occur';
+    ->    insert into room values(proomno,prname,prloc,pdetails,pdesc);
+    ->    select * from room;
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call insert_rec_room(104,'Lilly','pune','jsfhfkjd',',sdnfj');
+    -> //
++---------------+
+| Duplicate key |
++---------------+
+| Duplicate key |
++---------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter //
+mysql> create procedure find_name(peno int,out pename varchar(20))
+    -> begin
+    ->
+    ->      select ename into pename
+    ->  from emp
+    ->  where empno=peno;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> delimiter ;
+mysql> dselect * from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dselect * from emp' at line 1
+mysql> select * from emp;
++-------+---------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME   | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+---------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH   | CLERK     | 7902 | 1980-12-17 | 1300.00 |    NULL |     20 |
+|  7499 | ALLEN   | SALESMAN  | 7698 | 1981-02-20 | 2300.00 |  300.00 |     30 |
+|  7521 | WARD    | SALESMAN  | 7698 | 1981-02-22 | 1796.88 |  500.00 |     30 |
+|  7566 | JONES   | MANAGER   | 7839 | 1981-04-02 | 4090.90 |    NULL |     20 |
+|  7654 | MARTIN  | SALESMAN  | 7698 | 1981-09-28 | 1796.88 | 1400.00 |     30 |
+|  7698 | BLAKE   | MANAGER   | 7839 | 1981-05-01 | 3919.30 |    NULL |     30 |
+|  7782 | CLARK   | MANAGER   | 7839 | 1981-06-09 | 3369.30 |    NULL |     10 |
+|  7788 | SCOTT   | ANALYST   | 7566 | 1982-12-09 | 4140.00 |    NULL |     20 |
+|  7839 | KING    | PRESIDENT | NULL | 1981-11-17 | 6250.00 |    NULL |     10 |
+|  7844 | TURNER  | SALESMAN  | 7698 | 1981-09-08 | 1875.00 |    0.00 |     30 |
+|  7876 | ADAMS   | CLERK     | 7788 | 1983-01-12 | 1716.00 |    NULL |     20 |
+|  7900 | JAMES   | CLERK     | 7698 | 1981-12-03 | 1544.40 |    NULL |     30 |
+|  7902 | FORD    | ANALYST   | 7566 | 1981-12-03 | 4312.50 |    NULL |     20 |
+|  7934 | MILLER  | CLERK     | 7782 | 1982-01-23 | 2112.50 |    NULL |     10 |
+|     1 | kishori | MANAGER   | 7934 | 2018-02-04 | 5464.80 |  678.00 |     10 |
+|     2 | Rajan   | CLERK     |  102 | 1992-02-03 | 8125.00 |    NULL |   NULL |
+|    12 | Revati  | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     10 |
+|    15 | Rajan   | designer  | 7934 | 0200-04-27 | 4320.00 |  456.00 |     20 |
+|  2345 | xxx     | xxxxddd   | NULL | NULL       | 4320.00 |    NULL |   NULL |
+|   123 | deepa   | ANALYST   | NULL | NULL       | 4968.00 |    NULL |     10 |
++-------+---------+-----------+------+------------+---------+---------+--------+
+20 rows in set (0.01 sec)
+
+mysql> call find_name(7902,@cname);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select cname;
+ERROR 1054 (42S22): Unknown column 'cname' in 'field list'
+mysql> select @cname;
++--------+
+| @cname |
++--------+
+| FORD   |
++--------+
+1 row in set (0.00 sec)
+
+mysql> call find_name(2000,@cname);
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> select @cname;
++--------+
+| @cname |
++--------+
+| NULL   |
++--------+
+1 row in set (0.00 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists find_name;
+    -> create procedure find_name(peno int,out pename varchar(20))
+    -> begin
+    ->      declare exit handler for NOT FOUND select "Not found";
+    ->      select ename into pename
+    ->  from emp
+    ->  where empno=peno;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call find_name(2000,@cname);
++-----------+
+| Not found |
++-----------+
+| Not found |
++-----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists find_name;
+    -> create procedure find_name(peno int,out pename varchar(20))
+    -> begin
+    ->      declare exit handler for NOT FOUND select "Not found";
+    ->  declare exit handler for SQLEXCEPTION select "Too many rows found";
+    ->      select ename into pename
+    ->  from emp
+    ->  where empno=peno;
+    ->  select ename into pename
+    ->  from emp
+    ->  where deptno=20;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> call find_name(2000,@cname);
++-----------+
+| Not found |
++-----------+
+| Not found |
++-----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter //
+mysql> drop procedure if exists find_name;
+    -> create procedure find_name(peno int,out pename varchar(20))
+    -> begin
+    ->      declare exit handler for NOT FOUND select "Not found";
+    ->  declare exit handler for SQLEXCEPTION select "Too many rows found";
+    ->      select ename into pename
+    ->  from emp
+    ->  where empno=peno;
+    ->
+    ->   select pename
+    ->
+    ->  select ename into pename
+    ->  from emp
+    ->  where deptno=20;
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select ename into pename
+ from emp
+ where deptno=20;
+
+end' at line 11
+mysql> delimiter ;
+mysql> delimiter //
+mysql> drop procedure if exists find_name;
+    -> create procedure find_name(peno int,out pename varchar(20))
+    -> begin
+    ->      declare exit handler for NOT FOUND select "Not found";
+    ->  declare exit handler for SQLEXCEPTION select "Too many rows found";
+    ->      select ename into pename
+    ->  from emp
+    ->  where empno=peno;
+    ->
+    ->   select pename;
+    ->
+    ->  select ename into pename
+    ->  from emp
+    ->  where deptno=20;
+    ->
+    -> end//
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call find_name(2000,@cname);
+    -> //
++-----------+
+| Not found |
++-----------+
+| Not found |
++-----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call find_name(7902,@cname);
+    -> //
++--------+
+| pename |
++--------+
+| FORD   |
++--------+
+1 row in set (0.00 sec)
+
++---------------------+
+| Too many rows found |
++---------------------+
+| Too many rows found |
++---------------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select empno,ename,concat(ename,'.',substr(job,1,3),'.@mycompany.com')
+    -> from emp;
+    -> //
++-------+---------+-----------------------------------------------------+
+| empno | ename   | concat(ename,'.',substr(job,1,3),'.@mycompany.com') |
++-------+---------+-----------------------------------------------------+
+|  7369 | SMITH   | SMITH.CLE.@mycompany.com                            |
+|  7499 | ALLEN   | ALLEN.SAL.@mycompany.com                            |
+|  7521 | WARD    | WARD.SAL.@mycompany.com                             |
+|  7566 | JONES   | JONES.MAN.@mycompany.com                            |
+|  7654 | MARTIN  | MARTIN.SAL.@mycompany.com                           |
+|  7698 | BLAKE   | BLAKE.MAN.@mycompany.com                            |
+|  7782 | CLARK   | CLARK.MAN.@mycompany.com                            |
+|  7788 | SCOTT   | SCOTT.ANA.@mycompany.com                            |
+|  7839 | KING    | KING.PRE.@mycompany.com                             |
+|  7844 | TURNER  | TURNER.SAL.@mycompany.com                           |
+|  7876 | ADAMS   | ADAMS.CLE.@mycompany.com                            |
+|  7900 | JAMES   | JAMES.CLE.@mycompany.com                            |
+|  7902 | FORD    | FORD.ANA.@mycompany.com                             |
+|  7934 | MILLER  | MILLER.CLE.@mycompany.com                           |
+|     1 | kishori | kishori.MAN.@mycompany.com                          |
+|     2 | Rajan   | Rajan.CLE.@mycompany.com                            |
+|    12 | Revati  | Revati.des.@mycompany.com                           |
+|    15 | Rajan   | Rajan.des.@mycompany.com                            |
+|  2345 | xxx     | xxx.xxx.@mycompany.com                              |
+|   123 | deepa   | deepa.ANA.@mycompany.com                            |
++-------+---------+-----------------------------------------------------+
+20 rows in set (0.00 sec)
+
+mysql> create function generate_email(pename varchar(20),pjob varchar(20)) returns varchar(20)
+    -> begin
+    ->    declare vemail varchar(200);
+    ->    set vemail=concat(pename,'.',substr(pjob,1,3),'.@mycompany.com');
+    ->    return vemail;
+    -> end//
+ERROR 1418 (HY000): This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
+mysql> SET GLOBAL log_bin_trust_function_creators = 1;
+    -> //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create function generate_email(pename varchar(20),pjob varchar(20)) returns varchar(20)
+    -> begin
+    ->    declare vemail varchar(200);
+    ->    set vemail=concat(pename,'.',substr(pjob,1,3),'.@mycompany.com');
+    ->    return vemail;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select empno,ename,generate_email(ename,job)
+    -> from emp;
+    -> //
+ERROR 1406 (22001): Data too long for column 'generate_email(ename,job)' at row 1
+mysql> delimiter //
+mysql> drop function generate_email
+    -> create function generate_email(pename varchar(20),pjob varchar(20)) returns varchar(50)
+    -> begin
+    ->    declare vemail varchar(200);
+    ->    set vemail=concat(pename,'.',substr(pjob,1,3),'.@mycompany.com');
+    ->    return vemail;
+    -> end//
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create function generate_email(pename varchar(20),pjob varchar(20)) returns varc' at line 2
+mysql> delimiter //
+mysql> drop function generate_email//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create function generate_email(pename varchar(20),pjob varchar(20)) returns varchar(50)
+    -> begin
+    ->    declare vemail varchar(200);
+    ->    set vemail=concat(pename,'.',substr(pjob,1,3),'.@mycompany.com');
+    ->    return vemail;
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select empno,ename,generate_email(ename,job)
+    -> from emp;
+    -> //
++-------+---------+----------------------------+
+| empno | ename   | generate_email(ename,job)  |
++-------+---------+----------------------------+
+|  7369 | SMITH   | SMITH.CLE.@mycompany.com   |
+|  7499 | ALLEN   | ALLEN.SAL.@mycompany.com   |
+|  7521 | WARD    | WARD.SAL.@mycompany.com    |
+|  7566 | JONES   | JONES.MAN.@mycompany.com   |
+|  7654 | MARTIN  | MARTIN.SAL.@mycompany.com  |
+|  7698 | BLAKE   | BLAKE.MAN.@mycompany.com   |
+|  7782 | CLARK   | CLARK.MAN.@mycompany.com   |
+|  7788 | SCOTT   | SCOTT.ANA.@mycompany.com   |
+|  7839 | KING    | KING.PRE.@mycompany.com    |
+|  7844 | TURNER  | TURNER.SAL.@mycompany.com  |
+|  7876 | ADAMS   | ADAMS.CLE.@mycompany.com   |
+|  7900 | JAMES   | JAMES.CLE.@mycompany.com   |
+|  7902 | FORD    | FORD.ANA.@mycompany.com    |
+|  7934 | MILLER  | MILLER.CLE.@mycompany.com  |
+|     1 | kishori | kishori.MAN.@mycompany.com |
+|     2 | Rajan   | Rajan.CLE.@mycompany.com   |
+|    12 | Revati  | Revati.des.@mycompany.com  |
+|    15 | Rajan   | Rajan.des.@mycompany.com   |
+|  2345 | xxx     | xxx.xxx.@mycompany.com     |
+|   123 | deepa   | deepa.ANA.@mycompany.com   |
++-------+---------+----------------------------+
+20 rows in set (0.00 sec)
+
+mysql> create procedure display_data()
+    -> begin
+    -> select empno,ename,generate_email(ename,job)
+    -> from emp;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call display_data();
+    -> //
++-------+---------+----------------------------+
+| empno | ename   | generate_email(ename,job)  |
++-------+---------+----------------------------+
+|  7369 | SMITH   | SMITH.CLE.@mycompany.com   |
+|  7499 | ALLEN   | ALLEN.SAL.@mycompany.com   |
+|  7521 | WARD    | WARD.SAL.@mycompany.com    |
+|  7566 | JONES   | JONES.MAN.@mycompany.com   |
+|  7654 | MARTIN  | MARTIN.SAL.@mycompany.com  |
+|  7698 | BLAKE   | BLAKE.MAN.@mycompany.com   |
+|  7782 | CLARK   | CLARK.MAN.@mycompany.com   |
+|  7788 | SCOTT   | SCOTT.ANA.@mycompany.com   |
+|  7839 | KING    | KING.PRE.@mycompany.com    |
+|  7844 | TURNER  | TURNER.SAL.@mycompany.com  |
+|  7876 | ADAMS   | ADAMS.CLE.@mycompany.com   |
+|  7900 | JAMES   | JAMES.CLE.@mycompany.com   |
+|  7902 | FORD    | FORD.ANA.@mycompany.com    |
+|  7934 | MILLER  | MILLER.CLE.@mycompany.com  |
+|     1 | kishori | kishori.MAN.@mycompany.com |
+|     2 | Rajan   | Rajan.CLE.@mycompany.com   |
+|    12 | Revati  | Revati.des.@mycompany.com  |
+|    15 | Rajan   | Rajan.des.@mycompany.com   |
+|  2345 | xxx     | xxx.xxx.@mycompany.com     |
+|   123 | deepa   | deepa.ANA.@mycompany.com   |
++-------+---------+----------------------------+
+20 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select empno,ename,sal,comm,sal*0.10+sal*015+ifnull(comm,0)
+    -> from emp;
+    -> //
++-------+---------+---------+---------+---------------------------------+
+| empno | ename   | sal     | comm    | sal*0.10+sal*015+ifnull(comm,0) |
++-------+---------+---------+---------+---------------------------------+
+|  7369 | SMITH   | 1300.00 |    NULL |                      19630.0000 |
+|  7499 | ALLEN   | 2300.00 |  300.00 |                      35030.0000 |
+|  7521 | WARD    | 1796.88 |  500.00 |                      27632.8880 |
+|  7566 | JONES   | 4090.90 |    NULL |                      61772.5900 |
+|  7654 | MARTIN  | 1796.88 | 1400.00 |                      28532.8880 |
+|  7698 | BLAKE   | 3919.30 |    NULL |                      59181.4300 |
+|  7782 | CLARK   | 3369.30 |    NULL |                      50876.4300 |
+|  7788 | SCOTT   | 4140.00 |    NULL |                      62514.0000 |
+|  7839 | KING    | 6250.00 |    NULL |                      94375.0000 |
+|  7844 | TURNER  | 1875.00 |    0.00 |                      28312.5000 |
+|  7876 | ADAMS   | 1716.00 |    NULL |                      25911.6000 |
+|  7900 | JAMES   | 1544.40 |    NULL |                      23320.4400 |
+|  7902 | FORD    | 4312.50 |    NULL |                      65118.7500 |
+|  7934 | MILLER  | 2112.50 |    NULL |                      31898.7500 |
+|     1 | kishori | 5464.80 |  678.00 |                      83196.4800 |
+|     2 | Rajan   | 8125.00 |    NULL |                     122687.5000 |
+|    12 | Revati  | 4320.00 |  456.00 |                      65688.0000 |
+|    15 | Rajan   | 4320.00 |  456.00 |                      65688.0000 |
+|  2345 | xxx     | 4320.00 |    NULL |                      65232.0000 |
+|   123 | deepa   | 4968.00 |    NULL |                      75016.8000 |
++-------+---------+---------+---------+---------------------------------+
+20 rows in set (0.00 sec)
+
+mysql> create function calcbonus_job(psal decimal(9,2),pcomm decimal(9,2),pjob varchar(20)) returns decimal(9,2)
+    -> begin
+    -> declare vbonus decimal(9,2);
+    ->     if pjob='CLERK' then
+    -> set vbonus=psal*0.20+psal*0.30+ifnull(pcomm,0)+200;
+    -> elseif pjob='ANALYST' then
+    ->     set vbonus=psal*0.15+psal*0.10+ifnull(pcomm,0)+1000;
+    -> elseif pjob='MANAGER' then
+    ->     set vbonus=psal*0.08+psal*0.03+ifnull(pcomm,0)+5000;
+    -> else
+    ->     set vbonus=psal+ifnull(pcomm,0)+10000;
+    -> end if;
+    -> return vbonus;
+    ->
+    ->
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select empno,ename,sal,comm,calcbonus_job(sal,comm,job)
+    -> from emp;
+    -> //
++-------+---------+---------+---------+-----------------------------+
+| empno | ename   | sal     | comm    | calcbonus_job(sal,comm,job) |
++-------+---------+---------+---------+-----------------------------+
+|  7369 | SMITH   | 1300.00 |    NULL |                      850.00 |
+|  7499 | ALLEN   | 2300.00 |  300.00 |                    12600.00 |
+|  7521 | WARD    | 1796.88 |  500.00 |                    12296.88 |
+|  7566 | JONES   | 4090.90 |    NULL |                     5450.00 |
+|  7654 | MARTIN  | 1796.88 | 1400.00 |                    13196.88 |
+|  7698 | BLAKE   | 3919.30 |    NULL |                     5431.12 |
+|  7782 | CLARK   | 3369.30 |    NULL |                     5370.62 |
+|  7788 | SCOTT   | 4140.00 |    NULL |                     2035.00 |
+|  7839 | KING    | 6250.00 |    NULL |                    16250.00 |
+|  7844 | TURNER  | 1875.00 |    0.00 |                    11875.00 |
+|  7876 | ADAMS   | 1716.00 |    NULL |                     1058.00 |
+|  7900 | JAMES   | 1544.40 |    NULL |                      972.20 |
+|  7902 | FORD    | 4312.50 |    NULL |                     2078.13 |
+|  7934 | MILLER  | 2112.50 |    NULL |                     1256.25 |
+|     1 | kishori | 5464.80 |  678.00 |                     6279.13 |
+|     2 | Rajan   | 8125.00 |    NULL |                     4262.50 |
+|    12 | Revati  | 4320.00 |  456.00 |                    14776.00 |
+|    15 | Rajan   | 4320.00 |  456.00 |                    14776.00 |
+|  2345 | xxx     | 4320.00 |    NULL |                    14320.00 |
+|   123 | deepa   | 4968.00 |    NULL |                     2242.00 |
++-------+---------+---------+---------+-----------------------------+
+20 rows in set (0.00 sec)
+
+mysql> delimiter //
+mysql> create function cal_exp(phiredate date) returns int
+    -> begin
+    ->   declare vexp int default 0;
+    ->    set vexp=floor(datediff(curdate(),phiredate)/365);
+    ->    return vexp;
+    -> end//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+mysql> select empno,ename,sal,cal_exp(hiredate)
+    -> from emp;
++-------+---------+---------+-------------------+
+| empno | ename   | sal     | cal_exp(hiredate) |
++-------+---------+---------+-------------------+
+|  7369 | SMITH   | 1300.00 |                40 |
+|  7499 | ALLEN   | 2300.00 |                40 |
+|  7521 | WARD    | 1796.88 |                40 |
+|  7566 | JONES   | 4090.90 |                40 |
+|  7654 | MARTIN  | 1796.88 |                39 |
+|  7698 | BLAKE   | 3919.30 |                40 |
+|  7782 | CLARK   | 3369.30 |                40 |
+|  7788 | SCOTT   | 4140.00 |                38 |
+|  7839 | KING    | 6250.00 |                39 |
+|  7844 | TURNER  | 1875.00 |                39 |
+|  7876 | ADAMS   | 1716.00 |                38 |
+|  7900 | JAMES   | 1544.40 |                39 |
+|  7902 | FORD    | 4312.50 |                39 |
+|  7934 | MILLER  | 2112.50 |                39 |
+|     1 | kishori | 5464.80 |                 3 |
+|     2 | Rajan   | 8125.00 |                29 |
+|    12 | Revati  | 4320.00 |              1822 |
+|    15 | Rajan   | 4320.00 |              1822 |
+|  2345 | xxx     | 4320.00 |              NULL |
+|   123 | deepa   | 4968.00 |              NULL |
++-------+---------+---------+-------------------+
+20 rows in set (0.00 sec)
+
+mysql> select routine_name
+    -> from information_schema.routines
+    -> where routine_type='FUNCTION' and routine_schema='knowitdb';
++----------------------+
+| ROUTINE_NAME         |
++----------------------+
+| calcbonus_job        |
+| cal_exp              |
+| find_cost_to_company |
+| generate_email       |
+| gen_Email            |
+| getExperience        |
++----------------------+
+6 rows in set (0.01 sec)
+
+mysql> create table dept_audit(
+    -> deptno int,
+    -> dname varchar(20),
+    -> uname varchar(20),
+    -> chdate date,
+    -> action varchar(20));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create trigger insert_dept before insert on dept
+    -> for each row
+    ->    insert into emp_audit values(NEW.deptno,NEW.dname,current_user(),curdate(),'insert');
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>  desc dept_audit;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int         | YES  |     | NULL    |       |
+| dname  | varchar(20) | YES  |     | NULL    |       |
+| uname  | varchar(20) | YES  |     | NULL    |       |
+| chdate | date        | YES  |     | NULL    |       |
+| action | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp_audit;
+ERROR 1146 (42S02): Table 'knowitdb.emp_audit' doesn't exist
+mysql> select * from dept_audit;
+Empty set (0.00 sec)
+
+mysql> insert into dept values(100,'accounts,'pune');
+    '> //
+    '> ;
+    '> ^C
+mysql> insert into dept values(100,'accounts,'pune');
+    '> ^C
+mysql> insert into dept values(100,'accounts','pune');
+ERROR 1146 (42S02): Table 'knowitdb.emp_audit' doesn't exist
+mysql> use knowitdb
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_knowitdb |
++--------------------+
+| all_emp            |
+| bonus              |
+| category           |
+| dept               |
+| dept_audit         |
+| dummy              |
+| emp                |
+| emp_allowance      |
+| emp_back           |
+| emp_dept           |
+| india_emp          |
+| japan_emp          |
+| mgr10              |
+| mgr10_11           |
+| product            |
+| room               |
+| salesman           |
+| salgrade           |
+| testing            |
+| us_emp             |
+| vehicle_history    |
++--------------------+
+21 rows in set (0.00 sec)
+
+mysql>
+mysql> create table dept_audit(
+    -> deptno int,
+    -> dname varchar(20),
+    -> uname varchar(20),
+    -> chdate date,
+    -> action varchar(20));
+ERROR 1050 (42S01): Table 'dept_audit' already exists
+mysql> drop trigger insert_dept
+    -> create trigger insert_dept before insert on dept
+    -> for each row
+    ->    insert into dept_audit values(NEW.deptno,NEW.dname,current_user(),curdate(),'insert');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create trigger insert_dept before insert on dept
+for each row
+   insert into dep' at line 2
+mysql>  drop trigger insert_dept;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create trigger insert_dept before insert on dept
+    -> for each row
+    ->    insert into dept_audit values(NEW.deptno,NEW.dname,current_user(),curdate(),'insert');
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>  desc dept_audit;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int         | YES  |     | NULL    |       |
+| dname  | varchar(20) | YES  |     | NULL    |       |
+| uname  | varchar(20) | YES  |     | NULL    |       |
+| chdate | date        | YES  |     | NULL    |       |
+| action | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> select * dept_audit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dept_audit' at line 1
+mysql> select * from dept_audit;
+Empty set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
+|     51 | aaa        | ddd      |
+|     52 | zzz        | ddd      |
++--------+------------+----------+
+9 rows in set (0.01 sec)
+
+mysql> insert into dept values(100,'inssurance','pune');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
+|     51 | aaa        | ddd      |
+|     52 | zzz        | ddd      |
+|    100 | inssurance | pune     |
++--------+------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select * dept_audit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dept_audit' at line 1
+mysql> select * from dept_audit;
++--------+------------+----------------+------------+--------+
+| deptno | dname      | uname          | chdate     | action |
++--------+------------+----------------+------------+--------+
+|    100 | inssurance | root@localhost | 2021-06-13 | insert |
++--------+------------+----------------+------------+--------+
+1 row in set (0.00 sec)
+
+mysql> create trigger del_dept after delete on dept
+    -> for each row
+    ->     insert into dept_audit values(OLD.deptno,OLD.dname,current_user(),curdate(),'insert');
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     56 | xxx        | pune     |
+|     51 | aaa        | ddd      |
+|     52 | zzz        | ddd      |
+|    100 | inssurance | pune     |
++--------+------------+----------+
+10 rows in set (0.01 sec)
+
+mysql> delete from dept where deptno>55;
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> select * dept_audit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dept_audit' at line 1
+mysql> select * from dept_audit;
++--------+------------+----------------+------------+--------+
+| deptno | dname      | uname          | chdate     | action |
++--------+------------+----------------+------------+--------+
+|    100 | inssurance | root@localhost | 2021-06-13 | insert |
+|     56 | xxx        | root@localhost | 2021-06-13 | insert |
+|    100 | inssurance | root@localhost | 2021-06-13 | insert |
++--------+------------+----------------+------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> drop trigger del_dept;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create trigger del_dept after delete on dept
+    -> for each row
+    ->     insert into dept_audit values(OLD.deptno,OLD.dname,current_user(),curdate(),'delete');
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
+|     51 | aaa        | ddd      |
+|     52 | zzz        | ddd      |
++--------+------------+----------+
+8 rows in set (0.01 sec)
+
+mysql> delete from dept where deptno in (51,52);
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> select * from dept_audit;
++--------+------------+----------------+------------+--------+
+| deptno | dname      | uname          | chdate     | action |
++--------+------------+----------------+------------+--------+
+|    100 | inssurance | root@localhost | 2021-06-13 | insert |
+|     56 | xxx        | root@localhost | 2021-06-13 | insert |
+|    100 | inssurance | root@localhost | 2021-06-13 | insert |
+|     51 | aaa        | root@localhost | 2021-06-13 | delete |
+|     52 | zzz        | root@localhost | 2021-06-13 | delete |
++--------+------------+----------------+------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> create table dept_audit11(
+    -> deptno int,
+    -> odname varchar(20),
+    -> ndname varchar(20)
+    -> uname varchar(20),
+    -> chdate date,
+    -> action varchar(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uname varchar(20),
+chdate date,
+action varchar(20))' at line 5
+mysql> create table dept_audit11(
+    -> deptno int,
+    -> odname varchar(20),
+    -> ndname varchar(20),
+    -> uname varchar(20),
+    -> chdate date,
+    -> action varchar(20));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create trigger update_dept after update on dept
+    -> for each row
+    ->     insert into dept_audit11 values(OLD.deptno,OLD.dname,NEW.dname,current_user(),curdate(),'update');
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> upadate dept
+    -> set dname='xxx'
+    -> nflkjdfklj;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'upadate dept
+set dname='xxx'
+nflkjdfklj' at line 1
+mysql> select * from dept;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     50 | purchase   | pune     |
+|     55 | xxx        | pune     |
++--------+------------+----------+
+6 rows in set (0.01 sec)
+
+mysql> upadate dept
+    -> set dname='Inssurance'
+    -> where deptno=55;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'upadate dept
+set dname='Inssurance'
+where deptno=55' at line 1
+mysql> update dept
+    -> set dname='Inssurance'
+    -> where deptno=55;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from dept_audit11;
++--------+--------+------------+----------------+------------+--------+
+| deptno | odname | ndname     | uname          | chdate     | action |
++--------+--------+------------+----------------+------------+--------+
+|     55 | xxx    | Inssurance | root@localhost | 2021-06-13 | update |
++--------+--------+------------+----------------+------------+--------+
+1 row in set (0.00 sec)
+
+mysql>

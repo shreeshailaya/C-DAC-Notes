@@ -1,0 +1,426 @@
+customer(cid,cname,adress,mobile number)
+
+select *
+from customer
+where address='Pune'
+
+create procedure display_cust()
+begin
+	select *
+	from customer
+	where address='Pune';
+end//
+
+create procedure display_cust(paddr varchar(20))
+begin
+    declare cset int default 0;
+	declare vcno,vmob int;
+	declare vcname,vcaddress varchar(20);
+	declare custcur cursor for select * from customer where address=paddr; 
+	declare continue handler for NOT FOUND set cset=1;
+	open custcur;
+	label1:loop
+	   fetch custcur into vcno,vcname,vcaddress,vmod; 
+	   if cset=1 then
+	       leave label1;
+	   end if
+	   select vcno,vcname,vcaddress,vmod;
+	   
+	end loop;
+	close custcur;
+	
+end//
+
+
+Exception handling in MySQL
+declare <handler-action> handler for <exception> <statements>
+
+Handle actions are 
+1. continue
+2. exit
+3. undo
+
+exception or condition value
+1. mysql_error_code
+2. sql_state value
+3. SQLEXception
+4. NOT FOUND
+
+
+How to write handlers in mysql store procedure
+declare continue handler for SQLEXCEPTION select 'error occured';
+declare continue handler for SQLEXCEPTION set isError=1;
+declare exit handler for SQLEXCEPTION select 'error occured';
+declare exit handler for SQLEXCEPTION set isError=1;
+
+
+What type of errors may come 
+1. duplicate key
+2. foreign
+3.unique key constraints
+
+
+
+
+to handle duplicate key exception using SQLEXCEPTIOn
+delimiter //
+drop procedure if exists insert_rec_room//
+create procedure insert_rec_room(proomno int,prname varchar(20),prloc varchar(20),pdetails varchar(20),pdesc varchar(20))
+begin
+   declare exit handler for SQLEXCEPTION select 'Error occur';
+   insert into room values(proomno,prname,prloc,pdetails,pdesc);
+   select * from room;
+end//
+delimiter ;
+
+
+----- to handle duplicate key exception 1062
+to handle duplicate key exception using SQLEXCEPTIOn
+delimiter //
+drop procedure if exists insert_rec_room//
+create procedure insert_rec_room(proomno int,prname varchar(20),prloc varchar(20),pdetails varchar(20),pdesc varchar(20))
+begin
+   declare exit handler for 1062 select 'Duplicate key';
+   declare exit handler for SQLEXCEPTION select 'Error occur';
+   insert into room values(proomno,prname,prloc,pdetails,pdesc);
+   select * from room;
+end//
+delimiter ;
+
+
+------ to handle too many rows exception
+delimiter //
+drop procedure if exists find_name;
+create procedure find_name(peno int,out pename varchar(20))
+begin
+     declare exit handler for NOT FOUND select "Not found";
+	 declare exit handler for SQLEXCEPTION select "Too many rows found";
+     select ename into pename
+	 from emp
+	 where empno=peno;
+	 
+	  select pename;
+	 
+	 select ename into pename
+	 from emp
+	 where deptno=20;
+  
+end//
+delimiter ;
+
+------- functions 
+trigers
+
+to create functions
+SET GLOBAL log_bin_trust_function_creators = 1;
+
+delimiter //
+drop function generate_email//
+create function generate_email(pename varchar(20),pjob varchar(20)) returns varchar(50)
+begin
+   declare vemail varchar(200);
+   set vemail=concat(pename,'.',substr(pjob,1,3),'.@mycompany.com');
+   return vemail;
+end//
+
+create procedure display_data()
+begin
+select empno,ename,generate_email(ename,job)
+from emp;
+end//
+
+create function calcbonus_job(psal decimal(9,2),pcomm decimal(9,2),pjob varchar(20)) returns decimal(9,2)
+begin
+declare vbonus decimal(9,2);
+    if pjob='CLERK' then
+		set vbonus=psal*0.20+psal*0.30+ifnull(pcomm,0)+200;
+	elseif pjob='ANALYST' then
+	    set vbonus=psal*0.15+psal*0.10+ifnull(pcomm,0)+1000;
+	elseif pjob='MANAGER' then
+	    set vbonus=psal*0.08+psal*0.03+ifnull(pcomm,0)+5000;
+	else
+	    set vbonus=psal+ifnull(pcomm,0)+10000;
+	end if;
+	return vbonus;
+
+
+end//
+
+
+floor(datediff(curdate(),hiredate)/365);
+
+
+
+
+
+
+
+select empno,ename,sal,comm,calcbonus(sal,comm)
+    -> from emp;
+
+
+delimiter //
+create function cal_exp(phiredate date) returns int
+begin
+  declare vexp int default 0;
+   set vexp=floor(datediff(curdate(),phiredate)/365);
+   return vexp;
+end//
+delimiter ;
+
+
+
+---write procedure to update sal of every employee
+sal=sal+  exp*1000
+
+create procedure update_sal
+begin
+declare cset int default 0;
+declare veno,vexp int;
+declare vename varchar(20);
+declare vhiredate date;
+declare vsal decimal(9,2);
+declare empcur cursor for select empno,ename,hiredate,sal from emp;
+delclare continue handler for NOT FOUND set cset=1;
+open empcur
+label1:loop
+   fetch empcur into veno,vename,vhiredate,vsal;
+   if cset=1 then
+      leave label1;
+   end if;
+   set vexp=cal_exp(vhiredate);
+   set vsal=vsal+vexp*1000;
+   update emp
+   set sal=vsal
+   where empno=veno;
+end loop;
+close empcur;
+end//
+
+----to find all functions in mysql
+
+show function status like 'C%'
+
+select routine_name
+from information_schema.routines
+where routine_type='FUNCTION' and routine_schema='knowitdb'
+
+
+----trigger 
+these are blocks which are auto executed
+
+
+1.auditing purpose
+2.denormalize data integrity
+3. to perform inser , update ,delete on complex views
+
+item(itemno,itemname,price)
+
+purchase(itemno,desc,price)
+
+insert
+update
+delete
+
+type
+insert
+delete
+update
+
+
+timing
+after
+before
+instead of ---- works on views but it works only in oracle
+
+special variable
+NEW
+OLD
+
+delete the record
+OLD - record in the exiting in the table
+NEW --- empty
+
+update the record
+OLD record in the exiting in the table
+NEW new record
+
+insert record
+OLD- empty
+NEW  the record we are inserting
+
+
+
+create table dept_audit(
+deptno int,
+dname varchar(20),
+uname varchar(20),
+chdate date,
+action varchar(20));
+
+drop trigger insert_dept;
+create trigger insert_dept before insert on dept
+for each row
+   insert into dept_audit values(NEW.deptno,NEW.dname,current_user(),curdate(),'insert');
+ 
+drop trigger del_dept;
+create trigger del_dept after delete on dept
+for each row
+    insert into dept_audit values(OLD.deptno,OLD.dname,current_user(),curdate(),'delete');
+
+create table dept_audit11(
+deptno int,
+odname varchar(20),
+ndname varchar(20),
+uname varchar(20),
+chdate date,
+action varchar(20));
+
+
+create trigger update_dept after update on dept
+for each row
+    insert into dept_audit11 values(OLD.deptno,OLD.dname,NEW.dname,current_user(),curdate(),'update');
+
+PLSQL --- procedure,fucntion,triggers, exception handling
+
+MySQL ----- Relational database
+
+types of database
+Relational database  ---Oracle,mysql,postgresql,SQL server
+NOSQL  ----- MongoDB,Cassandra,couchbaseDB,cochDB,NOSQL --- 2009,2010
+graph  ----- NEO4j
+memory databse  ---- MEMDB,VOLTDB
+
+
+social media application
+
+size of data has grown like anything
+
+product --- social media --- by roaming,form  distibute and collect,
+10 days --- 10000
+
+2 days ----whataApp,face book
+million
+
+big data- hadoop
+comment
+emoji
+text
+picture
+
+unstructured
+structured
+
+
+data in relataion dtabase
+1. it is structured
+2. transaction control are avaialble so it supports ACID
+    a-Automic
+	C-consistency
+	I-integrity
+	D-durability
+	
+Bank application
+Income tax 
+online payment systems
+
+
+NOSQL
+1. it is unstructured
+2. size is huge
+3. doesnot support transaction
+
+linked,face book
+
+1. data retrieval is faster in no SQL and slower in Relationala database
+2. NOsql --- horizontal scaling    RDBMS ---> verticle scaling
+3. NOSQL --- unstructure           RDBMS ----> structured
+4. DISTRIBUTED                       Centralized data
+5. can handle huge data             can handle less data as compared to NOSQL
+6. availabilty is high because       availability low
+of replica
+7. low cost machines can be used      high cost investment is needed
+8. data is stored in JSON             Data is stored in table format
+
+
+javascript object Notation---- JSON---- > BSON
+{
+empno:123,
+ename:'Kishori',
+hobbies:['Reading','sleeping','eating','biking'],
+address:[{street:'jkasjd',city:'Pune'},{street:'high street',city:'mumbai'}],
+dept:{deptno:111,dname:'HR'},
+married:true
+
+}
+{
+empno:123,
+ename:'Kishori',
+hobbies:'Reading',
+address:[{street:'jkasjd',city:'Pune'},{street:'high street',city:'mumbai'}],
+dept:{deptno:111,dname:'HR'},
+
+
+}
+{deptno:111,
+dname:'jsdh'
+}
+{
+empno:123,
+ename:'Kishori',
+hobbies:['Reading','sleeping','eating','biking'],
+address1:{street:'jkasjd',city:'Pune'}
+address2:{street:'xxcd',city:'sfsd'}
+dept:{deptno:111,dname:'HR'},
+married:true
+
+}
+
+NoSQL               RDBMS
+Collection          Table
+Primary key         primary key
+Document            Row/Record
+key                 field
+index                index  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
