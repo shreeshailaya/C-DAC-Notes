@@ -1,4 +1,4 @@
-### 1 create table mydept_DAC(deptid number primary key,  dname varchar(20) not null unique, dloc varchar(20) )
+### 1 create table mydept_DAC(deptid number primary key,  dname varchar(20) not null unique, dloc varchar(20)  )
 
 mysql> create table mydept_DBDA(deptid int  primary key, dname varchar(20) unique not NULL, dloc varchar(20));
 Query OK, 0 rows affected (3.10 sec)
@@ -30,6 +30,8 @@ mysql> show databases
 +--------------------+
 6 rows in set (0.12 sec)
 
+
+
 ### 2 Create table myemployee with following d
 empno number fname ,mname,lname varchar data sal floating number ,date of joining,passportnum varchar data, and dept no which will refer deptno from mydept_DAC tables dept no column.
 
@@ -39,7 +41,7 @@ Query OK, 0 rows affected (2.38 sec)
 
 
 
-###4 Create following tables Student, Course  And Marks
+###3 Create following tables Student, Course  And Marks
 Student (sid,sname) ---------------- sid ---primary
 keyCourse(cid,cname)-------------- cid ---primary key
 Marks(studid,courseid,marks) Sample data for marks table studid,courseid,marks
@@ -69,13 +71,13 @@ insert into marks(1,3,98);
 insert into marks(2,1,95);
 insert into marks(2,2,97);
  
-###    4. Create empty table emp10 with table structure same as emp table.
+### 4. Create empty table emp10 with table structure same as emp table.
 
 create table emp10 as(
 select * from emp where 1=2;)
 
 
-###    5. create following tables and solve following uestions product(pid(PK),pname,price,qty,cid(FK),sid(FK)) salesman (sid(PK),sname,address) category(cid(PK),cnam,descritpion)
+### 5. create following tables and solve following uestions product(pid(PK),pname,price,qty,cid(FK),sid(FK)) salesman (sid(PK),sname,address) category(cid(PK),cnam,descritpion)
 
 create table category(
  cid int primary key,
@@ -98,19 +100,21 @@ constraint fk_sid foreign key(sid) references salesman(sid) on delete set null o
 
 
 
-###    6. create following tables and solve following question faculty(fid,fname,sp.skill1,sp.skill2) courses(cid,cname,rid,fid) room(roomid,rname,rloc) faculty fid fname spskill1 spskill2
+### 6. create following tables and solve following question faculty(fid,fname,sp.skill1,sp.skill2) courses(cid,cname,rid,fid) room(roomid,rname,rloc) faculty fid fname spskill1 spskill2
 10 Seeta  a    b
 11 Geetax    z
 12 Neeta  a    x
 13 Ram    a    b
 
 
-###    7.  coursescid cname rid fid
+### 7.  coursescid cname rid fid
 121    DBDA 100 10
 131    DAC 101
 141    DTISS
 151    DIOT 105 12
-    8. Room
+
+
+### 8. Room
 roomid rname rloc
 100    jasmin 1st floor
 101    Rose 2nd floor
