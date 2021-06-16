@@ -1,0 +1,84 @@
+
+● mongod.service - MongoDB Database Server
+     Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor prese>
+     Active: active (running) since Wed 2021-06-16 12:09:32 IST; 45s ago
+       Docs: https://docs.mongodb.org/manual
+   Main PID: 81502 (mongod)
+     Memory: 86.9M
+     CGroup: /system.slice/mongod.service
+             └─81502 /usr/bin/mongod --config /etc/mongod.conf
+
+Jun 16 12:09:32 shree systemd[1]: Started MongoDB Database Server.
+
+[1]+  Stopped                 sudo systemctl status mongod
+shree@shree:~$ mongo
+MongoDB shell version v4.0.25
+connecting to: mongodb://127.0.0.1:27017/?gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("8afd88f6-35a7-4aaf-ae76-f4af0c38ee9c") }
+MongoDB server version: 4.0.25
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	http://docs.mongodb.org/
+Questions? Try the support group
+	http://groups.google.com/group/mongodb-user
+Server has startup warnings: 
+2021-06-16T12:09:35.678+0530 I STORAGE  [initandlisten] 
+2021-06-16T12:09:35.678+0530 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2021-06-16T12:09:35.678+0530 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2021-06-16T12:09:37.605+0530 I CONTROL  [initandlisten] 
+2021-06-16T12:09:37.605+0530 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-06-16T12:09:37.605+0530 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-06-16T12:09:37.605+0530 I CONTROL  [initandlisten] 
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+> 
+[2]+  Stopped                 mongo
+shree@shree:~$ cd Downloads/
+shree@shree:~/Downloads$ mongoimport --db knowitdb --collection movie --file movie.json
+2021-06-16T15:53:53.998+0530	connected to: localhost
+2021-06-16T15:53:55.863+0530	[########################] knowitdb.movie	2.98KB/2.98KB (100.0%)
+2021-06-16T15:53:56.026+0530	[########################] knowitdb.movie	2.98KB/2.98KB (100.0%)
+2021-06-16T15:53:56.026+0530	imported 18 documents
+shree@shree:~/Downloads$ mongo
+MongoDB shell version v4.0.25
+connecting to: mongodb://127.0.0.1:27017/?gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("cffb6929-ee2f-458f-b487-dfc0ebe74500") }
+MongoDB server version: 4.0.25
+Server has startup warnings: 
+2021-06-16T12:09:35.678+0530 I STORAGE  [initandlisten] 
+2021-06-16T12:09:35.678+0530 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2021-06-16T12:09:35.678+0530 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2021-06-16T12:09:37.605+0530 I CONTROL  [initandlisten] 
+2021-06-16T12:09:37.605+0530 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-06-16T12:09:37.605+0530 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-06-16T12:09:37.605+0530 I CONTROL  [initandlisten] 
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+> show dbs
+admin     0.000GB
+config    0.000GB
+knowitdb  0.000GB
+local     0.000GB
+> 
+

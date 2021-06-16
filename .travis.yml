@@ -1,8 +1,0 @@
-language: java
-jdk:
-  - openjdk8
-  
-script: ant build
-
-notifications:
-  email: s.r.vitkar55@gmail.com

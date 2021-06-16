@@ -1,0 +1,18 @@
+{"_id":{"$oid":"5aaa31a2639395f86922a87e"},"name":"kahani","actor":["aaaa","bbbb","karan","karri","vidya"],"ticket_no":420.0,"price":200.0,"actors":["bbbb"],"rating":8.0,"lastmodified":{"$date":"2019-04-07T11:25:40.634Z"}}
+{"_id":{"$oid":"5aaa31ee639395f86922a87f"},"name":"3 idiots","actor":["Kareena Kapoor","amir","kareena","mahadavan","sharman"],"rating":3.0,"ticket_no":150.0,"price":200.0}
+{"_id":{"$oid":"5aaa3334639395f86922a880"},"name":"lagaan","actor":["amir","angraz"],"rating":6.0,"ticket_no":410.0,"price":350.0,"cancellation":{"date":{"$timestamp":{"t":1554356003,"i":1}},"reason":"user request"},"lastModified":{"$date":"2019-04-04T05:33:23.022Z"}}
+{"_id":{"$oid":"5aaa3334639395f86922a881"},"name":"sholay","actor":["Dharamendra","Amitabh","Sachin Pilgaokar","Dharamendra","Dharamendra","Mr. Khote","jaya bacchan","sanjiv kapoor"],"rating":6.0,"ticket_no":550.0,"price":350.0,"position":[2.0,2.0]}
+{"_id":{"$oid":"5aaa3334639395f86922a882"},"name":"aradhana","actor":["amitabh","prem","rajesh khanna"],"rating":3.0,"ticket_no":550.0,"price":260.0}
+{"_id":{"$oid":"5aab6da4639395f86922a883"},"name":"kahani 2","ticket_no":820.0,"actor":["vidya","Arjun","Jonny","nawaz","prasad","Shreyas","Jonny","yash"],"rating":5.0,"price":200.0}
+{"_id":{"$oid":"5bf6a36f57b2d4cc676c7a95"},"name":"Andhadhund","price":400.0,"actor":["Ayushman","radhika"],"rating":4.0}
+{"_id":{"$oid":"5bf6a38c57b2d4cc676c7a96"},"name":"Andhadhund","price":null,"actor":["Tabbu"],"rating":4.0}
+{"_id":{"$oid":"5c8283789eb55675f0272933"},"name":"uri","rating":5.0,"actor":["vicky kaushal","yami","Paresh Rawal"]}
+{"_id":{"$oid":"5c865923d82c19b8ed996550"},"name":"Dil dhadakane do","rating":3.0,"price":340.0,"actor":"['Anil kapoor']"}
+{"_id":{"$oid":"5ca453ef2952ebdd7ae2a92f"},"name":"Kesari","actor":["Akshay Kumar","Pariniti chopra"],"rating":6.0,"price":350.0,"ticket_no":270.0,"rdate":{"$date":"2019-01-23T00:00:00.000Z"}}
+{"_id":{"$oid":"5ca456072952ebdd7ae2a930"},"name":"paa","actor":["Amitabh","vidya balan","Abhishek"],"rating":2.0,"price":270.0,"ticket_no":210.0,"rdate":{"$date":"2019-01-23T00:00:00.000Z"},"others":{"director":"R Balki","songs":"Amit trivedi"}}
+{"_id":{"$oid":"5ca47e5b2952ebdd7ae2a931"},"name":"padmavat","rating":4.0,"price":250.0,"ticket_no":300.0,"actor":["Deepika","shahid kapoor","ranveer singh","aditi Rao","aaaaa"],"cancellation":{"date":{"$timestamp":{"t":1567175239,"i":1}}}}
+{"_id":{"$oid":"5ca47ef82952ebdd7ae2a932"},"name":"newton","ticket_no":690.0,"actor":["Rajkumar Rao","Pankaj Tripathi"],"price":310.0,"lastmodified":{"$date":"2019-09-28T14:47:49.204Z"}}
+{"_id":{"$oid":"5d6935a3470e2bef2a82cdfa"},"name":"mission mangal","price":350.0,"actor":["Sonakshi","Vidya Balan"],"rating":6.0}
+{"_id":{"$oid":"5d89e9adfd4adc2f84279f43"},"name":"chichore","price":274.0,"rating":4.3,"actor":["sushant","shradha kapoor","zzz","harshal"]}
+{"_id":{"$oid":"5d8f51ce065d3e2aa902aa22"},"name":"dream girl","actor":["ayushman","nushrat bharucha"],"price":250.0,"rating":null}
+{"_id":{"$oid":"5d8f6eec620d2353221b91dd"},"price":280.0}
