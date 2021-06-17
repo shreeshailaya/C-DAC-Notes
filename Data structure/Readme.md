@@ -166,7 +166,7 @@ class Linkedlist
 	Node head;
 	createNode(int data);
 	createLinkedList(int numberOfNodes);
-}
+}	
 
 class Program()
 {
@@ -187,10 +187,6 @@ class Program()
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/5_linkedList.gif)
 
 ```java
-public class Node
-{
-	private int data 
-}
 
 public class Linkedlist
 {
@@ -214,9 +210,9 @@ public class Linkedlist
 			else
 			{
 				move=head;
-				while(move.getLink())!=null)
+				while(move.getNext())!=null)
 				{
-					move=move.getLink();
+					move=move.getNext();
 				}
 				move.setLink(newnode);
 			}
@@ -231,20 +227,47 @@ public class Linkedlist
 		while(move!=null)
 		{
 			System.out.println("  "+move.getData());
-			move.move.getLink();
+			move=move.getLink();
 		}
 	}
 }
 ```
+#### Steps for creating Linked List
+- Ask user number of nodes to insert
+- Create node first
+- First check whether the linklist is empty or not, if linklist is empty this node will be first node so assign this node as head 
+- Otherwise travel the linkedlist till the end and attach node at end.
+- Repeat these steps till number of nodes user entered
+
+#### Assignments and code for [Array](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/Assignment1.java) and [LinkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/Assignment2.java)
 
 ***
 ***
+
+
+
+
+
+
+
+
+
+
+
+***
+***
+
 | Concept | What | Why | Where | Comment | Referance |
 |---|---|---|---|---|---|
+| Data Structure | A data structure is a particular way of organizing data in a computer so that it can be used effectively. | Data structures are used as a framework for organizing and storing information in virtual memory forms. | In evey application | - | - |
+| Array | An array is a collection of items stored at contiguous memory locations. | For Storing data | in heap | - | [Array](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/Assignment1.java) |
+| Linked List | Linked list is linear data structure where each element is dynamically allocated. Each node contain two parts, namely the data and the reference | to overcome disadvantage of array | Data Structure(Ralilway)| - | [LinkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/Assignment2.java) |
+
 
 ***
 
 Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
+
 Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
 ***
