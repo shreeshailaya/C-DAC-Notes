@@ -184,7 +184,6 @@ class Program()
 
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/4_linkedList.png)
 
-![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/5_linkedList.gif)
 
 ```java
 
@@ -232,14 +231,24 @@ public class Linkedlist
 	}
 }
 ```
-#### Steps for creating Linked List
-- Ask user number of nodes to insert
-- Create node first
-- First check whether the linklist is empty or not, if linklist is empty this node will be first node so assign this node as head 
-- Otherwise travel the linkedlist till the end and attach node at end.
-- Repeat these steps till number of nodes user entered
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/5_linkedList.gif)
 
-#### Assignments and code for [Array](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/Assignment1.java) and [LinkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/Assignment2.java)
+- Inseration in linked list
+
+```
+move.setLink(newnode);
+
+```
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/6_linkedList.gif)
+
+- Steps for creating Linked List
+	- Ask user number of nodes to insert
+	- Create node first
+	- First check whether the linklist is empty or not, if linklist is empty this node will be first node so assign this node as head 
+	- Otherwise travel the linkedlist till the end and attach node at end.
+	- Repeat these steps till number of nodes user entered
+
+#### Assignments and code for [Array](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/assignment1.java) and [LinkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/assignment2.java)
 
 ***
 ***
@@ -260,8 +269,8 @@ public class Linkedlist
 | Concept | What | Why | Where | Comment | Referance |
 |---|---|---|---|---|---|
 | Data Structure | A data structure is a particular way of organizing data in a computer so that it can be used effectively. | Data structures are used as a framework for organizing and storing information in virtual memory forms. | In evey application | - | - |
-| Array | An array is a collection of items stored at contiguous memory locations. | For Storing data | in heap | - | [Array](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/Assignment1.java) |
-| Linked List | Linked list is linear data structure where each element is dynamically allocated. Each node contain two parts, namely the data and the reference | to overcome disadvantage of array | Data Structure(Ralilway)| - | [LinkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/Assignment2.java) |
+| Array | An array is a collection of items stored at contiguous memory locations. | For Storing data | in heap | - | [Array](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/assignment1.java) |
+| Linked List | Linked list is linear data structure where each element is dynamically allocated. Each node contain two parts, namely the data and the reference | to overcome disadvantage of array | Data Structure(Ralilway)| - | [LinkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/assignment2.java) |
 
 
 ***
