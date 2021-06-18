@@ -253,13 +253,35 @@ move.setLink(newnode);
 ***
 ***
 
+# Day3 18/6
+
+### Add node in LL
+- At begining
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/7_linkedList.png)
+
+- At mid
+
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/8_linkedList.png)
+
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/9_linkedList.gif)
+
+- Delete first node 
+- Note Head is 200 in below img
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/10_linkedList.png)
+
+
+- Delete last node 
+
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/11_linkedList.png)
 
 
 
 
 
 
-
+***
+***
+# Sorting
 
 
 
