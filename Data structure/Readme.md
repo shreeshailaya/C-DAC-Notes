@@ -277,11 +277,23 @@ move.setLink(newnode);
 
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/11_linkedList.png)
 
+***
+***
 
+# Day 4 19/6
+- Searching algorithms 
+	- Linear Search
+	- Binary Search
+***
+***
+# Day 5 21/6
 
+### Sorting LinkedList
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/15_linkedList.gif)
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/13_linkedList.png)
 
-
-
+### Doubly LinkedList
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/14_linkedList.png)
 ***
 ***
 # Sorting
