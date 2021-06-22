@@ -311,7 +311,7 @@ move.setLink(newnode);
 4. adds data element to the stack locationwhere top is pointing
 5. return success
 
-![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/16_stack.png)
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/16_stack.gif)
 
 - pop()
 
