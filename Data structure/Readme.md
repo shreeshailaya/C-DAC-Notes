@@ -296,6 +296,258 @@ move.setLink(newnode);
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/14_linkedList.png)
 ***
 ***
+# Day 6 22/6
+### Stack 
+- Some functions in stact
+- peak()
+- isFull()
+- push 
+- pop
+
+- push()
+1. Check stack is full.
+2. if the stack is full produce an error and exit
+3. is the stack is not full increment top to point next empty space
+4. adds data element to the stack locationwhere top is pointing
+5. return success
+
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/16_stack.png)
+
+- pop()
+
+1. Checks if the stack is empty
+2. if the stack is empty produce error and exit
+3. if the stack is not empty access the data element at which top is pointing
+4. decrease the value of top by  1
+5. return success
+
+
+```java
+class MyStack
+{
+private int top,size;
+private int arr[];
+
+	public MyStack()
+	{
+		size=3;
+		top=-1;
+		arr=new int[size];
+	}
+	
+	public MyStack(int size)
+	{
+		this.size=size;
+		top=-1;
+		arr=new int[size];
+	}
+	
+	public boolean isEmpty()
+	{
+		if(top==-1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public boolean isFull()
+	{
+		if(top==size-1)
+			return true;
+		else
+			return false;
+	}
+	
+	
+	public void push(int element)
+	{
+		if(isFull==true)
+		{
+			syso("Stack is full");
+			return;
+		}
+		else
+		{
+			top++;	//increment top
+			arr[top]=element;
+		}	
+	}
+	
+	// it is mandatery that we have to pass paramert to push 
+	
+	public int pop()
+	{
+		int element=-9999;
+		if(isEmpty()==false)
+		{
+			element= arr[top];
+			top--;
+		}else
+		{
+			syso("Stack is empty")
+		}
+		return element;
+	}
+	
+	public void display()
+	{
+		syso("*** Stack is ***");
+		for(int i=top;i>=0;i--)
+		{
+			syso("   "arr[i]);
+		}
+	}
+}
+
+```
+
+- Push take parameter
+- pop return parameter
+- so pop always return something
+
+
+### Dynamaic Stack (LikeList stack)
+- Create Node class
+	- data and next
+	- default constructor 
+	- para constructor 
+	- getter setter
+	- toString/display()
+- Create MyClass
+	- having top as Node data type
+	- default Constructor-assign null to top
+	- implement is empty method which will return status  whether stack is empty or not
+	if top is null then stack is empty
+	- push method will take data as parameter 
+	```
+		create newnode
+		if top isnull
+			newnode become top
+		else
+			add newnode at beg
+			assign top as new node
+	```
+	- pop()
+	- check is stack is not empty
+	- mark first node as del
+	- move top to next node 
+	- get del.data into data
+	- assign del is null
+	if empty stack return 99999
+	
+	- display()
+	- assign move=top
+	- displaymove.data
+	- increment or shift move to next node.
+	- repeat till move !=null;
+
+```java
+
+class Node
+{
+	private char data;
+	private Node next;
+	
+	publuc Node()
+	{
+		data="0";
+		next=null;
+	}
+	public Node(char ch)
+	{
+		this.data=ch;
+		next=null;
+	}
+	
+	public String toString()
+	{
+		return "  "+data;
+	}
+	
+	//gettersetter
+}
+
+class MyStack
+{
+	Node top;
+	public MyStack()
+	{
+		top=null;
+	}
+	public boolean isEmpty()
+	{
+		if(top==null)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public void push(char ch)
+	{
+		Node newnode=new Node(ch);
+		if(top==null)
+		{
+			top=newnode;
+		}
+		else
+		{
+			newnode.setNext(top);
+			top=newnode;
+		}
+	}
+	
+	public char pop()
+	{
+		char data='0';
+		Node del=null;
+		if(isEmpty()==false)
+		{
+			del=top;
+			data=del.getData();
+			top=top.getNext();
+			del=null;
+		}
+		
+		return data;
+	}
+	
+	public String toString()
+	{
+		String str="";
+		Node move=top;
+		while(move!=null)
+		{
+			str=str+"\n\t"+move.getData();
+			move=move.getNext();	
+			return str;		
+		}
+		
+		
+	}
+}
+
+```
+
+### Reverse String using Stack
+
+
+
+
+
+
+
+
+
+
+
+***
+***
 # Sorting
 
 
