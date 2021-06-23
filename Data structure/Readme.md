@@ -536,11 +536,113 @@ class MyStack
 
 ### Reverse String using Stack
 
+***
+***
+# Day 7 23/6
 
+### C2 Stack
 
+```java
 
+class MyStack
+{
+	private int top1,top2,size;
+	private int [] arr;
+	
+	public MyStack()
+	{
+	
+	}
+	
+	public boolean isFull()
+	{
+		if(top1==top2-1)
+			return true
+	}
+	
+	public boolean isEmpty()
+	{
+		if(top1==-1 && top2==size)
+			return true;
+	}
+	
+	public void pushFront(int data)
+	{
+		if(isFull())
+		{
+			syso("Stac is full")
+		}else
+		{
+			top1++;
+			arr[top]=data;
+		}
+	}
+	
+	public void pushBack(int data)
+	{
+		if(isFull)
+		{
+			syso("Stack is full")
+		}else
+		{
+			top2--;
+			arr[top2]=data;
+		}
+	}
+	
+	public void display()
+	{
+		/*
+		int i;
+		for(i=top1;top1!=top2;i=(i-1)%size)
+		{
+			syso("  "+arr[i]);
+		}
+		
+		double i =0,size =5;
+i = (int) ((i-1)-(size*Math.floor((i-1)/size))); 
+		*/
+		
+		
+		for(i=top1;i>=0;i--)
+			syso("  "+arr[i]);
+		for(i=size-1;i>=top2;i--)
+			syso("  "+arr[i]);
+	}
+}
 
+```
 
+### Queue 
+
+- there is two element i.e front and rear
+- there is enqueue=insert and dequeue=retrive
+- Insert element
+	- check whether queue is full or not 
+	- increment rear and insert data rear position
+- delete element 
+	- check whether queue is empty or not
+	- increment front and return data avalible at front location 
+	
+- isEMPTY()
+	``` 
+		public boolean is Empty()
+		{
+			if(rear==front)
+				if(rear==front)
+				return true;
+		}
+
+	```
+	
+- isFull()
+	'''
+		public boolean isFull()	
+		{
+			if(rear=size-1)
+				return true;	
+		}
+	```
 
 
 
