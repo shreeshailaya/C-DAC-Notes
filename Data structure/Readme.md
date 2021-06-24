@@ -643,10 +643,205 @@ i = (int) ((i-1)-(size*Math.floor((i-1)/size)));
 				return true;	
 		}
 	```
+***
+***
+
+# Day 8 24/6
+
+### Queue	
+
+class MyClassMyQueue
+{
+- rear(to insert data)
+- front (to print exit)
+- size(size of queue())
+- array
+}
+
+public void enQueue(int data)
+{
+- check queue is not full
+	- increment rear and add data at rear position
+- print queue is full
+}
+
+public int deQueue()
+{
+- check queue is not empty
+	- increment front and return data avalible at front position
+-return -9999
+}
+
+public int isFull()
+{
+- ifrear reach to size-1
+}
+
+public int isEmpty()
+{
+- when front and rear pointing to same index
+- 
+}
+
+public void display()
+{
+- from front+1 to rear display all array elements
+}
+
+### Dynamic Queue
+```java
+class Node
+{
+	Book data;
+	Node next;
+	
+	public Node()
+	{
+		data=null;
+		next=null;
+	}
+	public Node(Book data)
+	{
+		this.data=data;
+		this.next=null;
+	}
+	
+	public String toString()
+	{
+		return data.toString();
+	}
+	
+	//getter and setter
+}
+
+class QueueLinkedList
+{
+	Node rear,front;
+	public QueueLinkedList()
+	{
+		rear=null;
+		front=null;
+	}
+	
+	public boolean isEmpty()
+	{
+		if(front==null)
+		{
+			rear=null;
+			return true;
+		}else
+		{
+			retur false;
+		}
+	}
+	
+	public void enQueue( Book data)
+	{
+		Node newnode = new Node(data);
+		if(rear == null)
+		{
+			rear=front=newnode;
+		}else
+		{
+			rear.setNext(newnode);
+			rear=newnode;
+		}
+	}
+	
+	public Book deQueue()
+	{
+		Book data=null;
+		if(isEmpty())
+		{
+			return data;
+		}
+		else
+		{
+			Node del;
+			del=front;
+			front=front.getNext();
+			data=del.getData();
+			del=null;
+		}
+		return data;
+	}
+	
+	
+	public String toString()
+	{
+		String str="";
+		Node move;
+		for(move=front;move!=null;move=move.getNext())
+		{
+			str=str+" "move.getData().toString();
+		}
+		return str;
+	}
+	
+	
+
+}
+
+class Book
+{
+	int bookid;
+	String bookname;
+	
+	public Book()
+	{
+		bookid=0;
+		bookname=null;
+	}
+	public Book(int bookid, String bookname)
+	{
+		this.bookid=bookid;
+		this.bookname=bookname;
+	}
+	
+	// getter setters
+	
+	public String toString()
+	{
+		return "  "+ bookid "and "+ bookname;
+	}
+}
 
 
+```
 
 
+### Circular Queue 
+
+Enqueue in circular Queue
+ - check queue is not full
+    -- if it is first element in queue
+       increment rear and front by one
+       add data ar rear position
+   --- change rear and add element in array at rear position
+       rear=(rear+1)%size;
+ -- Print Queue is full
+
+DeQueue element from queue
+ --- check queue is not empty
+   --return value at front position
+   -- change front to next index.
+
+Display circular Queue
+
+  -- for(int i=front; i!=rear ; i= (i+1)%size) 
+         print arr[i]
+   print last element 
+
+ front =2
+ rear=1
+
+  i=2     30
+  i=3     40
+  i=4     50
+  i=0     60
+  i=1     X
+
+       
 
 ***
 ***
