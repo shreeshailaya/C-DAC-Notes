@@ -841,11 +841,32 @@ Display circular Queue
   i=0     60
   i=1     X
 
-       
+***
+***
+# Day 9 25/6
+### Dqueue
+pushBack()
+}
+- check queue is not full
+- if rear =-1
+- increament the rear and add element
+}
 
+pushFront()
+{
+- check queue is not full 
+-
+}
+- 
+
+### Sort
 ***
 ***
 # Sorting
+
+### Buebble Sort
+### Selection Sort
+### Merge Sort
 
 
 
