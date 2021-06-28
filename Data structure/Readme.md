@@ -859,6 +859,154 @@ pushFront()
 }
 - 
 
+
+***
+***
+# Day 10 26/6
+
+
+# Day 11 28/6
+
+### tree
+
+- Binary tree has max 2 node 
+- General tree has as many node as you want
+- In binary search tree left must be less than root and right is greater than root
+### AVL Tree
+
+- Balanced Tree 
+
+### Binary tree types
+Full Binary tree
+- All Internal node have must 0 or 2 nodes 
+Complete binary tree
+- Nodes are left to right only
+- Complesary need left node
+Perfect binary
+- All the nodes at the same level
+- Every perfect tree is complete 
+
+- Implement binary tree
+
+- Create Node Class 
+	- data
+	- left
+	- right
+- class BinaryTree
+{
+	root 
+	void addNode(int data)
+	{
+		- create node with data
+		- check if root is null
+			- root is newnode
+		- assign move as root
+		- ask where you want to attach node
+			-left
+				= Check if left is avalible(null)
+				attach at left of move
+				break;
+			- if left is not empty
+				- check if right pointer is null
+					- attach node at right of move
+					- break;
+				
+		
+	}
+}
+	
+```java 
+class Node
+{
+private int data;
+private Node left,right;
+
+	public Npde ()
+	{
+	data=0;
+	left=rigit=nuu;
+	}
+	
+	public Node(int data)
+	{
+	data=data
+	}
+}
+
+
+class BinaryTree
+{
+private Node root;
+	public Tree()
+	{
+	
+	root=null;
+
+	}
+	get set root
+	
+	public void addNode()
+	{
+		Node newnode=new Node(data);
+		Node move;
+		char ans;
+		Scanner sc = new Scanner();
+		if(root==null)
+		{
+		  root=newnode;
+		  syso("ROOT IS CREATED");
+		}else
+		{
+		  move = root;
+		  while(true)
+		  {
+		  	syso("LEFT or RIGHT of"+move.getData());
+		  	ans=sc.next().charAt(0);
+		  	if(ans=='l' || ans=='L')
+		  	{
+		  	  if(move.getLeft()==null)
+		  	  {
+		  	  	move.setLeft((nenode)
+		  	  	break;
+		  	  }else
+		  	  {
+		  	  	move=move.getLeft();
+		  	  }
+		  	}else if(ans==r)
+		  	{
+		  	  if (move.getRight()==null)
+		  	  {
+		  	  	move.serRight(newnode);
+		  	  	break
+		  	  }else
+		  	  {
+		  	  	move=move.getRight();
+		  	  }
+		  	}else
+		  	{
+		  		syso("Wrong option");
+		  		break;
+		  	}
+		  }
+		}
+		
+		void inOrder(Node root)
+		{
+			Node move=root;
+			
+		}		
+	}
+	
+	publice void CreateTree(int noofnodes)
+	{
+	Node newnode;
+	
+	
+	}
+}
+
+```
+
 ### Sort
 ***
 ***
