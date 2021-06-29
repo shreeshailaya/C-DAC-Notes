@@ -885,7 +885,7 @@ pushFront()
 ### tree
 
 
-![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/20_tree.gif)
+![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/20_tree.png)
 
 
 
