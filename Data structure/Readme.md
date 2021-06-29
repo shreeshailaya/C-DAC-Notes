@@ -650,6 +650,10 @@ i = (int) ((i-1)-(size*Math.floor((i-1)/size)));
 
 ### Queue	
 
+![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/17_queue.gif)
+
+
+
 class MyClassMyQueue
 {
 - rear(to insert data)
@@ -689,6 +693,11 @@ public void display()
 }
 
 ### Dynamic Queue
+
+![queue](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/18_queue.gif)
+
+
+
 ```java
 class Node
 {
@@ -841,6 +850,12 @@ Display circular Queue
   i=0     60
   i=1     X
 
+![queue](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/19_circularQueue.gif)
+
+
+
+
+
 ***
 ***
 # Day 9 25/6
@@ -868,6 +883,11 @@ pushFront()
 # Day 11 28/6
 
 ### tree
+
+
+![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/20_tree.gif)
+
+
 
 - Binary tree has max 2 node 
 - General tree has as many node as you want
@@ -997,15 +1017,112 @@ private Node root;
 		}		
 	}
 	
-	publice void CreateTree(int noofnodes)
-	{
-	Node newnode;
 	
-	
-	}
 }
 
 ```
+
+# Day 12 29/6
+- Print Tree Recrusion function
+```java
+
+	 public void inOrder(Node root)
+	    {
+	    	Node move=root;
+	    	if(move!=null)
+	    	{
+	    		inOrder(move.getLeft());
+	    		System.out.println("  "+move.getData());
+	    		inOrder(move.getRight());
+	    	}
+	    }
+	 
+```
+
+![Traversal](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/21_inOrder.gif)
+
+
+```java	 
+	 
+	 public void preOrder(Node root)
+	    {
+	    	Node move=root;
+	    	if(move!=null)
+	    	{
+	    		System.out.println("  "+move.getData());
+	    		preOrder(move.getLeft());
+	    		preOrder(move.getRight());
+	    	}
+	    }
+	 
+```
+
+![Traversal](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/22_preOrded.gif)
+
+```java
+	 
+	 public void postOrder(Node root)
+	    {
+	    	Node move=root;
+	    	if(move!=null)
+	    	{
+	    		postOrder(move.getLeft());
+	    		postOrder(move.getRight());
+	    		System.out.println("  "+move.getData());
+	    	}
+	    }
+
+
+
+```
+
+![Traversal](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/23_postOrder.gif)
+
+- Recursion function saves values in stack so it print stack wise.
+
+- *In order gives data in sorted manner*
+
+### Search Element from tree
+
+### Delete Node
+``` java
+
+public class deleteNode
+{
+
+}
+
+```
+### Graph
+- Vertex
+- Edge
+- Path 
+- Adjacent Node
+
+- in degree o0ut degree
+- sink node/Source node
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Sort
 ***
