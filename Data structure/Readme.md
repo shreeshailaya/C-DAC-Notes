@@ -1080,19 +1080,14 @@ private Node root;
 
 - Recursion function saves values in stack so it print stack wise.
 
-- *In order gives data in sorted manner*
+- **In order gives data in sorted manner**
 
 ### Search Element from tree
 
-### Delete Node
-``` java
+### Delete Node from tree
+![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/24_tree.gif)
 
-public class deleteNode
-{
-	temp=root
-}
 
-```
 ### Graph
 - Vertex
 - Edge
