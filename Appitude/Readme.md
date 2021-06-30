@@ -31,5 +31,11 @@ Place value of 7 is 10*7=70
 ### Co-prime number 
 - If the HCF of two number become 1 then they are co-prime
 - eg (8,15)
+***
 
+Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
+
+Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
+
+***
  
