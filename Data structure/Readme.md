@@ -1089,7 +1089,7 @@ private Node root;
 
 public class deleteNode
 {
-
+	temp=root
 }
 
 ```
@@ -1101,11 +1101,80 @@ public class deleteNode
 
 - in degree o0ut degree
 - sink node/Source node
-- 
+
+
+# Day 13 30/6
+### Graph 
+```java
+
+class Graph
+{
+	int vertex;
+	int graph[][];
+	
+	public Graph()
+	{
+		vertex =5;
+		graph=new int[vertix][vertex]
+	}
+	
+	public Graph(int size)
+	{
+	
+	}
+	
+	public void acceptGraph()
+	{
+		Scanner sc = new Scanner(SI)
+		syso("Enter adjency of ")
+		fot(int i=0;i<vertex;i++)
+		{
+		for(int j=0j<vertex;j++)
+		{
+			syso("[i][j]");
+			graph[i][j]=sc.nextInt();
+		}
+		
+		}
+	}
+	
+	
+	
+	
+	public void displayGraph()
+	{
+		Scanner sc = new Scanner(SI)
+		syso("Enter adjency of ")
+		fot(int i=0;i<vertex;i++)
+		{
+			syso();
+		for(int j=0j<vertex;j++)
+		{
+			syso(+graph[i][j]);
+		}
+		
+		}
+	}
+}
 
 
 
+```
+### unDirectedGraph
+```java
+public void addEdge(int i,int j)
+{
+	graph[i][j]=1;
+	graph[j][i]=1;
+}
 
+```
+### Graph Traversa
+- DFS-depth
+- BFS-level
+
+
+### Adjency List
 
 
 
