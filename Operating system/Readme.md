@@ -7,7 +7,7 @@
 
 ![os](https://github.com/shreeshailaya/c-dac/blob/main/Operating%20system/Media/1_os.png)
 
-- ** System Software **
+- **System Software**
 - It is the type of computer program that is designed to run computer hardware and application.
 - The OS is the is best known example of system software
 - OS manage all other programs in computer.
@@ -23,7 +23,7 @@
 
 ![os](https://github.com/shreeshailaya/c-dac/blob/main/Operating%20system/Media/2_os.png)
 
-- ** Command Interpreter **
+- **Command Interpreter**
 One of the major functions of OS is commands.
 - OS need to provide the interface to the user for the communcation with the computer.
 - A Command Interpreter is a program which reads the instruction given by the user.
