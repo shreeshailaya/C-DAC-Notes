@@ -885,7 +885,7 @@ pushFront()
 ### tree
 
 
-![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/24_tree.png)
+![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/20_tree.png)
 
 
 
@@ -1085,7 +1085,7 @@ private Node root;
 ### Search Element from tree
 
 ### Delete Node from tree
-![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/24_tree.gif)
+![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/24_tree.png)
 
 
 ### Graph
