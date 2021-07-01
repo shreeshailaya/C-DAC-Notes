@@ -1179,7 +1179,11 @@ public void addEdge(int i,int j)
 
 
 # Day 14 1/7
-
+### Hash
+### time complixity 
+### kruskal Algorithm
+### Prime's Algo
+### AVL Tree Balanced Factor
 
 
 
@@ -1196,7 +1200,7 @@ public void addEdge(int i,int j)
 ### Buebble Sort
 ### Selection Sort
 ### Merge Sort
-
+### Shell sort
 
 
 ***
