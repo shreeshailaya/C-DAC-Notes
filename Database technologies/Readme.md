@@ -1,107 +1,443 @@
-# 1/6
-## Introduction
-### Databases
-- Oracle ---> Oracal ---> java
-- mysql ---> JAVA
-- prostgresSQL 
-- SQL Server ---> Microsoft ---> .NET
+# Agenda
+- DBMS vs RDBMS
+- MySQL: Introduction, Installation.
+- SQL
+	- CREATE TABLE, MySQL data types
+	- SELECT with LIMIT, ORDER, WHERE, GROUP BY, HAVING
+	- INSERT, UPDATE, DELETE
+	- Joins, Sub-queries
+	- Transaction & Locking
+	- GRANT & REVOKE
+	
+- MySQL programming (PSM)
+	- Stored procedure
+	- Cursors
+	- Functions
+	- Triggers
+	
+# DBMS
+- Any enterprise application need to manage data.
+- In early days of software development, programmers store data into files and does operation on it. However data is highly application specific.
+- Even today many software manage their data in custom formats e.g. Tally, Address book, etc.
+- As data management became more common, DBMS systems were developed to handle the data. This enabled developers to focus on the business logic e.g. FoxPro, DBase, Excel, etc.
+- At least CRUD (Create, Retrieve, Update and Delete) operations are supported by all databases.
+- Traditional databases are file based, less secure, single-user, non- distributed, manage less amount of data (MB), complicated relation
+management, file-locking and need number of lines of code to use in applications.
 
-### NoSQL
-- MangoDB
-- Caasandra
-- Couchbase
+# RDBMS
 
-### GraphDB
-- Neo4j
+- RDBMS is relational DBMS.
+- It organizes data into Tables, rows and columns. The tables are related to each other.
+- RDBMS follow table structure, more secure, multi-user, server-client architecture, server side processing, clustering support, manage huge data (TB), built-in relational capabilities, table-locking or row-locking and can be easily integrated with applications.
+- e.g. DB2, Oracle, MS-SQL, MySQL, MS-Access, SQLite, … 
+- RDBMS design is based on Codd’s rules developed at IBM (in 1970).
 
-### MemoryDB(which is present in local memory)
-- MemDB
-- VoltDB
+1_rdbms.png
 
-### SQL(Structurd Query Language) and PLSQL
-- SQL is 4GL -  what to do it , undefined language
-- It run on queries
-- SQL  is unified language
-| SQL | NOSQL |
-| ---  | --- |
-| Structured | Unstructured |
-| Table | Collection |
-| Secure-finaciala app | Less secure-socialMedia |
-| Transation Control | No Transaction Control |
+![DBT](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Database%20technologies/Media/1_rdbms.png)
+
+# SQL
+- Clients send SQL queries to RDBMS server and operations are performed accordingly.
+- Originally it was named as RQBE (Relational Query By Example).
+- SQL is ANSI standardised in 1987 and then revised multiple times adding new features. Recent revision in 2016.
+- SQL is case insensitive.
+- There are five major categories:
+- DDL: Data Definition Language e.g. CREATE, ALTER, DROP, RENAME.
+- DML: Data Manipulation Language e.g. INSERT, UPDATE, DELETE.
+- DQL: Data Query Language e.g. SELECT.
+- DCL: Data Control Language e.g. CREATE USER, GRANT, REVOKE.
+- TCL: Transaction Control Language e.g. SAVEPOINT, COMMIT, ROLLBACK.
+- Table & column names allows alphabets, digits & few special symbols.
+- If name contains special symbols then it should be back-quotes.
+- e.g. Tbl1, `T1#`, `T2$` etc. Names can be max 30 chars long.
 
 # MySQL
-- Every row should be unique in SQL
-- So thats why we assign some id
-- This ID is called primary key
+- Developed by Michael Widenius in 1995. It is named after his daughter name Myia.
+- Sun Microsystems acquired MySQL in 2008.
+- Oracle acquired Sun Microsystem in 2010.
+- MySQL is free and open-source database under GPL. However some enterprise modules are close sourced and available only under commercial version of MySQL.
+- MariaDB is completely open-source clone of MySQL.
+- MySQL support multiple database storage and processing engines.
+- MySQL versions:
+- < 5.5: MyISAM storage engine
+- 5.5: InnoDb storage engine
+- 5.6: SQL Query optimizer improved, memcached style NoSQL
+- 5.7: Windowing functions, JSON data type added for flexible schema
+- 8.0: CTE, NoSQL document store.
+- MySQL is database of year 2019 (in database engine ranking).
+# Getting started
+- root login can be used to perform CRUD as well as admin operations.
+- It is recommended to create users for performing non-admin tasks.
+- mysql> CREATE DATABASE db;
+- mysql> SHOW DATABASES;
+- mysql> CREATE USER dbuser@localhost IDENTIFIED BY 'dbpass';
+- mysql> SELECT user, host FROM mysql.user;
+- mysql> GRANT ALL PRIVILEGES ON db.* TO dbuser@localhost;
+- mysql> FLUSH PRIVILEGES;
+- mysql> EXIT;
+- terminal> mysql –u dbuser –pdbpass
+- mysql> SHOW DATABASES;
+- mysql> SELECT USER(), DATABASE();
+- mysql> USE db;
+- mysql> SHOW TABLES;
+- mysql> CREATE TABLE student(id INT, name VARCHAR(20), marks DOUBLE);
+- mysql> INSERT INTO student VALUE
+- mysql> SELECT * FROM student;
 
-| ID | Name | Deg |
-| ---  | --- | --- |
-| 111 | Shree | Manager |
-| 222 | Shree | Manager |
-| 333 | Revati | Ux Designer |
-| 444 | Rajan | Game Designer |
+# Database logical layout
+- Database/schema is like a namespace/container that stores all db objects related to a project.
+- It contains tables, constraints, relations, stored procedures, functions, triggers, ...
+- There are some system databases e.g. mysql, performance_schema, information_schema, sys, ... They contains db internal/system information.
+- e.g. SELECT user, host FROM mysql.user;
+- A database contains one or more tables.
+- Tables have multiple columns.
+- Each column is associated with a data-type.
+- Columns may have zero or more constraints.
+- The data in table is in multiple rows.
+- Each row have multiple values (as per columns).
 
-- PrimaryKey is the minimal subset of the coloums that identifies the row uniquely.
-- SuperKey is any combination of coloum which is uniquely identify the row eg. 111Shree,111ShreeManager
+# Database physical layout
+- In MySQL, the data is stored on disk in its data directory i.e. /var/lib/mysql
+- Each database/schema is a separate sub-directory in data dir.
+- Each table in the db, is a file on disk.
+- e.g. student table in current db is stored in file /var/lib/mysql/db/student.ibd.
+- Data is stored in binary format.
+- A file may not be contiguously stored on hard disk.
+- Data rows are not contiguous. They are scattered in the hard disk.
+- In one row, all fields are consecutive.
+- When records are selected, they are selected in any order.
 
-| Room No | Name  | Location | Size |
-| ---  | --- | --- | --- |
-| 1 | Lotus | 3rd floor | 14*14 |
-| 2 | Jasmin | 1st floor | 12*12 |
-| 3 | Jasmin | 3rd floor | 12*12 |
+# MySQL data types
+- RDBMS have similar data types (but not same).
+- MySQL data types can be categorised as follows
+- Numeric types (Integers)
+- TINYINT (1 byte), SMALLINT (2 byte), MEDIUMINT (3 byte), INT (4 byte), BIGINT (8 byte), BIT(n bits)
+- integer types can signed (default) or unsigned.
+- Numeric types (Floating point)
+- approx. precision – FLOAT (4 byte), DOUBLE (8 byte) | DECIMAL(m, n) – exact precision
+- Date/Time types
+- DATE, TIME, DATETIME, TIMESTAMP, YEAR
+- String types – size = number of chars * size of char
+- CHAR(1-255) – Fixed length, Very fast access.
+- VARCHAR(1-65535) – Variable length, Stores length + chars.
+- TINYTEXT (255), TEXT (64K), MEDIUMTEXT (16M), LONGTEXT (4G) – Variable length, Slower access.
+- Binary types – size = number of bytes
+- BINARY, VARBINARY, TINYBLOB, BLOB, MEDIUMBLOB, LONGBLOB
+- Miscellaneous types
+- ENUM, SET
 
-- The other data will change or will same as others row thats why we use unique key.
-- Composite key is the if the primary key contain any combination more than one coloum is called composite key.
+# CHAR vs VARCHAR vs TEXT
+- CHAR
+- Fixed inline storage.
+- If smaller data is given, rest of space is unused.
+- Very fast access.
+- VARCHAR
+- Variable inline storage.
+- Stores length and characters.
+- Slower access than CHAR.
+- TEXT
+- Variable external storage.
+- Very slow access.
+- Not ideal for indexing.
+- CREATE TABLE temp(c1 CHAR(4), c2 VARCHAR(4), c3 TEXT(4));
+- DESC temp;
+- INSERT INTO temp VALUES('abcd', 'abcd', 'abcdef'); 
 
-| Student ID | Course ID  | Marks | Module |
-| ---  | --- | --- | --- |
-| 121 | 1 | 99 | JAVA |
-| 121 | 1 | 99 | DBMS |
+# INSERT – DML
+- Insert a new row (all columns, fixed order).
+- INSERT INTO table VALUES (v1, v2, v3);
+- Insert a new row (specific columns, arbitrary order).
+- INSERT INTO table(c3, c1, c2) VALUES (v3, v1, v2);
+- INSERT INTO table(c1, c2) VALUES (v1, v2);
+- Missing columns data is NULL.
+- NULL is special value and it is not stored in database.
+- Insert multiple rows.
+- INSERT INTO table VALUES (av1, av2, av3), (bv1, bv2, bv3), (cv1, cv2, cv3).
+- Insert rows from another table.
+- INSERT INTO table SELECT c1, c2, c3 FROM another-table;
+- INSERT INTO table (c1,c2) SELECT c1, c2 FROM another-table;
 
-- PrimaryKey is studentid+module
-- SuperKey studentid+module, studentid+module+courseid
-- The smallest super key is primary key
-- Candidate Key is any minimal subset whichmay become  primary key
-
-### 
-
-
-| Empolyee ID | Ename  | - | DeptNo |
-| ---  | --- | --- | --- |
-| 111 | Shree |   | 10 |
-| 222 | Shree |  | 20 |
-| 333 | Revati |  | 10 |
-| 444 | Rajan |  | 30 |
+# SQL scripts
+- SQL script is multiple SQL queries written into a .sql file.
+- SQL scripts are mainly used while database backup and restore operations.
+- SQL scripts can be executed from terminal as:
+- terminal> mysql –u user –ppassword db < /path/to/sqlfile
+- SQL scripts can be executed from command line as:
+- mysql> SOURCE /path/to/sqlfile
+- Note that SOURCE is MySQL CLI client command.
+- It reads commands one by one from the script and execute them on server
 
 
-- Empolyee ID is a primary number is here 
+# SELECT – DQL
+- Select all columns (in fixed order).
+- SELECT * FROM table;
+- Select specific columns / in arbitrary order.
+- SELECT c1, c2, c3 FROM table;
+- Column alias
+- SELECT c1 AS col1, c2 col2 FROM table;
+- Computed columns.
+- SELECT c1, c2, c3, expr1, expr2 FROM table;
+	- SELECT c1,
+	CASE WHEN condition1 THEN value1,
+	WHEN condition2 THEN value2,
+	…
+	ELSE valuen
+	END
+	FROM table;	
+- Distinct values in column.
+	- SELECT DISTINCT c1 FROM table;
+	- SELECT DISTINCT c1, c2 FROM table;
+- Select limited rows.
+	- SELECT * FROM table LIMIT n;
+	- SELECT * FROM table LIMIT m, n;
+	
+# SELECT – DQL – ORDER BY
+- In db rows are scattered on disk. Hence may not be fetched in a fixed order.
+- Select rows in asc order.
+	- SELECT * FROM table ORDER BY c1;
+	- SELECT * FROM table ORDER BY c2 ASC;
+- Select rows in desc order.
+	- SELECT * FROM table ORDER BY c3 DESC;
+- Select rows sorted on multiple columns.
+	- SELECT * FROM table ORDER BY c1, c2;
+	- SELECT * FROM table ORDER BY c1 ASC, c2 DESC;
+	- SELECT * FROM table ORDER BY c1 DESC, c2 DESC;
+- Select top or bottom n rows.
+	- SELECT * FROM table ORDER BY c1 ASC LIMIT n;
+	- SELECT * FROM table ORDER BY c1 DESC LIMIT n;
+	- SELECT * FROM table ORDER BY c1 ASC LIMIT m, n;
+	
+# SELECT – DQL – WHERE
 
-| Dept No | Dname  | Address |
-| ---  | --- | --- |
-| 10 | HR | Pune |
-| 20 | Sals | Mumbai |
-| 30 | Purches | Channai |
+- It is always good idea to fetch only required rows (to reduce network traffic).
+- The WHERE clause is used to specify the condition, which records to be fetched.
+- Relational operators
+	- <, >, <=, >=, =, != or <>
+- NULL related operators
+	- NULL is special value and cannot be compared using relational operators.
+	- IS NULL or <=>, IS NOT NULL.
+- Logical operators
+	- AND, OR, NOT
+- AND, OR, NOT
 
-- Foreign key is the if the data of any coloum is calidated with primary key of other table or same table then it is called primary key
-- The rule that make foreign key is referential integrity
+- BETWEEN operator (include both ends)
+- c1 BETWEEN val1 AND val2
+- IN operator (equality check with multiple values)
+- c1 IN (val1, val2, val3)
+- LIKE operator (similar strings)
+- c1 LIKE ‘pattern’.
+- % represent any number of any characters.
+- _ represent any single character.
 
-***
-***
-# 3/6
-## Features 
-- Easy to share a data 
-- redundency can be removed
-- integriity
-- consistency
 
-***
-***
-# 4/6
-- current time and date 
-now()
-- Current date 
-curdate()
-- Date formate 
-select date_format(curdate(),'%d-%m-%y');
- capital name 
+# UPDATE – DML
+- To change one or more rows in a table.
+- Update row(s) single column.
+	- UPDATE table SET c2=new-value WHERE c1=some-value;
+- Update multiple columns.
+	- UPDATE table SET c2=new-value, c3=new-value WHERE c1=some-value;
+- Update all rows single column.
+	- UPDATE table SET c2=new-value;
+	
+# DELETE – DML vs TRUNCATE – DDL vs DROP – DDL
+- DELETE	
+- To delete one or more rows in a table.
+- Delete row(s)
+- DELETE FROM table WHERE c1=value;
+- Delete all rows
+	- DELETE FROM table
+	
+	
+- TRUNCATE
+- Delete all rows.
+	- TRUNCATE TABLE table;
+	- Truncate is faster than DELETE.
+- DROP
+	- Delete all rows as well as table structure.
+		- DROP TABLE table;
+		- DROP TABLE table IF EXISTS;
+	- Delete database/schema.
+		- DROP DATABASE db;
+		
+# Seeking HELP
+- HELP is client command to seek help on commands/functions.
+	- HELP SELECT;
+	- HELP Functions;
+	- HELP SIGN;
+# DUAL table
+
+
+- A dummy/in-memory a table having single row & single column.
+- It is used for arbitrary calculations, testing functions, etc.
+	- SELECT 2 + 3 * 4 FROM DUAL;
+	- SELECT NOW() FROM DUAL;
+	- SELECT USER(), DATABASE() FROM DUAL;
+- In MySQL, DUAL keyword is optional.
+	- SELECT 2 + 3 * 4;
+	- SELECT NOW();
+	- SELECT USER(), DATABASE();
+	
+# SQL functions
+- RDBMS provides many built-in functions to process the data.
+- These functions can be classified as:
+	- Single row functions	
+	- One row input produce one row output.
+	- e.g. ABS(), CONCAT(), IFNULL(), …
+- Multi-row or Group functions
+	- Values from multiple rows are aggregated to single value.
+	- e.g. SUM(), MIN(), MAX(), …
+- These functions can also be categorized based on data types or usage.
+	- Numeric functions
+	- String functions
+	- Date and Time functions
+	- Control flow functions
+	- Information functions
+	- Miscellaneous functions
+
+
+
+
+# Numeric & String functions
+- ABS()
+- POWER()
+- ROUND(), FLOOR(), CEIL()
+- ASCII(), CHAR()
+- CONCAT()
+- SUBSTRING()
+- LOWER(), UPPER()
+- TRIM(), LTRIM(), RTRIM()
+- LPAD(), RPAD()
+- REGEXP_LIKE()
+
+# Date-Time and Information functions
+- VERSION()
+- USER(), DATABASE()
+- MySQL supports multiple date time related data types
+	- DATE (3), TIME (3), DATETIME (5), TIMESTAMP (4), YEAR (1)
+- SYSDATE(), NOW()
+- DATE(), TIME()
+- DAYOFMONTH(), MONTH(), YEAR(), HOUR(), MINUTE(), SECOND(), …
+- DATEDIFF(), DATE_ADD(), TIMEDIFF()
+- MAKEDATE(), MAKETIME()
+
+# Control and NULL and List functions
+- NULL is special value in RDBMS that represents absence of value in that column.
+- NULL values do not work with relational operators and need to use special operators.
+- Most of functions return NULL if NULL value is passed as one of its argument.
+- ISNULL()
+- IFNULL()
+- NULLIF()
+- COALESCE()
+- GREATEST(), LEAST()
+- IF(condition, true-value, false-value)
+
+# Group functions
+- Work on group of rows of table.
+- Input to function is data from multiple rows & then output is single row. Hence these functions are called as "Multi Row Function“ or "Group Functions“.
+- These functions are used to perform aggregate ops like sum, avg, max, min, count or std dev, etc. Hence these fns are also called as "Aggregate Functions".
+- Example: SUM(), AVG(), MAX(), MIN(), COUNT().
+- NULL values are ignored by group functions.
+- Limitations of GROUP functions:
+
+	- Cannot select group function along with a column.
+	- Cannot select group function along with a single row fn.
+	- Cannot use group function in WHERE clause/condition.
+	- Cannot nest a group function in another group fn.
+	
+# GROUP BY clause
+- GROUP BY is used for analysis of data i.e. generating reports & charts.
+- When GROUP BY single column, generated output can be used to plot 2-D chart. When GROUP BY two column, generated output can be used toplot 3-D chart and so on.
+- GROUP BY queries are also called as Multi-dimensional / Spatial queries.
+- Syntactical Characteristics:
+	- If a column is used for GROUP BY, then it may or may not be used in SELECT clause.
+	- If a column is in SELECT, it must be in GROUP BY.
+- When GROUP BY query is fired on database server, it does following:
+	- Load data from server disk into server RAM.
+	- Sort data on group by columns.
+	- Group similar records by group columns.
+	- Perform given aggregate ops on each column.
+	- Send result to client.
+	
+# # Transaction
+- Transaction is set of DML queries executed as a single unit.
+- Transaction examples
+	- accounts table [id, type, balance]
+	- UPDATE accounts SET balance=balance-1000 WHERE id = 1;
+	- UPDATE accounts SET balance=balance+1000 WHERE id = 2;
+- RDBMS transaction have ACID properties.
+	- Atomicity
+		- All queries are executed as a single unit. If any query is failed, other queries are discarded.
+	- Consistency
+		- When transaction is completed, all clients see the same data.
+	- Isolation
+		- Multiple transactions (by same or multiple clients) are processed concurrently.
+	- Durable
+		- When transaction is completed, all data is saved on disk.
+- Transaction management
+	- START TRANSACTION;
+	- COMMIT WORK;
+	- START TRANSACTION;
+	- ROLLBACK WORK;
+- In MySQL autocommit variable is by default 1. So each DML command is auto- committed into database.
+	- SELECT @@autocommit;
+- Changing autocommit to 0, will create new transaction immediately after current transaction is completed. This setting can be made permanent in config file.
+	- SET autocommit=0;
+	
+- Save-point is state of database tables (data) at the moment (within a transaction).
+- It is advised to create save-points at end of each logical section of work.
+- Database user may choose to rollback to any of the save-point.
+- Transaction management with Save-points
+
+```	
+- START TRANSACTION;
+- …
+- SAVEPOINT sa1;
+- …
+- SAVEPOINT sa2;
+- …
+- ROLLBACK TO sa1;
+- …
+- COMMIT; // or ROLLBACK
+```
+
+- Commit always commit the whole transaction.
+- ROLLBACK or COMMIT clears all save-points.
+- Transaction is set of DML statements.
+- If any DDL statement is executed, current transaction is automatically committed.
+- Any power failure, system or network failure automatically rollback current state.
+- Transactions are isolated from each other and are consistent.
+
+# Row locking
+- When an user update or delete a row (within a transaction), that row is locked and becomes read-only for other users.
+- The other users see old row values, until transaction is committed by first user.
+- If other users try to modify or delete such locked row, their transaction processing is blocked until row is unlocked.
+- Other users can INSERT into that table. Also they can UPDATE or DELETE other rows.
+- The locks are automatically released when COMMIT/ROLLBACK is done by the user.
+- This whole process is done automatically in MySQL. It is called as "OPTIMISTIC LOCKING".
+- Manually locking the row in advanced before issuing UPDATE or DELETE is known as "PESSIMISTIC LOCKING".
+- This is done by appending FOR UPDATE to the SELECT query.
+- It will lock all selected rows, until transaction is committed or rollbacked.
+- If these rows are already locked by another users, the SELECT operationm is blocked until rows lock is released.
+- By default MySQL does table locking. Row locking is possible only when table is indexed on the column.
+
+- To avoid redundancy of the data, data should be organized into multiple tables so that tables are related to each other.
+- The relations can be one of the following
+	- One to One
+	- One to Many
+	- Many to One
+	- Many to Many
+- Entity relations is outcome of Normalization process.
+- Join statements are used to SELECT data from multiple tables using single query.
+- Typical RDBMS supports following types of joins:
+	- Cross Join
+	- Inner Join
+	- Left Outer Join
+	- Right Outer Join
+	- Full Outer Join
+	- Self join
+	
+
+
+
+
 
