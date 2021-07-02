@@ -34,7 +34,7 @@ management, file-locking and need number of lines of code to use in applications
 
 1_rdbms.png
 
-![DBT](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Database%20technologies/Media/1_rdbms.png)
+![dbt](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Database%20technologies/Media/1_rdbms.png)
 
 # SQL
 - Clients send SQL queries to RDBMS server and operations are performed accordingly.
