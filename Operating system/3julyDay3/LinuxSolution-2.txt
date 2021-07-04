@@ -1,0 +1,49 @@
+1. $pwd
+
+2. $ls /.
+
+3. $cd /.
+
+4. $cd -
+
+5. Use mkdir to create directories and cat or touch to create files.
+
+6. $mv *.c C/.
+
+7. $mkdir temp
+
+8. $mv C/*.c temp/.
+
+9. $cp file* file_copy/.
+
+10. $cd temp
+    $rm *.c
+
+11. $rmdir -R dirname
+
+12. $ln f1 hdlnk
+
+13. $ln -s f1 swlnk
+
+14. $find . -type f -name "hello*
+
+15. $ls -l | wc -l
+
+16. $find . -type f -empty
+
+17. $ls *.c | wc -l
+
+18. $find . -type d | wc -l
+
+19. 1. For column 1
+       $sort -n student > f1
+    2. For column 2
+       $sort -k2 student > f2
+    3. For column 3
+       $sort -K3 -n student > f3
+    To see the sorted data
+       $cat f1
+       $cat f2
+       $cat f3
+
+20. $head -n 7 country | tail -n 2
