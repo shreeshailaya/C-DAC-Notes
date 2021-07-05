@@ -444,146 +444,146 @@ management, file-locking and need number of lines of code to use in applications
 
 # Cross Joins 
 ![dbt](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Database%20technologies/Media/4_joins.png)
-• Compares each row of Table1 with every row of Table2.
-• Yields all possible combinations of Table1 and Table2.
-• In MySQL, The larger table is referred as "Driving Table", while smaller table is referred as "Driven Table". Each row of Driving table is combined with every row of Driven table.
-• Cross join is the fastest join, because there is no condition check involved.
+- Compares each row of Table1 with every row of Table2.
+- Yields all possible combinations of Table1 and Table2.
+- In MySQL, The larger table is referred as "Driving Table", while smaller table is referred as "Driven Table". Each row of Driving table is combined with every row of Driven table.
+- Cross join is the fastest join, because there is no condition check involved.
 
 
 # Inner Join
 
 ![dbt](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Database%20technologies/Media/4_joins.png)
-• The inner JOIN is used to return rows from both tables that satisfy the join condition.
-• Non-matching rows from both tables are skipped.
-• If join condition contains equality check, it is referred as equi-join; otherwise it is non-equi-join.
+- The inner JOIN is used to return rows from both tables that satisfy the join condition.
+- Non-matching rows from both tables are skipped.
+- If join condition contains equality check, it is referred as equi-join; otherwise it is non-equi-join.
 
 # Left Outer Join
 ![dbt](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Database%20technologies/Media/4_joins.png)
-• Left outer join is used to return matching rows from both tables along with additional rows in left table.
-• Corresponding to additional rows in left table, right table values are taken as NULL.
-• Corresponding to additional rows in left table, right table values are taken as NULL.
+- Left outer join is used to return matching rows from both tables along with additional rows in left table.
+- Corresponding to additional rows in left table, right table values are taken as NULL.
+- Corresponding to additional rows in left table, right table values are taken as NULL.
 
 # Right Outer Join
 ![dbt](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Database%20technologies/Media/4_joins.png)
-• Right outer join is used to return matching rows from both tables along with additional rows in right table.
-• Corresponding to additional rows in right table, left table values are taken as NULL.
-• OUTER keyword is optional.
+- Right outer join is used to return matching rows from both tables along with additional rows in right table.
+- Corresponding to additional rows in right table, left table values are taken as NULL.
+- OUTER keyword is optional.
 
 # Full Outer Join
 ![dbt](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Database%20technologies/Media/4_joins.png)
 
-• Full join is used to return matching rows from both tables along with additional rows in both tables.
-• Corresponding to additional rows in left or right table, opposite table values are taken as NULL.
-• Full outer join is not supported in MySQL, but can be simulated using set operators.
+- Full join is used to return matching rows from both tables along with additional rows in both tables.
+- Corresponding to additional rows in left or right table, opposite table values are taken as NULL.
+- Full outer join is not supported in MySQL, but can be simulated using set operators.
 
 
 # Set Operators
 ![dbt](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Database%20technologies/Media/5_joins.png)
-• UNION operator is used to combine results of two queries. The common data is taken only
+- UNION operator is used to combine results of two queries. The common data is taken only
 once. It can be used to simulate full outer join.
-• UNION ALL operator is used to combine results of two queries. Common data is repeated.
+- UNION ALL operator is used to combine results of two queries. Common data is repeated.
 
 # Self Joins 
 ![dbt](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Database%20technologies/Media/6_joins.png)
-• When join is done on same table, then it is known as "Self Join". The both columns in condition belong to the same table.
-• Self join may be an inner join or outer join.
+- When join is done on same table, then it is known as "Self Join". The both columns in condition belong to the same table.
+- Self join may be an inner join or outer join.
 
 # Multi-table Joins
 ![dbt](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Database%20technologies/Media/7_joins.png)
 
 # Sub queries
-• Sub-query is query within query. Typically it work with SELECT statements.
-• Output of inner query is used as input to outer query.
-• If no optimization is enabled, for each row of outer query result, sub-query is executed once. This reduce performance of sub-query.
-• Single row sub-query
-	• Sub-query returns single row.
-	• Usually it is compared in outer query using relational operators.
-• Multi-row sub-query
-	• Sub-query returns multiple rows.
-	• Usually it is compared in outer query using operators like IN, ANY or ALL.
-	• IN operator checks for equality with results from sub-queries.
-	• ANY operator compares with one of the result from sub-queries.
-	• ALL operator compares with all the results from sub-queries.
+- Sub-query is query within query. Typically it work with SELECT statements.
+- Output of inner query is used as input to outer query.
+- If no optimization is enabled, for each row of outer query result, sub-query is executed once. This reduce performance of sub-query.
+- Single row sub-query
+	- Sub-query returns single row.
+	- Usually it is compared in outer query using relational operators.
+- Multi-row sub-query
+	- Sub-query returns multiple rows.
+	- Usually it is compared in outer query using operators like IN, ANY or ALL.
+	- IN operator checks for equality with results from sub-queries.
+	- ANY operator compares with one of the result from sub-queries.
+	- ALL operator compares with all the results from sub-queries.
 
 
-• Correlated sub-query
-	• If number of results from sub-query are reduced, query performance will increase.
-	• This can be done by adding criteria (WHERE clause) in sub-query based on outer query row.
-	• Typically correlated sub-query use IN, ALL, ANY and EXISTS operators.
-• Sub queries with UPDATE and DELETE are not supported in all RDBMS.
-• In MySQL, Sub-queries in UPDATE/DELETE is allowed, but sub-query should not SELECT from the same table, on which UPDATE/DELETE operation is in progress.
+- Correlated sub-query
+	- If number of results from sub-query are reduced, query performance will increase.
+	- This can be done by adding criteria (WHERE clause) in sub-query based on outer query row.
+	- Typically correlated sub-query use IN, ALL, ANY and EXISTS operators.
+- Sub queries with UPDATE and DELETE are not supported in all RDBMS.
+- In MySQL, Sub-queries in UPDATE/DELETE is allowed, but sub-query should not SELECT from the same table, on which UPDATE/DELETE operation is in progress.
 
 # Views
-• RDBMS view represents view (projection) of the data.
-• View is based on SELECT statement.
-• Typically it is restricted view of the data (limited rows or columns) from one or more
+- RDBMS view represents view (projection) of the data.
+- View is based on SELECT statement.
+- Typically it is restricted view of the data (limited rows or columns) from one or more
 tables (joins and/or sub-queries) or summary of the data (grouping).
-• Data of view is not stored on server hard-disk; but its SELECT statement is stored in
+- Data of view is not stored on server hard-disk; but its SELECT statement is stored in
 compiled form. It speed up execution of view.
 
-• Views are of two types: Simple view and Complex view
-• Usually if view contains computed columns, group by, joins or sub-queries, then the
+- Views are of two types: Simple view and Complex view
+- Usually if view contains computed columns, group by, joins or sub-queries, then the
 views are said to be complex. DML operations are not supported on these views.
-• DML operations on view affects underlying table.
-• View can be created with CHECK OPTION to ensure that DML operations can be performed only the data visible in that view.
-• Views can be differentiated with: SHOW FULL TABLES.
-• Views can be dropped with DROP VIEW statement.
-• View can be based on another view.
+- DML operations on view affects underlying table.
+- View can be created with CHECK OPTION to ensure that DML operations can be performed only the data visible in that view.
+- Views can be differentiated with: SHOW FULL TABLES.
+- Views can be dropped with DROP VIEW statement.
+- View can be based on another view.
 
-• Applications of views
-	• Security: Providing limited access to the data.
-	• Hide source code of the table.
-	• Simplifies complex queries.
+- Applications of views
+	- Security: Providing limited access to the data.
+	- Hide source code of the table.
+	- Simplifies complex queries.
 
 # Data Control Language
-• Security is built-in feature of any RDBMS. It is implemented in terms of permissions (a.k.a. privileges).
-• There are two types of privileges.
-• System privileges
-	• Privileges for certain commands i.e. CREATE, ALTER, DROP, ...
-	• Typically these privileges are given to the database administrator or higher authority user.
-• Object privileges
-	• RDBMS objects are table, view, stored procedure, function, triggers, …
-	• Can perform operations on the objects i.e. INSERT, UPDATE, DELETE, SELECT, CALL, ...
-	• Typically these privileges are given to the database users.
-• Permissions are given to user using GRANT command.
-	• GRANT CREATE ON db.* TO user@host;
-	• GRANT CREATE ON *.* TO user1@host, user2@host;
-	• GRANT SELECT ON db.table TO user@host;
-	• GRANT SELECT, INSERT, UPDATE ON db.table TO user@host;
-	• GRANT ALL ON db.* TO user@host;
-• By default one user cannot give permissions to other user. This can be enabled using WITH GRANT OPTION.
-	• GRANT ALL ON *.* TO user@host WITH GRANT OPTION;
-• Permissions assigned to any user can be withdrawn using REVOKE command.
-	• REVOKE SELECT, INSERT ON db.table FROM user@host;
-• Permissions can be activated by FLUSH PRIVILEGES.
-	• System GRANT tables are reloaded by this command. Auto done after GRANT, REVOKE.
-	• Command is necessary is GRANT tables are modified using DML operations.
+- Security is built-in feature of any RDBMS. It is implemented in terms of permissions (a.k.a. privileges).
+- There are two types of privileges.
+- System privileges
+	- Privileges for certain commands i.e. CREATE, ALTER, DROP, ...
+	- Typically these privileges are given to the database administrator or higher authority user.
+- Object privileges
+	- RDBMS objects are table, view, stored procedure, function, triggers, …
+	- Can perform operations on the objects i.e. INSERT, UPDATE, DELETE, SELECT, CALL, ...
+	- Typically these privileges are given to the database users.
+- Permissions are given to user using GRANT command.
+	- GRANT CREATE ON db.* TO user@host;
+	- GRANT CREATE ON *.* TO user1@host, user2@host;
+	- GRANT SELECT ON db.table TO user@host;
+	- GRANT SELECT, INSERT, UPDATE ON db.table TO user@host;
+	- GRANT ALL ON db.* TO user@host;
+- By default one user cannot give permissions to other user. This can be enabled using WITH GRANT OPTION.
+	- GRANT ALL ON *.* TO user@host WITH GRANT OPTION;
+- Permissions assigned to any user can be withdrawn using REVOKE command.
+	- REVOKE SELECT, INSERT ON db.table FROM user@host;
+- Permissions can be activated by FLUSH PRIVILEGES.
+	- System GRANT tables are reloaded by this command. Auto done after GRANT, REVOKE.
+	- Command is necessary is GRANT tables are modified using DML operations.
 # Index
-• Index enable faster searching in tables by indexed columns.
-• CREATE INDEX idx_name ON table(column);
-• One table can have multiple indexes on different columns/order.
-• Typically indexes are stored as some data structure (like BTREE or HASH) on disk.
-• Indexes are updated during DML operations. So DML operation are slower on indexed tables.
-• Index can be ASC or DESC.
-	• It cause storage of key values in respective order (MySQL 8.x onwards).
-	• ASC/DESC index is used by optimizer on ORDER BY queries.
-• There are four types of indexes:
+- Index enable faster searching in tables by indexed columns.
+- CREATE INDEX idx_name ON table(column);
+- One table can have multiple indexes on different columns/order.
+- Typically indexes are stored as some data structure (like BTREE or HASH) on disk.
+- Indexes are updated during DML operations. So DML operation are slower on indexed tables.
+- Index can be ASC or DESC.
+	- It cause storage of key values in respective order (MySQL 8.x onwards).
+	- ASC/DESC index is used by optimizer on ORDER BY queries.
+- There are four types of indexes:
 
-• Simple index
-	• CREATE INDEX idx_name ON table(column [ASC|DESC]);
-• Unique index
-	• CREATE UNIQUE INDEX idx_name ON table(column [ASC|DESC]);
-	• Doesn’t allow duplicate values.
-• Composite index
-	• CREATE INDEX idx_name ON table(column1 [ASC|DESC], column2 [ASC|DESC]);
-	• Composite index can also be unique. Do not allow duplicate combination of columns.
-• Clustered index
-	• PRIMARY index automatically created on Primary key for row lookup.
-	• If primary key is not available, hidden index is created on synthetic column.
-	• It is maintained in tabular form and its reference is used in other indexes.
+- Simple index
+	- CREATE INDEX idx_name ON table(column [ASC|DESC]);
+- Unique index
+	- CREATE UNIQUE INDEX idx_name ON table(column [ASC|DESC]);
+	- Doesn’t allow duplicate values.
+- Composite index
+	- CREATE INDEX idx_name ON table(column1 [ASC|DESC], column2 [ASC|DESC]);
+	- Composite index can also be unique. Do not allow duplicate combination of columns.
+- Clustered index
+	- PRIMARY index automatically created on Primary key for row lookup.
+	- If primary key is not available, hidden index is created on synthetic column.
+	- It is maintained in tabular form and its reference is used in other indexes.
 	
 	
-• Indexes should be created on shorter (INT, CHAR, …) columns to save disk space.
-• Few RDBMS do not allow indexes on external columns i.e. TEXT, BLOB.
+- Indexes should be created on shorter (INT, CHAR, …) columns to save disk space.
+- Few RDBMS do not allow indexes on external columns i.e. TEXT, BLOB.
 
 
