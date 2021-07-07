@@ -1,17 +1,24 @@
-1
+1. Display all the processes.
 
 ps -e
 
-2
+2. Print pid,ppid and command for each process.
+
 
 ps -e -o pid,ppid
 
 
-3
+3. Create a file named file1 in the current directory, change the permission for file to following
+      a. rwx for user rw for group r for other1
+      b. rw for user r for group and other
+      c. rwx for all
+      d. rwx for user r for group and other
+      e. rw for user rw for group and r for other
+      Use symbols and numeric values both to allocate permissions.
 
 
+4. Write a shell script to display the contents of file MoreCountries1.
 
-4
 cat countery
 
 bash abc.sh
@@ -20,7 +27,8 @@ nepal pakistan
 mango 
 
 
-5
+5. Accept name of a file from user and display the contents of file.
+
 echo "Enter the Number"
 read num
 echo the number is $num
@@ -38,9 +46,8 @@ Enter the Number
 4
 the number is 4
 
-
-
-6
+6. Write a shell script to copy contents of one file into another. Accept file name
+   from user.
 
 
 echo "Enter the name of file to copy"
@@ -59,8 +66,8 @@ nepal pakistan
 
 
 
+7. Write a shell utility which will print top 10 cpu consuming processes.
 
-7
 
  ps -eo pcpu,pid,user,args | head -n 10
  
@@ -80,8 +87,8 @@ nepal pakistan
 
 
 
+8. Write a shell utility to print top 10 memory consuming processes.
 
-8
 
 $ ps -e | head -n 10
 ____________________________________________
@@ -96,8 +103,8 @@ ____________________________________________
      11 ?        00:00:00 rcu_tasks_trace
      12 ?        00:00:00 ksoftirqd/0
 
-
-9
+9. Write a shell utility to copy top n lines from a file into fileCopy.txt file. Accept number of lines and
+     filename  from user.
 
 echo "Type a file name to create"
 read file
@@ -132,7 +139,8 @@ b
 
 
 
-10
+10. Write a shell utility to  Count number of files and directories in your current directory.
+
 
  ls | wc -l
 
@@ -140,7 +148,8 @@ b
 
 
 
-11
+11. Write a shell utility to print count of files of given extension. Accept extension from user.
+
 
 echo "Enter the file extentation name"
 read name
