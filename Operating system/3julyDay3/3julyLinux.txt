@@ -1,9 +1,11 @@
-1
+1. Print the present working directory.
+
 
 shree@shree:~/Desktop/abc$ pwd
 /home/shree/Desktop/abc
 
-2
+2. From working direcory show the contents of root directory.
+
 
 shree@shree:~/Desktop/abc$ ls /
 bin    etc             lib     lost+found  proc  snap    tmp      vmlinuz.old
@@ -11,15 +13,17 @@ boot   home            lib32   media       root  srv     usr
 cdrom  initrd.img      lib64   mnt         run   sys     var
 dev    initrd.img.old  libx32  opt         sbin  System  vmlinuz
 
-3
+3. Change directory to root.
 
 shree@shree:~/Desktop/abc$ cd /
 
 
-4
+4. Change back to your home directory.
+
 shree@shree:/$ cd 
 
-5
+5. Create directories C and Java and create 3 files with extension .c in C dirctory. Also create 2 files
+    with .java extension in directory Java.
 
 shree@shree:~/Desktop/abc$ mkdir c java
 shree@shree:~/Desktop/abc$ touch c/a.c
@@ -29,7 +33,8 @@ shree@shree:~/Desktop/abc$ touch java/a.java
 shree@shree:~/Desktop/abc$ touch java/b.java
 
 
-6
+6. Move all .c files to cprograms directory under current directory and java files to Java directory.
+
 
 shree@shree:~/Desktop/abc$ touch c.java
 shree@shree:~/Desktop/abc$ mv c.java java
@@ -37,25 +42,28 @@ shree@shree:~/Desktop/abc$ ls java
 a.java  b.java  c.java
 
 
-7
+7. Create another directory temp.
+
 
 shree@shree:~/Desktop/abc$ mkdir temp
 
 
-8
+8. Move all .c files in directory temp.
+
 
 shree@shree:~/Desktop/abc$ mv c/* temp
 shree@shree:~/Desktop/abc$ ls temp
 a.c  b.c  c.c
 
 
-9
+9. Copy all files starting with name file in the directory copy_file.
+
 
 shree@shree:~/Desktop/abc$ touch copy_file
 shree@shree:~/Desktop/abc$ mv copy_file temp
 
 
-10
+10. Remove all .c files from your current directory
 
 shree@shree:~/Desktop/abc$ ls
 a  c  d.c  f.c  java  m.c  shree  temp
@@ -64,14 +72,14 @@ shree@shree:~/Desktop/abc$ ls
 a  c  java  shree  temp
 
 
-11
+11. Remove directory which is not empty.
 
 shree@shree:~/Desktop/abc$ rm -r java
 shree@shree:~/Desktop/abc$ ls
 a  c  shree  temp
 
 
-12
+12. Create hard link for any file and check the effect using ls command.
 
 
 shree@shree:~/Desktop/abc$ ln -s a asoft
@@ -110,7 +118,9 @@ rajendra
 hello world added for checking soft link
 
 
-13/14
+13/14 13. Create soft link for any file and check the effect using ls command.
+14. Find all the files whose name starts with hello in current directory.
+      e.g hello1,hello2, hellofile etc.
 
 
 shree@shree:~/Desktop/abc$ ls
@@ -120,15 +130,17 @@ hello1  hello2  hello3
 
 
 
-15
+15. Count number of entries in your current directory.
+
 
 shree@shree:~/Desktop/abc$ ls | wc -l
 8
 
 
-16
+16. Find the empty files
 
-17
+
+17. Count total number of C files in current directory.
 
 shree@shree:~/Desktop/abc$ ls
 a  a.c  asoft  b.c  c  c.c  shree  temp
@@ -136,7 +148,8 @@ shree@shree:~/Desktop/abc$ ls *.c | wc -l
 3
 
 
-18
+18. Count all the directories present in current directory.
+
 
 shree@shree:~/Desktop/abc$ ls -d */
 c/  temp/
@@ -144,7 +157,15 @@ shree@shree:~/Desktop/abc$ ls -d */ | wc -l
 2
 
 
-19
+19. Consider following data file having roll-no, name and marks.
+    5 amit 59
+    1 babita 90
+    3 chandan 89
+    4 daya 69
+    2 edwina 74
+    sort the data on column 1 , 2 and 3.
+    Store the data in different files and see the result.
+
 
 shree@shree:~/Desktop/abc$ touch info
 shree@shree:~/Desktop/abc$ rm info
@@ -168,7 +189,11 @@ shree@shree:~/Desktop/abc$ sort info.txt
 4 daya 69
 5 amit 59
 
-20
+20. Create file with names of 10 countries.
+    1. try head command
+    2. try tail command
+    3. display 6th and 7th country from your file.
+
 
 shree@shree:~/Desktop/abc$ cat > ctry
 INDIA 
@@ -225,9 +250,25 @@ shree@shree:~/Desktop/abc$ tail -4 ctry | head -2
 NORTHK
 SOUTHk
 
-21
 
-shree@shree:~/Desktop/abc$ sort  -k2 data
+21. create following data file
+
+1231  Amitabh   1000000
+2561  Shridevi  28905
+1653  ShahRukh  62645
+3823  Hritik    745218
+5183  Dipika    56123
+-Sort in descending order of name
+-Add 4 more entries in above file
+-Store sorted data in file by name NewActors
+-Display line numbers for file (hint nl)
+-Display first 2 lines of sorted data
+-Display last 3 lines of sorted data
+-Display line 3 4 5 of sorted data
+
+
+
+shree@shree:~/Desktop/abc$ sort  -r data
 1231 ABHITAB 100000
 5183 Dioika 56123
 3823 Hritik 745218
