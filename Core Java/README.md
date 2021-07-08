@@ -942,6 +942,273 @@ try-catch-catch-finally
 - Real purpose of finally block is not to handle expection.
 - Even if there is no expection still finally block always get executed
 
+
+# 8/7(Java IO)
+
+### Java IO(Input Output)
+- Stream is a sequence of data which travelling from source to destination
+- Stream are in `java.io` package
+- Stream
+	- byte Stream
+		
+	- Character Stream
+		- String, char[]
+		
+![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/33_IOstream.png)
+
+- java io is based on 4 abstract classes
+	**Byte** 
+	- Input Stream
+	- Output
+	**character**
+	- Reader 
+	- Writer
+
+- Three steps of every IOoperation should be follow 
+	- Open Stream
+	- Use Stream
+	- Close Stream
+- printStream class contain print & println and out is object
+- In some Stream classes Source and Destination is not defined 
+- eg.ObjectOutputStream
+- to overcome this will use **object chaining**
+- Two stream are together for performing some IO.
+- FullIOoperation = IO Operation1 + IOoperation2
+- FileOutputStream+ObjectOutputStream
+```java
+// Object chaining
+
+Person p = new Person("shree",new DOB(7,8,97));
+
+```
+
+### Consol IO
+- Predefined Stream
+	- System.in
+	- System.out
+	- System.err
+	
+- .err/.out/.in  <--  are the Static datamembers of System class
+- .out is object of printstrim class
+
+### BufferReader
+- BufferReader is the character reader stream
+
+ ![core java](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/34_IOstream.png)
+
+- Some important functions of BufferReader
+- br.read()
+	- It return integer single char
+	- int i = br.read();
+- br.readLine()
+	- It return String
+	- String str = br.readLine();
+```java
+// Dummy/psudoCode
+BufferReader br = new BufferReader(new inputStreamReader(System.in));   // OPEN STREAM
+int n = br.read();							// USE STREAM
+System.out.println((char)n);
+
+_______________________________________________________________________
+
+System.out.println("Enter 'q' for exit");
+while((n=br.read()) != 'q')						// USE STREAM
+{
+	System.out.println((char)n);
+}
+br.close();								// CLOSE STREAM
+
+```
+
+```java
+// Real Code
+public static void main(String [] args)
+{
+	// ISR is passed for creating BR instance is object chaining
+	BufferReader br=null;
+	try
+	{
+	 br = new BufferReader(new InputStreamReader(System.in));
+	
+	syso("Enter q to quit");
+	int n;
+	
+	while(n=br.read())!='q')
+	{
+		syso((char)n);
+	}
+	
+	}catch(IOException e)
+	{
+		e.printStackTree();
+	}finally
+	{
+		try{
+		br.close();
+		}catch{
+		
+		}
+	}
+
+}
+
+
+```
+
+- BufferReader return type is char so we need to parse a data as follow
+#### Parsing BufferReader
+```java
+
+int sid = Integer.parseInt(br.readLine());
+String name = br.readLine();
+float marks = Float.parseFloat(br.readLine());
+double percent = Double.parseDouble(br.readLine());
+char ch = br.readLine().charAt(0);
+
+```
+### File IO
+#### File Reader 
+- Stream
+	- FileInput -byte read
+	- FileReader - char read
+	- FileOutputStream - byte write
+	- FileWriter - char write
+
+- Creating Stream
+- It need information of file 
+- We gave info as String path or file object
+- File object contain metadata (the data about data)
+	- file size, readable,extra path contain in metadata
+- There is two way that we can pass the file to file stream 
+- one is direct path
+- and another is File object
+
+#### File path
+
+```java
+// direct path passing
+FileInputStream fis = new FileInputStream("path")
+// File object
+File f = new File("path");
+FileInputStream fis = new FileInputStream(f)
+```
+
+- The benifites of passing FileObject is we can use multiple functions in `File` like
+	- f.length();
+	- f.canRead();
+	- f.isFile();
+	- f.isDirectory();
+	- f.lastModified();
+
+```java
+
+// File Reader	
+
+FlieReader fr = new FileReader("path");
+int n;
+while((n=fr.read()) != -1)  // -1 is end of stream
+{
+	System.out.println((char)n);
+	
+}
+fr.close();
+
+
+```
+
+
+#### File Writer 
+
+- Byte Stream
+```java 
+// Byte Stream Program
+public static void main(String [] args)
+{
+	String s = "github.com/shreeshailaya";
+	FileOutputStream fos = null;
+	try
+	{
+		// for rewrite data 
+		FOS = new FOS("path");
+		// for append data
+		FOS = new FOS("path",true);
+		byte [] arr = s.getBytes();
+		fos.write(arr);		// entire array
+		fos.write(arr[0]);	// one byte
+		fos..write(arr,0,7);	// first 7 char
+		fos.write("\n".getBytes()); // new line
+	}
+	catch(FileNotFoundExpection ex)
+	{
+		ex.printStackTree();
+	}
+	finally
+	{
+		try catch
+		fos.close();
+	}
+}
+
+```
+
+
+- Character Stream 
+```java
+// character stream program
+public static void main(String [] args)
+{
+	//for rewrite
+	FileWritter fw = new FileWritter("path");
+	// for append
+	FileWritter fw = new FileWritter("path",true);
+	Syso("Enter Data");
+	BufferReader br = new BufferReader(new inputStringReader(System.in));
+	String s = br.readLine();
+	fw.write(s);
+	fw.write("\n");
+	fw.write(s,0,10);
+}
+
+```
+
+#### Reading file 
+``` java
+class FileReadingDemo
+{
+	p s v m(String [] args)
+	{
+		File f = new File("path");
+		sysout("Exist: "+f.exist());
+		
+		if(f.exist() && f.isFile() && f.canRead())
+		{
+		FileReader fr = new FileReader(f);
+		int n;
+		while((n=fr.read() != -1))
+		{
+		
+			sysout(n)
+		}
+		
+		}
+		fr.close();
+	}
+	
+}
+
+```
+
+
+- Reading data by Char array
+```java
+char [] ch = new Char[10];
+int n;
+while ((n=fr.read(arr)) != -1)
+{
+	sysout(arr);
+}
+
+```
 ***
 ***
 
