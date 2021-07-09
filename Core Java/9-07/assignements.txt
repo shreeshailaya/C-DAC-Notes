@@ -1,0 +1,8 @@
+1.Accept the file name from the user.
+ Check whether file is a directory or file. If it is a directory, list all the files in 
+ it and if it is a file, check the size. If the size of the file is more than 25,
+ use buffering to read the contents otherwise use file stream to read the content.
+
+2.Display line no with max no of characters within a file. Accept file name from the user.
+
+3.Create an array of 3 employees. Save all the employess in a file. Read all the employees back from file  and display on the console.

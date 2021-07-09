@@ -942,6 +942,8 @@ try-catch-catch-finally
 - Real purpose of finally block is not to handle expection.
 - Even if there is no expection still finally block always get executed
 
+***
+***
 
 # 8/7(Java IO, Stream)
 
@@ -1209,6 +1211,8 @@ while ((n=fr.read(arr)) != -1)
 }
 
 ```
+***
+***
 
 # 8/7
 
