@@ -943,7 +943,7 @@ try-catch-catch-finally
 - Even if there is no expection still finally block always get executed
 
 
-# 8/7(Java IO)
+# 8/7(Java IO, Stream)
 
 ### Java IO(Input Output)
 - Stream is a sequence of data which travelling from source to destination
@@ -957,10 +957,10 @@ try-catch-catch-finally
 ![Typecast](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/33_IOstream.png)
 
 - java io is based on 4 abstract classes
-	**Byte** 
+	- **Byte** 
 	- Input Stream
 	- Output
-	**character**
+	- **character**
 	- Reader 
 	- Writer
 
@@ -1209,6 +1209,176 @@ while ((n=fr.read(arr)) != -1)
 }
 
 ```
+
+# 8/7
+
+### Buffered Stream
+- Buffer is pulling data from file 
+- Buffer is temp memory to file IO
+- Loding the next data is done by buffered 
+- The purpose of buffered is memory IO and to avoid disk IO
+- Disk IO is slower are taking time
+- Same is applicable to write 
+- program first write data in buffered when buffered is full then it will flush the data to file
+- flushing is occured when buffered is full
+- Also closing the stream will flush the data
+- flush() is also used to flush the data to file
+- Giving the size to buffered is optional you can give with one of constructor
+- Accouding to stream we need to pass object
+- **Previousely we directly read/write data from hdd now here we read/write data with the help of buffered**
+
+```java
+//Syntax
+
+BufferedReader brr = new BufferedReader(new FileReader("path"));
+
+BufferedWriter brr = new BufferedWriter(new FileWriter("path"));
+
+
+BufferedOutputStream bos = new BOS()
+
+
+int n;
+while((n=br.read()) != -1)
+{
+	sysout((char)n);
+}
+
+```
+```java
+
+BufferedWriter bw = new BW(new FileWriter("path"));
+bw.write("Some String"); 	//Write on Buffered
+bw.newLine();	// new line method
+bw.write("Some String");
+bw.flush();	// remaining data flush to file
+bw.close();
+
+
+```
+
+
+### Object IO
+#### Serialzation/ Deserialzation
+- Saving/writing object state in some perment media like file and DB
+- Retrive object state in some perment media like file and DB
+
+- Streams used for it is
+	- ObjectOutputStream --> write object/serialization
+	- ObjectInputStream --> read object/deserialization
+- We are dealing with object here
+- We are saving the `state` of the object in file/db
+- `state` are the all instance data members
+- static data members will discarted here because they are realted with class 
+- No methods i.e `behavior`
+- Only set of all instance data members are saved 
+- Some instance data members may be excluded, you can use keyword `transient`
+- int empid, date doj, long noOfDays, String name are the state of object
+- transient is used to not save data, syntax --> `transient long noOfDays` 
+- Object that is getting Searialized should have serializable implemented 
+- Serialized interfaces are empty they dont contain any methods they are called `marker interface` it only used for marking the object for serialization
+- Only Serialized objects can be searized else it will create `NotSerializableException`
+- association has a 
+- interface is a
+
+- In is a relation do it at the level of super class 
+- In has a relationship do seperately for all component
+
+**NoteBBOK POINTS**
+
+- for sealization we us `objectOutputStream` supported with `FileOutput`
+- byte stream are compactable with byte stream
+ character stream is only compactable with char stream
+ 
+ - for reading object from file we need `OobjectinputStream` with `FileInputStream`
+ - osi.readObject() is the method which read the object or return object
+ - then we have to do down typecast to see the data
+ 
+ 
+
+### Collection Framework
+- It gives readymade classes which have implemented a perticular data structure
+- It is all collection classes will store collection of objects not premetive data types
+- Collections cannot be of int value but cab be of Integer object
+- Collection freamework is redesigned after 1.2 v
+- It is clsses which is acting as datastructure 
+- Classes are bases on set of interfaces 
+- base interface is Collection 
+- there is few methods which are required in all collections like 
+	- add();
+	- remove();
+	- size();
+	- iterator();
+- Collection is further extended to 
+	- List 
+	- Set
+	- Queue
+- Set is further divided into 
+	- SortedSet(); 
+- list can consist of duplicates 
+- set is set of unique data
+- we are going to see classes in interface (list set and queue)
+
+
+#### List Interface
+- Duplicate elements are allowed in list
+- abstractList is a class 
+- Two important list classes are 
+	- ArrayList
+	- LinkedList
+- ArrayList is most used collection
+- ArrayList can dynamically grow and shrink and workded as array
+- when there is requirment to search data then we use ArrayList
+- When there is requirment to add/delete data then we use LinkedList
+```java
+
+List l = new ArrayList();
+l.add("bakul");
+l.add(new Person());
+
+String s = (String)l.get(2); 	// It will genetrate class castclassexception
+// we cannoct convert Person object as string
+
+// care has to be taken at the time of adding the element
+
+List <String> l = new ArrayList<>();
+// because of <String> i can only pass/add string so there will not need of type cast
+
+```
+
+- <String> is generics which will add type safty to the collection 
+- because of this we can oly add string no need of typecast
+
+```java
+
+//without using generic 
+
+class Demo
+{
+
+	//List l = new ArrayList();	//This will generate error
+	List <String> l = new ArrayList<>();
+	l.add(new String("Welcome"));
+	//l.add(new Date());
+	//l.add(new Integer(45));
+	
+	//String s = (String)l.get(1);
+	// String s = l.get(0);
+	
+	Sysout(l); //call toString print all elements
+	
+	l.add(2,"xyz"); //addded to index 2
+	l.remove(3);	//remove element
+	l.remove("xyz"); // remove by value
+	
+	
+	// advanced loop
+	for( String s : 1)
+		sysout(s.toUpperCase());
+}
+
+```
+
 ***
 ***
 
