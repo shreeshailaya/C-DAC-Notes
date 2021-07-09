@@ -1284,7 +1284,7 @@ bw.close();
 - In is a relation do it at the level of super class 
 - In has a relationship do seperately for all component
 
-**NoteBBOK POINTS**
+- If implementation of serialization is done for parent class then child class automatically affected
 
 - for sealization we us `objectOutputStream` supported with `FileOutput`
 - byte stream are compactable with byte stream
@@ -1293,7 +1293,55 @@ bw.close();
  - for reading object from file we need `OobjectinputStream` with `FileInputStream`
  - osi.readObject() is the method which read the object or return object
  - then we have to do down typecast to see the data
- 
+```java
+
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		// TODO Auto-generated method stub
+		
+		Empolyee [] emp = new Empolyee[3];
+		
+		emp[0]=new Empolyee(1, "shree");
+		emp[1]=new Empolyee(2, "shail");
+		emp[2]=new Empolyee(3, "Vitkar");
+		
+		
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("/home/shree/Desktop/shree"));
+		for(Empolyee e : emp)
+		{
+			oos.writeObject(e);
+		}
+		
+		System.out.println("Serialization Done");	
+
+	}
+``` 
+
+
+```java
+// Deserialization
+
+	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("/home/shree/Desktop/shree"));
+		
+		Empolyee [] emp = new Empolyee[3];
+		for (int i=0;i<emp.length;i++)
+		{
+			//Object o = ois.readObject();
+			emp[i]=(Empolyee)ois.readObject();
+		}
+		
+		for(int i=0;i<emp.length;i++)
+		{
+			System.out.println("Empolyee Name "+emp[i].getName()+"\n Empolyee ID  "+emp[i].getEmpid());
+		}
+
+	}
+
+
+```
+
  
 
 ### Collection Framework
