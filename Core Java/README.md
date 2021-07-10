@@ -1431,6 +1431,16 @@ class Demo
 
 ```
 
+# 9/7(Collections)
+- It is collection of objects
+- You can add any object to collection 
+- Base of collection is lies on set interface
+- Collection is interface has some methods add,remove..etc
+- Collection is extended to List, Set and Queue
+- In list duplicate are allow 
+### Iterator method for ittration data from collection
+
+
 ***
 ***
 
