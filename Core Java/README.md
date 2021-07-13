@@ -1440,6 +1440,174 @@ class Demo
 - In list duplicate are allow 
 ### Iterator method for ittration data from collection
 
+**** // Collection upto
+
+#### Collection freame work 
+- Types of collections classes
+	- List 
+		- al
+		- ll
+	- set 
+		- hs 
+		- ts
+	
+	- queue
+		- pq
+- adding, removing, Itreating
+- common algos Collections (class with static methods)
+- Map key value map --> set
+- lagecy classes 
+	- stack
+
+****
+	
+# 13/7 
+### Multithreading
+- What is thread? Compare thread process?
+- why mltithread application
+- thread life cycle 
+- creating a simple thread 
+- There is two different way to creating thread 
+	- extends Thread (Class)
+	- implement runnable (Interface)
+- Thread 
+- Specific to the task
+	- run()
+- control the task
+	- start() 
+	- join()
+	- Sleep()
+- In runnable it has only on method that is run();
+### Create a thread
+```java
+//syntax
+
+class MyThread extends Thread
+{
+
+	p v run()
+	{
+		//specify the task
+	}
+}
+
+class ThreadApp
+{
+
+	p s v m();
+	{
+		Thread t = new MyThread();	//newly created state
+		t.start();	 // before call run you have to call start()
+		// when you call start() then it will automically call run() from MyThread class
+		
+		 
+	
+	}
+}
+
+
+
+
+
+// Implement Runnable 
+class MyTask implements Runnable
+{
+	pv run()
+	{
+		//specify task
+	
+	}
+
+}
+
+class ThreadApp
+{
+
+	main()
+	{
+		Runnabble r = new MyTask();
+		Thread t = new Thread(r);	//newly created state
+		t.start();	// call run()
+		
+		// we are indirect calling the start by thread 
+		// Runnable is always depend on thread
+	}
+
+}
+
+```
+
+- Runnable is always depend on thread
+
+
+```java
+
+class MyThread extends Thread
+{
+
+	public void run()	//task to be done by the thread
+	{
+		for(int i =1;i<=5;i++)
+		{
+			sysout("child Thread"+i);
+
+			try
+			{
+			Thread.sleep(500);	//sleep is static method
+			// we cannot handle throws exception here 
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTree();
+			}
+
+		}
+	}
+
+}
+
+
+main()
+{
+
+Thread t = new MyThread();
+t.start
+
+for(int i=1;i<=5;i++)
+{
+
+
+}
+
+}
+```
+```java
+// Runnable
+main()
+{
+	// represent task
+	Runnable r = new MyTask();
+	Thread t = new Thread(r);
+}
+
+```
+
+
+### Threasd Synchronization
+- Because of Multiple thread we achive better performancw
+- when multiple thread share common resource (object) it may lead to data inconsistancy
+- Thread Sync is needed when multiple thread share common resource (Object)
+- Because of every thread is giving some time so it not able to complet its task 
+- So 1st thread will lock object 
+- others process will go to waiting because object is locked 
+- and when 1st complete the task then it will unlocak
+- Best example is ATM
+- Here is the dealy of time but we are achiving here data consistency
+- `Synchronised` keyword is used to locking the object
+- you can use sync keyword on block of code or method
+
+
+
 
 ***
 ***
