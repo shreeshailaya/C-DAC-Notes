@@ -1432,15 +1432,18 @@ class Demo
 ```
 
 # 9/7(Collections)
+### Utility Classes
 - It is collection of objects
 - You can add any object to collection 
 - Base of collection is lies on set interface
-- Collection is interface has some methods add,remove..etc
-- Collection is extended to List, Set and Queue
+- Collections is interface has some methods add,remove..etc
+- Collections is extended to List, Set and Queue
 - In list duplicate are allow 
+
+
 ### Iterator method for ittration data from collection
 
-**** // Collection upto
+**** // Collection upto Reversion
 
 #### Collection freame work 
 - Types of collections classes
@@ -1460,7 +1463,62 @@ class Demo
 	- stack
 
 ****
+
+
+# 10/7
+
+### Iterating 
+- We can iterate data from three ways from collections
+	- Advanced for loop
+	- using iterator 
+	- List Iterator(only for list)
+- Advanced for loop
+
+```java 
+
+set<String> str = new ArrayList<>();
+
+for(String s : str)
+{
+	syso(s);
+}
+ 
+```
+- using iterator 
+- Iterator has two methods as follow
+	- has()
+	- hasNext()
+```java
+List<String> str = new ArrayList<>();
+Iterator i  = str.iterator();
+while(hasNext())
+{
+	syso((String)next());
+}
+
+```
+
+- ListIterator 
+- ListIterator has three methods as follow
+	- next()
+	- hasNext()
+	- hasPrevious()
+```java
+List<String> str = new ArrayList<>();
+ListIterator<String> li = str.listIterator();
+while(li.hasNext())
+	li.next();
 	
+while(li.hasPrevious())
+	sysout(li.previous());
+
+```
+
+
+### HashSet
+- Hashing is the storing a data in a perticular way
+- In 
+
 # 13/7 
 ### Multithreading
 - What is thread? Compare thread process?
