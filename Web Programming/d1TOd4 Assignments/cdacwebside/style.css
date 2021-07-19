@@ -1,0 +1,92 @@
+#welcome
+{
+     position: relative;
+     width: 100%; 
+     height : 10%; 
+     background-color : brown;
+}
+
+#menu
+{
+     position: relative;
+     text-align: center;
+     width: 100%;
+     height: 10%;
+     background-color: white;
+     font-size: 25px;
+    
+     
+}
+
+li
+{
+     font-size: 25px;
+}
+
+
+
+#customers {
+     font-family: Arial, Helvetica, sans-serif;
+     border-collapse: collapse;
+     width: 100%;
+   }
+/* unvisited link */
+a:link {
+     color: red;
+   }
+   
+   /* visited link */
+   a:visited {
+     color: green;
+   }
+   
+   /* mouse over link */
+   a:hover {
+     color: hotpink;
+   }
+   
+   /* selected link */
+   a:active {
+     color: blue;
+   }
+
+a{
+     padding: 20px;
+     margin-top: 10px;
+}
+
+body
+{
+     background-color: pink;
+}
+p
+{
+     margin-left: 50px;
+     background-color: white;
+     color: red;
+     font-size: 15px;
+     font-family: Verdana;
+
+}
+
+
+input[type=text], select, textarea {
+     width: 100%;
+     padding: 12px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     box-sizing: border-box;
+     margin-top: 6px;
+     margin-bottom: 16px;
+     resize: vertical;
+   }
+   
+   input[type=submit] {
+     background-color: black;
+     color: white;
+     padding: 12px 20px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+   }
+   
