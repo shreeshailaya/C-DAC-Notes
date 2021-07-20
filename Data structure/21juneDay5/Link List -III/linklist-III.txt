@@ -1,0 +1,9 @@
+1. Ask number of nodes to user and create Circular linklist of student.
+2. Create Doubly Linklist with 10 nodes  and provide following options
+   1. Insert (by Position)
+   2. Modify (by Data)
+   3. Delete(by Position)
+   4. Display
+   5. Count Number of Nodes.
+   6. Sort Linklist.
+    override toString method to print linklist.
