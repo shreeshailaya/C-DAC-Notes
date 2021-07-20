@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Prime Number Test</title>
+<script>
+    function primeTest(num)
+    {
+        var i;
+        var res;
+        for (i = 2; i < num; i++)
+        {
+            if (num % i == 0)
+            {
+		        res = "Not A Prime Number";
+		        break;		
+	        }else{
+		        res = "Prime Number";
+	        }
+        }
+        document.getElementById("result").innerHTML = res;
+    }
+
+</script>
+</head>
+<body>
+    <form>
+        Enter Number: <input type="number" name="num" />
+        <button type="button" onclick="primeTest(num.value)">Check Prime</button>
+        <p style="color:blue" id="result"></p>
+    </form>
+</body>
+</html>

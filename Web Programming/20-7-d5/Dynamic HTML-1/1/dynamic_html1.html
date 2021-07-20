@@ -1,0 +1,34 @@
+<html>
+<head><title>Factorial Program</title>
+<script>
+    function findFactoial(no){
+        var i,fact;
+        fact = 1;
+        for (i = 1; i <= no; i++)
+        {
+	        fact = fact*i;
+        }
+        alert("Factorial : "+fact);
+        document.getElementById("result").innerHTML = "Factorial of "+no+" is : "+fact;
+    }
+
+</script>
+</head>
+<body>
+    <div style="border:1px solid gray;width:280px">
+        <form>
+            <table style="background-color:orange">
+                <tr>
+                    <td>Enter Number</td>
+                    <td><input type="text" name="num" /> </td>
+                </tr>
+                <tr>
+                    <td><input type="button" onclick="findFactoial(num.value)" value="Factorial" /></td>
+                </tr>
+            </table>
+        </form>
+        <p id="result" style="text-align:center"></p>    
+    </div>
+    
+</body>
+</html>

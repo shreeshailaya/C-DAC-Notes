@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title>Sum of the Digit</title>
+    <script>
+        function SunOfDigit(num)
+    {
+            var sum = 0, rem, temp;
+            temp = num;
+
+            while (temp != 0) {
+                rem = parseInt(temp % 10);
+                sum = sum +rem ;
+                temp = parseInt(temp /= 10);
+            }
+            document.getElementById("result").innerHTML = sum;
+    }
+
+    </script>
+</head>
+<body>
+    <form>
+        Enter Number: <input type="number" name="num" />
+        <button type="button" onclick="SunOfDigit(num.value)">Sum Of Digit</button>
+        <p style="color:blue" id="result"></p>
+    </form>
+</body>
+</html>

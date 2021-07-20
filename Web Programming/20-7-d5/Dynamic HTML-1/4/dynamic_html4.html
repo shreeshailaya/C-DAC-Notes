@@ -1,0 +1,36 @@
+<html>
+<head><title>Palindrome number</title>
+<script>
+    function check(num){
+        
+        var reverse =0, rem, temp;
+        temp = num;
+
+        while(temp!=0){
+	        rem=parseInt(temp%10);	
+    	    reverse=parseInt(reverse*10+rem);	
+     	    temp = parseInt(temp/=10);
+        }
+
+        if (reverse == num)
+        {
+            document.getElementById("result").innerHTML = "It is pallindrome";
+        }
+        else
+        {
+            document.getElementById("result").innerHTML = "It is not Palindrome number</font>";
+        }
+
+    }
+</script>
+</head>
+<body> 
+    <div>
+        <form>
+            Enter number : <input type="number" name="num" /> <br/>
+            <button type="button" onclick="check(num.value)">Check Palindrome</button>
+        </form>
+        <p style="color:red" id="result"></p>
+    </div>
+</body>
+</html>

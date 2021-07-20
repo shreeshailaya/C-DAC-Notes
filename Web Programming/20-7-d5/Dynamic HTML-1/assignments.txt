@@ -1,0 +1,18 @@
+1	Write a simple Html page "fact.html" with following features:
+	It should contain a form to accept a number from user. 
+	Design the form as per following format.
+	On clicking the Factorial Button, factorial of the number should be displayed in alert window as well as on same page.
+	
+2.Write a simple Html page "power.html" with following features:
+ It should contain a form to accept two numbers from user one for base and other for exponent. Design the form as per following format. On clicking the Power Button, Result should be displayed in alert window as well as on same page.
+
+3.Create an HTML page factTable.html:
+	It should have a button "Factorial Table". When we click on the button, the following output should appear on same page:
+
+	
+	
+4.	Accept a number from the user using HTML form and check whether number is pallindrome and display the  message accordingly on the web page
+
+5	Accept the number from the user and check whether number is prime and display the message accordingly on the web page. Give proper styling to the web page
+
+6	Accept the number from the user and display the sum of digits of a number on the web page.

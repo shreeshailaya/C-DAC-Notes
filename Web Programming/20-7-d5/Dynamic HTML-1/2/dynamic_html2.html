@@ -1,0 +1,38 @@
+<html>
+<head><title>Power Program</title>
+<script>
+    function cal_power(base, exp) {
+        alert(base);
+        var power=1;
+        for (i = 1; i <= exp; i++)
+        {
+            power *= base ;
+        }
+        //alert("Power : "+power);
+        document.getElementById("result").innerHTML = base+" to power "+exp+" is "+power;
+
+    }
+
+</script>
+</head>
+<body>
+    <div style="border:1px solid gray;width:300px">
+        <form>
+            <table style="background-color:orange">
+                <tr>
+                    <td>Enter Base</td>
+                    <td><input type="text" name="base" /> </td>
+                </tr>
+                <tr>
+                    <td>Enter Exponent</td>
+                    <td><input type="text" name="exp" /> </td>
+                </tr>
+                <tr>
+                    <td><input type="button" onclick="cal_power(base.value,exp.value)" value="Factorial" /></td>
+                </tr>
+            </table>
+        </form>
+        <p id="result" style="text-align:center"></p>
+    </div>
+</body>
+</html>
