@@ -1,0 +1,49 @@
+<html>
+     <head>
+          <title>
+               ScreenSlider
+          </title>
+     </head>
+     <script>
+          var imgarr = ["/home/shree/Desktop/html/newass/img/1.jpeg", "/home/shree/Desktop/html/newass/img/2.jpg", "/home/shree/Desktop/html/newass/img/3.jpg", "/home/shree/Desktop/html/newass/img/4.jpg", "/home/shree/Desktop/html/newass/img/6.jpg"]
+          var index = 0;
+          function nextImg()
+          {
+               index++;
+               if(index==imgarr.length)
+               {
+                    index=0;
+               }
+               document.getElementById("pic").src=imgarr[index];
+
+          }
+
+          function prevImg()
+          {
+               index--;
+               if (index == -1)
+                index = imgarr.length - 1;
+            document.getElementById("pic").src = imgarr[index];
+
+          }
+     </script>
+
+
+
+<body>
+    
+        <h3>
+             <center>MY SLIDSHOW</center>
+             
+        </h3>
+          <img id="pic" src="/home/shree/Desktop/html/newass/img/2.jpg" alt="" width="100%" height="400px">
+         
+          <div><center>
+          <br><br><br>
+          <input type="button" value="Previus" onclick="prevImg()">
+          <input type="button" value="Next" onclick="nextImg()">
+          
+          </center></div>
+     
+</body>
+</html>

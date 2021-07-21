@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Stopwatch</title>
+    </head>
+
+
+    <script>
+     var s = 0;
+     var h = 0;
+     var m = 0;
+ 
+          if(h<10)
+          {
+               h = "0" + h;
+          }
+ 
+
+     var timerID = -1;
+     function tick() {
+         s++
+
+         if(s==60)
+         {
+              m++;
+              if(m<10)
+               {
+                    m = "0" + m;
+               }
+              s=0;
+
+         }
+         if(s<10)
+          {
+               s = "0" + s;
+          }
+
+         document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+     }
+
+     function start() {
+         if(timerID == -1){
+             timerID = setInterval(tick, 1000);
+         }
+     }
+
+     function stop() {
+         if(timerID != -1){
+             clearInterval(timerID)
+             timerID = -1
+         }
+     }
+
+     function reset() {
+         stop();
+         s = -1;
+         m = "00";
+         tick()
+     }
+ </script>
+    <body>
+         <center>
+        <div>Time: <span id="time">00:00:00</span></div>
+        <input type="button" id="startTimer" value="Start Timer" onclick="start();">
+        <input type="button" id="stopTimer" value="Stop Timer"  onclick="stop();">
+        <input type="button" id="resetTimer" value="Reset Timer"  onclick="reset();">
+     </center>   
+    </body>
+</html>

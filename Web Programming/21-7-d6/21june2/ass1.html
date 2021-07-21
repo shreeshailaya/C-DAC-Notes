@@ -1,0 +1,39 @@
+<html>
+     <head>
+          <title>String</title>
+     </head>
+     <script>
+          function findStr(stre)
+          {
+               var str = stre;
+               var abc = "<br/> string content  :  "+ str +
+               "<br/> Length : " + str.length +
+               "<br/> Upper case : " + str.toUpperCase()+
+               "<br/> Lower case  : " + str.toLowerCase()+
+               "<br/> index of w  : " + str.indexOf("w")+
+               "<br/> last index of w  : " + str.lastIndexOf("w")+
+               "<br/> Char at 4  : " + str.charAt(4)+
+               "<br/> Ascii at 4  : " + str.charCodeAt(4)+
+               "<br/> Split   :  " + str.split('')+
+               "<br/> Concat   :  " + str.replace(" ","") 
+
+
+               document.getElementById("ans").innerHTML = abc;
+               
+          }
+     </script>
+
+     <body>
+          
+          <center>
+               <form action="">
+               <h4>ENTER STRING</h4>
+               <input type="text" name="stre">
+               <br>
+               <input type="button" value="FIND" onclick="findStr(stre.value)">
+               </form>
+               <span id="ans"></span>
+          </center>
+
+     </body>
+</html>

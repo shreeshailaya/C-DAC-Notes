@@ -1,0 +1,36 @@
+<html>
+     <head>
+          <title>
+               DATE
+          </title>
+     </head>
+     <script>
+        function showDetails(datestr) {
+          var dt = new Date(datestr);
+          var cdate = new Date();
+          var age =  cdate.getFullYear() - dt.getFullYear()
+          var str = "<br/>Selected Date is    : " + datestr +
+          "<br/>Year   : " + dt.getFullYear() +
+          "<br/>Month    : " + (dt.getMonth()+1) + 
+          "<br/>Day   : " + dt.getDate() +
+          "<br/>Age   : " + age; 
+           
+
+
+          document.getElementById("ans").innerHTML = str;
+
+        }
+            
+     </script>
+<body>
+         <form>
+              <center>
+        Enter birth date : <input type="date" name="bdate" /> <br/>
+        <input type="button" value="Show Details" 
+              onclick="showDetails(bdate.value)" />
+               <br><br>
+              <span id="ans"></span>
+          </center>
+          </form>
+</body>
+</html>

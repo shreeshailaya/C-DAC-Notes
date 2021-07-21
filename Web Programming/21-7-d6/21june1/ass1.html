@@ -1,0 +1,135 @@
+<html>
+     <head>
+          <title>
+               ARRAY
+          </title>
+     </head>
+<script>
+     var sizearr = prompt("Enter Size of Array");
+     var arr=[];
+     for(i=0;i<sizearr;i++)
+     {
+          var a = prompt("Enter "+i+" Element of Ayyay");
+          arr[i] = parseInt(a) ;
+     }
+
+     document.write("<h3>ORIGINAL ARRAY</h3>")
+     for(i=0;i<arr.length;i++)
+     {
+          
+          document.write("<ol>"+arr[i]+"</ol>");
+     }
+
+     document.write("<h3>SORTED ARRAY</h3>")
+     arr.sort(function(a, b){return a - b});
+     document.write("<br>"+arr);
+
+     document.write("<h3>SUM ARRAY</h3>")
+     //var sum2 = arr.reduce(function(a,b){return a + b;},0);
+     var sum2 = arr.reduce((s,v) => s + v);
+     document.write(" SUM OF  "+sum2);
+
+
+     document.write("<h3> AVG ARRAY</h3>")
+     //var sum2 = arr.reduce(function(a,b){return a + b;},0);
+     var sum2 = arr.reduce((s,v) => s + v);
+     document.write(" AVG OF  "+sum2/sizearr);
+
+     document.write("<h3> MAX ARRAY</h3>")
+     //var sum2 = arr.reduce(function(a,b){return a + b;},0);
+     //var sum2 = arr.reduce((s,v) => s + v);
+     var nums = arr;
+     document.write(" MAX  :-- "+ Math.max.apply(null,nums));
+
+     document.write("<h3> MIN ARRAY</h3>")
+     //var sum2 = arr.reduce(function(a,b){return a + b;},0);
+     //var sum2 = arr.reduce((s,v) => s + v);
+     var nums = arr;
+     document.write(" MIN  :-- "+ Math.min.apply(null,nums));
+
+
+     document.write("<h3> ALL EVEN ARRAY</h3>")
+     var d=0;
+     for(i=0;i<arr.length;i++)
+     {
+          if(arr[i]%2==0)
+          {
+               d++;
+          }
+     }
+     if(d==arr.length)
+     {
+          document.write("  EVEN ");
+     }else
+     {
+          document.write(" NOT EVEN ")
+     }
+     
+
+
+     document.write("<h3> ALL ODD ARRAY</h3>")
+     var d=0;
+     for(i=0;i<arr.length;i++)
+     {
+          if(arr[i]%2!=0)
+          {
+               d++;
+          }
+     }
+     if(d==arr.length)
+     {
+          document.write("  ODD ");
+     }else
+     {
+          document.write(" NOT ODD ")
+     }
+
+
+
+     document.write("<h3> PRIME NO</h3>")
+     var pr=0;
+
+     for(i=0;i<arr.length;i++)
+     {
+          for(j=2;j<arr[i];j++)
+          {
+               if(arr[i]%j==0)
+               {
+                    pr++;
+               }
+          }
+     }
+     if(pr==0)
+     {
+          document.write("  PRIME ");
+     }else
+     {
+          document.write(" NO PRIME ");
+     }
+
+
+
+     document.write("<h3> ODD EVEN</h3>")
+     //var sum2 = arr.reduce(function(a,b){return a + b;},0);
+     //var sum2 = arr.reduce((s,v) => s + v);
+     var fil = arr.filter(function(v){return v%2 !=0})
+     document.write(" ODD  :-- "+ fil);
+
+
+
+     document.write("<h3> EVEN</h3>")
+     //var sum2 = arr.reduce(function(a,b){return a + b;},0);
+     //var sum2 = arr.reduce((s,v) => s + v);
+     var fil = arr.filter(function(v){return v%2 ==0})
+     document.write(" EVEN  :-- "+ fil);
+
+</script>
+
+<body>
+        
+     
+     <span id="orderList"></span>
+ 
+
+</body>
+</html>

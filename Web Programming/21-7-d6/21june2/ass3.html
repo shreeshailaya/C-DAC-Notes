@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function getTime() {
+            //alert("hi");
+            var cdate = new Date();
+            var h = cdate.getHours();
+            var m = cdate.getMinutes();
+            var s = cdate.getSeconds();
+            if (h < 10)
+                h = "0" + h;
+            if (m < 10)
+                m = "0" + m;
+            if (s < 10)
+                s = "0" + s;
+            var time = h + ":" + m + ":" + s;
+            document.getElementById("time").innerHTML = time;
+            //autorefresh after 1000ms/1s
+            f = setTimeout(function () { getTime() }, 1000);
+        }
+
+ 
+
+    </script>
+</head>
+<body onload="getTime();">
+     <hr>
+     <center>
+     <span id="time">time</span> <br/>
+     </center>
+
+     <hr/>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script language="JavaScript"> 
+        var i = 0;
+        var images = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"];
+
+        function swapImage() 
+        { 
+            i++;
+            if (i == images.length)
+                i = 0;
+            document.getElementById("slideimg").src = "images/" + images[i];
+            setTimeout("swapImage()",1000); 
+        } 
+       
+    </script> 
+</head>
+<body onload="swapImage()">
+    <img height="200" id="slideimg" src="images/1.jpg" width="400" />
+</body>
+</html>
