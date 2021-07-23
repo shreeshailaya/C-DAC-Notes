@@ -1,0 +1,133 @@
+<style>
+    .div1 {
+        width: 600px;
+        padding: 25px;
+        margin: 25px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: gray;
+        color: red;
+       }
+    .div2 {
+        width: 500px;
+        padding: 25px;
+        margin: 25px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        color: red;
+      }
+</style>
+<script>
+    function check()
+    {
+
+        //fname validation
+        var fname=document.getElementById("fname").value;
+        if (fname == "" || fname == null) {
+                document.getElementById("error").innerHTML = "First Name required";
+                return;
+            }
+          //  else if(!(/^[A-Z]+[a-zA-Z]*$/.test(fname)))
+          else if(!(/^[A-Z][a-z]+\s[A-Z][a-z]+$/.test(fname)))
+            {
+          
+                    document.getElementById("error").innerHTML = "Enter Full name in Title case";
+                    return;
+            }
+            else
+            {
+                document.getElementById("error").innerHTML = "";
+            }
+//Mobile number
+var numonly = /^[0-9]{10}$/;
+            if (!numonly.test(document.myform.num.value)) {
+                document.getElementById("error_num").innerHTML = "only 10 digits are allowed ";
+                return;
+            }
+            else {
+                document.getElementById("error_num").innerHTML = "";
+            }
+
+
+//email validation
+var email = document.getElementById("email").value;
+            if (email == "" || email == null) {
+                document.getElementById("error_email").innerHTML = "Enter email";
+                return;
+            }
+            else if(!(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)))
+          
+            {
+          
+                    document.getElementById("error_email").innerHTML = "Email invalid";
+                    return;
+            }
+            else
+            {
+                document.getElementById("error_email").innerHTML = "";
+            }
+
+            //course validation
+var course = document.getElementById("course").value;
+            if (course == "" || course == null) {
+                document.getElementById("error_course").innerHTML = "Enter Course";
+                return;
+            }
+            else if(!(/^[PG-].+[A-Za-z]{3,8}$/.test(course)))
+          
+            {
+          
+                    document.getElementById("error_course").innerHTML = "Course Must Be PG-courseName";
+                    return;
+            }
+            else
+            {
+                document.getElementById("error_course").innerHTML = "";
+            }
+
+
+    }
+</script>
+<body>
+    <div class="div1">
+        <div class="div2">
+            
+    <form name="myform">
+        <table>
+            <tr><th><th></tr>
+            <tr>
+                <td>Enter Full Name:</td>
+                <td> <input type="text" id="fname"></td>
+                <td id="error" style="color:red"></td>
+            </tr>
+
+
+            <tr>
+                <td>Enter Mobile No</td>
+                <td>  <input type="number" id="num" name="num"></td>
+                <td id="error_num" style="color:red"></td>
+            </tr>
+
+            <tr>
+                <td>Enter Email-ID</td>
+                <td>   <input type="text" maxlength="30" size="20" id="email"></td>
+                <td id="error_email" style="color:red"></td>
+            </tr>
+        
+            <tr>
+                <td>Enter Your Course</td>
+                <td> <input type="text" name="course" id="course"></td>
+                <td id="error_course" style="color:red"></td>
+            </tr>
+              
+            <tr>
+                <td><input type="button" value="Submit"  onclick="check()"></td>
+                <td><input type="Reset" value="Reset"></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</div>
+  
+</body>

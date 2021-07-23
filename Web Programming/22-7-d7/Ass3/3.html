@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function validate()
+        {
+            
+if(!(/^[A-Za-z]{2,}$/.test(document.regform.lname.value)))
+{
+document.getElementById("lnmerror").innerHTML = "Last name invalid. Require Only alphabets";
+    return;
+}
+else
+{
+    document.getElementById("lnmerror").innerHTML = "";
+}
+
+if(!(/^[A-Za-z]{2,}$/.test(document.regform.fname.value)))
+{
+document.getElementById("fnmerror").innerHTML = "First name invalid. Require Only alphabets";
+    return;
+}
+else
+{
+    document.getElementById("fnmerror").innerHTML = "";
+}
+            var numonly = /^[0-9]{10}$/;
+            if (!numonly.test(document.regform.accno.value)) {
+                document.getElementById("accnoerror").innerHTML = "only 10 digits are allowed ";
+                return;
+            }
+            else {
+                document.getElementById("accnoerror").innerHTML = "";
+            }
+            var pwd = document.regform.pass1.value;
+            if (pwd.length < 5)
+            {
+                document.getElementById("pwderror").innerHTML = "Password should be atleast 5 chars long";
+                return;
+            }
+            else
+            {
+                document.getElementById("pwderror").innerHTML = "";
+            }
+            /*var numflag = false;
+            var spflag = false;
+            for (i = 0; i < pwd.length; i++)
+            {
+                var ascii = pwd.charAt(i);
+                if(ascii >= 48 && asc <= 57)
+                {
+                    numflag = true;
+                }
+
+            }*/
+            var numflag = false;
+            var spflag = false;
+            var onenum = /[0-9]{1,}/;
+            if (onenum.test(pwd)) {
+                numflag = true;
+               }
+            var onesp = /[^0-9A-Za-z]{1,}/
+            if (onesp.test(pwd)) {
+                spflag = true;
+            }
+            if (numflag || spflag)
+                document.getElementById("pwderror").innerHTML = "Average Password";
+            if (!numflag && !spflag)
+                document.getElementById("pwderror").innerHTML = "Weak Password";
+            if (numflag && spflag)
+                document.getElementById("pwderror").innerHTML = "Strong Password";
+            if (document.regform.pass1.value != document.regform.pass2.value) {
+                document.getElementById("matcherror").innerHTML = "Password does not match";
+                return;
+            }
+            else
+                document.getElementById("matcherror").innerHTML = "";
+            document.regform.submit();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div style="background-color:black;color:white;height:100px;padding:10px 60px 10px 220px;font-size:x-large" >
+            <!-- First Northen Bank <img src="images/logo.png" width="40" height="40" /> -->
+        </div>
+        <div>
+            <div style="background-color:red;width:30%;height:500px;float:left">
+            </div>
+            <div style="width:55%;height:500px;float:left;padding:20px">
+                <h1> New User Registration </h1>    
+                <p> In order to use FNB"s All Day Banking Service, please complete the follwing details and then
+                    the submit button to complete the registration cycle
+                </p>
+                <form name="regform" method="post">
+                  <table>
+                    <tr>
+                       <td>last name</td>
+                       <td><input type="text" name="lname" id="lname"/></td>
+                        <td id="lnmerror" style="color:red"></td>
+                    </tr>
+                    <tr>
+                       <td>first name</td>
+                       <td><input type="text" name="fname" id="fname"/></td>
+                        <td id="fnmerror" style="color:red"></td>
+                    </tr>
+                    <tr>
+                       <td>your prefered user id</td>
+                       <td><input type="text" name="text3" /></td>
+                    </tr>
+                    <tr>
+                       <td>Email Address</td>
+                       <td><input type="text" name="text4" /></td>
+                    </tr>
+                    <tr>
+                       <td>Account number</td>
+                       <td><input type="number" name="accno"  /></td>
+                        <td id="accnoerror" style="color:red"></td>
+                    </tr>
+                    <tr>
+                       <td>Credit card number</td>
+                       <td><input type="text" name="text6" /></td>
+                    </tr>
+                    <tr>
+                       <td>online password </td>
+                       <td><input type="password" name="pass1" /></td>
+                        <td id="pwderror" style="color:red"></td>
+                    </tr>
+                    <tr>
+                       <td>online password(repeated)</td>
+                       <td><input type="password" name="pass2" /></td>
+                        <td id="matcherror" style="color:red"></td>
+                    </tr>
+                    <tr>
+                       <td><input type="button" value="Submit" onclick="validate()">
+                       <input type="reset" value="Clear"></td>
+                    </tr>
+                  </table>
+                </form>
+            </div>
+            <div style="background-color:red;width:10%;height:500px;float:left">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

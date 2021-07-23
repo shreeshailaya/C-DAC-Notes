@@ -1,0 +1,135 @@
+<html>
+<head>
+    <title>
+        Visitor Registration
+    </title>
+    <style>
+        .div1 {
+            width: 600px;
+            padding: 25px;
+            margin: 25px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: gray;
+            color: red;
+           }
+        .div2 {
+            width: 500px;
+            padding: 25px;
+            margin: 25px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+            color: red;
+          }
+    </style>
+    <script>
+        function validate() {
+            //email validation
+            var email = document.getElementById("email").value;
+            if (email == "" || email == null) {
+                document.getElementById("erremail").innerHTML = "Enter email";
+                return;
+            }
+            else if(!(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)))
+          
+            {
+          
+                    document.getElementById("erremail").innerHTML = "Email invalid";
+                    return;
+            }
+            else
+            {
+                document.getElementById("erremail").innerHTML = "";
+            }
+
+
+//checkbox
+if(!document.getElementById("ch1").checked && !document.getElementById("ch2").checked)
+            {
+                document.getElementById("errch").innerHTML="Please select atleast one..!";
+                return;
+            }
+            else
+            {
+                document.getElementById("errch").innerHTML = ""; 
+            }
+
+            //occupation validation
+            if (document.feedbackform.occupation.value == "")
+            {
+                document.getElementById("occupation_error").innerHTML = "Please select occupation";
+                return;
+            }
+            else
+            {
+                document.getElementById("occupation_error").innerHTML = "";
+            }
+            
+
+
+            //radio button validation
+            if ((!document.feedbackform.r1.checked) && !(document.feedbackform.r2.checked))
+            {
+                document.getElementById("anserr").innerHTML = "Please select one";
+                return;
+            }
+            else
+            {
+                document.getElementById("anserr").innerHTML = "";
+            }
+            document.feedbackform.submit();
+       }
+    </script>
+</head>
+<body>
+<div class="div1">
+    <div class="div2">
+         
+        <h2 color = "Blue"><i><u>Visitor Registration</u></i></h2>
+        <form name="feedbackform" action="next1.html" method="post">
+            <table>
+                <tr><th><th></tr>
+                <tr>
+                    <td>Email Adreess</td>
+                    <td><input type="text" maxlength="30" size="20" id="email"></td>
+                    <td id="erremail" style="color:red"></td>
+                </tr>
+                <tr>
+                    <td>Do you use the web for : </td>
+                    <td>
+                        <input type="checkbox" value="Research" id="ch1" name="ch1">Research
+                        <input type="checkbox" value="Purchases" id="ch2" name="ch2">Purchases
+                    </td>
+                    <td id="errch" style="color:red"></td>
+                <tr>
+                <tr>
+                    <td>Occupation : </td>
+                    <td>
+                        <select name="occupation" id="o1">
+                            <option value="" selected>(select one)</option>
+                            <option value="1">teacher</option>
+                            <option value="2">attendent</option>
+                            <option value="3">manager</option>
+                        </select>
+                    </td>
+                    <td id="occupation_error" style="color:red"></td>
+                </tr>
+                <tr>
+                    <td>want us to send you junk mails.</td>
+                    <td>
+                        <input type="radio" value="0" name="ans" id="r1">Absolutly
+                        <input type="radio" value="1" name="ans" id="r2">No way, man!
+                    </td>
+                    <td id="anserr" style="color:red"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="Submit" onclick="validate()"></td>
+                    <td><input type="Reset" value="Reset"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

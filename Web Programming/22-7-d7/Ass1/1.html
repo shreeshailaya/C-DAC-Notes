@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>
+        Login Form
+    </title>
+    <style>
+        div {
+            width: 400px;
+            padding: 25px;
+            margin: 25px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: red;
+            border-top-style: dotted;
+            border-right-style: solid;
+            border-bottom-style: dotted;
+            border-left-style: solid;
+			font-color:red;
+        }
+    </style>
+    <script>
+        function validate() 
+		{
+            var uname = document.getElementById("username").value;
+            var upass = document.getElementById("password").value;
+			
+            if (uname == "" || uname == null) 
+			{
+                document.getElementById("errname").innerHTML = "Username required.";
+                return;
+            }
+            else if( uname.length < 5 || uname.length > 15 )
+            {
+                 document.getElementById("errname").innerHTML = "Username should be in the range 5-15.";
+                 return;
+            }
+            else
+            {
+                document.getElementById("errname").innerHTML = "";
+            }
+			
+			
+            if (upass == "" || upass == null) {
+                document.getElementById("errpass").innerHTML = "Password required.";
+                return;
+            }
+            else if(upass.length < 8 || upass.length > 15)
+            {
+                document.getElementById("errpass").innerHTML = "Password should be in the range 8-15.";
+                return;
+            }
+            else
+            {
+                document.getElementById("errpass").innerHTML = "";
+            }
+            document.loginform.submit();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h2 color="blue"><i>Login Here !</i></h2>
+        <form name="loginform" action="next.html" method="GET" >
+                <table>
+                    <tr>
+						<td>User Name  </td>
+						<td><input type="text" maxlength="30" size="20" id="username"></td>
+						<td id="errname"></td>
+					</tr>
+					
+                    <tr>
+						<td>Password  </td>
+						<td><input type="password" maxlength="30" size="20" id="password"></td>
+						<td id="errpass"></td>
+					</tr>
+					
+                    <tr>
+						<td><input type="button" value="Login" onclick="validate()"></td>
+						<td><input type="Reset" value="Cancel"></td>
+					</tr>
+                </table>
+        </form>
+    </div>
+ </body>
+</html>
