@@ -117,6 +117,25 @@ document.write("Hello World");
 ### Language Supported
 #### Array in JS 
 
+# 26/6 Node JS
 
+- It is a server side language
+- Ryan Dahl used JS v8 engine to develope Node js (v8 engine was a part of chrome )
+- Node JS runs as a single thread application which is called event loop
+- Event loop recive and send request maintained in queue
+- Advantage is Scability and Performance
+- Opensource with MIT licence
+- Lightweight framework which include bare minimum module
+- When you install Node it will automatically install NPM(Node package manager)
+- It is used to install various node modules
+- These node modules are avalible in center respo
+```js
+node firstnodeapp.js
 
+```
+### Node Modules
+- Core Module
+- Local Module
+- Third party module
+- Use of http module to create server
 
