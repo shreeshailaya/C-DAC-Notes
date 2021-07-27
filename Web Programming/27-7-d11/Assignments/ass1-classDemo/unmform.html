@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //1. catch the event
+        function makeRequest() {
+            //2. Creating ajax object
+            ajax = createAjaxObject();
+            if (ajax)
+                alert("ajax object created");
+
+            ajax.onreadystatechange = updatePage;
+
+            //3.Initialize the request
+            var url = "http://localhost:9000/greet?unm=" + document.f1.unm.value;
+            alert(url);
+            ajax.open('GET', url, true);
+
+            //4. send the request
+            ajax.send("");  //argument neede for post request
+
+            alert("sent");
+            //whether response has reached back
+            
+            /*
+
+            0 // created
+            1 // initilaized
+            2 // send
+            3 // but not 100%
+            4 // 100% response
+            */
+        }
+
+        function updatePage() {
+            alert(ajax.readyState);
+            if (ajax.readyState == 4) {
+                alert(ajax.responseText);
+                document.getElementById("msg").innerHTML = ajax.responseText;
+            }
+
+        }
+
+
+        function createAjaxObject() {
+            //IE browser
+            try {
+                var ajax = new ActiveXObject("Microsoft.XMLHTTP");
+                return ajax;
+            }
+            catch (e) {
+                //non-IE browser  
+                try {
+                    var ajax = new XMLHttpRequest();
+                    return ajax;
+                }
+                catch (e) {
+                    alert("browser does not support ajax")
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <form name="f1">
+        Enter name : <input type="text" name="unm" /> <br/>
+        <input type="button" value="Greet"
+             onclick="makeRequest()"   />
+
+    </form>
+    <span id="msg">greet msg....</span>
+</body>
+</html>

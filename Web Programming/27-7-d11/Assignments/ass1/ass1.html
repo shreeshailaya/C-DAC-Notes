@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>AJAX</title>
+</head>
+<script>
+	function makeRequest()
+	{
+		alert("INFUN")
+		ajax = createAjaxObject();
+        if (ajax)
+            alert("ajax object created");
+        ajax.onreadystatechange = updatePage;
+
+
+        var url = "http://localhost:9000/greet?uname="+ document.f1.uname.value;
+        alert(url);
+
+        ajax.open('GET',url,true);
+        ajax.send("");
+        alert("ajax send");
+    }
+	
+
+	function updatePage() {
+        alert(ajax.readyState);
+        if (ajax.readyState == 4) {
+          alert(ajax.responseText);
+          document.getElementById("ans").innerHTML = ajax.responseText;
+        }
+
+    }
+
+
+	function createAjaxObject() {
+            try {
+                var ajax = new ActiveXObject("Microsoft.XMLHTTP");
+                return ajax;
+            }
+            catch (e) {
+                  
+                try {
+                    var ajax = new XMLHttpRequest();
+                    return ajax;
+                }
+                catch (e) {
+                    alert("CHANGE BROWSER")
+                }
+            }
+        }
+
+
+</script>
+<body>
+
+	<form border="1" name="f1">
+		
+		<tr>
+			<th>Name:</th>
+		</tr>
+		<tr>
+			<td><input type="text" name="uname"></td>
+		</tr>
+
+		<tr>
+			<br>
+			<td><input type="button" name="button" value="click here" onclick="makeRequest()"></td>
+		</tr>
+
+
+	</form>
+
+	<br>
+	<span id="ans">HERE IS WELCOME MSG</span>
+
+</body>
+</html>
