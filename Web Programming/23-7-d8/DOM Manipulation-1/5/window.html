@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+	function openWin()
+	{
+	mywin=window.open("","Window","width=300,height=300");
+	var btn=document.getElementById("b1");
+	btn.innerHTML="Hide Window";
+	}
+	function changeSize()
+	{
+	var h=prompt("Enter Height:");
+	var w=prompt("Enter Width");
+	mywin.resizeTo(h,w);
+	}
+	function changePosition()
+	{
+	var x=prompt("Enter X co-ordinate:");
+	var y=prompt("Enter Y co-ordinate");
+	mywin.moveBy(x,y);
+	}
+	function writeWin()
+	{
+	mywin.document.write("<h2>Hello From new Window</h2>");
+	}
+	function closeWin()
+	{
+	if(confirm("Do you really want to close..?"))
+	mywin.close();
+	}
+	
+    </script>
+</head>
+<body>
+    <button onclick="openWin()" >Open New window</button> <br />
+    <button onclick="changeSize()">change window Size </button> <br />
+    <button onclick="changePosition()">Move  window</button> <br />
+    <button onclick="writeWin()">write in new window</button> <br />
+    <button onclick="closeWin()">Close New window</button> <br />
+
+	<div id="b1"></div>
+	</body>
+</html>

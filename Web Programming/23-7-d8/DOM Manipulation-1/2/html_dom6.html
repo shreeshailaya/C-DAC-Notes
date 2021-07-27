@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Table To paragraph</title>
+    <script>
+        function changeToPara() {
+            var str = "";
+            var trarr = document.getElementsByTagName("tr");
+            for(i=0;i<trarr.length;i++)
+            {
+                var tdnodes = trarr[i].getElementsByTagName("td");
+                str += "<div>";
+                str += "<h1>" + tdnodes[0].innerHTML + "</h1>";
+                str += tdnodes[1].innerHTML;
+                str += "<p><b>" + tdnodes[2].firstChild.nodeValue + "</b></p>";
+                str += "</div>";
+            }
+            document.getElementById("content").innerHTML = str;
+        }
+    </script>
+
+</head>
+<body>
+    <div id="content">
+        <table border="1" onmouseover="paragraph();">
+            <tr>
+               <td>Cricket</td>
+               <td><img src="images/cricket.jpg"></td>
+               <td>cricket cricket cricket cricket cricket cricket cricket </td></tr>
+            <tr>
+               <td>Football</td>
+               <td><img src="images/football.jpg"></td>
+               <td>football football football football football football football football</td></tr>
+            <tr>
+               <td>Vollyball</td>
+               <td><img src="images/vollyball.jpg"></td>
+               <td>vollyball vollyball  vollyball vollyball vollyball vollyball vollyball vollyball vollyball</td>
+            </tr>
+        </table>
+    </div>
+    <button onclick="changeToPara()">Change To Paragraph</button>
+</body>
+
+</html>

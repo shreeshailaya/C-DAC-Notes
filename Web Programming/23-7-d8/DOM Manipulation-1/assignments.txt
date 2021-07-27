@@ -1,0 +1,23 @@
+1	Display the following information in the form of Unordered List. 
+	And on the click event of the button replace the list content with their corresponding image icons.
+
+	Desktop
+	MyComputer
+	Folder
+	Browser
+	WordDocument
+	
+2	Convert the following table such that each row should be displayed as a separate division containing heading, 
+	image and bold  text.
+	
+	
+3	Detect browser used by client and its version
+4	Check whether cookies are enabled or disabled on the client"s browser
+5	Design a web page as follows :
+
+    Add a button which contains text as ?Show Window?. When user clicks on this button then 
+	open a new window and change the text of button as ?Hide Window?.
+    Accept the height and width from user and accordingly change the size of window.
+    Also accept the x and y coordinate position and accordingly move the window to that new location.
+    Accept some text from user and write that text in that new window.
+    Create a button to close new opened window and get the confirmation from user before closing

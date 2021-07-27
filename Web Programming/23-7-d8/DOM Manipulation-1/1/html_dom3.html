@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function list()
+        {
+           
+            var arrlist = document.getElementsByTagName("li");
+           
+            for(i=0;i<arrlist.length;i++)
+            {
+               
+                str = "<img src='images/" + arrlist[i].innerHTML + ".jpg' " + "height=100 width=100/>";
+               
+                  arrlist[i].innerHTML = str;
+            }
+            document.getElementById("b1").disabled =true;
+        }
+    </script>
+</head>
+<body >
+    
+        <ul>
+            <li>Desktop</li>
+            <li>Computer</li>
+            <li>Folder</li>
+            <li>Browser</li>
+            <li>Worddocument</li>
+        </ul>
+    
+    <button id="b1" onclick="list();">click me</button>
+   </body>
+</html>

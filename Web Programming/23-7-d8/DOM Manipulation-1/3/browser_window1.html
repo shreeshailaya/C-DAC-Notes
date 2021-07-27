@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function checkBrowser()
+        {
+            var str = "";
+            str += "Browser name : " + navigator.appName;
+            str += "<br/>Browser version : " + navigator.appVersion;
+            document.getElementById("info").innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="checkBrowser()">Detect Browser</button>
+    <div id="info"></div>
+</body>
+</html>

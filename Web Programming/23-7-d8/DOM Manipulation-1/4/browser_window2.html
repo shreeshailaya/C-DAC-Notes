@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function checkCookie()
+        {
+            var str = "";
+            str += "Cookie enabled : " + navigator.cookieEnabled;
+            document.getElementById("info").innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="checkCookie()">Check Cookie Setting</button>
+    <div id="info"></div>
+</body>
+</html>
