@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".accordion h3").click(function () {
+                $(this).next("p").slideToggle("slow");
+
+                $(this).toggleClass("active");
+            });
+        });
+    </script>
+    <style>
+        body {
+            width:570px;
+        }
+        h3.active {
+            background:#e9e7e7 url(images/arrow-square.gif) no-repeat right -51px;
+        }
+        h3 {
+            background:#e9e7e7 url(images/arrow-square.gif) no-repeat right 5px;
+          
+        }
+        .accordion p {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion">
+	    <h3 class="active">Question One Sample Text</h3>
+	    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	    <h3 class="active">This is Question Two</h3>
+	    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	    <h3 class="active">Another Questio here</h3>
+	    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	    <h3 class="active">Sample heading</h3>
+	    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+	    <h3 class="active">Sample Question Heading</h3>
+	    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
+    </div>
+</body>
+</html>

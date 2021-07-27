@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> 8th JQuery Effects </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("img").click(function() {
+                    $("#Main").attr("src","Images/"+ $(this).attr("id") +".jpg");
+                    $("#imageName").text("Info :  "+$(this).attr("value"));
+                });
+            });
+
+        </script>
+    </head>
+    <body style="background-color:snow;">
+        <div style="font-size:x-large;">
+            <span id = "imageName" style="font-size: xx-large;"> Info : Crane</span>
+                <img src = "Images/1.jpg" height="500px" width="500px" id = "Main" style="position: absolute; top:30px; left:35%"/>
+                <div>
+                    <img src = "Images/1.jpg" height="50px" width="50px" id = "1" value = "Crane" style="position: absolute; top:85%; left:32%"/> 
+                    <img src = "Images/7.jpg" height="50px" width="50px" id = "7" value = "Tiger" style="position: absolute; top:85%; left:42%"/> 
+                    <img src = "Images/6.jpg" height="50px" width="50px" id = "6" value = "Eagle" style="position: absolute; top:85%; left:52%"/> 
+                    <img src = "Images/9.jpg" height="50px" width="50px" id = "9" value = "Lion" style="position: absolute; top:85%; left:62%"/> 
+                    <img src = "Images/5.jpg" height="50px" width="50px" id = "5" value = "Zebra" style="position: absolute; top:85%; left:72%"/> 
+                </div>
+        </div>
+    </body>
+</html>

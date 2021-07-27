@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+     <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("li").dblclick(function () {
+                $(this).siblings().css("list-style", "circle");
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <p> Uses of JQuery</p>
+        <ul>
+            <li> Jquery effects </li>
+            <li> CSS Manipulation </li>
+            <li> HTML DOM manipulation </li>
+        </ul>
+    </div>
+</body>
+</html>

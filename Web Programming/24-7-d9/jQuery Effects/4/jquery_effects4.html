@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#start").click(function () { 
+                myanimation();
+            });
+            $("#stop").click(function () {
+                $("#myimg").stop();
+            });
+
+        });
+
+        function myanimation() {
+            $("#myimg").animate({ left: '+=20px', width: '+=5px', height:'+=5px' }, "slow", "linear", function () { myanimation(); });
+        }
+
+    </script>
+
+</head>
+<body>
+    <button id="start">Start Animation</button>
+    <button id="stop">Stop Animation</button>
+    <img id="myimg" src="images/ball.jpg" width="200" height="200" style="position:absolute; top:40px;left:40px"/> <br />
+    
+
+</body>
+</html>

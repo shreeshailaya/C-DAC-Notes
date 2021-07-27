@@ -1,0 +1,8 @@
+1	Apply border to all the child elements of body element(use children())
+2	Change the bullet style of list elements  when one of the list elements is double clicked.(use siblings())
+3	Display div on the web page having some content. Provide 2 buttons on the web page to remove div and to remove content within div. Exhibit this functionality on click of respective buttons
+4	Display the paragraph on the web page and on mouse over event of the paragraph change its background color, font color, a             alignment and padding.
+5	Create web page having following design :   (click square)
+
+><br>After clicking on square get the text within the square and display it above the square <br></td></tr><tr><td style=6	Create web page like :
+

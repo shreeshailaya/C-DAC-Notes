@@ -1,0 +1,3 @@
+1	Display the alert message in document.ready() function
+2	use CDN to add jquery library on your web page
+and display alert message "Hello from JQuery" in document"s ready event

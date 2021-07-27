@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        ul li {
+            list-style:none;
+            color:blue;
+            padding:20px 20px 20px 20px;
+            margin:20px 20px 20px 20px;
+        }
+    </style>
+
+
+
+    <script src="scripts/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("a.open").click(function () {
+                var id = $(this).attr("id");
+                $("#"+id + "Sp").slideDown("fast");
+            });
+            $("a.close").click(function () {
+                $(this).parent().slideUp(2000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+
+       <li> Intex-Aqua Wing  <span> <a href="#" class="open" id="Intex"> View Specification </a> </span>
+          <div style="display:none" id="IntexSp"> 
+            Screen Size : 4.0 inches <br />
+            Speed : 1.0 GHz <br />
+            Internal Memory : 8GB, 1GB RAM <br />
+            OS : Android 5.1 (Lollipop) <br />  
+            <a href="#" class="close"> Close Specification  </a>
+          </div>
+      </li>
+
+      <li>   HTC-Desire 828 Dual Sim  <span> <a href="#" class="open" id="HTC"> View Specification </a> </span>
+          <div style="display:none" id="HTCSp"> 
+             Screen Size : 5.5 inches <br />
+             Speed : 1.5 GHz <br />
+             Internal Memory : 16GB, 2GB RAM <br />
+             OS : Android  <br />  
+             <a href="#" class="close"> Close Specification  </a>
+          </div>
+      </li>
+
+
+        <li> Spice-X-Life 435Q <span> <a href="#" class="open" id="Spice"> View Specification </a> </span>
+          <div style="display:none" id="SpiceSp"> 
+                Screen Size : 4.0 inches  <br />
+                Speed : 1.3 GHz  <br />
+                Internal Memory : 8GB, 512MB RAM  <br />
+                OS : Android 5.1 (Lollipop)  <br />  
+                <a href="#" class="close"> Close Specification  </a>
+          </div>
+      </li>
+
+
+        <li>  LAVA-V5  <span> <a href="#" class="open" id="Lava"> View Specification </a> </span>
+          <div style="display:none" id="LavaSp"> 
+                Screen Size : 5.5 inches <br />
+                Speed : 1.3 GHz <br />
+                Internal Memory : 16GB, 3GB RAM <br />
+                OS : Android 5.1 (Lollipop)  <br /> 
+                <a href="#" class="close"> Close Specification  </a>
+          </div>
+      </li>
+  </ul>
+</body>
+</html>

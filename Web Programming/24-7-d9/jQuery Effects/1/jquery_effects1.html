@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            alert("ready");
+            $("#hide").click(function () {
+                $("#myimg").hide();
+            });
+            $("#show").click(function () {
+                $("#myimg").show();
+            });
+            $("#toggle").click(function () {
+                $("#myimg").toggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <img id="myimg" src="images/Desert.jpg" width="300" height="300"/>
+    <br />
+    <button id="hide">Hide Image</button>
+    <button id="show">Show Image</button>
+    <button id="toggle">Toggle Image</button>
+</body>
+</html>

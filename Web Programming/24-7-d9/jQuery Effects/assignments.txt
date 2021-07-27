@@ -1,0 +1,21 @@
+1	Display the image on the web page. 
+	Provide hide, show and toggle buttons to hide, show and toggle the image respectively. 
+	
+2	Display 9 different  images in 3X3 table.
+	On mouse down  event  fade in the image fast  and on mouse up event  fade out the image slowly.
+	
+3	Display a list of mobile handsets.
+	Beside each handset there should be a link ?view specification?. 
+	Onclick of this link display the specification of that handset with sliding effect. 
+	User should be able to close specification on click of ?close? link displayed in specification.
+	
+4	Display the image of a ball on the web  page, move it horizontally, vertically, diagonally 
+	as well as while moving change its size using animate effect.
+	
+5	Create web page like following : (accordion)
+
+6
+
+7
+
+8

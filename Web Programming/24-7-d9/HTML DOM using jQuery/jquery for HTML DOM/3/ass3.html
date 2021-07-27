@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+     <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#empty").click(function () {
+                $("#info").empty();
+            });
+
+            $("#remove").click(function () {
+                $("#info").remove();
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="info" style="width:200px;height:300px;background-color:yellow">
+        <p> Jquery is used for reducing client side scripting </p>
+        <p> Uses of JQuery</p>
+        <ul>
+            <li> Jquery effects </li>
+            <li> CSS Manipulation </li>
+            <li> HTML DOM manipulation </li>
+        </ul>
+    </div>
+    <button id="empty">Empty Div</button>
+    <button id="remove">Remove Div</button>
+</body>
+</html>

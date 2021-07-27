@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+     <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".btn-slide").click(function () {
+                $("#panel").slideToggle("slow");
+                $(this).toggleClass("active"); return false;
+            });
+        });
+    </script>
+
+
+    <style>
+        #panel {
+	        background: #754c24;
+	        height: 200px;
+	        display: none;
+        }
+        .btn-slide {
+	        background: url(images/white-arrow.gif) no-repeat right -50px;
+	        text-align: center;
+	        width: 144px;
+	        height: 31px;
+	        padding: 10px 10px 0 0;
+	        margin: 0 auto;
+	        display: block;
+	        font: bold 120%/100% Arial, Helvetica, sans-serif;
+	        color: #fff;
+	        text-decoration: none;
+        }
+        .slide {
+	        margin: 0;
+	        padding: 0;
+	        border-top: solid 4px #422410;
+	        background: url(images/btn-slide.gif) no-repeat center top;
+        }
+        .active {
+	        background-position: right 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="panel">
+	    <!-- you can put content here -->
+    </div>
+
+    <p class="slide"><a href="#" class="btn-slide">Slide Panel</a></p>
+</body>
+</html>

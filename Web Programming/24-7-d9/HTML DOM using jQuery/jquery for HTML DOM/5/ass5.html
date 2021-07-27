@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#square").click(function () {
+                
+                $(this).before("<p>" + $(this).html() + "</p>");
+          
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <hr />
+    <p> Click On the Square below </p>
+    <br />
+    <div id="square" style="background-color:blue;width:100px;height:100px">
+        This is blue square !!
+    </div>
+</body>
+</html>
