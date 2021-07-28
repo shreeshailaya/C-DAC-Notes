@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Web Programming </title>
+<script>
+function sendAjaxRequest(){
+	ajax = createAjaxObject();
+	if(ajax){
+		
+		var url ="http://localhost:9000/getuser?uid="+
+			document.getElementById("uid").value;
+		
+		ajax.onreadystatechange = updatePage;
+		ajax.open("GET",url,true);
+		ajax.send("");
+		
+	}
+		
+}
+
+function updatePage(){
+	
+	if(ajax.readyState == 4){
+		
+		document.getElementById("msg").innerHTML = ajax.responseText;
+	}
+}
+
+function createAjaxObject(){
+	try{
+	var ajax = new ActiveXObject("Microsoft.XMLHTTP");
+	return ajax;
+	}catch(e){
+		try{
+			var ajax = new XMLHttpRequest();
+			return ajax;
+		}catch(e){
+			alert(" Browser does not support ajax.");
+		}
+	}
+}
+</script>
+</head>
+<body>
+	<center><h1>Introduction To Ajax </h1><br><br>
+	Enter User Id : <input type="text" name="uid" id="uid" onblur="sendAjaxRequest()"><br><br>
+	Enter Password : <input type="password" name="pwd" id="pwd"><br><br>
+	
+	<div id="msg"></div>		
+</body>
+</html>

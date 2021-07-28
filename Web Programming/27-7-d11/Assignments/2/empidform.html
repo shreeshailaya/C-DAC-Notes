@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#b1").click(function () {
+                $("#data").html("");
+                var url = "http://localhost:9000/getempinfo?empid=" + $("#empid").val();
+                alert(url);
+                $.get(url, function (data, status) {
+                    //alert(status);
+                    //alert(data);
+                    if (status == "success")
+                        $("#data").html(data);
+                });
+
+                /*
+                var empno = $("#empid").val();
+                $.post("http://localhost:9000/getempinfo", { empid: empno }, function (data, status) { });
+                */
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        Enter empid : <input type="number" name="empid" id="empid" /> <br/>
+        <input type="button" value="Get Info" id="b1" />
+    </form>
+    <div id="data"></div>
+</body>
+</html>
