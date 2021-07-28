@@ -1,0 +1,32 @@
+<html>
+   <head>
+       <script>
+           function getInfo()
+           {
+            var str = '[{"empid":1001,"ename":"Bakul","salary":12000.00,"deptno":10,"isManager":false,"contactnos":["9887766554","8776566789"]},{"empid":1002,"ename":"Vaibhav","salary":15000.00,"deptno":20,"isManager":true,"contactnos":["9827927867","4565237834"]}]';
+            var emps = JSON.parse(str); 
+            var str="<table border=1>";
+            str+="<tr> <th> Empid</th><th> Emp Name</th> <th> Salary</th><th>Dept no</th><th>Manager?</th> <th> Contact nos</th> "
+            for(i in emps)
+            {
+                //alert(emp[keys[i]]);
+                str+="<tr>";
+                for(x in emps[i])
+                {
+                    str+="<td>"+emps[i][x]+"</td>";
+                }                      
+                str+="</tr>";
+            }
+            str+="</table>";
+            document.getElementById("empinfo").innerHTML = str;
+           } 
+         
+       </script>
+   </head>
+   <body>
+       <button onclick="getInfo()">Get Emp Info</button>
+       <div id="empinfo">
+
+       </div>
+   </body>
+</html>
