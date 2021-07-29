@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<title>CITY NAME AND DATA</title>
+	 <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function(){
+		$("#b1").click(function (){
+			//var str1="";
+			var url = "http://localhost:9000/showTable?Caddress="+$("#city").val();
+			alert(url);
+			 $.get(url, function (data, status) {
+			 	alert(data);
+			 
+
+			 	if(status=="success")
+			 	{
+			 		alert("Parse Start");
+			 		var info = JSON.parse(data);
+			 		alert("Parse Successful");
+			 		
+			 		var str1 = "<table class='table'>";
+ 					str1 += "<tr><th>Customer ID</th><th>Name</th><th>Address</th></tr>";
+			 		for(i=0;i<info.length;i++)
+			 		{
+			 			str1 += "<tr>";
+			 			str1 += "<td>"+ info[i].custid +"</td>";
+			 			str1 += "<td>"+ info[i].Cname +"</td>";
+			 			str1 += "<td>"+ info[i].Caddress +"</td>";
+			 			str1 += "</tr>";
+
+			 		}
+			 		str1 += "</table>";
+			 		alert(str1);
+			 		
+			 		
+			 	}
+			 	$("#ans").html(str1);
+             });
+
+		});	
+		
+	});
+</script>
+</head>
+<body>
+
+<center>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">City Name</label>
+    <input type="text" class="form-control" id="city" placeholder="Enter city name">
+
+    <small id="emailHelp" class="form-text text-muted">We'll never share your city with anyone else.</small>
+  </div>
+
+  </div>
+  <button type="button" class="btn btn-primary" id="b1"> Check </button>
+</form>
+</center>
+<div id="ans">HERE </div>
+
+</body>
+</html>
