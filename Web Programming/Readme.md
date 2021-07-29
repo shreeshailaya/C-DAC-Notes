@@ -100,11 +100,10 @@ attribute : value;	//style rules
 - It is used for data validation on client side 
 - JS can be empaded in a existing HTML for this we use `<script>`
 - Js can be even written in external file 
--```js
+
 
 document.write("Hello World");
 
-```
 
 
 
@@ -114,8 +113,160 @@ document.write("Hello World");
 - 3. DOM Objects
 
 
-### Language Supported
-#### Array in JS 
+### Dynamic HTML
+
+- Factorial in JS
+```js
+
+<script>
+    function findFactoial(no){
+        var i,fact;
+        fact = 1;
+        for (i = 1; i <= no; i++)
+        {
+	        fact = fact*i;
+        }
+        alert("Factorial : "+fact);
+        document.getElementById("result").innerHTML = "Factorial of "+no+" is : "+fact;
+    }
+
+</script>
+
+```
+
+
+### Array and Build in Objects JS
+- All array demo and code ![ALL Array Demos](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Web%20Programming/21-7-d6/21june1/ass1.html)
+
+### Regular Expression in js
+```js
+<script>
+    function check()
+    {
+
+        //fname validation
+        var fname=document.getElementById("fname").value;
+        if (fname == "" || fname == null) {
+                document.getElementById("error").innerHTML = "First Name required";
+                return;
+            }
+          //  else if(!(/^[A-Z]+[a-zA-Z]*$/.test(fname)))
+          else if(!(/^[A-Z][a-z]+\s[A-Z][a-z]+$/.test(fname)))
+            {
+          
+                    document.getElementById("error").innerHTML = "Enter Full name in Title case";
+                    return;
+            }
+            else
+            {
+                document.getElementById("error").innerHTML = "";
+            }
+        
+        
+ var numonly = /^[0-9]{10}$/;
+ var mail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+ var course = /^[PG-].+[A-Za-z]{3,8}$/    
+</script>
+
+```
+
+
+### DOM Manipulation
+
+- ![DOM Manipulation](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Web%20Programming/23-7-d8/DOM%20Manipulation-1/5/window.html)
+
+
+# Jquery
+### Intro
+```js
+
+ <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+alert("hi");
+
+        });
+
+    </script>
+```
+
+### HTML DOM using jQuery
+```js
+    <script>
+        $(document).ready(function () {
+            $("#empty").click(function () {
+                $("#info").empty();
+            });
+
+            $("#remove").click(function () {
+                $("#info").remove();
+            });
+        });
+
+    </script>
+
+``` 
+```html
+
+<body>
+    <div id="info" style="width:200px;height:300px;background-color:yellow">
+        <p> Jquery is used for reducing client side scripting </p>
+        <p> Uses of JQuery</p>
+        <ul>
+            <li> Jquery effects </li>
+            <li> CSS Manipulation </li>
+            <li> HTML DOM manipulation </li>
+        </ul>
+    </div>
+    <button id="empty">Empty Div</button>
+    <button id="remove">Remove Div</button>
+</body>
+
+```
+
+### jQuery Effects Animate
+
+<ul>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_backgroundpositionxy">backgroundPositionX</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_backgroundpositionxy">backgroundPositionY</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_borderwidth">borderWidth</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_borderbottomwidth">borderBottomWidth</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_borderleftwidth">borderLeftWidth</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_borderrightwidth">borderRightWidth</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_bordertopwidth">borderTopWidth</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_borderspacing">borderSpacing</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_margin">margin</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_marginbottom">marginBottom</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_marginleft">marginLeft</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_marginright">marginRight</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_margintop">marginTop</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_opacity">opacity</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_outlinewidth">outlineWidth</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_padding">padding</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_paddingbottom">paddingBottom</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_paddingleft">paddingLeft</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_paddingright">paddingRight</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_paddingtop">paddingTop</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_height">height</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_width">width</a></li>    
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_maxheight">maxHeight</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_maxwidth">maxWidth</a></li>    
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_minheight">minHeight</a></li>
+    <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_minwidth">minWidth</a></li>    
+      <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_fontsize">fontSize</a></li>    
+      <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_bottom">bottom</a></li>    
+      <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_left">left</a></li>    
+      <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_right">right</a></li>    
+      <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_top">top</a></li>    
+      <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_letterspacing">letterSpacing</a></li>
+      <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_wordspacing">wordSpacing</a></li>
+      <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_lineheight">lineHeight</a></li>     
+      <li><a target="_blank" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_ani_textindent">textIndent</a></li>
+    </ul>
+    
+   
+
 
 # 26/6 Node JS
 
