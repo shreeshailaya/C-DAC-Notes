@@ -1,0 +1,40 @@
+	
+	a:link, a:visited, a:focus {
+		  background: skyblue;
+	}
+
+	a:hover {     
+		  background: cyan;
+	}
+
+	a:active {
+	  background: red;
+	  color: white;
+	}
+
+       .content {
+	        margin-top: 1%; 		
+	        margin-bottom: 5%; 
+	        margin-left: 20%; 
+	        margin-right: 20%; 
+		background-color: white;
+                font-size: x-large;
+                padding-left: 8%;
+                opacity: 0.7;
+        }
+
+        body {
+            background-image: url('images/1.jpg');
+            background-size: 1400px 800px;
+            background-repeat: no-repeat;
+        }
+a {
+	  outline: none;
+	  text-decoration: normal;
+	  display: inline-block;
+	  width: 50%;
+	  margin-right: 0.625%;
+	  text-align: center;
+	  line-height: 2;
+	  color: orange;
+	}
