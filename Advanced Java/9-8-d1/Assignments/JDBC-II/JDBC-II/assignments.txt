@@ -1,0 +1,11 @@
+1.    Accept empid from the user and display information about the employee or else display the message emp doe not exist.
+2.    Accept min salary and max salary from user and display employees falling in the salary range.
+3.    Create a simple procedure which selects all records from table emp and call this stored proecedure from java application.
+4.    Create a stored procedure which updates salary of a given employee according to percentage given. Execute this stored procedure from java application.
+5.    Read employees from table and modify the salary as per following condition :
+    salary < 10000 increment 2%
+    salary >= 10000 and <25000 increment 5%
+    salary >= 25000 and salary <50000 increment 8%
+    salary >= 50000 increment 10%
+    (use scrollable and updatable resultset)
+

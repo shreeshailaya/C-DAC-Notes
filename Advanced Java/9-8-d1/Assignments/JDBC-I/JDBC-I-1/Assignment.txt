@@ -1,0 +1,5 @@
+1.Establish connection to mysql database
+Use JDBC driver version 3 and 8 both
+2.Read all the information about the employees and display on the console
+3.Get information about all the employees stored in a collection which sorts it in the decreasing order of salary.
+4.Display dept name and average salary in the decreasing order of avg salary(Use emp and dept table)

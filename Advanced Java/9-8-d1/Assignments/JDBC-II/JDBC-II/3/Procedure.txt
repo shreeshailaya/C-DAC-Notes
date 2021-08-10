@@ -1,0 +1,11 @@
+USE `employee`;
+DROP procedure IF EXISTS `GetAllEmployee`;
+
+DELIMITER $$
+USE `employee`$$
+CREATE PROCEDURE `GetAllEmployee` ()
+BEGIN
+select * from emp;
+END$$
+
+DELIMITER ;
