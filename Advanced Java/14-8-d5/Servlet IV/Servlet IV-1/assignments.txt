@@ -1,0 +1,24 @@
+1.Display session id on the web page. 
+Provide refresh link on the page to verify whether every refresh should
+ modify session id.(Check by enabling and disabling cookies).
+
+2.Create a Home page which should have links for different products
+ like Mobiles, Games, Books etc. For each option create a separate page.
+ Each option page should display the list of items (for books page list of books etc.) 
+When we select a book, that book should get added to shopping cart. 
+Now visit other option pages and keep on selecting different items. 
+All these items should be added into the shopping cart. 
+Finally when user clicks on finish, he should be sent to final page 
+where all his selected options should be displayed with a message should 
+Thank You for shopping with us.   
+
+3.Create a small online quiz application. First time when the user requests for 
+this page then display the first question with its options using radio buttons. 
+Read questions and answer options from the databse.
+ After this the user should click on a button to submit his answer. 
+Now display him the next question. 
+Finally after the user submits the answer for last question then show him 
+the result in a new page.
+
+4.Create a simple filter which logs the information about the request like 
+URL, date and time of the request, user agent.
