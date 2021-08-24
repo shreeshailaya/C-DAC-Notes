@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+
+	<display-name>Servlet with Init Parameters</display-name>
+	
+	<servlet>
+		<servlet-name>InitContextParam</servlet-name>
+		<servlet-class>Fourth.InitContextParam</servlet-class>
+		<init-param>
+			<param-name>subject</param-name>
+			<param-value>java</param-value>
+		</init-param>
+			</servlet>
+	<servlet-mapping>
+		<servlet-name>InitContextParam</servlet-name>
+		<url-pattern>/InitContextParam</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>NetServlet</servlet-name>
+		<servlet-class>Fourth.NetServlet</servlet-class>
+		<init-param>
+			<param-name>subject</param-name>
+			<param-value>.net</param-value>
+		</init-param>
+			</servlet>
+	<servlet-mapping>
+		<servlet-name>NetServlet</servlet-name>
+		<url-pattern>/NetServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DataServlet</servlet-name>
+		<servlet-class>Fourth.DataServlet</servlet-class>
+		<init-param>
+			<param-name>subject</param-name>
+			<param-value>Data Structure</param-value>
+		</init-param>
+			</servlet>
+	<servlet-mapping>
+		<servlet-name>DataServlet</servlet-name>
+		<url-pattern>/DataServlet</url-pattern>
+	</servlet-mapping>
+<context-param>
+        <param-name>institution</param-name>
+        <param-value>Know-It,Pune</param-value>
+    </context-param>
+</web-app>

@@ -1,0 +1,17 @@
+1-Accept login information from the user, write a servlet to check whether login is successful or failed and generate dynamic message.
+
+a.  by comparing with constant strings
+b. by checking in database
+
+2-Accept information about the user from the html page like userid, password, first name, last name, email id, contact no. 
+Write a servlet which reads all request parameters and insert it as record in database table.
+
+3-Create a web page displaying hyperlinks about different DAC modules. 
+Clicking on each hyperlink should display the content of respective module. 
+Use seperate servlet of each module (Use init parameter as subject and context parameter as  institution_name for servlets )
+
+4-Display search link which makes request google search home page
+
+5-Modify login validation by forwarding the request to succes.html  or error.html depending on login check
+
+6-Modify assignment no 4 to add common header and footer

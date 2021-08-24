@@ -1,0 +1,4 @@
+1.copy java files into src
+2. Import DB.sql in mysql workbench
+3.copy login.html in web content
+4.check your sql port number 
