@@ -1,0 +1,2 @@
+1.Develop a simple application using maven and add the dependency of mysql-connector  jar file. See that jar file in the local repository.
+2.Develop a web application using maven and add the dependency of jstl and see that jar added in the local repository. Use core tag from JSTL in the JSP and execute it
