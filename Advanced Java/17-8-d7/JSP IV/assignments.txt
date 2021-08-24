@@ -1,0 +1,11 @@
+1. Practice EL for displaying data from attributes. Use EL implicit objects for displaying data from request parameters, request headers, cookies and context paramteres.
+2.Develop a blogging application with following features
+a. Display all the available topics to the user
+b. Display all the comments from all uers on the selected topic.
+c. Allow the user to add the the topic - this should be allowed only after login
+d. Allow the user to add the comment on the selected topic- this should be allowed only after login
+Please Note :
+a. Use MVC architecture for request processing
+b. Establish the connection in listener
+c. Write no java in JSP and no HTML in servlet
+3.Design a greet tag as custom tag which will be used to give "welcome <name>" message to the user

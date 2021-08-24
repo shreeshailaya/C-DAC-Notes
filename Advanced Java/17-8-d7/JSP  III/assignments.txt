@@ -1,0 +1,4 @@
+1.Accept information from the user about about name, emailid, conatctno and adress. Keep all the information in the request level attribute and display in another JSP.(Use std actions)
+2.Repeat above assignment with MVC implementation using servlet for creating the attribute and JSP for showing the properties.
+3.Develop a blogging application with follwing functionality.
+Accept the topic from the user and display all the comments made by all users on that topic. Controller will communicate with database to fetch the information about all comments on a perticular topic.
