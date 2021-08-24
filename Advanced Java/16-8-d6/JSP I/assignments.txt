@@ -1,0 +1,2 @@
+1.Create a JSP to display a welcome message.
+2.Use all the JSP elements in JSP to understand their usage and check how they get transformed in generated servlet.

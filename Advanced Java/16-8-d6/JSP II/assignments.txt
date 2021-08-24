@@ -1,0 +1,2 @@
+1.Greet the user by using right message based on time like 'Good Morning'.
+2.Replace the servlet in shopping application which displays the list of cart items to the user with jsp(use scriptlet, expression and declaration).
