@@ -1,0 +1,24 @@
+1.
+Create a shppoing application and provide following features
+a. Establish the database connection in a context listener by reading context parameters for name of driver class, conection string , user name and password.
+b. Provide the login feature which autheticates user from database
+c. After successful login forward request to Home page which displays the information about existing categories in the form of hyperlinks.
+d. Clicking category hyperlink displays respective products as drop down list
+
+
+
+
+2.	Display list of depts on the web page as hyperlinks. 
+	After clicking on the hyperlink display a list of all the employees 
+	in that dept in the form of table. 
+
+	Consider following-
+	a. Establish the database connection in a context listener event by reading context
+	 parameters for name of driver class, conection string , user name and password.
+	b. Set database connection as a context attribute and use this connection from above servlets.
+3.
+Display a visit count on the web page. Provide a referesh link to display the visited count(Use cookies)
+4.
+Accept the name and email of the user and create the cookies. Provide hyperlinks for displaying and deleting the cookies to the user. Create appropriate servlets for creating, displaying and deleting the cookies.
+5.
+Display error message on the login page in case of failed login. Messages should be stored in cookies. After successful login remove the cookie for storing the msg of failed login
