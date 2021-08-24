@@ -1,0 +1,135 @@
+body{
+font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+}
+p, h1, form, button{border:0; margin:0; padding:0;}
+.spacer{clear:both; height:1px;}
+.mainform{
+margin:0 auto;
+width:400px;
+padding:14px;
+}
+
+#container{
+border:solid 2px burlywood;
+background: silver;
+border-radius: 5px;
+}
+#container h1 {
+font-size:14px;
+font-weight:bold;
+margin-bottom:8px;
+}
+#container p{
+font-size:11px;
+color:#666666;
+margin-bottom:20px;
+border-bottom:solid 1px burlywood;
+padding-bottom:10px;
+}
+#container label{
+display:block;
+font-weight:bold;
+text-align:right;
+width:140px;
+float:left;
+}
+#container .small{
+color:#666666;
+display:block;
+font-size:11px;
+font-weight:normal;
+text-align:right;
+width:140px;
+}
+#container input{
+float:left;
+font-size:12px;
+padding:4px 2px;
+border:solid 1px burlywood;
+width:200px;
+margin:2px 0 20px 10px;
+border-radius: 5px;
+}
+#container button{
+clear:both;
+margin-left:150px;
+width:125px;
+height:31px;
+background:#666666;
+text-align:center;
+line-height:31px;
+color:#FFFFFF;
+font-size:11px;
+font-weight:bold;
+border-radius: 5px;
+}
+table, tr, td{
+border-radius: 5px;
+border:solid 1px;
+padding: 5px;
+width: max-content;
+}
+
+
+#login-box {
+	width:333px;
+	height: 352px;
+	padding: 58px 76px 0 76px;
+	color: #ebebeb;
+	font: 12px Arial, Helvetica, sans-serif;
+	margin-top: -70px;
+	margin-left: -180px;
+	background: url(../images/login-box-backg.png) no-repeat left top;
+}
+
+#login-box img {
+	border:none;
+}
+
+#login-box h2 {
+	padding:0;
+	margin:0;
+	color: #ebebeb;
+	font: bold 44px "Calibri", Arial;
+}
+
+
+#login-box-name {
+	float: left;
+	display:inline;
+	width:80px;
+	text-align: right;
+	padding: 14px 10px 0 0;
+	margin:0 0 7px 0;
+}
+
+#login-box-field {
+	float: left;
+	display:inline;
+	width:230px;
+	margin:0;
+	margin:0 0 7px 0;
+}
+
+
+.form-login  {
+	width: 205px;
+	padding: 10px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	background-color:#1e4f8a;
+	font-size: 16px;
+	color: #ebebeb;
+}
+
+
+.login-box-options  {
+	clear:both;
+	padding-left:87px;
+	font-size: 11px;
+}
+
+.login-box-options a {
+	color: #ebebeb;
+	font-size: 11px;
+}

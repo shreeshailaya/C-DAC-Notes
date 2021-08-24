@@ -1,0 +1,13 @@
+1.
+Perform all crud operations i.e. insert, update and delete using hibernate.
+a. Use maven project by adding dependency for hibernate and mysql
+b. Create mapping class for Emp which is mapped for emp table.
+
+2.
+Create a small web aplication for managing book table. Web application will have a feature of
+a. add new book by accepting infor from the user
+b. display available books
+Please Note :
+a. Use hibernate for database operations and create session factory in the listener.
+b. Use MVC architecture for request processing
+c. Book entity having state as id,isbn,name,author,publisher and price.
