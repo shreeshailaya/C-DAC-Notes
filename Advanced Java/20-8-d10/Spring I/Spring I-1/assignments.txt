@@ -1,0 +1,7 @@
+1.
+Create Emp class having information about empid(int), name(Name),
+ salary(float), address(Address) ,dept(Dept) and
+  emailids(List<String>).
+   Configure this bean for DI in XML file.
+    Get this object and display its details.
+     Create all the dependent classes with appropriate properties.
