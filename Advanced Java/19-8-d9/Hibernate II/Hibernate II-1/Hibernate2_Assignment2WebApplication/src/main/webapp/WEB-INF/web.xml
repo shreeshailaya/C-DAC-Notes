@@ -1,0 +1,22 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+ <welcome-file-list>index.jsp</welcome-file-list>
+  <display-name>Archetype Created Web Application</display-name>
+  <listener>
+  	<listener-class>listner.HibernateListner</listener-class>
+  </listener>
+
+  <servlet>
+  	<servlet-name>LoggedinServlet</servlet-name>
+  	<display-name>LoggedinServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.LoggedinServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoggedinServlet</servlet-name>
+  	<url-pattern>/LoggedinServlet</url-pattern>  	
+  </servlet-mapping> 
+</web-app>

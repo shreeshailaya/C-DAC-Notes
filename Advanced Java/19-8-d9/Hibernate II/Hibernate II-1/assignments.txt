@@ -1,0 +1,17 @@
+1.
+Use HQL for performing following operations
+a. retrieving all emp records
+b. retrieving records having salary in the given range. Accept minimum and maximum salary from user
+2.
+Create Student class having information as id(int), name(String and address(Address). Inherit this class to create CDACStudent having information as subjects(int) and grade(String). Use hibernate DDL auto functionality to create required tables. Use JOINED strategy for inheritance.
+3.
+Create Product class with information pid(pk), name, price and catid(fk) with Category having information as cid(pk), cname, cdesc. Save and retrieve information about categories and products using association  mapping.
+a. Save Category instance
+b. Use this category for creating product and then save it
+c. Create new  category with all the products and save it.
+d. Create new product with new category and save it.
+4.
+Create criteria query for following
+a. Select all products
+b. Select information about a product using productid
+c. Select only prduct name and price from products
