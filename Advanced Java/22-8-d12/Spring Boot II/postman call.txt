@@ -1,0 +1,17 @@
+ {
+    "qtext": " Polymorphism?" ,
+    "subject": {
+    "sname": "OOPS",
+    "description": "Welcome To OOPS"}
+  
+}
+ {
+
+    "sname": "OOPS",
+    "description": "Welcome To OOPS",
+    "qs":[
+            {"qtext": ""},
+            {"qtext": ""}
+    ]
+
+}
