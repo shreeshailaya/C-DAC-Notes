@@ -4,6 +4,19 @@
  - Network of Networks
  - ARPANET project undertaken by US defence
  
+
+# HTML
+### HTML forms
+| Attribute | Description |
+|---|---|
+| name | Specifices the name of attribute |
+| action | Specifies the URL of the program where to send the form data |
+| method | Specifice the HTTP method used for sending the data |
+| target | Specifice where to display the response that is received after submitting the form. possible values are _blank, _self, _parent, _top |
+| enctype | Specify how the form data should be encoded |
+
+
+
  # CSS 
  - External
  - Internal 
@@ -110,7 +123,47 @@ document.write("Hello World");
 ### JS Objects
 - 1.Language Supported
 - 2.Browser Objects
-- 3. DOM Objects
+- 3.DOM Objects
+
+- Objects contain one or more key-value pairs
+- The key portion can be anything string  and value can be anything in value in number,string
+- As it turns out, nearly everything in js is an object like arrays,functions, numbers even string
+- And they all have properties and methods.
+
+```js
+vat myObject={
+sayHello:function(){
+	console.log("HELLO");
+},
+myName:"sayali"
+};
+
+myObject.sayHello(); //console HELLO
+console.log(myObject.myName); //console sayali
+
+```
+
+
+### Functions in JS
+```js
+function myFunction(p1, p2) {
+  return p1 * p2;   // The function returns the product of p1 and p2
+}
+```
+
+- Function Return 
+
+```js
+
+let x = myFunction(4, 3);   // Function is called, return value will end up in x
+
+function myFunction(a, b) {
+  return a * b;             // Function returns the product of a and b
+}
+
+```
+
+
 
 
 ### Dynamic HTML
@@ -174,6 +227,57 @@ document.write("Hello World");
 ### DOM Manipulation
 
 - ![DOM Manipulation](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Web%20Programming/23-7-d8/DOM%20Manipulation-1/5/window.html)
+
+# AJAX
+- AJAX = Asynchronous JavaScript And XML.
+- AJAX is not a programming language.
+- AJAX just uses a combination of:
+
+	- A browser built-in XMLHttpRequest object (to request data from a web server)
+	- JavaScript and HTML DOM (to display or use the data)
+
+
+![](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Web%20Programming/Media/ajax.png)
+- HTML
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+  <h2>Let AJAX change this text</h2>
+  <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+</body>
+</html>
+```
+- ajax
+```js
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+    }
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+
+```
+### Advantage of AJAX
+- Callback
+	- Ajax is used to perform a callback, making a quick round trip to and from server to retrive and save the data without posting the entire data.\
+- Making Asynchronous Calls
+		- Ajax allows you to make Asynchronous call to a web server. This allow to the client browser to avoid waiting for all data for arriving before allowing user to act one more.
+- User Friendly
+	- Because a page postback is begin to eliminated, ajax enables applications will always be more responsive faster and more user friendly
+- Increase speed 
+	- because of callback and Asynchronous it willincrease the speed
+
+- [Registration form in HTML](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Web%20Programming/27-7-d11/Assignments/3/RegistrationDetails.html)
+
+
+- [Handling Validation in AJAX](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Web%20Programming/27-7-d11/Assignments/3/RegistrationDetails.html)
 
 
 # Jquery
