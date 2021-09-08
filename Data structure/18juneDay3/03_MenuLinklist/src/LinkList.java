@@ -189,7 +189,9 @@ public void deleteEnd()
 		move = move.getNext();
 
 	del = move.getNext();
-	move.setNext(del.getNext());
+	//move.setNext(del.getNext());
+	move.setNext(null);
+	del=null;
 }
 
 	
