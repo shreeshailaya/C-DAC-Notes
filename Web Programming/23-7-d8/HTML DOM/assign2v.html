@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment2.5</title>
+    <style>
+         .content{
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        flex-direction: row;  
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <button>Yellow</button>
+        <button>Green</button>
+        <button>Red</button>
+    </div>
+    <script>
+        let body = document.querySelector("body");
+        let btn = document.querySelectorAll("button");
+
+        for(let i = 0 ; i < btn.length; i++){
+            btn[i].addEventListener('click', function(){
+                body.style.backgroundColor = `${btn[i].innerText}`;
+            })
+        }
+        
+    </script>
+</body>
+</html>

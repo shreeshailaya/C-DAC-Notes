@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment2.1</title>
+    <style>
+        body,html{
+            height: 100%;
+            width: 100%;
+        }
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body id="body">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+    <p>Fourth paragraph</p>
+    <button id="btn">Show table</button>
+    <table id="table"></table>
+</body>
+
+<script type="text/javascript">
+
+    btn.addEventListener("click", function(){
+
+    let btn = document.getElementById("btn");
+    let para = document.getElementsByTagName("p");
+    let table = document.getElementById("table");
+    let thead = document.createElement("thead");
+    let tbody = document.createElement("tbody");
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    document.getElementById('body').appendChild(table);
+
+    let row = document.createElement('tr');
+    let heading1 = document.createElement('th');
+    heading1.innerText = "Sr.No.";
+    let heading2 = document.createElement('th');
+    heading2.innerText = "Data";
+    
+    row.appendChild(heading1);
+    row.appendChild(heading2);
+    thead.appendChild(row);
+
+    for(let i=0; i< para.length; i++){
+        let num  = document.createElement('td');
+        let data = document.createElement('td');
+        let row = document.createElement('tr');
+
+        num.innerText = i+1;
+        data.innerText = para[i].innerText;
+
+        row.appendChild(num);
+        row.appendChild(data);
+        tbody.appendChild(row);
+    }
+    btn.style.visibility = "hidden";
+    })
+
+</script>
+</html>

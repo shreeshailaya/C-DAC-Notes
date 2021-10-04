@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment2.3</title>
+    <style>
+        .content{
+        display: flex;
+        align-items: center; 
+        flex-direction: column;  
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        Textbox1<input type="text"></input>
+        Textbox2<input type="text"></input>
+        Textbox3<input type="text"></input>
+        <br>
+        <button id="btn">Change colour</button>    
+    </div>
+    
+    <script type="text/javascript">
+        let input = document.getElementsByTagName('input');
+        let btn = document.getElementById("btn");
+        btn.addEventListener('click', function(){
+            for(let i in input){
+                input[i].style.backgroundColor = "yellow";
+                btn.style.visibility = "hidden";
+            }
+        }) 
+    </script> 
+</body>
+</html>
