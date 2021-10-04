@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment1</title>
+    <style>
+        body,html{
+            height: 100%;
+            width: 100%;
+        }
+        #image{
+            width: 100px;
+            height: 100px;
+        }
+        #image:hover{
+            transition: 0.3s;
+            animation: none !important;
+        }
+        @keyframes scroll {
+            0%{
+                transform: translateX(-100%);
+            }
+            100%{
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
+        <img src="img.jpg" id="image">
+    </div>
+
+    <script type="text/javascript">
+    image = document.getElementById("image");
+    image.addEventListener("click", function(){
+        image.style.cssText = "animation: scroll infinite 3s";
+    })
+    
+    </script>
+</body>
+</html>
