@@ -1024,6 +1024,8 @@ private Node root;
 
 # Day 12 29/6
 - Print Tree Recrusion function
+
+### Inorder (LEFT,ROOT,RIGHT)
 ```java
 
 	 public void inOrder(Node root)
@@ -1042,6 +1044,8 @@ private Node root;
 ![Traversal](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/21_inOrder.gif)
 
 
+### Preorder(ROOT,LEFT,RIGHT)
+
 ```java	 
 	 
 	 public void preOrder(Node root)
@@ -1058,6 +1062,10 @@ private Node root;
 ```
 
 ![Traversal](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/22_preOrded.gif)
+
+
+### Postorder(LEFT,RIGHT,ROOT)
+
 
 ```java
 	 
