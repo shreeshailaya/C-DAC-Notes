@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * The type Leave.
+ */
 @Entity
 @Table(name="dr_leave")
 public class Leave {
@@ -27,8 +30,18 @@ public class Leave {
 	private String reason;
 	@Column
 	private int approval_status;
-	
-	
+
+
+	/**
+	 * Instantiates a new Leave.
+	 *
+	 * @param fname           the first name
+	 * @param lname           the last name
+	 * @param from_date       the from date
+	 * @param to_date         the to date
+	 * @param reason          the reason
+	 * @param approval_status the approval status
+	 */
 	public Leave(String fname, String lname, Date from_date, Date to_date, String reason, int approval_status) {
 		super();
 		this.fname = fname;
@@ -38,11 +51,18 @@ public class Leave {
 		this.reason = reason;
 		this.approval_status = approval_status;
 	}
-	
-	
-	
 
 
+	/**
+	 * Instantiates a new Leave.
+	 *
+	 * @param id the leave id
+	 * @param fname the first name
+	 * @param lname the last name
+	 * @param from_date the from date
+	 * @param to_date the last date
+	 * @param reason the reason
+	 */
 	public Leave(int id, String fname, String lname, Date from_date, Date to_date, String reason) {
 		super();
 		this.id = id;
@@ -54,9 +74,9 @@ public class Leave {
 	}
 
 
-
-
-
+	/**
+	 * Instantiates a new Leave.
+	 */
 	public Leave() {
 		super();
 		// TODO Auto-generated constructor stub

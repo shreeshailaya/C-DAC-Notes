@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cdec.clinic.model.Leave;
 import com.cdec.clinic.service.LeaveService;
 
+/**
+ * Handles all leave related operations
+ */
 @CrossOrigin("*")
 @RestController()
 @RequestMapping("/auth/v1")
@@ -20,13 +23,24 @@ public class LeaveController {
 	
 	@Autowired 
 	LeaveService leaveService;
-	
+
+	/**
+	 * Apply {@link Leave}
+	 *
+	 * @param l the {@link Leave} request to be applied
+	 * @return the applied {@link Leave}
+	 */
 	@PostMapping("/apply_leave")
 	public Leave applyLeave(@RequestBody Leave l)
 	{
 		return leaveService.applyLeave(l);
 	}
-	
+
+	/**
+	 * Gets all leaves.
+	 *
+	 * @return all leaves
+	 */
 	@GetMapping("/get_all_leave")
 	public List<Leave> getAllLeave()
 	{

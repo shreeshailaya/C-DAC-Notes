@@ -17,7 +17,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
-
+/**
+ * The type Users
+ */
 @Entity
 @Table(name="users")
 @SecondaryTable(name = "account", pkJoinColumns = @PrimaryKeyJoinColumn(name = "user_id"))

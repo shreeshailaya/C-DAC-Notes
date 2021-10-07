@@ -16,13 +16,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 
+/**
+ * The type Appointments map.
+ */
 @Entity
 @Table(name="appointments")
 public class AppointmentsMap {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int app_id;
-	
+
+	/**
+	 * The Account.
+	 */
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="u_id")
 	@JsonProperty(access = Access.WRITE_ONLY)
@@ -39,14 +45,23 @@ public class AppointmentsMap {
 	private String app_time;
 	
 
-
+	/**
+	 * Instantiates a new Appointments map.
+	 */
 	public AppointmentsMap() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 
-
+	/**
+	 * Instantiates a new Appointments map.
+	 *
+	 * @param account  the account
+	 * @param dr_id    the doctor id
+	 * @param app_date the appointment date
+	 * @param app_time the appointment time
+	 */
 	public AppointmentsMap(Account account, int dr_id, Date app_date, String app_time) {
 		super();
 		
