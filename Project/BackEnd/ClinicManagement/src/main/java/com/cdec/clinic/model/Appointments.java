@@ -15,6 +15,9 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+/**
+ * The Appointments.
+ */
 @Entity
 @Table(name="appointments")
 public class Appointments {
@@ -35,11 +38,23 @@ public class Appointments {
 	@Column
 	private String app_time;
 
+	/**
+	 * Instantiates a new Appointments.
+	 */
 	public Appointments() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Instantiates a new Appointments.
+	 *
+	 * @param app_id   the appointment id
+	 * @param u_id     the user id
+	 * @param dr_id    the doctor id
+	 * @param app_date the appointment date
+	 * @param app_time the appointment time
+	 */
 	public Appointments(int app_id, int u_id, int dr_id, Date app_date, String app_time) {
 		super();
 		this.app_id = app_id;

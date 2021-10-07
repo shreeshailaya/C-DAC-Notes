@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * The type Doctor
+ */
 @Entity
 @Table(name="doctor")
 public class Doctor {

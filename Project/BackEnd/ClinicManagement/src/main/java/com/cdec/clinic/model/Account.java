@@ -9,6 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+/**
+ * The Account.
+ */
 //remove column
 @Entity
 @Table(name="account")
@@ -29,25 +33,36 @@ public class Account {
 	private String gender;
 	@Column
 	private Date dob;
-	
+
+	/**
+	 * The mapping with Appointments.
+	 */
 	@OneToMany(mappedBy = "account",cascade = CascadeType.ALL)
 	List<AppointmentsMap> appointments;
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+	/**
+	 * Instantiates a new Account.
+	 */
 	public Account() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
+
+
+	/**
+	 * Instantiates a new Account.
+	 *
+	 * @param user_id      the user id
+	 * @param role_id      the role id
+	 * @param fname        the first name
+	 * @param lname        the last name
+	 * @param contact_no   the contact no
+	 * @param address      the address
+	 * @param gender       the gender
+	 * @param dob          the date of birth
+	 * @param appointments the appointments
+	 */
 	public Account(int user_id, int role_id, String fname, String lname, String contact_no, String address,
 			String gender, Date dob, List<AppointmentsMap> appointments) {
 		super();
@@ -63,8 +78,18 @@ public class Account {
 	}
 
 
-
-
+	/**
+	 * Instantiates a new Account.
+	 *
+	 * @param user_id    the user id
+	 * @param role_id    the role id
+	 * @param fname      the first name
+	 * @param lname      the last name
+	 * @param contact_no the contact no
+	 * @param address    the address
+	 * @param gender     the gender
+	 * @param dob        the date of birth
+	 */
 	public Account(int user_id, int role_id, String fname, String lname, String contact_no, String address,
 			String gender, Date dob) {
 		super();
@@ -77,19 +102,23 @@ public class Account {
 		this.gender = gender;
 		this.dob = dob;
 	}
-	
-	
-	
-	
-	
-	
+
+
+	/**
+	 * Gets appointments.
+	 *
+	 * @return the appointments
+	 */
 	public List<AppointmentsMap> getAppointments() {
 		return appointments;
 	}
 
 
-
-
+	/**
+	 * Sets appointments.
+	 *
+	 * @param appointment the appointment
+	 */
 	public void setAppointments(List<AppointmentsMap> appointment) {
 		this.appointments = appointment;
 		for(AppointmentsMap a : appointments)
