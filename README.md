@@ -1,7 +1,6 @@
 
 <p align="center">
 
-
 <img src="https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Media/1_logo.jpeg" alt="drawing" width="200"/>
   
 <p align="center"><b>Welcome to CDAC Notes</b>
@@ -74,10 +73,6 @@
 ### ➿ [Data Structure](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure)  
 
 ### 🐧 [Operating system](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Operating%20system)  
-
-
-
-
 
 
 ***
