@@ -4,6 +4,57 @@
  - Network of Networks
  - ARPANET project undertaken by US defence
  
+## FULL STACK web developement components -
+
+# Front end — 
+	Html,css,js
+	frameworks : react.js ,angular.js ,vue.js 
+	Third party libraries - Jquery
+
+# Backend —
+	Development languages
+	Node js
+	Express js
+	Python
+	Java/.net/ruby
+	Databases and caching
+	Databases - mongoldb, oracle,sql
+
+# Version control
+	Git
+	Github
+
+# UI/UX
+# Server — apache/nginx
+# API — REST and SOAP. 
+
+
+## SOFTWARE STACKS 
+
+# LAMP Stack
+LAMP is a widely used model for web service stacks. Its name "LAMP" is an acronym of four open-source components.
+L= Linux: An open source operating system
+A= Apache: Widely used web server software
+M= MySQL: Popular open source database
+P=PHP: Server-side open source scripting language
+These above-discussed components, supporting one another. Many popular websites and web applications run on LAMP stack, Example: Facebook.
+
+# MERN Stack
+MERN is a collection of JavaScript-based technologies:
+M=MongoDB: Popular nosql database
+E=Express: Light and portable web program framework
+R=React: A javascript library for building user interfaces
+N=Node.js: A server-side JavaScript run time
+This stack currently in the huge demand as it is widely used to develop web applications.
+
+
+# MEAN Stack
+MEAN Stack Application Development is witnessing a growing trend in usage. MEAN is an abbreviation of:
+M = MongoDB: nosql Database
+E = Express: Easy to use light and portable web program framework
+A = Angular.js: Robust framework for developing HTML5 and JavaScript- web programs
+N = Node.is: a server-side JavaScript run time
+
 
 # HTML
 ### HTML forms
