@@ -1,4 +1,4 @@
-# Day-1 16/6
+# Day-1 16/6(Introduction)
 - It is used in designing
 - It is abstract data type
 - It has some set of rules that we cannot change 
@@ -29,7 +29,7 @@
 
 ***
 ***
-# Day-2 17/6
+# Day-2 17/6(Array,Linkedlist)
 
 ### Array 
  
@@ -253,7 +253,7 @@ move.setLink(newnode);
 ***
 ***
 
-# Day3 18/6
+# Day3 18/6(Operations on Linkedlist)
 
 ### Operations on Linkedlist
 - Add begining
@@ -280,13 +280,13 @@ move.setLink(newnode);
 ***
 ***
 
-# Day 4 19/6
+# Day 4 19/6(Searching algorithms)
 - Searching algorithms 
 	- Linear Search
 	- Binary Search
 ***
 ***
-# Day 5 21/6
+# Day 5 21/6(Sorting LinkedList,Doubly LinkedList)
 
 ### Sorting LinkedList
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/15_linkedList.gif)
@@ -296,7 +296,7 @@ move.setLink(newnode);
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/14_linkedList.png)
 ***
 ***
-# Day 6 22/6
+# Day 6 22/6(Stack,Dynamaic Stack,Reverse String using Stack)
 ### Stack 
 - Some functions in stact
 - peak()
@@ -538,7 +538,7 @@ class MyStack
 
 ***
 ***
-# Day 7 23/6
+# Day 7 23/6(C2 Stack,Queue )
 
 ### C2 Stack
 
@@ -646,7 +646,7 @@ i = (int) ((i-1)-(size*Math.floor((i-1)/size)));
 ***
 ***
 
-# Day 8 24/6
+# Day 8 24/6(Queue,Dynamic Queue,Circular Queue  )
 
 ### Queue	
 
@@ -858,7 +858,7 @@ Display circular Queue
 
 ***
 ***
-# Day 9 25/6
+# Day 9 25/6(Dqueue)
 ### Dqueue
 pushBack()
 }
@@ -880,7 +880,7 @@ pushFront()
 # Day 10 26/6
 
 
-# Day 11 28/6
+# Day 11 28/6(tree,AVL Tree,Binary tree types)
 
 ### tree
 
@@ -1022,7 +1022,8 @@ private Node root;
 
 ```
 
-# Day 12 29/6
+# Day 12 29/6(Inorder,Preorder,Postorder,Search Element from tree,Graph)
+
 - Print Tree Recrusion function
 
 ### Inorder (LEFT,ROOT,RIGHT)
@@ -1106,7 +1107,7 @@ private Node root;
 - sink node/Source node
 
 
-# Day 13 30/6
+# Day 13 30/6(Graph,unDirectedGraph,Graph Traversa,Adjency List)
 ### Graph 
 ```java
 
@@ -1186,7 +1187,7 @@ public void addEdge(int i,int j)
 
 
 
-# Day 14 1/7
+# Day 14 1/7(Hash,time complixity,kruskal Algorithm,Prime's Algo,AVL Tree Balanced Factor)
 ### Hash
 ### time complixity 
 ### kruskal Algorithm
