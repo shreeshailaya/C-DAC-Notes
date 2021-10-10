@@ -24,6 +24,19 @@
 - Traditional databases are file based, less secure, single-user, non- distributed, manage less amount of data (MB), complicated relation
 management, file-locking and need number of lines of code to use in applications.
 
+# Difference between traditional file system and dbms 
+
+S.NO.	                    File System	                                                                                                DBMS
+1.	File system is a software that manages and organizes the files in a storage medium within a computer.	DBMS is a software for managing the database.
+2.	Redundant data can be present in a file system.	                                                        In DBMS there is no redundant data.
+3.	It doesn’t provide backup and recovery of data if it is lost.	                                It provides backup and recovery of data even if it is lost.
+4.	There is no efficient query processing in file system.	                                                Efficient query processing is there in DBMS.
+5.	There is less data consistency in file system.	                                    There is more data consistency because of the process of normalization.
+6.	It is less complex as compared to DBMS.	                                                     It has more complexity in handling as compared to file system.
+7.	File systems provide less security in comparison to DBMS.	                              DBMS has more security mechanisms as compared to file system.
+8.	It is less expensive than DBMS.	                                                                     It has a comparatively higher cost than a file system.
+
+
 # RDBMS
 
 - RDBMS is relational DBMS.
