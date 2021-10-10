@@ -1,4 +1,4 @@
-# Day-1 16/6
+# Day-1 16/6(Introduction)
 - It is used in designing
 - It is abstract data type
 - It has some set of rules that we cannot change 
@@ -29,9 +29,9 @@
 
 ***
 ***
-# Day-2 17/6
+# Day-2 17/6(Array,Linkedlist)
 
-### Array 
+### Array(Subtopic)
  
 ```java
 class Student
@@ -120,7 +120,7 @@ class Program
 
 ```
 
-### Linked List 
+### Linked List(Subtopic)
 
 - It is Linear Data Structure 
 - It connected via links 
@@ -253,7 +253,7 @@ move.setLink(newnode);
 ***
 ***
 
-# Day3 18/6
+# Day3 18/6(Operation on Linkedlist)
 
 ### Operations on Linkedlist
 - Add begining
@@ -280,24 +280,24 @@ move.setLink(newnode);
 ***
 ***
 
-# Day 4 19/6
+# Day 4 19/6(searching algorithm)
 - Searching algorithms 
 	- Linear Search
 	- Binary Search
 ***
 ***
-# Day 5 21/6
+# Day 5 21/6(Linkedlist)
 
-### Sorting LinkedList
+### Sorting LinkedList(Subtopic)
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/15_linkedList.gif)
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/13_linkedList.png)
 
-### Doubly LinkedList
+### Doubly LinkedList(Subtopic)
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/14_linkedList.png)
 ***
 ***
-# Day 6 22/6
-### Stack 
+# Day 6 22/6(Stack)
+### Stack (Subtopic)
 - Some functions in stact
 - peak()
 - isFull()
@@ -410,7 +410,7 @@ private int arr[];
 - so pop always return something
 
 
-### Dynamaic Stack (LikeList stack)
+### Dynamaic Stack (LikeList stack)(Subtopic)
 - Create Node class
 	- data and next
 	- default constructor 
@@ -538,9 +538,9 @@ class MyStack
 
 ***
 ***
-# Day 7 23/6
+# Day 7 23/6(c2 stack,Queue)
 
-### C2 Stack
+### C2 Stack(Subtopic)
 
 ```java
 
@@ -613,7 +613,7 @@ i = (int) ((i-1)-(size*Math.floor((i-1)/size)));
 
 ```
 
-### Queue 
+### Queue (Subtopic)
 
 - there is two element i.e front and rear
 - there is enqueue=insert and dequeue=retrive
@@ -646,9 +646,9 @@ i = (int) ((i-1)-(size*Math.floor((i-1)/size)));
 ***
 ***
 
-# Day 8 24/6
+# Day 8 24/6(Queue)
 
-### Queue	
+### Queue(Subtopic)	
 
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/17_queue.gif)
 
@@ -692,7 +692,7 @@ public void display()
 - from front+1 to rear display all array elements
 }
 
-### Dynamic Queue
+### Dynamic Queue(Subtopic)
 
 ![queue](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/18_queue.gif)
 
@@ -819,7 +819,7 @@ class Book
 ```
 
 
-### Circular Queue 
+### Circular Queue (Subtopic)
 
 Enqueue in circular Queue
  - check queue is not full
@@ -858,8 +858,8 @@ Display circular Queue
 
 ***
 ***
-# Day 9 25/6
-### Dqueue
+# Day 9 25/6(Dqueue)
+### Dqueue(Subtopic)
 pushBack()
 }
 - check queue is not full
@@ -880,9 +880,9 @@ pushFront()
 # Day 10 26/6
 
 
-# Day 11 28/6
+# Day 11 28/6(Trees)
 
-### tree
+### tree(Subtopic)
 
 
 ![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/20_tree.png)
@@ -892,11 +892,11 @@ pushFront()
 - Binary tree has max 2 node 
 - General tree has as many node as you want
 - In binary search tree left must be less than root and right is greater than root
-### AVL Tree
+### AVL Tree(subtopic)
 
 - Balanced Tree 
 
-### Binary tree types
+### Binary tree types(Subtopic)
 Full Binary tree
 - All Internal node have must 0 or 2 nodes 
 Complete binary tree
@@ -1022,10 +1022,10 @@ private Node root;
 
 ```
 
-# Day 12 29/6
+# Day 12 29/6(Inorder,Preorder,Postorder)
 - Print Tree Recrusion function
 
-### Inorder (LEFT,ROOT,RIGHT)
+### Inorder (LEFT,ROOT,RIGHT)(Subtopic)
 ```java
 
 	 public void inOrder(Node root)
@@ -1044,7 +1044,7 @@ private Node root;
 ![Traversal](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/21_inOrder.gif)
 
 
-### Preorder(ROOT,LEFT,RIGHT)
+### Preorder(ROOT,LEFT,RIGHT)(Subtopic)
 
 ```java	 
 	 
@@ -1064,7 +1064,7 @@ private Node root;
 ![Traversal](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/22_preOrded.gif)
 
 
-### Postorder(LEFT,RIGHT,ROOT)
+### Postorder(LEFT,RIGHT,ROOT)(Subtopic)
 
 
 ```java
@@ -1090,13 +1090,13 @@ private Node root;
 
 - **In order gives data in sorted manner**
 
-### Search Element from tree
+### Search Element from tree(Subtopic)
 
-### Delete Node from tree
+### Delete Node from tree(Subtopic)
 ![Tree](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/24_tree.png)
 
 
-### Graph
+### Graph(Subtopic)
 - Vertex
 - Edge
 - Path 
@@ -1106,8 +1106,8 @@ private Node root;
 - sink node/Source node
 
 
-# Day 13 30/6
-### Graph 
+# Day 13 30/6(Graphs)
+### Graph (Subtopic)
 ```java
 
 class Graph
@@ -1163,7 +1163,7 @@ class Graph
 
 
 ```
-### unDirectedGraph
+### unDirectedGraph(Subtopic)
 ```java
 public void addEdge(int i,int j)
 {
@@ -1172,12 +1172,12 @@ public void addEdge(int i,int j)
 }
 
 ```
-### Graph Traversa
+### Graph Traversa(Subtopic)
 - DFS-depth
 - BFS-level
 
 
-### Adjency List
+### Adjency List(Subtopic)
 
 
 
@@ -1186,12 +1186,12 @@ public void addEdge(int i,int j)
 
 
 
-# Day 14 1/7
-### Hash
-### time complixity 
-### kruskal Algorithm
-### Prime's Algo
-### AVL Tree Balanced Factor
+# Day 14 1/7(Important topics)
+### Hash(Subtopic)
+### time complixity (Subtopic)
+### kruskal Algorithm(Subtopic)
+### Prime's Algo(Subtopic)
+### AVL Tree Balanced Factor(Subtopic)
 
 
 
@@ -1200,15 +1200,15 @@ public void addEdge(int i,int j)
 
 
 
-### Sort
+### Sort(Subtopic)
 ***
 ***
 # Sorting
 
-### Buebble Sort
-### Selection Sort
-### Merge Sort
-### Shell sort
+### Buebble Sort(Subtopic)
+### Selection Sort(Subtopic)
+### Merge Sort(Subtopic)
+### Shell sort(Subtopic)
 
 
 ***
