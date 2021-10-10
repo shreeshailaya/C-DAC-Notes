@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class NewClass5 {
+  public static void main(String args[]) throws ArrayIndexOutOfBoundsException {
+    try {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the size of the array: ");
+            int size = sc.nextInt();
+            int arr[] = new int[size];
+            System.out.println("Enter the elements of the array: ");
+            for(int i = 0; i < size; i++) {
+                arr[i] = sc.nextInt();
+            }
+            System.out.println("Enter an index number to access: ");
+            int index = sc.nextInt();
+            int access = arr[index];
+            System.out.println("\nThe element to be accessed: " + access);
+        }
+    catch(ArrayIndexOutOfBoundsException e) {
+            System.out.println("\nError occured!");
+            System.out.println("Error: " + e);
+            System.out.println("Error message: " + e.getMessage());
+    }
+    System.out.println("Program ends");
+  }
+}
