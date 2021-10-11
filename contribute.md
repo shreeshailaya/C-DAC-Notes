@@ -32,8 +32,9 @@ This is the contribute.md of our project. Great to have you here. Here are a few
 - Write a proper note in description if necessary.
 
 ## File Naming Convention
+
 | Folder (Root)  | Folder (Name) | Comments  |
-| ------------ | ------------ | ------------ | ------------ |
+| --- | --- | --- |
 | Advanced Java, Database technologies, Web Programming  | date-month-d(1,2,3) | Update ProgramName  |
 | Core Java  | date-month  | Update ProgramName  |
 | Data structure, Operating system  | datemonthday(1,2,3)  | Update ProgramName  |
