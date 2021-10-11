@@ -14,8 +14,6 @@ class DisplayDoctors extends React.Component{
         }
     }
 
-
-
     componentDidMount()
   {
     const cookies = new Cookies();
@@ -48,17 +46,10 @@ class DisplayDoctors extends React.Component{
             this.setState({
                 doctors: this.state.doctors.concat(final)
               })
-            
-        
     }
-
    }
   );
-    
-
 }
-
-
 
     render(){
         return (
@@ -84,4 +75,5 @@ class DisplayDoctors extends React.Component{
         )
     }
 }
+
 export default withRouter(DisplayDoctors);
