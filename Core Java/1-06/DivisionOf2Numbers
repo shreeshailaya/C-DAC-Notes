@@ -1,0 +1,22 @@
+import java.io.*;
+
+public class DivisionOf2Numbers {
+  public static void main(String args[]) throws IOException {
+      try {
+          int c;
+          System.out.println("Division of two numbers");
+          System.out.println("Your first argument: " + args[0]); // command-line argument input
+          System.out.println("Your second argument: " + args[1]); // command-line argument input
+          int a = Integer.parseInt(args[0]); 
+          int b = Integer.parseInt(args[1]);
+          c = a / b;
+          System.out.println("\nResult: " + c);
+      }
+      catch(ArithmeticException e) {
+          System.out.println("\nError occured!");
+          System.out.println("Error: " + e);
+          System.out.println("Error message: " + e.getMessage());
+      }
+      System.out.println("Program ends");
+  }
+}
