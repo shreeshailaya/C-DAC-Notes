@@ -7,6 +7,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie'
 
 class Login extends React.Component{ 
+  //declare states
   constructor(props)
   {
     super(props);
@@ -37,8 +38,7 @@ class Login extends React.Component{
     this.props.history.push("/forget_password");
   }
 
-
-
+  //form onClick handler
   submitData =(e)=>
   {
 
@@ -120,6 +120,7 @@ class Login extends React.Component{
             
             <div class="col-xl-6">
            
+            //login form
             <form class="row g-3 needs-validation" novalidate>
 
               <div class="card-body p-md-5 text-black">
