@@ -24,37 +24,35 @@ import ViewAppointments from './Doctor/ViewAppointments';
 
 const Routes = () => {
     return (
-      <Switch>
-          <Route exact path="/" component={Home} />;
+        <Switch>
+            <Route exact path="/" component={ Home }/>;
 
-          {/*Project pages are commented out but still accessible*/}
+            <Route exact path="/registration" component={ Registration }/>;
+            <Route exact path="/login" component={ Login }/>;
+            <Route exact path="/dr_registration" component={ DoctorRegistration }/>
+            <Route exact path="/contactus" component={ ContactUs }/>
+            <Route exact path="/aboutus" component={ AboutUs }/>
+            <Route exact path="/forget_password" component={ ForgetPassword }/>
 
-          {/*<Route exact path="/registration" component={Registration} />;*/}
-          {/*<Route exact path="/login" component={Login} />;*/}
-          {/*<Route exact path="/dr_registration" component={DoctorRegistration}/>*/}
-          {/*<Route exact path="/contactus" component={ContactUs}/>*/}
-          {/*<Route exact path="/aboutus" component={AboutUs}/>*/}
-          {/*<Route exact path="/forget_password" component={ForgetPassword}/>*/}
+            <Route exact path="/admin" component={ Admin }/>
+            <Route exact path="/doctor" component={ Doctor }/>
+            <Route exact path="/patient" component={ Patient }/>
 
-          {/*<Route exact path="/admin" component={Admin}/>*/}
-          {/*<Route exact path="/doctor" component={Doctor}/>*/}
-          {/*<Route exact path="/patient" component={Patient}/>*/}
+            <Route exact path="/applyleave" component={ ApplyLeave }/>
+            <Route exact path="/dr_profile" component={ Dr_Profile }/>
 
-          {/*<Route exact path="/applyleave" component={ApplyLeave}/>*/}
-          {/*<Route exact path="/dr_profile" component={Dr_Profile}/>*/}
+            <Route exact path="/patientprofile" component={ PatientProfile }/>
+            <Route exact path="/patienthistory" component={ PatientHistory }/>
+            <Route exact path="/bookappointment" component={ BookAppointment }/>
 
-          {/*<Route exact path="/patientprofile" component={PatientProfile}/>*/}
-          {/*<Route exact path="/patienthistory" component={PatientHistory}/>*/}
-          {/*<Route exact path="/bookappointment" component={BookAppointment}/>*/}
+            <Route exact path="/viewdoctors" component={ ViewDoctors }/>
 
-          {/*<Route exact path="/viewdoctors" component={ViewDoctors}/>*/}
-          
-          {/*<Route exact path="/displaydoctors" component={DisplayDoctors}/>*/}
-          {/*<Route exact path="/displaypatient" component={DisplayPatient}/>*/}
-          {/*<Route exact path="/approveleave" component={ApproveLeave}/>*/}
-          {/*<Route exact path="/viewappointments" component={ViewAppointments}/>*/}
-      </Switch>
+            <Route exact path="/displaydoctors" component={ DisplayDoctors }/>
+            <Route exact path="/displaypatient" component={ DisplayPatient }/>
+            <Route exact path="/approveleave" component={ ApproveLeave }/>
+            <Route exact path="/viewappointments" component={ ViewAppointments }/>
+        </Switch>
     );
-  };
+};
   
   export default Routes;
