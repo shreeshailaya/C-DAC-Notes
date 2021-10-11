@@ -282,8 +282,184 @@ move.setLink(newnode);
 
 # Day 4 19/6(Searching algorithms)
 - Searching algorithms 
-	- Linear Search
-	- Binary Search
+### Linear Search
+- In Linear search, we search an element or value in a given array by traversing the array from the starting, till the desired element or value is found.
+- It compares the element to be searched with all the elements present in the array and when the element is matched successfully, it returns the index of the element in the array, else it return -1.
+- Linear Search is applied on unsorted or unordered lists, when there are fewer elements in a list.
+
+![Linear Search](https://github.com/nayan1xyz/C-DAC-Notes/blob/main/Data%20structure/Media/1_linearsearch.gif)
+
+#### Algorithm
+    
+  
+    Linear Search ( Array A, Value x)
+    Step 1: Set i to 1
+    Step 2: if i > n then go to step 7
+    Step 3: if A[i] = x then go to step 6
+    Step 4: Set i to i + 1
+    Step 5: Go to Step 2
+    Step 6: Print Element x Found at index i and go to step 8
+    Step 7: Print element not found
+    Step 8: Exit
+
+	
+#### 	Pseudo code for linear search
+    LinearSearch(list, target_element):
+    {
+        INITIALIZE index = 0
+        WHILE (index < number of items in the list)
+        {
+            IF (list[index] == target element)
+            {
+                RETURN index
+            }
+            INCREMENT index by 1
+        }
+        RETURN -1
+    }
+#### Code for Linear Search
+```cpp
+#include < iostream >
+  using namespace std;
+
+void linearSearch(int a[], int n) {
+  int temp = -1;
+
+  for (int i = 0; i < 5; i++) {
+    if (a[i] == n) {
+      cout << "Element found at position: " << i + 1 << endl;
+      temp = 0;
+      break;
+    }
+  }
+
+  if (temp == -1) {
+    cout << "No Element Found" << endl;
+  }
+
+}
+
+int main() {
+  int arr[5];
+  cout << "Please enter 5 elements of the Array" << endl;
+  for (int i = 0; i < 5; i++) {
+    cin >> arr[i];
+  }
+  cout << "Please enter an element to search" << endl;
+  int num;
+  cin >> num;
+
+  linearSearch(arr, num);
+
+  return 0;
+}
+```
+#### Time and Space Complexity
+- Best Time Complexity: O(1)
+- Average Time Complexity: O(n)
+- Worst Time Complexity:  O(n)
+- Best Space Complexity: O(1)
+
+### Binary Search
+- Binary search begins by comparing the middle element of the list with the target element. If the target value matches the middle element, its position in the list is returned. If it does not match, the list is divided into two halves.
+
+- The first half consists of the first element to middle element whereas the second half consists of the element next to the middle element to the last element.  If target value is greater than middle element, first half is discarded. Then same steps follow on until we find the target value’s position.
+
+![Binary Search](https://github.com/nayan1xyz/C-DAC-Notes/blob/main/Data%20structure/Media/1_binarysearch.gif)
+#### Algorithm
+    function binary_search(A, n, T) is
+        L := 0
+        R := n − 1
+        while L ≤ R do
+            m := floor((L + R) / 2)
+            if A[m] < T then
+                L := m + 1
+            else if A[m] > T then
+                R := m − 1
+            else:
+                return m
+        return unsuccessful
+
+#### Pseudo code for binary search
+```cpp
+BinarySearch(array, target):
+{
+    left = lowestBound(array)
+    right = highestBound(array)
+    WHILE (left <= right)
+    {
+        middle = (left + right) / 2
+        if(target = array[middle])
+            RETURN middle
+        else if(target < array[middle])
+           right = middle - 1
+        else
+           left = middle + 1
+    }
+    RETURN -1
+}
+```
+#### C++ Code for Binary Search  
+```cpp
+#include <iostream>
+using namespace std;
+
+int binarySearch(int[], int, int, int);
+
+int main()
+{
+   int num[10] = {10, 22, 37, 55, 92, 118};
+   int search_num, loc=-1;
+
+   cout<<"Enter the number that you want to search: ";
+   cin>>search_num;
+
+   loc = binarySearch(num, 0, 6, search_num);
+
+   if(loc != -1)
+   {
+      cout<<search_num<<" found in the array at the location: "<<loc;
+   }
+   else
+   {
+      cout<<"Element not found";
+   }
+   return 0;
+}
+
+int binarySearch(int a[], int first, int last, int search_num)
+{
+   int middle;
+   if(last >= first)
+   {
+      middle = (first + last)/2;
+      //Checking if the element is present at middle loc
+      if(a[middle] == search_num)
+      {
+         return middle+1;
+      }
+
+      //Checking if the search element is present in greater half
+      else if(a[middle] < search_num)
+      {
+         return binarySearch(a,middle+1,last,search_num);
+      }
+
+      //Checking if the search element is present in lower half
+      else
+      {
+         return binarySearch(a,first,middle-1,search_num);
+      }
+
+   }
+   return -1;
+}
+```
+#### Time and Space Complexities
+- Best Time Complexity: O(1)
+- Average Time Complexity: O(log n)
+- Worst Time Complexity:  O(log n)
+- Best Space Complexity: O(1)
 ***
 ***
 # Day 5 21/6(Sorting LinkedList,Doubly LinkedList)
@@ -1229,4 +1405,3 @@ Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
 Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
 ***
-
