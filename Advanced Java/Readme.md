@@ -30,6 +30,45 @@ For your reference and convenience, i provides a summary of JDBC driver download
 - loading driver
 - establishing connection
 - creating statement or prepered statement
+
+#### Code Snippet to Connect the Java application with Oracle database
+
+```java
+import java.sql.*;
+class JDBCDemo
+{
+     public static void main(String args[])
+     {
+          try
+          {
+               //Load the driver
+               Class.forName("oracle.jdbc.driver.OracleDriver");
+    
+               //Cretae the connection object
+               Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","username", "password");
+    
+               //Create the Statement Object
+               Statement stmt = con.createStatement();
+    
+               //Excute the SQL query
+               ResultSet rs = stmt.executeQuery("Select * from students");
+               while (rs.next())
+               {
+                    System.out.println (rs.getInt(1)+" "+rs.getString(2)+" "+rs.getFloat(3));
+               }
+               //Closing the connection object
+               con.close();
+               stmt.close();
+               rs.close();
+          }
+          catch(Exception e)
+          {
+               System.out.println(e);
+          }
+     }
+}
+```
+
 ### Statement 
 ### Prepered Statement
 ### Stored Procedure 
