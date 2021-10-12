@@ -8,6 +8,5 @@ jobs:
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
         use-quiet-mode: 'yes'
-        use-verbose-mode: 'yes'
-        check-modified-files-only: 'yes'
-
+        folder-path: 'md/dir1, md/dir2'
+        file-path: './README.md, ./LICENSE, ./md/file4.markdown'
