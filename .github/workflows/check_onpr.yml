@@ -1,12 +1,25 @@
-on: [pull_request]
-name: Check links for modified files
+name: Ruby
+
+on:
+  push:
+    branches: [ '*' ]
+  pull_request:
+    branches: [ '*' ]
+
 jobs:
-  markdown-link-check:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@master
-    - uses: gaurav-nelson/github-action-markdown-link-check@v1
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
       with:
-        use-quiet-mode: 'yes'
-        folder-path: 'md/dir1, md/dir2'
-        file-path: './README.md, ./LICENSE, ./md/file4.markdown'
+        ruby-version: 2.6.x
+    - name: Checks
+      run: |
+        ruby .github/osia_convert.rb
+        gem install awesome_bot
+        ruby .github/osia_get_links.rb
+        awesome_bot check-unique.txt --allow-ssl -a 302,429 -w xbmc/xbmc
