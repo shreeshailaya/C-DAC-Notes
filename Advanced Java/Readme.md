@@ -24,7 +24,7 @@ For your reference and convenience, i provides a summary of JDBC driver download
 
 
 ### Generation of JDBC Drivers
-![JDBC](https://github.com/nayan1xyz/C-DAC-Notes/blob/main/Advanced%20Java/Media/Assignments/1_JDBC.jpg)
+![JDBC](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Advanced%20Java/Media/1_JDBC.jpg)
 
 ### Steps for connecting JDBC
 - loading driver
