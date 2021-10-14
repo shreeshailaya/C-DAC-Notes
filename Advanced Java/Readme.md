@@ -1,4 +1,4 @@
-# 9/8
+
 ### JDBC 
 Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access a database. It is a Java-based data access technology used for Java database connectivity. It is part of the Java Standard Edition platform, from Oracle Corporation. It provides methods to query and update data in a database, and is oriented toward relational databases. A JDBC-to-ODBC bridge enables connections to any ODBC-accessible data source in the Java virtual machine (JVM) host environment.
 ### Role of JDBC Driver 
@@ -69,48 +69,5 @@ class JDBCDemo
 }
 ```
 
-### Statement 
-### Prepered Statement
-### Stored Procedure 
-### Callable Statement 
 
-# 10/8
-### Callable Statement
-- Stored procedure is stored in db as db object
-- It is used for frequently needed task
-- Block of PL/SQL 
-- Callable Statement used to call stored procedure 
-- Supply required parameter and excute
-- There are three parameter of strored procedure 
-	- in
-	- out 
-	- inOut
-- It seperate out java and sql
-```sql
-CREATE PROCEDURE `getSalary` (in empno int, out sal float)
-BEGIN
-	select salary into sal from emp where empid=empno;
-END $$
-delimiter;
-
-
-
-```
-
-
-```java
-
-
-
-
-```
-
-### Scrollable and updatable result set
-
-## Servlet 
-- It is a java class 
-- Used for generating dynamic html 
-- Host the servlet in the in the enviroment of web service 
-- Web server is accept the request and send the request
-- Servelet is present in web server
-- Generating dynamic html cannont be done by web server					
+# Servlet
