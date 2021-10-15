@@ -17,7 +17,7 @@
 
 
 ## Contribute
-- **If you want to contribute refer to [This Page](http://github.com/shreeshailaya/C-DAC-Notes/blob/main/contribute.md "This Page").** 
+- **If you want to contribute refer to [This Page](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/CONTRIBUTING.md "This Page").** 
 
 ------------
 
