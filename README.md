@@ -8,9 +8,9 @@
 
 
   
-| Core Java | Database Technologies | Data Structure | Operating System |
-| --- | --- | ---  | --- | 
-| <p align="center"> ☕ | <p align="center"> 💾 | <p align="center"> ➿ | <p align="center"> 🐧 </p> |
+| Core Java | Database Technologies | Data Structure | Operating System | Web Programming | Advanced Java |
+| --- | --- | ---  | --- | --- | --- |
+| <p align="center"> ☕ | <p align="center"> 💾 | <p align="center"> ➿ | <p align="center"> 🐧 </p> | <p align="center"> :earth_asia: | <p align="center"> :leaves: |
 
 
 ------------
@@ -84,7 +84,8 @@
 
 ### 🐧 [Operating system](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Operating%20system)  
 
-
+### :earth_asia: [Web Programming](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Web%20Programming)
+### :leaves: [Advanced Java](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Advanced%20Java)
 ***
 
 Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
