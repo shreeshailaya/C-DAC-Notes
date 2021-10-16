@@ -1,10 +1,10 @@
 /* CONTRIBUTE */
 
-This is the contribute.md of our project. Great to have you here. Here are a few ways you can help make this project better!
+This is the Contribute.md of our project. Great to have you here. Here are a few ways you can help make this project better!
 
 # Contribute.md
 
-## Basic Guidlines
+## Basic Guidelines
 ### Rules To Contribute
 
 
@@ -21,8 +21,8 @@ This is the contribute.md of our project. Great to have you here. Here are a few
 ##  Steps For Updating Notes
 - You can work on the issue if you are assigned to it. Just make sure nobody's working on it.
 - If you do not find any associated issue, you may raise a new issue.
-- You will find every thing you need on the issue.
-- Every subject has its own readme file you can go to perticular subject by **main redme**.
+- You will find everything you need on the issue.
+- Every subject has its own readme file you can go to particular subject by **main readme**.
 - Add proper image to notes if necessary.
 - Image should be [optimized](http://imagecompressor.com/ "optimized") and under 2 MB.
 
@@ -47,8 +47,8 @@ This is the contribute.md of our project. Great to have you here. Here are a few
 - Fork this repository.
 - Get an issue assigned.
 - Make a folder and initialize git by **git init**
-- Clone this repository by **git clone https://github.com/shreeshailaya/C-DAC-Notes.git **
-- Make the necessary changes and push it to your forked repositry.
+- Clone this repository by <b> git clone https://github.com/shreeshailaya/C-DAC-Notes.git </b>
+- Make the necessary changes and push it to your forked repository.
 - Then make pull request and see the magic happen.
 
 
