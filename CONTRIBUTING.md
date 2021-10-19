@@ -1,6 +1,6 @@
 /* CONTRIBUTE */
 
-This is the Contribute.md of our project. Great to have you here. Here are a few ways you can help make this project better!
+This is the Contribute guide of our project. Great to have you here. Here are a few ways you can help make this project better!
 
 # CONTRIBUTING.md
 
