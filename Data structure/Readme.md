@@ -1383,6 +1383,7 @@ public void addEdge(int i,int j)
 # Sorting
 
 ### Buebble Sort
+### Insertion Sort
 ### Selection Sort
 ### Merge Sort
 ### Shell sort
