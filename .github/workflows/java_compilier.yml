@@ -1,7 +1,10 @@
+on: [pull_request]
+name: JAVA Compilier
 steps:
 - uses: actions/checkout@v2
 - uses: actions/setup-java@v2
   with:
     distribution: 'temurin' # See 'Supported distributions' for available options
-    java-version: '11'
+    java-version: '17'
 - run: java -cp java HelloWorldApp
+
