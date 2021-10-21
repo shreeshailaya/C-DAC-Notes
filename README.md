@@ -126,6 +126,7 @@
     - [AVL Tree Balanced Factor](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#avl-tree-balanced-factor)
   - [Sorting](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#sorting)
     - [Bubble Sort](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#buebble-sort)
+    - [Cyclic Sort](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#cyclic-sort)
     - [Insertion Sort](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#insertion-sort)
     - [Selection Sort](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#selection-sort)
     - [Merge Sort](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#merge-sort)
