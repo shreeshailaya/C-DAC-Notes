@@ -1,11 +1,18 @@
-on: [pull_request]
-name: JAVA Compilier
-steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-java@v2
-  with:
-    distribution: 'temurin' # See 'Supported distributions' for available options
-    java-version: '17'
-    cache: maven
-- name: Build with Maven
-  run: mvn -B package --file ./Project/BackEnd/ClinicManagement/pom.xml
+name: Java CI with Maven
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup java
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin' # See 'Supported distributions' for available options
+        java-version: '17'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file ./Project/BackEnd/ClinicManagement/pom.xml
