@@ -1365,6 +1365,181 @@ public void addEdge(int i,int j)
 
 # Day 14 1/7(Hash,time complixity,kruskal Algorithm,Prime's Algo,AVL Tree Balanced Factor)
 ### Hash
+**Definition:** It is a process of converting an input of any length into a fixed size string of text using a mathematical function. 
+
+![HASH FUNCTION](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/25_hashFunction.png)
+
+There are many formulas to Hash such as SHA.
+
+**Why do we need Hashing?**
+
+In a large array of values, it is difficult to search for a particular item in an array. 
+We would need to do a binary search. However, if we are aware of the index of the element, it is easier to retrieve the element itself. 
+
+For example: 
+We need to find “Thiru” in the following array: 
+Sven, Anna, Mia, Olaf, Thiru, Jaya, Amit, Harry, Rupert, Justin
+
+We would need to iterate through each element to check if the element matches “Thiru”. 
+
+Alternatively, had we known the index of Thiru, It would have been easier to access. 
+
+In the following array:
+
+Sven, 
+Anna, 
+Mia, 
+Olaf, 
+Thir, 
+Jaya, 
+Amit, 
+Harr, 
+Rupe, 
+Just, 
+
+
+Array(4) would have fetched us “Thiru”. 
+We could further devise a function which could create a relationship between the value and the index we store values in.
+
+Let the function we used to find the index to store the value be = Sum of the ASCII of the word mod the size of the array
+
+For Sven: ASCII of S + ASCII of v + ASCII of e + ASCII of n
+	= 115 + 118 + 101 + 110
+	=444
+
+The size of the array is 10. Thus 444 mod 10 is 4. 
+| Index       | Element          |
+| ------------- |:-------------:|
+| 0     | - |
+| 1    | -     |
+| 2 | -     |
+| 3 | -      |
+| 4 | Sven      |
+| 5 | -      |
+| 6 | -      |
+| 7 | -      |
+| 8 | -      |
+| 9 | -      |
+
+
+Similarly for Mia, Sum of ASCII = 77 + 105 + 97
+				  = 279 % 10 (size of the array ) = 9
+
+The element “Mia” would go in the 9th index of the array
+
+| Index       | Element          |
+| ------------- |:-------------:|
+| 0     | - |
+| 1    | -     |
+| 2 | -     |
+| 3 | -      |
+| 4 | Sven      |
+| 5 | -      |
+| 6 | -      |
+| 7 | -      |
+| 8 | -      |
+| 9 | Mia     |
+
+Similarly, 
+The following are the ASCII sum
+| String       | ASCII sum         |
+| ------------- |:-------------:|
+| Mia    | 279|
+| Anna   | 382    |
+| Olaf   | 386    |
+| Thiru  | 524     |
+| Jaya   | 389      |
+| Amit   | 395     |
+| Harry  | 518     |
+| Rupert | 642     |
+| Justin | 637     |
+
+| String       | ASCII sum % 10         |
+| ------------- |:-------------:|
+| Mia    | 9 |
+| Anna   |  2    |
+| Olaf   |  6    |
+| Thiru  |   4     |
+| Jaya   |  9      |
+| Amit   |  5     |
+| Harry  |   8     |
+| Rupert |  2     |
+| Justin | 7     |
+
+
+Anna goes to the 2nd row, Olaf to the 6th. But Thiru and Sven have the same index. This is known as collision i.e two or more keys are mapped to same value. 
+
+One solution to **collision** is to insert Thiru in the next index i.e is the 5th index. 
+
+Another solution to the problem is to use **Chain Hashing**.  The idea is to make each cell of the hash table point to a linked list of records that have the same hash function value.
+![HASH FUNCTION](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/26_chainHashing.png)
+
+We have different ways to achieve Hashing. Few of them are described below
+| Data Structure      |Description        | 
+| ------------- |:-------------:|
+| HashTable    | Synchronised  |
+| HashMap     | - Non-Synchronised, Faster|
+| LinkedHashMap |Keeps the order of inserts    |
+| ConcurrentHashMap |Synchronised, Faster as locks are used    |
+| HashSet |Maintains only keys   |
+| LinkedHashSet |Keeps the order of inserts, Maintains only Key   |
+
+**Universal Hashing**
+
+Let H be a finite collection of hash functions that map a given universe U of keys into the range {0, 1..... m-1}. Such a collection is said to be universal if for each pair of distinct keys k,l∈U, the number of hash functions h∈ H for which h(k)= h(l) is at most |H|/m. In other words, with a hash function randomly chosen from H, the chance of a collision between distinct keys k and l is no more than the chance 1/m of a collision if h(k) and h(l)were randomly and independently chosen from the set {0,1,...m-1}.
+**Rehashing**
+
+
+In case the hash table becomes nearly full, the running time for the operations of will start taking too much time, insert operation may fail in such situation, the best possible solution is as follows:
+Create a new hash table double in size.
+Scan the original hash table, compute new hash value and insert into the new hash table.
+Free the memory occupied by the original hash table.
+ 
+ **Example in Java for an HashMap**: 
+
+ ```java
+ import java.util.HashMap;
+import java.util.Map;
+
+//Given a string, count the frequency/occurence of each Character
+public class FindTheOccurenceOfCharacter {
+    static HashMap<Character, Integer> getOccurence(String inputString) {
+        HashMap<Character, Integer> characterFrequencyMap
+        = new HashMap<Character, Integer>();
+
+
+    char[] inputArray = inputString.toLowerCase().toCharArray();
+
+    for (char character : inputArray) {
+        if (characterFrequencyMap.containsKey(character)) {
+            characterFrequencyMap.put(character, characterFrequencyMap.get(character) + 1);
+        }
+        else {
+            characterFrequencyMap.put(character, 1);
+        }
+    }
+
+    return characterFrequencyMap;
+    }
+
+    static void  printOccurence(HashMap<Character, Integer> map){
+        for (Map.Entry<Character, Integer> value: map.entrySet()) {
+            System.out.println(value.getKey() + "->" + value.getValue());
+        }
+    }
+
+    public static void main(String[] args) {
+        String inputString = "Test";
+
+        HashMap<Character, Integer> map = getOccurence(inputString);
+
+        printOccurence(map);
+        
+    }
+}
+ ```
+
+
 ### time complixity 
 ### kruskal Algorithm
 ### Prime's Algo
