@@ -1367,7 +1367,7 @@ public void addEdge(int i,int j)
 ### Hash
 **Definition:** It is a process of converting an input of any length into a fixed size string of text using a mathematical function. 
 
-![HASH FUNCTION](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/25_hashFunction.png)
+![HASH FUNCTION](https://github.com/SnehaNarendran01071998/C-DAC-Notes/blob/Add-HashMap/Data%20structure/Media/25_hashFunction.png?raw=true)
 
 There are many formulas to Hash such as SHA.
 
@@ -1472,7 +1472,7 @@ Anna goes to the 2nd row, Olaf to the 6th. But Thiru and Sven have the same inde
 One solution to **collision** is to insert Thiru in the next index i.e is the 5th index. 
 
 Another solution to the problem is to use **Chain Hashing**.  The idea is to make each cell of the hash table point to a linked list of records that have the same hash function value.
-![HASH FUNCTION](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/26_chainHashing.png)
+![CHAIN HASHING](https://github.com/SnehaNarendran01071998/C-DAC-Notes/blob/Add-HashMap/Data%20structure/Media/26_chainHashing.png?raw=true)
 
 We have different ways to achieve Hashing. Few of them are described below
 | Data Structure      |Description        | 
