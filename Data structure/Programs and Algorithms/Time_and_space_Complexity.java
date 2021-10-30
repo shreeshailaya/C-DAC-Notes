@@ -1,3 +1,4 @@
+/*
 Understanding Time and Space Complexity For Beginner
 
 Being around the Software Engineering community long enough and the concepts of time complexity and space complexity are surely to come up. It is something that should always be on the mind from theorist of computer science and especially engineers and programmers who build real world productions and applications. A friend of mine recalled a conversation they had regarding the importance of time and space complexity, and it inspired me to write a little something about it. Seeing as some people did not learn it, or — like me — did not see the immediate importance of it, I will go through a basic overview of each and talk about some of their real world implications.
@@ -31,3 +32,4 @@ Importance of Time/Space Complexity
 In real world applications developers are bound by the physical memory of the systems that they intend to run on. This is where space complexity becomes important, because we never want to run a function or process that exceeds the amount of space the system has at any given time. On the other hand, we do not want our functions to take so long that our applications gets bogged down and slowed.
 
                                                                                                                 THANK YOU
+*/
