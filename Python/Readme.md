@@ -1,10 +1,10 @@
 # Core Python 
-## Day-1 Introduction(intro, asking knowladge of other prg, CBSC imposing)
+## Day-1 Introduction
 - Python was founded by  Guido van Rossum in 1989 at National Research institute Netherland
 - and it release to public in 20 February 1991 
 - python is general purpose highlevel programming language
 - Dynamically typed language
-- on BBC (British Broadcasting Company) 1969-1974 - TV show called Monty Python Flying Circus
+- Name is came from TV serial on BBC (British Broadcasting Company) 1969-1974 - TV show called Monty Python Flying Circus
 - TWO DIFFERENT VERSION HAS DIFFERENT STORY
 
 ### Features
@@ -46,35 +46,42 @@
 ## Day - 2
 
 ### Operations on IDLE 
-- +,-,*,/
+- +,-,*,/ Do operations in IDLE 
 - 10 // 3
 - 10 % 3
 
 
-### print('') <== function
--  single and double quote 
--  quotes with \
--  raw query 
-- 10 * 'str'
+### Playing with String and print()
+-  If you want to type in single ' ' in python outer quote shoud be in " " viceverse
+- eg:-
+'''python
+
+	print('Here is my "Laptop"')
+	print("Here is my 'Laptop'")	
+
+''' 
+- To escape the special meaning of any quote you can use \
+- To use internal query as it is you can use `print(r'Here is my 'laptop'')`
+- You can use number with string to `'facebook' * 10` It will print facebook 10 times 
 - \n
 
 ### Variables
 - Variable is putting values in Container 
-- Syntax name = value
-- add variable and integer
-- variable means the value which can be changed
-- privious output indicated _
-- Store string in variable 
-- concatenate string
-- String Store in Array <== Array 
+- Syntax `name = value`
+- Add variable and integer you can do this a=5 `a+5` then it will give 10
+- Variable means the value which can be changed
+- You can take previous output referance by _ 
+- You can Store String into a variable 
+- String can be a concatenate 
+- String Store in Array  
 - Facebook 
 - 01234567
 - Fetch a <== name[1]
 - fetch book <== name[4:8]
-- - indexing 
+- String has indexing starting from 0 
 - changing the f to a name[a] = 'a'(not possible)
-- String are immutable
-- len() functiopn
+- String are immutable that means we cannot change the string once it is decleared
+- len() function give you length of the String
 
 ### Keywords in Python
 - 33 keywords
