@@ -83,7 +83,6 @@
 | Keyword | Description |
 | --- | ---  | 
 | and | a logical operator |
-
 | as | To create an alias |
 | assert | For debugging |
 | break | To break out of a loop |
