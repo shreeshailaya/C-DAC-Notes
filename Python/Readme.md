@@ -54,12 +54,12 @@
 ### Playing with String and print()
 -  If you want to type in single ' ' in python outer quote shoud be in " " viceverse
 - eg:-
-'''python
+```py
 
 	print('Here is my "Laptop"')
 	print("Here is my 'Laptop'")	
 
-''' 
+```
 - To escape the special meaning of any quote you can use \
 - To use internal query as it is you can use `print(r'Here is my 'laptop'')`
 - You can use number with string to `'facebook' * 10` It will print facebook 10 times 
