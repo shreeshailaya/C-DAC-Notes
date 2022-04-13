@@ -123,7 +123,47 @@
 | with	| Used to simplify exception handling |
 | yield	| To end a function, returns a generator |
 
+
+### Operators in Python 
+### Arthmathic 
+- a=a+1
+- a+=3
+
+### Unary Operator 
+- a = 8
+= -a = -8
+- a = -a
+
+### Relational Operations 
+- a<b 
+- a>b
+- a==b
+- difference in == and =
+- a <= b
+- a >= b
+- a != b
+
+
+### Logical Operators 
+1. and
+2. or 
+3. not
+
+- a<5 and b>10
+- a>10 or b<22 
+- Not reverse thee output if a = True the not a = False
+
+
+### Binary Decimal, Octal and Hexadecimal
+- bin()
+- oct()
+- hex()
+
+
+
 ### List
+- Defined by [] 
+- List is mutable you can change the value in list
 - list is used to assign multiple values 
 - In python list can store different type of variables like int, string
 - Operations on list
@@ -143,3 +183,40 @@
 	- max(list)
 	- sum(list)
 	- list.sort()
+
+### Tuples 
+- Defined by ()
+- Syntax `a= (2,4,9)`
+- Tuples are imutable we cannot change value in it
+- Itteration is faster because it is imutable
+- but indexing is allowed 
+- Two methods i.e count and index
+- Count counts number of occurance of the perticular number `a.count(number)`
+- Index gives index value of the perticular number 
+- You can store any data type in Tuples
+
+### Sets 
+- Defined by {}
+- Syntax `a={1,2,5,4}`
+- It's a collection of unique elements
+- It dont follow the Sequence
+- Every value is Unique 
+- Indexing is not supported  because it dont follow sequence
+- Some functions in sets 
+
+### Dictionary
+- Defined by {}
+- Contain key and value pairs 
+- Syntax `data = {key:'value'}`
+- Every Key should be unique
+- Adding values in dict `dict['key'] = value`
+- Delete value from dict `del dict['key']`
+- get() with not found 
+- Functions in Dict
+- Make a dict with list using zip() and dict()
+- d = dict(zip(key, value))
+- Combinations of list and dict 
+- Combination of dict and dict
+- Combination of list and dict
+
+
