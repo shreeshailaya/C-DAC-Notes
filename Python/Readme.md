@@ -220,3 +220,65 @@
 - Combination of list and dict
 
 
+### More about Variables and Data type
+- assiging value and check the address 
+- Every variable referance is there value not variable name 
+- Garbage Collector not assigned variable are in gc
+- There is no concept of constant in python, but you can make it as CAPITAL variable declearation
+- Variable assign is done by right to left
+- DATA TYPES :
+1. NONE
+	- No value is assigned to it
+2. Numeric
+	- Integer
+	- Float
+	- Boolean
+	- Complex (Its a combination of real number equation and imiginary number)
+3. List 
+4. Tuples
+5. Set 
+6. String 
+7. Range
+	- range() wich accept 3 parameter 
+	- List,set with range 
+	- Difference in range datatype and and list
+8. Dict
+
+
+### Conversion of Datatype
+- int(), float(), str(), complex()
+
+
+### Swipping the numbers 
+- using third variable
+```python
+a=2
+b=5 
+
+temp = a
+a = b
+b = temp
+print(" A:-"+str(a)+" B:-"+str(b))
+```
+
+- Without using 3rd variable 
+```python 
+
+a=2
+b=5 
+
+
+a=a+b	# a = 5+2 = 7
+b=a-b	# b = 7-5 = 2 
+a=a-b	# a = 7-2 = 5
+
+print(" A:-"+str(a)+" B:-"+str(b))
+
+```
+
+- In python 
+```python 
+a,b = b,a # using ROT_TWO
+```
+
+### Input in python
