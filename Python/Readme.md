@@ -248,6 +248,9 @@
 ### Conversion of Datatype
 - int(), float(), str(), complex()
 
+### form console to .py
+- Extension .py
+- 
 
 ### Swipping the numbers 
 - using third variable
@@ -282,3 +285,80 @@ a,b = b,a # using ROT_TWO
 ```
 
 ### Input in python
+- input ()
+- input function take input default as str 
+- typecasting the input()
+- program with input()
+
+
+### Conditions 
+
+1. if
+![](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_statement.jpg)
+```python
+# If the number is positive, we print an appropriate message
+
+num = 3
+if num > 0:
+    print(num, "is a positive number.")
+print("This is always printed.")
+
+num = -1
+if num > 0:
+    print(num, "is a positive number.")
+print("This is also always printed.")
+```
+
+
+2. if else
+![](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_else_statement.jpg)
+```python
+# Program checks if the number is positive or negative
+# And displays an appropriate message
+
+num = 3
+
+# Try these two variations as well. 
+# num = -5
+# num = 0
+
+if num >= 0:
+    print("Positive or Zero")
+else:
+    print("Negative number")
+
+```
+3. if elif else
+4. Nested if
+- Code of block with Indentation
+- if else with even odd numbers
+- else comes with if 
+- 
+### Indentation
+- Indentation refers to the spaces at the beginning of a code line.
+- Python uses indentation to indicate a block of code.
+
+### Excuation and reassignment of variable 
+
+```python
+a = input('ENTER NO')
+print(a)
+
+class MyClass:
+	a = 55
+	def name():
+		print("Hello")
+
+print(MyCass.a)
+```
+
+### Intro of class for imports
+
+### Import in Python
+- import math
+- sqrt()==> Squre root function
+- floor(lower) and ceil(higher) functions
+- pow(num, power) function
+- Some constant math.pi, math.e
+- import math as m the allies name 
+- import functions sqrt and pow and pi
