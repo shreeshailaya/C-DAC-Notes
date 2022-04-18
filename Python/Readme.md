@@ -330,7 +330,7 @@ else:
 
 ```
 3. if elif else
-- [if elif](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_elif_else_statement.jpg)
+- ![if elif](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_elif_else_statement.jpg)
 ```python
 '''In this program, 
 we check if the number is positive or
