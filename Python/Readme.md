@@ -294,7 +294,7 @@ a,b = b,a # using ROT_TWO
 ### Conditions 
 
 1. if
-- ![](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_statement.jpg)
+- ![if](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_statement.jpg)
 ```python
 # If the number is positive, we print an appropriate message
 
@@ -312,7 +312,7 @@ print("This is also always printed.")
 
 2. if else
 
-- ![](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_else_statement.jpg)
+- ![if else](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_else_statement.jpg)
 ```python
 # Program checks if the number is positive or negative
 # And displays an appropriate message
@@ -330,7 +330,43 @@ else:
 
 ```
 3. if elif else
+- [if elif](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_elif_else_statement.jpg)
+```python
+'''In this program, 
+we check if the number is positive or
+negative or zero and 
+display an appropriate message'''
+
+num = 3.4
+
+# Try these two variations as well:
+# num = 0
+# num = -4.5
+
+if num > 0:
+    print("Positive number")
+elif num == 0:
+    print("Zero")
+else:
+    print("Negative number")
+```
 4. Nested if
+```python
+'''In this program, we input a number
+check if the number is positive or
+negative or zero and display
+an appropriate message
+This time we use nested if statement'''
+
+num = float(input("Enter a number: "))
+if num >= 0:
+    if num == 0:
+        print("Zero")
+    else:
+        print("Positive number")
+else:
+    print("Negative number")
+```
 - Code of block with Indentation
 - if else with even odd numbers
 - else comes with if 
