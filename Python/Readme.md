@@ -198,7 +198,7 @@
 ### Sets 
 - Defined by {}
 - Syntax `a={1,2,5,4}`
-- It's a collection of unique elements
+- It is a collection of unique elements
 - It dont follow the Sequence
 - Every value is Unique 
 - Indexing is not supported  because it dont follow sequence
@@ -294,7 +294,7 @@ a,b = b,a # using ROT_TWO
 ### Conditions 
 
 1. if
-![](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_statement.jpg)
+- ![](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_statement.jpg)
 ```python
 # If the number is positive, we print an appropriate message
 
@@ -311,7 +311,8 @@ print("This is also always printed.")
 
 
 2. if else
-![](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_else_statement.jpg)
+
+- ![](https://cdn.programiz.com/sites/tutorial2program/files/Python_if_else_statement.jpg)
 ```python
 # Program checks if the number is positive or negative
 # And displays an appropriate message
