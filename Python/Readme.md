@@ -123,6 +123,7 @@
 | with	| Used to simplify exception handling |
 | yield	| To end a function, returns a generator |
 
+### Day-3
 
 ### Operators in Python 
 ### Arthmathic 
@@ -160,7 +161,8 @@
 - hex()
 
 
-
+## Day-4
+	       
 ### List
 - Defined by [] 
 - List is mutable you can change the value in list
@@ -247,11 +249,18 @@
 
 ### Conversion of Datatype
 - int(), float(), str(), complex()
-
-### form console to .py
-- Extension .py
-- 
-
+	       
+## Day-5
+### from console to .py
+- Python uses extention .py to identify python file 
+- Before running the python program you need to do some changes(as follow), if python command cannot recognized by the Command prompt
+- Setting of path
+- Copy the address of python installed folder in my case it is `C:\Users\YOUR_USERNAME\AppData\Local\Programs\Python\Python310`
+- and past it into `My Computer > Properties > Advanced System Settings > Environment Variables > path > New `
+- Create file with .py extension 
+- then open command prompt go to the file location with the help of commands like `cd` and `dir`
+- For execuation of python program you need to type `python program_name.py`
+	
 ### Swipping the numbers 
 - using third variable
 ```python
@@ -290,7 +299,7 @@ a,b = b,a # using ROT_TWO
 - typecasting the input()
 - program with input()
 
-
+## Day-6
 ### Conditions 
 
 1. if
