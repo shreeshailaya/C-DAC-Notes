@@ -408,3 +408,114 @@ print(MyCass.a)
 - Some constant math.pi, math.e
 - import math as m the allies name 
 - import functions sqrt and pow and pi
+
+## Day-7
+### Unicode Code
+- Unicode, formally the Unicode Standard, is an information technology standard for the consistent encoding, representation, and handling of text expressed in most of the world's writing systems
+- 65-90 uppercase
+- 97-122 lowercase
+- 48-57 digit
+- remaining are special char
+
+### While loop 
+- With the while loop we can execute a set of statements as long as a condition is true.
+- ![while loop](https://cdn.programiz.com/sites/tutorial2program/files/whileLoopFlowchart.jpg)
+
+```python
+
+# To take input from the user,
+# n = int(input("Enter n: "))
+
+n = 10
+
+i = 1
+
+while i <= n:
+    print(i)
+    i = i+1    # update counter
+
+```
+
+- inner while 
+
+
+### For loop
+- A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).
+- This is less like the for keyword in other programming languages, and works more like an iterator method as found in other object-orientated programming languages.
+- With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc.
+- ![for loop](https://cdn.programiz.com/sites/tutorial2program/files/forLoop.jpg)
+```python
+
+# List of numbers
+numbers = [6, 5, 3, 8, 4, 2, 5, 4, 11]
+
+
+
+# iterate over the list
+for val in numbers:
+    print(val)
+
+
+
+```
+
+- for looping through string 
+- for looping through range
+	- range
+	- range in between(3 variable)
+	- range in negative
+- inner for
+
+### for and if else 
+
+### Keywords pass, break, continue
+1. pass
+- In Python, the pass keyword is used to execute nothing
+- it means, when we don't want to execute code, the pass can be used to execute empty
+```python
+
+for i in range(5):
+	if i==2:
+		pass
+	else:
+		print(i)
+
+```
+
+2. break 
+- break keyword break the loop and excute the code that is written after code
+- break entire loop after fullfiling the condition
+- toffies example 
+```python
+
+for i in range(5):
+	if i==2:
+		break
+	print(i)
+```
+
+
+3. continue
+- The continue statement in Python returns the control to the beginning of the loop.
+- escaping the number / 5 or 7
+```python
+for i in range(16):
+	if i%5==0:
+		continue
+	print(i)
+```
+
+
+### for and else 
+- for running for else loop for should be contain break statement if the condition is true
+- gernally for else is not used in industry
+```python
+for i in range(1,10):
+	if i%7==0:
+		print(i)
+		break
+else:
+	print('not found')
+```
+
+- print with end
