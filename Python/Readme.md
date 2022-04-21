@@ -519,3 +519,77 @@ else:
 ```
 
 - print with end
+
+### Day-8
+#### Array
+- import array 
+- vals = array('i',[2,9,5,6])
+- in array, array is method
+- Array takes two parameter one is type and and secound is list of arrray
+- Append value in array arr.append(val)
+- ask user to add values in array
+- To find values from array two methods one is manual and secound is with `arr.index(val)`
+
+
+#### Functions in Python
+- In Python, a function is a group of related statements that performs a specific task.
+- Functions help break our program into smaller and modular chunks. As our program grows larger and larger, functions make it more organized and manageable.
+```python
+def greet(name):
+    """
+    This function greets to
+    the person passed in as
+    a parameter
+    """
+    print("Hello, " + name + ". Good morning!")
+ greet('Paul')
+```
+- return in function
+- return multiple values in functions 
+- `a,b = add_sub(val1,val2)`
+- tracking the values passed to function
+- mutabale values can be change like list, variables cannot 
+```python
+def myFun(x):
+	x[1]=10
+	print(x)
+
+x=[2,4]
+print(x)
+myFun(x)
+print(x)
+
+
+```
+
+### Type of Arguments 
+1. Formal- def add(a,b)
+	- 
+2. Actual- add(5,6)
+	- Position 
+	- Keyword (passing with keyword add(a=10, b=12))
+	- Default def add(a,b=12) add(10)
+	- Variable length
+#### Variable length arguments
+- `def add(*a)` it will accept more than one argument in tuple 
+#### Keyword Variable length arguments
+- `def add(**a)` it will accept more than one argument with keyword in tuple
+- for iterating the values from **kwargs you need `for i,j in kwargs.items()`
+
+### global and globles()
+```python
+
+a = 10	# global
+
+def myFun():
+	a = 15	# local
+	b = 10	# Cannot access outside fun	
+print('in fun',a)
+myFun()
+print('outside fun',a)
+```  
+- local and global has different referance of variable 
+- use `global a` to access global variable from function
+- you can use same name for global and local variable 
+- but if you want to change the global variable you need to use globals() in function which gives all global variables
+- `globals()['variable_name']`
