@@ -471,7 +471,7 @@ for val in numbers:
 ### Keywords pass, break, continue
 1. pass
 - In Python, the pass keyword is used to execute nothing
-- it means, when we don't want to execute code, the pass can be used to execute empty
+- it means, when we dont want to execute code, the pass can be used to execute empty
 ```python
 
 for i in range(5):
@@ -563,8 +563,8 @@ print(x)
 ```
 
 ### Type of Arguments 
+	    
 1. Formal- def add(a,b)
-	- 
 2. Actual- add(5,6)
 	- Position 
 	- Keyword (passing with keyword add(a=10, b=12))
