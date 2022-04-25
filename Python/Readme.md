@@ -575,6 +575,16 @@ print(x)
 #### Keyword Variable length arguments
 - `def add(**a)` it will accept more than one argument with keyword in tuple
 - for iterating the values from **kwargs you need `for i,j in kwargs.items()`
+- print with .format
+```python
+def myFun(**a):
+	print(a)
+	for key,value in a.items():
+		print('key {}, Value {}'.format(key,value))
+	
+myFun(a='dsd',b='dsds',c='dsdfggd')
+
+```
 
 ### global and globles()
 ```python
@@ -593,3 +603,33 @@ print('outside fun',a)
 - you can use same name for global and local variable 
 - but if you want to change the global variable you need to use globals() in function which gives all global variables
 - `globals()['variable_name']`
+
+### Recursion
+- Recursion is calling function itself from function
+- Recursion limit is 1000
+- sys.getrecursionlimit()
+```python
+# Factorial
+result = 1
+for i in range(1, 6):	
+	result = result * i
+print(result)
+```
+- Factorial with recursion
+```python
+def myFun(n):
+	if (n==0):
+		return 1
+	return n * myFun(n-1)
+
+print(myFun(5))
+
+```
+
+### Lambda functions 
+- Anonymous
+- `f = lambda a:a*a`
+- lambda is a single line function which only resolve the single expression 
+- filter(function , list) in python
+- filter with lambda
+- `list(filter(lambda n: n%2==0, nums))`
