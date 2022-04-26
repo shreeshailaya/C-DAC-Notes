@@ -3,7 +3,7 @@
 1. Let's start with a long time programming tradition and print "Hello World!" by typing it inside print() function.
 2. Now try to assign "Hello World!" to the variable my_text.
 3. Type a couple of different values inside the print function. Make sure they are separated by commas.  
-
+---
 ### Variables
 1. Below is a good example of mixing numbers and text inside the print() function
 - Assign: 3 to variable glass_of_water. 
@@ -27,6 +27,7 @@ glass_of_water=glass_of_water + 1
 print()
 
 ```
+---
 ### Type Conversion
 1. Using type() function assign the type of the variable to answer_1, then print it.
 ```python 
@@ -53,7 +54,7 @@ answer_2=
 
 print (answer_2)
 ```
-
+---
 ### List
 1. Assign the first element of the list to answer_1 on line 2
 ```python
@@ -112,7 +113,7 @@ gift_list=['socks', '4K drone', 'wine', 'jam']
 
 print(gift_list)
 ```
-
+---
 ### Tuples
 1. Assign the first element of the tuple to answer_1 
 ```python
@@ -182,9 +183,10 @@ ans_1=
 print(ans_1)
 
 ```
+---
 ### Dictionaries
 - Dictionaries don't have index orders, so speaking about them regarding their first item or last item is not very correct. Next time you print a dictionary it may have a different order than you saw before. Instead they have keys, and we can use keys to call their values.
----
+
 1. When was Plato born?
 ```python
 dict={"name": "Plato", "country": "Ancient Greece", "born": -427, "teacher": "Socrates", "student": "Aristotle"}
@@ -257,7 +259,7 @@ dict={"son's name": "Lucas", "son's eye color": "green", "son's height": 32, "so
 
 print(dict)
 ```
-
+---
 ### String
 
 1. Assign the string below to the variable in the exercise."It's always darkest before dawn."
@@ -384,6 +386,7 @@ print(ans_1)
 
 
 ```
+---
 ### Functions in python
 
 1. Using len() function find out how many items are in the list.
@@ -465,12 +468,13 @@ print("Hello!, " + ans_1)
 10. Create a range from 100 to 160 with steps of 10. Then print it as a list.
 
 11. Can you you create a list from 1300 to 700 with descending steps of 100, including 700?
-
+---
 ### Errors
 1. Type something so that Python gives a SyntaxError.
 2. Type something so that Python gives a NameError.
 3. Type something so that Python gives a TypeError.
-
+---
+---
 ## Day-6 
 ### Conditions and Imports
 1. Write a python program which accept two numbers and print max and min between them
