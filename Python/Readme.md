@@ -726,13 +726,13 @@ print(div1(2,10))
 - A file containing a set of functions you want to include in your application.
 - for importing modules we can use `import`
 
-### Special Variable __name__
+### Special Variable `__name__`
 
-- __name__ is a built-in variable which evaluates to the name of the current module.
+- `__name__` is a built-in variable which evaluates to the name of the current module.
 
 - Thus it can be used to check whether the current script is being run on its own or being imported somewhere else
 
-- When the module is begin run the the value of __name__ is __main__ if its imported from someware else then it is module name 
+- When the module is begin run the the value of `__name__` is `__main__` if its imported from someware else then it is module name 
 
 
 
