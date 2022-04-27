@@ -633,3 +633,112 @@ print(myFun(5))
 - filter(function , list) in python
 - filter with lambda
 - `list(filter(lambda n: n%2==0, nums))`
+
+### Decorators 
+- Decorators are a very powerful and useful tool in Python since it allows programmers to modify the behaviour of function or class
+
+- Decorators allow us to wrap another function in order to extend the behaviour of the wrapped function, without permanently modifying it. 
+
+- A function is an instance of the Object type.
+- You can store the function in a variable.
+- You can pass the function as a parameter to another function.
+- You can return the function from a function.
+- You can store them in data structures such as hash tables, lists, …
+
+- Treating the functions as objects. 
+```python
+
+# Python program to illustrate functions
+# can be treated as objects
+def shout(text):
+	return text.upper()
+
+print(shout('Hello'))
+
+yell = shout
+
+print(yell('Hello'))
+
+```
+- Passing the function as an argument 
+```python
+
+# Python program to illustrate functions
+# can be passed as arguments to other functions
+def shout(text):
+	return text.upper()
+
+def whisper(text):
+	return text.lower()
+
+def greet(func):
+	# storing the function in a variable
+	greeting = func("""Hi, I am created by a function passed as an argument.""")
+	print (greeting)
+
+greet(shout)
+greet(whisper)
+
+```
+
+- Returning function from another function
+
+```python
+# Python program to illustrate functions
+# Functions can return another function
+
+def create_adder(x):
+	def adder(y):
+		return x+y
+
+	return adder
+
+add_15 = create_adder(15)
+
+print(add_15(10))
+
+
+```
+
+- Decorators
+
+```python
+def div(a,b):
+    return a/b
+
+def smart_div(fun):
+
+    def inner(a,b):
+        if a<b:
+            a,b = b,a 
+        return div(a,b)
+    return inner
+
+
+div1 = smart_div(div)
+
+print(div1(2,10))
+```
+
+
+### Modules
+- Consider a module to be the same as a code library.
+- A file containing a set of functions you want to include in your application.
+- for importing modules we can use `import`
+
+### Special Variable __name__
+
+- __name__ is a built-in variable which evaluates to the name of the current module.
+
+- Thus it can be used to check whether the current script is being run on its own or being imported somewhere else
+
+- When the module is begin run the the value of __name__ is __main__ if its imported from someware else then it is module name 
+
+
+
+## Python Functional Programming 
+
+## Python Object Oriented Programming (OOPs) 
+
+### Class and Objects 
+
