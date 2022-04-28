@@ -719,6 +719,114 @@ div1 = smart_div(div)
 
 print(div1(2,10))
 ```
+### Non-local variables 
+- The nonlocal keyword is used to work with variables inside nested functions, where the variable should not belong to the inner function
+
+- Use the keyword nonlocal to declare that the variable is not local.
+
+```python
+def myfunc():
+  x = "John"
+  def inner():
+    #nonlocal x
+    x = "hello"
+    print('inner :- ',x)
+  inner() 
+  return x
+
+print(myfunc())
+
+```
+
+### Clouser
+
+```python
+
+def create_adder(x):
+	def adder(y):
+		return x+y
+
+	return adder
+
+add_15 = create_adder(15)
+
+print(add_15(10))
+
+
+```
+
+### Iterator 
+- An iterator is an object that contains a countable number of values.
+- An iterator is an object that can be iterated upon, meaning that you can traverse through all the values.
+- Technically, in Python, an iterator is an object which implements the iterator protocol, which consist of the methods __iter__() and __next__().
+
+- Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable containers which you can get an iterator from.
+
+- All these objects have a iter() method which is used to get an iterator:
+
+```python
+mytuple = ("apple", "banana", "cherry")
+myit = iter(mytuple)
+
+print(next(myit))
+print(next(myit))
+print(next(myit))
+```
+- Even strings are iterable objects, and can return an iterator:
+```
+mystr = "banana"
+myit = iter(mystr)
+
+print(myit.__next__())
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+
+
+```
+
+### Generator
+- A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the yield keyword rather than return. 
+- If the body of a def contains yield, the function automatically becomes a generator function.
+```python
+# A generator function that yields 1 for first time,
+# 2 second time and 3 third time
+def simpleGeneratorFun():
+	yield 1			
+	yield 2			
+	yield 3			
+
+# Driver code to check above generator function
+for value in simpleGeneratorFun():
+	print(value)
+
+
+``` 
+- Generator functions return a generator object
+- Generator objects are used either by calling the next method on the generator object or using the generator object in a “for in” loop (as shown in the above program).
+
+```python 
+# A Python program to demonstrate use of
+# generator object with next()
+
+# A generator function
+def simpleGeneratorFun():
+	yield 1
+	yield 2
+	yield 3
+
+# x is a generator object
+x = simpleGeneratorFun()
+
+# Iterating over the generator object using next
+print(x.next()) # In Python 3, __next__()
+print(x.next())
+print(x.next())
+
+```
+
 
 
 ### Modules
