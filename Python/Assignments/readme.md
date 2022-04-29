@@ -506,4 +506,160 @@ print("Hello!, " + ans_1)
 Letters 6
 Digits 2
 
+---
+---
+
+### Print Pyramid, Star, and diamond pattern 
+1.
+```
+* 
+* * 
+* * * 
+* * * * 
+* * * * *
+```
+2.
+```
+      * 
+     * * 
+    * * * 
+   * * * * 
+  * * * * *
+```
+3. 
+```
+Enter the number of rows: 5
+* * * * *  
+* * * *  
+* * *  
+* *  
+*  
+```
+4. 
+```
+Enter the number of rows: 5
+1  
+2 2  
+3 3 3  
+4 4 4 4  
+5 5 5 5 5  
+
+```
+5.
+```
+Enter the number of rows: 5
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5
+```
+6.
+```
+Enter the number of rows: 5
+1 1 1 1 1 
+2 2 2 2 
+3 3 3 
+4 4 
+5
+```
+7.
+```
+1 
+2 3 4 
+5 6 7 8 9
+```
+8.
+```
+Enter the number of rows: 5
+1 2 3 4 5 
+2 2 3 4 5 
+3 3 3 4 5 
+4 4 4 4 5 
+5 5 5 5 5
+```
+9.
+```
+L
+LO
+LOV
+LOVE
+LOVEF
+LOVEFO
+LOVEFOR
+LOVEFORP
+LOVEFORPY
+LOVEFORPYT
+LOVEFORPYTH
+LOVEFORPYTHO
+LOVEFORPYTHON
+```
+
+### Array
+1. Write a Python program to create an array of 5 integers and display the array items. Access individual element through indexes.
+Sample Output:
+1
+3
+5
+7
+9
+Access first three items individually
+1
+3
+5
+
+---
+2. Write a Python program to get the number of occurrences of a specified element in an array. 
+Sample Output:
+Original array: array('i', [1, 3, 5, 3, 7, 9, 3])
+Number of occurrences of the number 3 in the said array: 3
+---
+---
+### Functions 
+
+1. Write a Python function to sum all the numbers in a list.
+Sample List : (8, 2, 3, 0, 7)
+Expected Output : 20
+---
+2. Write a Python program to reverse a string. 
+Sample String : "1234abcd"
+Expected Output : "dcba4321"
+---
+3. Write a Python function to calculate the factorial of a number (a non-negative integer). The function accepts the number as an argument
+---
+4. Write a Python function that accepts a string and calculate the number of upper case letters and lower case letters. Go to the editor
+Sample String : 'The quick Brow Fox'
+Expected Output :
+No. of Upper case characters : 3
+No. of Lower case Characters : 12
+---
+5. Write a Python function that checks whether a passed string is palindrome or not
+--- 
+6. Write a Python program to access a function inside a function
+---
+---
+### Lambda Functions
+1. Write a Python program to create a lambda function that adds 15 to a given number passed in as an argument, also create a lambda function that multiplies argument x with argument y and print the result. 
+Sample Output:
+25
+48
+---
+2. Write a Python program to filter a list of integers using Lambda. 
+Original list of integers:
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Even numbers from the said list:
+[2, 4, 6, 8, 10]
+Odd numbers from the said list:
+[1, 3, 5, 7, 9]
+---
+---
+
+### Recursion
+1. Write a Python program to calculate the sum of a list of numbers.
+---
+---
+
+
+
+
 
