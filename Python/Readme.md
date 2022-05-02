@@ -843,6 +843,279 @@ print(x.next())
 - When the module is begin run the the value of `__name__` is `__main__` if its imported from someware else then it is module name 
 
 ### Regular Expressions 
+- A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.
+- RegEx can be used to check if a string contains the specified search pattern.
+- Python has a built-in package called re, which can be used to work with Regular Expressions.
+
+- Import the `re` module:
+- findall()	Returns a list containing all matches
+- search()	Returns a Match object if there is a match anywhere in the string
+- split()	Returns a list where the string has been split at each match
+- sub()		Replaces one or many matches with a string
+
+- Metacharacters
+```python
+import re
+
+txt = "The rain in Spain"
+
+#Find all lower case characters alphabetically between "a" and "m":
+
+x = re.findall("[a-m]", txt)
+print(x)
+```
+
+```python
+
+import re
+
+txt = "That will be 59 dollars"
+
+#Find all digit characters:
+
+x = re.findall("\d", txt)
+print(x)
+```
+```python
+import re
+
+txt = "hello heooo planet"
+
+#Search for a sequence that starts with "he", followed by two (any) characters, and an "o":
+
+x = re.findall("he..o", txt)
+print(x)
+
+
+```
+
+```python
+import re
+
+txt = "hello planet"
+
+#Check if the string starts with 'hello':
+
+x = re.findall("^hello", txt)
+if x:
+  print("Yes, the string starts with 'hello'")
+else:
+  print("No match")
+```
+
+```python
+import re
+
+txt = "hello planet"
+
+#Check if the string ends with 'planet':
+
+x = re.findall("planet$", txt)
+if x:
+  print("Yes, the string ends with 'planet'")
+else:
+  print("No match")
+
+```
+
+```python
+import re
+
+txt = "The rain in Spain falls mainly in the plain!"
+
+#Check if the string contains either "falls" or "stays":
+
+x = re.findall("falls|stays", txt)
+
+print(x)
+
+if x:
+  print("Yes, there is at least one match!")
+else:
+  print("No match")
+
+```
+
+- Special Sequences
+
+```python
+import re
+
+txt = "The rain in 2  Spain"
+
+#Check if the string contains any digits (numbers from 0-9):
+
+x = re.findall("\d", txt)
+
+print(x)
+
+if x:
+  print("Yes, there is at least one match!")
+else:
+  print("No match")
+```
+
+```python
+import re
+
+txt = "The rain in Spain"
+
+#Return a match at every white-space character:
+
+x = re.findall("\s", txt)
+
+print(x)
+
+if x:
+  print("Yes, there is at least one match!")
+else:
+  print("No match")
+
+```
+- Sets
+```python
+import re
+
+txt = "The rain in Spain"
+
+#Check if the string has any a, r, or n characters:
+
+x = re.findall("[arn]", txt)
+
+print(x)
+
+if x:
+  print("Yes, there is at least one match!")
+else:
+  print("No match")
+
+```
+
+```python
+import re
+
+txt = "The rain in Spain"
+
+#Check if the string has any 0, 1, 2, or 3 digits:
+
+x = re.findall("[0123]", txt)
+
+print(x)
+
+if x:
+  print("Yes, there is at least one match!")
+else:
+  print("No match")
+
+
+```
+
+```python
+import re
+
+txt = "8 times before 11:45 AM"
+
+#Check if the string has any characters from a to z lower case, and A to Z upper case:
+
+x = re.findall("[a-zA-Z]", txt)
+
+print(x)
+
+if x:
+  print("Yes, there is at least one match!")
+else:
+  print("No match")
+
+```
+
+```python
+import re
+
+txt = "8 times before +11:45 AM"
+
+#Check if the string has any + characters:
+
+x = re.findall("[+]", txt)
+
+print(x)
+
+if x:
+  print("Yes, there is at least one match!")
+else:
+  print("No match")
+
+```
+
+#### Search()
+- The search() function searches the string for a match, and returns a Match object if there is a match.
+- If there is more than one match, only the first occurrence of the match will be returned:
+```python
+import re
+
+txt = "The rain in Spain"
+x = re.search("\s", txt)
+
+print("The first white-space character is located in position:", x.start()) 
+
+```
+
+#### Split()
+```python
+
+import re
+
+#Split the string at every white-space character:
+
+txt = "The rain in Spain"
+x = re.split("\s", txt)
+print(x)
+
+
+
+import re
+
+#Split the string at the first white-space character:
+
+txt = "The rain in Spain"
+x = re.split("\s", txt, 1)
+print(x)
+
+```
+
+#### Sub()
+```python
+
+import re
+
+#Replace all white-space characters with the digit "9":
+
+txt = "The rain in Spain"
+x = re.sub("\s", "9", txt)
+print(x)
+```
+
+
+### PIP and Packages
+- preferred installer program
+- PIP is a package manager for Python packages, or modules if you like.
+- A package contains all the files you need for a module.
+- Modules are Python code libraries you can include in your project.
+- check pip `pip --version`
+- If you do not have PIP installed, you can download and install it from this page: https://pypi.org/project/pip/
+- pip install camelcase
+```python
+import camelcase
+
+c = camelcase.CamelCase()
+
+txt = "hello world"
+
+print(c.hump(txt))
+```
+- uninstall `pip uninstall camelcase`
+- list of packages `pip list`
+
+
 
 ### File Handling 
 
