@@ -1118,14 +1118,129 @@ print(c.hump(txt))
 
 
 ### File Handling 
+- File handling is an important part of any web application.
+- Python has several functions for creating, reading, updating, and deleting files.
+- The key function for working with files in Python is the `open()` function.
+- The open() function takes two parameters; filename, and mode.
+- There are four different methods (modes) for opening a file:
+	- "r" - Read - Default value. Opens a file for reading, error if the file does not exist
+	- "a" - Append - Opens a file for appending, creates the file if it does not exist
+	- "w" - Write - Opens a file for writing, creates the file if it does not exist
+	- "x" - Create - Creates the specified file, returns an error if the file exists
 
-### Expection Handling 
+- In addition you can specify if the file should be handled as binary or text mode
+	- "t" - Text - Default value. Text mode
+
+	- "b" - Binary - Binary mode (e.g. images)
+
+- To open a file for reading it is enough to specify the name of the file:
+```python
+f = open("demofile.txt")
+# OR
+f = open("demofile.txt", "rt")
+# OR
+f = open("D:\\myfiles\welcome.txt", "r")
+print(f.read())
+```
+- By default the read() method returns the whole text, but you can also specify how many characters you want to return:
+```python
+f = open("demofile.txt", "r")
+print(f.read(5))
+```
+- You can return one line by using the readline() method:
+```python
+f = open("demofile.txt", "r")
+print(f.readline())
+print(f.readline())
+
+# OR
+
+f = open("demofile.txt", "r")
+for x in f:
+  print(x)
+
+# OR
+
+print(f.readline())
+```
+- Difference in readline() and readlines()
+- readlines() gives each line in list
+- readline() print single line in file 
+- It is a good practice to always close the file when you are done with it using `.close()`.
+- `w` will erase all the data from file it is used to create the file
 
 
+#### Remove File 
 
-## Python Functional Programming 
+```python
+
+import os
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+else:
+  print("The file does not exist")
+
+
+# OR REMOVE FOLDER
+
+os.rmdir("myfolder")
+```
 
 ## Python Object Oriented Programming (OOPs) 
+- Python is a multi-paradigm programming language. It supports different programming approaches.
+- One of the popular approaches to solve a programming problem is by creating objects. This is known as Object-Oriented Programming (OOP).
+- An object has two characteristics:
+	- attributes
+	- behavior
+- Let's take an example:
+- A parrot is an object, as it has the following properties:
+	- name, age, color as attributes
+	- singing, dancing as behavior
+- The concept of OOP in Python focuses on creating reusable code. This concept is also known as DRY (Don't Repeat Yourself).
+- In Python, the concept of OOP follows some basic principles:
+
+
+### Class 
+- A class is a blueprint for the object.
+- We can think of class as a sketch of a parrot with labels. It contains all the details about the name, colors, size etc. Based on these descriptions, we can study about the parrot. Here, a parrot is an object.
+- The example for class of parrot can be :
+```
+class Parrot:
+    pass
+```
+- 
+### Objects
+- An object (instance) is an instantiation of a class. When class is defined, only the description for the object is defined. Therefore, no memory or storage is allocated.
+- `obj = Parrot()`
+- Here, obj is an object of class Parrot.
+- Suppose we have details of parrots. Now, we are going to show how to build the class and objects of parrots.
+ 
+### Special Method __init__()
+
+```pyhton
+class Parrot:
+
+    # class attribute
+    species = "bird"
+
+    # instance attribute
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+# instantiate the Parrot class
+blu = Parrot("Blu", 10)
+woo = Parrot("Woo", 15)
+
+# access the class attributes
+print("Blu is a {}".format(blu.__class__.species))
+print("Woo is also a {}".format(woo.__class__.species))
+
+# access the instance attributes
+print("{} is {} years old".format( blu.name, blu.age))
+print("{} is {} years old".format( woo.name, woo.age))
+```
 
 ### Class and Objects 
 
+### Expection Handling 
