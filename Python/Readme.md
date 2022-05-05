@@ -1203,6 +1203,9 @@ os.rmdir("myfolder")
 ### Class 
 - A class is a blueprint for the object.
 - We can think of class as a sketch of a parrot with labels. It contains all the details about the name, colors, size etc. Based on these descriptions, we can study about the parrot. Here, a parrot is an object.
+- Classes are created by keyword class.
+- Attributes are the variables that belong to a class.
+- Attributes are always public and can be accessed using the dot (.) operator. Eg.: Myclass.Myattribute
 - The example for class of parrot can be :
 ```
 class Parrot:
@@ -1210,14 +1213,22 @@ class Parrot:
 ```
 - 
 ### Objects
+- The object is an entity that has a state and behavior associated with it
 - An object (instance) is an instantiation of a class. When class is defined, only the description for the object is defined. Therefore, no memory or storage is allocated.
 - `obj = Parrot()`
 - Here, obj is an object of class Parrot.
 - Suppose we have details of parrots. Now, we are going to show how to build the class and objects of parrots.
- 
+ - Object consist of 
+	-State: It is represented by the attributes of an object. It also reflects the properties of an object.
+	-Behavior: It is represented by the methods of an object. It also reflects the response of an object to other objects.
+	-Identity: It gives a unique name to an object and enables one object to interact with other objects.
+- Which are present in class 
+- 
 ### Special Method __init__()
+- It is similar to the constrector in java
+- It is used to inlitization of the variables  
 
-```pyhton
+```python
 class Parrot:
 
     # class attribute
@@ -1241,6 +1252,34 @@ print("{} is {} years old".format( blu.name, blu.age))
 print("{} is {} years old".format( woo.name, woo.age))
 ```
 
-### Class and Objects 
+### self 
+- In object-oriented programming, whenever we define methods for a class, we use self as the first parameter in each case. Let's look at the definition of a class called Cat.
+- The self keyword is used to represent an instance (object) of the given class.
+- In this case, the two Cat objects cat1 and cat2 have their own name and age attributes
+- If there was no self argument, the same class couldn't hold the information for both these objects.
+- explicitly defined everytime because of following reason
+```python
+class Cat:
+    name = ''
+    def __init__(self,name, age):
+        self.name = name # Remove self and run 
+        self.age = age	
+
+    def info(self):
+        print(f"I am a cat. My name is {self.name}. I am {self.age} years old.")
+
+    def make_sound(self):
+        print("Meow")
+print(Cat.name)  
+cat1 = Cat('ooo',22)
+print(cat1.name)
+
+# Cat.name and cat1.name are different
+
+```
+
+### Polymorphism
+### Encapsulation
+### Inheritance
 
 ### Expection Handling 
