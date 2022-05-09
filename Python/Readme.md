@@ -1274,12 +1274,111 @@ print(Cat.name)
 cat1 = Cat('ooo',22)
 print(cat1.name)
 
+cat2 = Cat('sss',11)
+Cat.info(cat2)
+
 # Cat.name and cat1.name are different
 
 ```
+- update age for self
+- class attributes and instance attributes
 
+#### Compare()
+- when you do obj1 == obj2 the it will compare address of the obj which is false by default
+- declear the compare in class 
+- to compare the values is the object
+```python
+from operator import truediv
+
+
+class Cat:
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+
+	def display(self):
+		print(self.name, self.age)
+
+	def compare(self, obj):
+		if self.name == obj.name and self.age == obj.age:
+			return True
+		else:
+			return False
+
+
+obj1 = Cat('a', 11)
+obj2 = Cat('b',22)
+obj3 = Cat('a', 11)
+
+print(obj1.compare(obj2))
+print(obj1.compare(obj3))
+
+```
+### Methods in OOPS
+- Instance Methods are depended on the object 
+- which means the methods that we pass self are instance methods 
+- Two types of instance methods 
+	- Accessor Methods i.e getter 
+	- Mutator Method i.e setter
+```python
+class Student:
+	school = "NVH School" 
+
+	def __init__(self, m1,m2,m3):
+		self.m1 = m1
+		self.m2 = m2
+		self.m3 = m3
+	
+	def avg(self):	# Instance Method
+		return (self.m1+self.m2+self.m3)/3
+
+	@classmethod
+	def schoolName(cls):	# Class Method 
+		return cls.school
+	@staticmethod
+	def classInfo(): 		# Static Method 
+		return 'This is a python class '
+
+s1 = Student(22,33,44)
+
+print(s1.avg())
+print(Student.schoolName())
+print(Student.classInfo())
+
+```
+
+#### Class inside Class
+
+```python
+class Student:
+	def __init__(self, name, age):
+		self.name = name 
+		self.age = age
+		self.lap = self.Laptop()
+	def display(self):
+		print (self.name, self.age)
+
+	class Laptop:
+		def __init__(self):
+			self.brand = 'HP'
+			self.processor = 'i5'
+
+obj1 = Student('aaa',11)
+obj1.display()
+print('Calling in __init__',obj1.lap.brand)
+
+lapObj = obj1.Laptop()
+print('Laptop OBJ',lapObj.brand)
+```
+
+### Inheritance
+- Single 
+- Multilevel
+- Multiple
+#### Constractor in Inheritance 
+- super() in init
 ### Polymorphism
 ### Encapsulation
-### Inheritance
+
 
 ### Expection Handling 
