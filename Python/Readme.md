@@ -1376,9 +1376,155 @@ print('Laptop OBJ',lapObj.brand)
 - Multilevel
 - Multiple
 #### Constractor in Inheritance 
+- Constractor calling
 - super() in init
+- super() calling for method
+- Method resolution order
+	- Order takes left to right
+	- For method also if there is two same method in multiple inheritance then it will excure R to L
 ### Polymorphism
-### Encapsulation
+- Poly => Many
+- Morph => Forms 
+- Object has multiple forms 
+#### Duck Typing 
+-  Python follow Dynamic typing 
+```python
+class PyCharm:
+	def excute(self):
+		print('compile')
+		print('execute')
 
+
+class VsCode:
+	def excute(self):
+		print('spell check')
+		print('Intrupted')
+
+
+
+class Laptop:
+	def code(self,ide):
+		ide.excute()
+
+ideobj1 = PyCharm()
+
+obj1 = Laptop()
+
+obj1.code(ideobj1)
+
+```
+#### Operator Overloading
+- Magic Methods
+- int and str
+- OVERRIDING
+```python
+print(5+2)
+
+print(int.__and__(10,10))
+
+class Student:
+	def __init__(self,marks):
+		self.marks = marks
+
+	def __add__(self, obj):
+		added_marks = self.marks + obj.marks
+		return added_marks
+
+	
+
+s1 = Student(20)
+s2 = Student(50)
+
+print(s1+s2)
+
+```
+- __str__()
+
+- object printing
+#### Method Overloading 
+```python
+# Method Overloading
+
+
+class Calculator:
+	def add(self,a=None,b=None,c=None):
+		if a != None and b != None and c != None:
+			return a+b+c
+		elif a != None and b != None:
+			return a+b
+		else:
+			return a
+
+obj = Calculator()
+
+print(obj.add(1))
+print(obj.add(1,2))
+print(obj.add(1,2,3))
+
+
+```
+
+#### Method Overriding
+- Self()
+- Class Method
 
 ### Expection Handling 
+#### Errors
+- Compile Time Error
+	- Syntax error
+- Logical Error
+	- 
+- Runtime
+	- Divide by 0
+- In expection handling we work on handling the error
+- Expection error useually client side error 
+- To handle and to avoid the whole apllication for stoping server we use expection handling
+
+#### TRY EXPECT FINALLY
+- The `try` block lets you test a block of code for errors.
+- The `except` block lets you handle the error.
+- The `finally` block lets you execute code, regardless of the result of the try- and except blocks.
+```python
+a = 5
+b = 0
+try:
+	print(a/b)
+except Exception as e:
+	print(e)
+finally:
+	print('finally')
+	
+```
+- ZeroDivisionError
+- ValueError
+
+```python
+a = 5
+b = 0
+try:
+	print(a/b)
+except ZeroDivisionError as e:
+	print(e)
+finally:
+	print('finally')
+
+
+
+a = 5
+b = 0
+try:
+	x = int(input('Enter Nos'))
+except ValueError as e:
+	print('error',e)
+
+
+```
+
+- raise Exception()
+
+```python
+a = 5
+b = int(input("Enter No"))
+if b<=0:
+	raise Exception('Wrong IP')
+```
