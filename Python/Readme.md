@@ -1373,8 +1373,84 @@ print('Laptop OBJ',lapObj.brand)
 
 ### Inheritance
 - Single 
+```python
+
+class A:
+    def __init__(self):
+        print('A class init ')
+
+    def display(self):
+        print('display here: - A')
+
+class B(A):
+    def __init__(self):
+       print('B class Init')
+
+
+obj = B()
+obj.display()
+```
 - Multilevel
+```python
+
+class A: # PARENT 
+    def feature1(self):
+        print('Feature 1')
+        
+    def feature2(self):
+        print('Feature 2')
+
+
+class B(A):
+    
+    def feature3(self):
+        print('Feature 3')
+
+        
+    def feature4(self):
+        print('Feature 4')
+
+class C(B):
+    
+    def feature5(self):
+        print('Feature 5')
+
+
+obj = C()
+obj.feature1()
+
+
+```
 - Multiple
+```python
+class A: # PARENT 
+    def feature1(self):
+        print('Feature 1')
+        
+    def feature2(self):
+        print('Feature 2')
+
+
+class B:
+    
+    def feature3(self):
+        print('Feature 3')
+
+        
+    def feature4(self):
+        print('Feature 4')
+
+class C(A,B):
+    
+    def feature5(self):
+        print('Feature 5')
+
+
+obj = C()
+obj.feature1()
+
+
+```
 #### Constractor in Inheritance 
 - Constractor calling
 - super() in init
@@ -1382,6 +1458,33 @@ print('Laptop OBJ',lapObj.brand)
 - Method resolution order
 	- Order takes left to right
 	- For method also if there is two same method in multiple inheritance then it will excure R to L
+
+```python
+class A:
+    def __init__(self):
+        print('A class init ')
+
+    def display(self):
+        print('display here: - A')
+
+class B:
+    def __init__(self):
+       print('B class Init')
+
+    def display(self):
+        print('display here: - B')
+
+class C(B,A): 
+    def __init__(self):
+       print('C class Init')
+
+
+obj = C()
+
+obj.display()
+
+
+```
 ### Polymorphism
 - Poly => Many
 - Morph => Forms 
