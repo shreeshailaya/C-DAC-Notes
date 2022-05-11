@@ -1543,7 +1543,7 @@ print(s1+s2)
 ```
 | operator | method |
 | --- | --- |
-| +	__add__(self, other) | 
+| +	| __add__(self, other) | 
 | – | 	__sub__(self, other) | 
 | * | 	__mul__(self, other) | 
 | / | 	__truediv__(self, other) | 
