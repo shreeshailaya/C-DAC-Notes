@@ -1541,6 +1541,20 @@ s2 = Student(50)
 print(s1+s2)
 
 ```
+| operator | method |
+| --- | --- |
+| +	__add__(self, other) | 
+| – | 	__sub__(self, other) | 
+| * | 	__mul__(self, other) | 
+| / | 	__truediv__(self, other) | 
+| // | 	__floordiv__(self, other) | 
+| % | 	__mod__(self, other) | 
+| ** | 	__pow__(self, other) | 
+| >> | 	__rshift__(self, other) | 
+| << | 	__lshift__(self, other) | 
+| & | 	__and__(self, other) | 
+| | | 	__or__(self, other) | 
+| ^ | 	__xor__(self, other) | 
 - __str__()
 
 - object printing
