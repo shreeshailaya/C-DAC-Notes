@@ -1590,7 +1590,6 @@ print(obj.add(1,2,3))
 - Compile Time Error
 	- Syntax error
 - Logical Error
-	- 
 - Runtime
 	- Divide by 0
 - In expection handling we work on handling the error
@@ -1645,3 +1644,13 @@ b = int(input("Enter No"))
 if b<=0:
 	raise Exception('Wrong IP')
 ```
+	
+***
+
+Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
+	
+Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
+
+***
+
+
