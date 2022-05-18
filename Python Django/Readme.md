@@ -41,13 +41,13 @@
 - Model: The model is going to act as the interface of your data. It is responsible for maintaining data. It is the logical data structure behind the entire application and is represented by a database (generally relational databases such as MySql, Postgres)
 
 ### Setup Virtual Environment and Django Project
-1. >pip install virtualenv
+1. > pip install virtualenv
 
-2. >python -m virtualenv .tpvenv 
+2. > python -m virtualenv .tpvenv 
 
-3. >.\.tpvenv\Scripts\activate
+3. > .\.tpvenv\Scripts\activate
 
-4. >deactivate
+4. > deactivate
 
 ---
 *Creating Django Project*
@@ -56,15 +56,15 @@
 - else you can install it directly with pip install with package name
 
 1. To start new project use following command (Note: make sure you are in virtual env)
-    - `django-admin startproject project_name`
+    - > `django-admin startproject project_name`
 
 
     
 2. This will start your basic project with no build app in it on localhost
-    - `python manage.py runserver`
+    - > `python manage.py runserver`
 
 - manage.py- This file is used to interact with your project via the command line(start the server, sync the database… etc). For getting the full list of commands that can be executed by manage.py type this code in the command window- 
-    - `python manage.py help`
+    - > `python manage.py help`
 
 - _init_.py – It is a python package. It is invoked when the package or a module in the package is imported. We usually use this to execute package initialization code, for example for the initialization of package-level data.
 - settings.py – As the name indicates it contains all the website settings. In this file, we register any applications we create, the location of our static files, database configuration details, etc.
@@ -73,10 +73,10 @@
 
 - Django basically divides your code into the different different app's
 3. You can create app by using
-    - `python manage.py startapp app_name`
+    - > `python manage.py startapp app_name`
 
 
-<!--
+
 ## Hello World in Django
 - app.urls.py
 ```python
@@ -106,12 +106,31 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 ```
-
--->
-
-
-
-
-
-
+### Hello World with Template
+- Create a template folder in root of project
+- Add index.html page in it
+- Major change in settings.py in project settings
+- Set path in DIRS 
+```python
+TEMPLATES = [
+{
+    'DIRS': ['BASE_DIR', 'template_dir_name'],
+}
+]
+```
+- render the views function with request and the html file name
+```python
+def index(request):
+    return render(request, 'template_name.html')
+```
+### Sending dynamic data from view's to template
+- app.views.py
+```python
+def index(request):
+    return render(request, 'template_name.html', {key:value})
+```
+- template.html
+```html
+<h2> This is value come from views: {{key}} </h2>
+```
 
