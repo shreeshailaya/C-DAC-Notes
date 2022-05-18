@@ -133,4 +133,178 @@ def index(request):
 ```html
 <h2> This is value come from views: {{key}} </h2>
 ```
+- Every app that created that should be register in setting.py in installed apps
+> python manage.py migrate 
+- This command migrate the changes in base and app 
+- Setting up new path of template dir
 
+
+
+
+## Views 
+![views](https://media.geeksforgeeks.org/wp-content/uploads/20200124153519/django-views.jpg)
+- A view is a place where we put our business logic of the application
+```python
+# import Http Response from django
+from django.http import HttpResponse
+# get datetime
+import datetime
+
+# create a function
+def home_view(request):
+	# fetch date and time
+	now = datetime.datetime.now()
+	# convert to string
+	html = "Time is {}".format(now)
+	# return response
+	return HttpResponse(html)
+
+```
+- There are two types of view 
+    - Class based views
+    - Function based views 
+
+
+
+### Templates and Django Templates Language
+- You can change the path of template file by configuration of settings.py
+- Variable 
+    - A variable outputs a value from the context, which is a dict-like object mapping keys to values.
+    - Variables are surrounded by {{ and }} like this:
+    - `My first name is {{ first_name }}. My last name is {{ last_name }}.`
+- Tags
+    - Tags provide arbitrary logic in the rendering process.
+    - For example, a tag can output content, serve as a control structure e.g. an “if” statement or a “for” loop, grab content from a database, or even enable access to other template tags.
+    - Syntax `{% tag_name %}`
+    - Commonly used tags
+    ```
+    Comment, cycle, extends,
+    if, for loop, for … empty loop,
+    Boolean Operators, firstof, include,
+    lorem, now, url
+    ```
+
+### if else in templates
+```python
+# import Http Response from django
+from django.shortcuts import render
+
+# create a function
+def home_view(request):
+	# create a dictionary
+	context = {
+		"data" : 99,
+	}
+	# return response
+	return render(request, "home.html", context)
+
+```
+
+```html
+
+{% if data %}
+Value in data is : - {{ data }}
+{% else %}
+Data is empty
+{% endif%}
+
+
+```
+### for in templates 
+- app.views.py
+```python
+
+def home_view(request):
+    context = {
+        'data': 'This is Django view and templates',
+        'lst': [2,4,9]
+    }
+    return render(request, 'home.html', context)
+
+```
+- template.home.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Views/Templates</title>
+</head>
+<body>
+    <h1>{{ data }}</h1>
+    <br>
+    <b>This is list view </b>
+    <br>
+    {% for i in lst %}
+    <b>{{ i }}</b>
+    <br>
+    {% endfor %}
+</body>
+</html>
+```
+- install jinja extension for jinja code view 
+
+## Filters
+- Django Template Engine provides filters that are used to transform the values of variables and tag arguments.
+- Syntax `{{ variable_name | filter_name }}
+- Some of filters
+```
+add, addslashes, capfirst,
+center,	cut, date,
+default, dictsort, divisibleby,
+escape, filesizefodivisible,
+join, last,	length,
+line numbers,	lower,	make_list,
+random,	slice,	slugify,
+time,	timesince,	title,
+unordered_list,	upper,	wordcount
+```
+
+### Comments 
+```html
+{% comment "Optional note" %}
+    Commented out text 
+    {% endcomment %}
+```
+
+### extends tag
+- extends tag is used for inheritance of templates in django
+- One needs to repeat the same code again and again. Using extends we can inherit templates as well as variables.
+- base.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Base HTML</title>
+</head>
+<body>
+   
+    <h1>BAse HTML</h1>
+    {% block content %}
+    
+    {% endblock %}
+    
+</body>
+</html>
+```
+-  home.html
+```html
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>home.html</title>
+</head>
+<body>
+    
+    {% block content %}
+    {{ data }}
+    {% endblock %}
+    
+</body>
+</html>
+```
+- Inheritance means it overriding all the content in html
+- block content block allow to block the content which is selected or which is present in block
