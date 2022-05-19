@@ -136,6 +136,7 @@ def index(request):
 - Every app that created that should be register in setting.py in installed apps
 > python manage.py migrate 
 - This command migrate the changes in base and app 
+
 - Setting up new path of template dir
 
 
@@ -248,7 +249,7 @@ def home_view(request):
 
 ## Filters
 - Django Template Engine provides filters that are used to transform the values of variables and tag arguments.
-- Syntax `{{ variable_name | filter_name }}
+- Syntax `{{ variable_name | filter_name }}`
 - Some of filters
 ```
 add, addslashes, capfirst,
@@ -268,7 +269,11 @@ unordered_list,	upper,	wordcount
     Commented out text 
     {% endcomment %}
 ```
-
+### include tag
+- Include tag inject the code of one template to the another template 
+- include tag do not override the existing code 
+- where ever you put include it will call whole template there 
+- you have to just mention `{% include 'template_name.html' %}`
 ### extends tag
 - extends tag is used for inheritance of templates in django
 - One needs to repeat the same code again and again. Using extends we can inherit templates as well as variables.
@@ -308,3 +313,10 @@ unordered_list,	upper,	wordcount
 ```
 - Inheritance means it overriding all the content in html
 - block content block allow to block the content which is selected or which is present in block
+
+
+### Simple operation in django
+- adding 2 numbers with get method 
+### Difference between GET and POST
+- Post add 2 numbers
+- csrf_token 
