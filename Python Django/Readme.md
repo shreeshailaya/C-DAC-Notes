@@ -314,9 +314,28 @@ unordered_list,	upper,	wordcount
 - Inheritance means it overriding all the content in html
 - block content block allow to block the content which is selected or which is present in block
 
+### Static files
+- Static files are the files which contains js/css/image files 
+- The static folder helps to user to store the js, css and image file 
+- To invoke static Make change is settings.py
+```python 
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'static/')
+]
 
+STATIC_URL = 'static/'
+```
+- Use tag `{% load static %}` and load the static file for example 
+    - ```html
+    {% load static %}
+    <link href="{% static 'home.css' %}" rel="stylesheet">     
+    <script src="{% static 'js/home.js' %}"></script>
+    <img src = "{% static 'logo.png' %}" height="200" width="200" class="d-inline-block align-top">
+
+    ```
 ### Simple operation in django
 - adding 2 numbers with get method 
 ### Difference between GET and POST
 - Post add 2 numbers
 - csrf_token 
+
