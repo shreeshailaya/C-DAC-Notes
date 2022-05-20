@@ -326,7 +326,8 @@ STATICFILES_DIRS = [
 STATIC_URL = 'static/'
 ```
 - Use tag `{% load static %}` and load the static file for example 
-    - ```
+- 
+    ```
     {% load static %}
     <link href="{% static 'home.css' %}" rel="stylesheet">     
     <script src="{% static 'js/home.js' %}"></script>
