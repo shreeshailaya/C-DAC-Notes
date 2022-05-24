@@ -340,3 +340,73 @@ STATIC_URL = 'static/'
 - Post add 2 numbers
 - csrf_token 
 
+### Models
+- A Django model is the built-in feature that Django uses to create tables, their fields, and various constraints.
+- Each model is a Python class that subclasses django.db.models.Model.
+- Each attribute of the model represents a database field.
+- With all of this, Django gives you an automatically-generated database-access API
+![models](https://media.geeksforgeeks.org/wp-content/uploads/20191220123439/django-models.png)
+
+
+```python 
+class Products(models.Model):
+    name =  models.CharField(max_length=100, blank=True)
+    price = models.IntegerField(null = True)
+    quantity = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+```
+
+- __str__() function represent how object should be display
+- after writing this you need to run following command for making migrations
+    - `python manage.py makemigrations`
+    - `python manage.py migrate`
+- Every time you made changes in models you need to run these commands 
+- 
+
+
+### ORM (Object Relational Mapping)
+- We can access the Django ORM by running the following command inside our project directory.
+    `python manage.py shell`
+- This brings us to an interactive Python console. Assuming that our models exist in MyProject/smallapp/models.py we can import our models using the following command:
+    - `from smallapp.models import products`
+- * NOTE: You can use django_extension package so it will provide shell_plus so you need not to explicitly import the classes*
+
+- Adding objects/record in DB
+    ````
+    a = Products(name = 'name_of_product', price = 22, quantity = 33)
+    a.save()
+    ```
+- View all objects/data from DB 
+    `Products.objects.all()`
+- Search/filter object 
+    `Products.objects.filter(name = 'product_name')`
+- Update Object 
+
+    ```
+    a = Product.objects.get(pk = pk_id)
+    a.name = 'new_name'
+    a.save()
+    ```
+- Delete object 
+    ```
+    a = Product.objects.get(pk = pk_id)
+    a.delete()
+
+    OR
+
+    Product.objects.get(pk = pk_id).delete()
+
+    ```
+- register in admin.py
+```python 
+@admin.register(Products)
+class Products(admin.ModelAdmin):
+    pass  
+```
+
+- create superuser
+    `python manage.py createsuperuser
+- login with admin
