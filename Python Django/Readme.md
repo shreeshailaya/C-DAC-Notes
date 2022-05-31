@@ -409,4 +409,198 @@ class Products(admin.ModelAdmin):
 
 - create superuser
     `python manage.py createsuperuser
-- login with admin
+- login with 
+
+### Create, Delete and View with template form 
+#### View Products
+
+- NAV bar
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAV</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Products</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'products' %}">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'pform' %}">Add Products</a>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</body>
+</html>
+```
+
+- display_products.html
+```html
+{% include 'navbar.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Products</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+    {{products.name}}
+    {% for i in products%}
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Name : {{i.name}}</div>
+        <div class="card-body">
+            <h5 class="card-title">ID : {{i.id}}</h5>
+          <h5 class="card-title">Price : {{i.price}}</h5>
+          <p class="card-text">Quantity : {{i.quantity}}</p>
+        </div>
+      </div>
+
+    {% endfor %}
+    
+</body>
+</html>
+```
+
+- views.py
+```python
+def products(request):
+    pros = Products.objects.all()
+    return render(request, 'display_products.html', {'products':pros})
+
+```
+- urls.py
+
+```python
+ path('products', views.products, name= 'products'),
+```
+
+### Add and Delete Products
+
+```html
+{% include 'navbar.html'%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <h1>ADD PRODUCT</h1>
+
+<form action="add_pro" method="get">
+    NAME<input type="text" name="name" id="">
+    PRICE<input type="text" name="price" id="">
+    QUANTITY<input type="text" name="quantity" id="">
+    <input type="submit" value="submit">
+    
+
+
+</form>
+<br><br><br>
+
+<h1>DELETE PRODUCT</h1>
+
+<form action="delete" method="get">
+    ID of Product<input type="text" name="id">
+    <input type="submit" value="DELETE">
+
+</form>
+<br><br>
+
+
+
+    <h1 style="color: red;">{{success}}</h1>
+</body>
+</html>
+```
+
+- urls.py
+
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.index, name='home'),
+    path('add_pro', views.add_pro, name='add_pro'),
+    path('productForm', views.productForm, name='pform'), 
+    path('products', views.products, name= 'products'),
+    path('delete', views.delete, name='delete'),
+    
+    
+   
+]
+```
+
+- views.py
+```python
+
+from django.shortcuts import render
+from smallapp.forms import ProductForm
+from smallapp.models import Products
+
+
+# Create your views here.
+def index(request):
+    return render(request, 'index.html')
+
+def productForm(request):
+    #context ={}
+    #context['form']= ProductForm()
+    return render(request, "add_product.html")
+
+def add_pro(request):
+    name1 = request.GET['name']
+    price1 = request.GET['price']
+    quantity1 = request.GET['quantity']
+    img = ''#request.GET['img']
+
+    Products.objects.create(name = name1, price = price1, quantity = quantity1)
+   
+    return render(request, 'add_product.html', {'success':'Successfully Saved data'})
+
+def products(request):
+    pros = Products.objects.all()
+    return render(request, 'display_products.html', {'products':pros})
+
+def delete(request):
+    id1 = int(request.GET['id'])
+    snippet = Products.objects.get(id=id1).delete()
+    return render(request, 'add_product.html', {'success':'deleted successfully'})
+
+```
