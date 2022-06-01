@@ -499,7 +499,10 @@ def products(request):
 ```python
  path('products', views.products, name= 'products'),
 ```
-
+### Including the boostrap CDN's properly
+- Before including the CDN check all the CDN you are using are of same version
+- When you extends the html its fine base.html version of boostrap will continue everywhere 
+- But when you include html page you have to explicitly add all CDN as per base.html
 ### Add and Delete Products
 
 ```html
