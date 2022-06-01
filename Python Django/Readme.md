@@ -607,3 +607,4 @@ def delete(request):
     return render(request, 'add_product.html', {'success':'deleted successfully'})
 
 ```
+
