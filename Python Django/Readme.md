@@ -607,4 +607,61 @@ def delete(request):
     return render(request, 'add_product.html', {'success':'deleted successfully'})
 
 ```
+## Django Forms
+- When one creates a Form class, the most important part is defining the fields of the form
+- Each field has custom validation logic, along with a few other hooks.
+- Note that all types of work done by Django forms can be done with advanced HTML stuff, but Django makes it easier and efficient especially the validation part. Once you get hold of Django forms you will just forget about HTML forms.
+- Syntax `field_name = forms.FieldType(**options) `
+- Create forms.py in your app folder
+```python
+from django import forms
+from .models import Products
+ 
+ 
+# creating a form
+class ProductForm(forms.Form):
+    name = forms.CharField(max_length=200)
+    info = forms.CharField(max_length=200)
+
+```
+
+- urls.py
+```python
+    path('productform', views.create_view),
+
+```
+- views.py
+
+```python
+def create_view(request):
+
+    form = ProductForm()
+    return render(request, "utilityTemp/create_view.html", {'form': form})
+
+```
+- create_view.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="submitted">
+
+        <!-- Security token -->
+        {% csrf_token %}
+    
+        <!-- Using the formset -->
+        {{ form }}
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>
+```
 
