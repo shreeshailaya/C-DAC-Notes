@@ -665,3 +665,249 @@ def create_view(request):
 </html>
 ```
 
+- {{ form.as_table }} will render them as table cells wrapped in <tr> tags
+- {{ form.as_p }} will render them wrapped in <p> tags
+- {{ form.as_ul }} will render them wrapped in <li> tags
+
+## Django Models Form (CRUD)
+### Create 
+- forms.py
+```python
+from django import forms
+from django.forms import ModelForm
+from utility.models import Products
+ 
+ 
+# creating a form
+class ProductForm(ModelForm):
+    class Meta:
+        # specify model to be used
+        model = Products
+ 
+        # specify fields to be used
+        fields = '__all__'
+
+
+
+'''
+fields = [
+            "name",
+            "price",
+        ]
+'''
+```
+- urls.py
+```python
+    path('productform', views.create_view, name='productform'),
+```
+
+- views.py
+```python
+def create_view(request):
+    # dictionary for initial data with
+    # field names as keys
+    
+    success = ''
+    form = ProductForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        success = 'Successfully saved data'
+    # add the dictionary during initialization
+    return render(request, "utilityTemp/create_view.html", {'form': form, 'success': success})
+
+```
+- The is_valid() method is used to perform validation for each field of the form, it is defined in Django Form class.
+- It returns True if data is valid and place all data into a cleaned_data attribute
+
+- template create_view.html
+```html
+{% include 'navbar.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add Product Form</h1>
+    <form method="POST" >
+
+        <!-- Security token -->
+        {% csrf_token %}
+    
+        <!-- Using the formset -->
+        {{ form }}
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1 style="color: red;">
+    {{success}}
+    </h1>
+    
+</body>
+</html>
+```
+### Read
+- urls.py
+```python
+    path('products', views.products, name='products'),
+
+```
+- views.py
+```python
+def products(request):
+    products_data = Products.objects.all()
+    return render(request, 'utilityTemp/products.html', {'products': products_data})
+
+```
+- template products.html
+```html
+{% include 'navbar.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>   
+<body>
+       
+   
+    <title>Display Products</title>
+    <h1>Products</h1>
+    {% for i in products%}
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Name : {{i.name}}</div>
+        <div class="card-body">
+            <h5 class="card-title">ID : {{i.id}}</h5>
+          <h5 class="card-title">Price : {{i.price}}</h5>
+          <p class="card-text">Quantity : {{i.quantity}}</p>
+          </div>
+      </div>
+
+    {% endfor %}
+
+    <h1 style="color: red;">{{success}}</h1>
+    
+</body>
+</html>
+```
+### Delete
+- modify template products.html add the delete button which sends product id with url
+```html
+        <p class="card-text">Quantity : {{i.quantity}}</p>
+        <a href="/delete/{{ i.id }}"><Button>DELETE</Button></a>
+
+```
+- This button delete will send id of product to the delete url
+
+- urls.py
+```python 
+    path('delete/<id>', views.delete, name='delete'),
+```
+- `<id>` will handle the id send by template
+
+- views.py
+```python
+def delete(request, id):
+    Products.objects.get(id=id).delete()
+    return render(request, 'utilityTemp/products.html', {'success':'Successfully deleted Item'})
+
+```
+
+### Update
+- Create button of update in products.html
+- Which send product id to the update url-->views
+```html
+    <a href="/update/{{ i.id }}"><Button>UPDATE</Button></a>
+```
+- urls.py
+```python
+    path('update/<id>', views.update_view, name='update'),
+```
+- views.py
+```python
+
+def update_view(request, id):
+    success = ''
+    # fetch the object related to passed id
+    obj = Products.objects.get(id = id)
+    return render(request, "utilityTemp/update_view.html", {'object': obj, 'success':success})
+
+```
+- update_view.html
+```html
+{% include 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <script src="{% static 'js/update_view.js' %}"></script>
+
+</head>
+<body>
+    <h1>Update Product</h1>
+    <div class="main">
+        <!-- Create a Form -->
+        <form method="POST" action="{% url 'updateData' %}">
+            <!-- Security token by Django -->
+            {% csrf_token %}
+            ID <input type="text" name="id" value="{{object.id}}" readonly="readonly" onclick="idUpdateError()">
+
+            Name<input type="text" name="name" value="{{ object.name }}" id="">
+            Price <input type="number" name="price" id="" value="{{object.price}}">
+            Quantity <input type="number" name="quantity" value="{{object.quantity}}">
+            <input type="submit" value="Update">
+        </form>
+        <p id="idupdate" style="color: red;"></p>
+    
+    </div>
+    
+    
+</body>
+</html>
+```
+
+- in static js/update_view.js
+```js
+function idUpdateError()
+{
+    document.getElementById('idupdate').innerHTML = 'Sorry you cannot update value of id'
+    
+}
+```
+- action updateData in urls.py
+```python
+    path('update_data', views.updateData, name='updateData')
+```
+- views.py
+
+```python
+
+
+def updateData(request):
+    print(request.POST)
+    
+    id1 = request.POST['id']
+    name1 = request.POST['name']
+    price1 = request.POST['price']
+    quantity1 = request.POST['quantity']
+
+    print(id1)
+    obj = get_object_or_404(Products, id = id1)
+    obj.name = name1
+    obj.price = price1
+    obj.quantity = quantity1
+
+    obj.save()
+    
+    return render(request, 'utilityTemp/products.html', {'success': 'Updated successfully'})
+```
