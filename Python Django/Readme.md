@@ -911,3 +911,76 @@ def updateData(request):
     
     return render(request, 'utilityTemp/products.html', {'success': 'Updated successfully'})
 ```
+### Image Upload 
+
+- Settings.py
+
+```python
+# Base url to serve media files  
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Path where media is stored  
+MEDIA_URL = '/media/'
+```
+- models.py
+```python
+    img = models.ImageField(upload_to='images/', default='default_product.png')
+
+```
+
+- pip install Pillow  9.1.1 (latest)
+- main project urls.py
+```python
+from django.conf import settings
+from django.conf.urls.static import static
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)
+```
+
+- template.html
+```html
+ <!-- multipart/form-data Required for handling image -->
+<form method="POST"  enctype="multipart/form-data">
+
+        <!-- Security token -->
+        {% csrf_token %}
+    
+        <!-- Using the formset -->
+        {{ form.as_p }}
+        
+        <button type="submit" value="Submit">SUBMIT</button>
+    </form>
+
+```
+- views.py
+```python
+
+def create_view(request):
+    # dictionary for initial data with
+    # field names as keys
+    
+    success = ''
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            name = form.cleaned_data.get("name")
+            price = form.cleaned_data.get("price")
+            quantity = form.cleaned_data.get("quantity")
+            img = form.cleaned_data.get("img")
+
+            obj = Products.objects.create(
+                                 name = name,
+                                 price = price,
+                                 quantity = quantity,
+                                 img = img
+                                 )
+            obj.save()
+            print(name)
+            success = 'Successfully saved data'
+    else:
+      form = ProductForm()
+
+    # add the dictionary during initialization
+    return render(request, "utilityTemp/create_view.html", {'form': form, 'success': success})
+
+```
