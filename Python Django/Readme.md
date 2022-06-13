@@ -1040,16 +1040,103 @@ path('classcreate', ProductCreate.as_view(), name='classcreate')   #Class based 
 ```
 - Refer this [link](https://www.geeksforgeeks.org/class-based-generic-views-django-create-retrieve-update-delete/)  for other operations like retrieve, update, delete
 
-## Filters in admin
+## Django Admin Customization
+### Adding Search and Filters
+- Currently, we have only a few entries in our models, but what if the entries increase to hundreds or thousands due to more number of users?
+-  To get data of a particular entry will become tedious if we go by looking at each entry.
+- Therefore we need to add a search bar or a filter feature to allow entries to be accessed easily.
+```python
+from django.contrib import admin
+from utility.models import Products
+
+# Register your models here.
+@admin.register(Products)
+class Products(admin.ModelAdmin):
+     # Let you to search with title name, price, quantity
+    search_fields = ['name']
+    # List filter
+    list_filter = ['price']
+```
+### Viewing Additional Fields
+- In admin interface, normally we see only one field of our models in the list view. We can add more fields to view with list_display.
+```python
+@admin.register(Products)
+class Products(admin.ModelAdmin):
+    list_display =['name','price', 'quantity']
+```
+
+## Relations in Models
+
+### Many-to-one fields:
+- This is used when one record of a model A is related to multiple records of another model B.
+- For example – a model Song has many-to-one relationship with a model Album, i.e. an album can have many songs, but one song cannot be part of multiple albums.
+- Many-to-one relations are defined using `ForeignKey` field of django.db.models.
+```python
+from django.db import models
+
+class Album(models.Model):
+	title = models.CharField(max_length = 100)
+	artist = models.CharField(max_length = 100)
+
+class Song(models.Model):
+	title = models.CharField(max_length = 100)
+	album = models.ForeignKey(Album, on_delete = models.CASCADE)
+
+```
+### Many-to-many fields:
+- This is used when one record of a model A is related to multiple records of another model B and vice versa. 
+- For example – a model Book has many-to-many relationship with a model Author, i.e. an book can be written by multiple authors and an author can write multiple books
+- Many-to-many relations are defined using ManyToManyField field of `django.db.models`.
+```python
+from django.db import models
+
+class Author(models.Model):
+	name = models.CharField(max_length = 100)
+	desc = models.TextField(max_length = 300)
+
+class Book(models.Model):
+	title = models.CharField(max_length = 100)
+	desc = models.TextField(max_length = 300)
+	authors = models.ManyToManyField(Author)
+
+
+```
+- It is a good practice to name the many-to-many field with the plural version of the related model, lowercase. It doesn’t matter which of the two models contain the many-to-many field, but it shouldn’t be put in both the models.
+
+### One-to-one fields:
+- This is used when one record of a model A is related to exactly one record of another model B.
+- This field can be useful as a primary key of an object if that object extends another object in some way.
+- For example – a model Car has one-to-one relationship with a model Vehicle, i.e. a car is a vehicle. One-to-one relations are defined using `OneToOneField` field of `django.db.models`.
+```python
+from django.db import models
+
+class Vehicle(models.Model):
+	reg_no = models.IntegerField()
+	owner = models.CharField(max_length = 100)
+
+class Car(models.Model):
+	vehicle = models.OneToOneField(Vehicle,
+		on_delete = models.CASCADE, primary_key = True)
+	car_model = models.CharField(max_length = 100)
+
+
+```
+- It is a good practice to name the one-to-one field with the same name as that of the related model, lowercase.
+### On delete integrity options
+- on_delete = models.CASCADE – This is the default value. It automatically deletes all the related records when a record is deleted.(e.g. when an Album record is deleted all the Song records related to it will be deleted)
+- on_delete = models.PROTECT – It blocks the deletion of a record having relation with other records.(e.g. any attempt to delete an Album record will be blocked)
+- on_delete = models.SET_NULL – It assigns NULL to the relational field when a record is deleted, provided null = True is set.
+- on_delete = models.SET_DEFAULT – It assigns default values to the relational field when a record is deleted, a default value has to be provided.
+- on_delete = models.SET() – It can either take a default value as parameter, or a callable, the return value of which will be assigned to the field.
+- on_delete = models.DO_NOTHING – Takes no action. Its a bad practice to use this value.
 
 
 <!-- 
 
-
-### Relations in Models
 ### User in Models 
 ### Login user
 ### Registration user
 ### Login Required Pages Decorators 
+### Git/github
 ### Deployment on AZURE
 !-->
