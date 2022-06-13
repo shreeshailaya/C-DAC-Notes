@@ -1,4 +1,5 @@
 # Web Designing with Python Django
+![DJANGO](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/django.png)
 ## Some Question Answers before jump into the web development
 - How Internet Works
     - Server 
