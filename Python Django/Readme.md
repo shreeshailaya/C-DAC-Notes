@@ -984,3 +984,71 @@ def create_view(request):
     return render(request, "utilityTemp/create_view.html", {'form': form, 'success': success})
 
 ```
+
+## Class Based Views
+- At its core, a class-based view allows you to respond to different HTTP request methods with different class instance methods, instead of with conditionally branching code inside a single view function.
+- Class based views are very structured
+- for handling the templates you need to create `app_name` folder in templates 
+- for example create_view
+- views.py
+```python
+from django.views.generic.edit import CreateView
+
+class ProductCreate(CreateView):
+ 
+    # specify the model for create view
+    model = Products
+ 
+    # specify the fields to be displayed
+ 
+    fields = ['name', 'price', 'quantity', 'img']
+```
+- urls.py
+```python
+from utility.views import ProductCreate
+
+path('classcreate', ProductCreate.as_view(), name='classcreate')   #Class based Views for create
+
+```
+- templates/utility/products_form.html
+```python
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class View Template</title>
+</head>
+<body>
+    <h1>Add products based on class view</h1>
+    <form method="POST" enctype="multipart/form-data">
+
+        <!-- Security token -->
+        {% csrf_token %}
+    
+        <!-- Using the formset -->
+        {{ form.as_p }}
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>
+```
+- Refer this [link](https://www.geeksforgeeks.org/class-based-generic-views-django-create-retrieve-update-delete/)  for other operations like retrieve, update, delete
+
+## Filters in admin
+
+
+<!-- 
+
+
+### Relations in Models
+### User in Models 
+### Login user
+### Registration user
+### Login Required Pages Decorators 
+### Deployment on AZURE
+!-->
