@@ -985,6 +985,8 @@ def create_view(request):
     return render(request, "utilityTemp/create_view.html", {'form': form, 'success': success})
 
 ```
+#### Customization of Django Forms(Applying css/js)
+- When you `runserver` every form will converted into a html page so you can use that html tags to customized the form 
 
 ## Class Based Views
 - At its core, a class-based view allows you to respond to different HTTP request methods with different class instance methods, instead of with conditionally branching code inside a single view function.
@@ -1130,7 +1132,27 @@ class Car(models.Model):
 - on_delete = models.SET() – It can either take a default value as parameter, or a callable, the return value of which will be assigned to the field.
 - on_delete = models.DO_NOTHING – Takes no action. Its a bad practice to use this value.
 
+## User Model 
+- The Django’s built-in authentication system is great. For the most part we can use it out-of-the-box, saving a lot of development and testing effort.
 
+- Now we have to connect our Product with the seller so you have to do some changes in models 
+```python
+from django.contrib.auth.models import User
+
+
+class Products(models.Model):
+    name = models.CharField(max_length=100, default='')
+    quantity = models.IntegerField()
+    price = models.IntegerField()
+    img = models.ImageField(upload_to='images/', default='default_product.png')
+    seller = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.name
+
+```
+- This changes in Products will connect the User( inbuilt model )to the Products model
 <!-- 
 
 ### User in Models 
