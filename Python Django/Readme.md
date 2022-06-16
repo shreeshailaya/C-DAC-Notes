@@ -1153,9 +1153,261 @@ class Products(models.Model):
 
 ```
 - This changes in Products will connect the User( inbuilt model )to the Products model
+- Now you need to do some changes in `views.py` so that without selecting user, based on login user seller will save, for that you need to take instance of logged in user from views and save it
+```python
+obj = Products.objects.create(
+                                 name = name,
+                                 price = price,
+                                 quantity = quantity,
+                                 img = img,
+                                 seller = request.user #user who has active login
+                            )
+```
+- Now remove `seller_field` from forms.py
+- So based on log in user data will save
+- Add seller in products.html
+```html
+        <h5 class="card-title">Price : {{i.price}}</h5>
+        <h5 class="card-title">Seller : {{i.seller}}</h5>
+        <p class="card-text">Quantity : {{i.quantity}}</p>
+```
+
+### Authentication
+#### is_authenticated tag 
+
+- syntax
+```
+{% if user.is_authenticated %}
+    ...
+{% else %}
+    ...
+{% endif %}
+```
+- Then use `is_authenticated` tag for hide the UPDATE and DELETE button.
+
+
+### @login_required
+- This decorators represent that for accessing the function you need to login first 
+```python
+from django.contrib.auth.decorators import login_required
+@login_required(redirect_field_name='my_redirect_field')
+def my_view(request):
+    ...
+
+#OR
+
+from django.contrib.auth.decorators import login_required
+
+@login_required(login_url='/accounts/login/')
+def my_view(request):
+    ...
+```
+- Use login required on delete/update functions in views
+### Verify user when DELETE and UPDATE
+- views.py
+```python
+
+@login_required
+def delete(request, id):
+    
+    obj = Products.objects.get(id=id)
+    if obj.seller == request.user:
+        obj.delete()
+        return render(request, 'utilityTemp/products.html', {'success':'Successfully deleted Item'})
+    else:
+        return HttpResponse('<h2>Sorry you cannot edit this you are not the owner of this post </h2>')
+
+
+
+@login_required
+def update_view(request, id):
+    success = ''
+    # fetch the object related to passed id
+    
+    obj = Products.objects.get(id = id)
+    print(obj.seller)
+    if obj.seller == request.user:
+        return render(request, "utilityTemp/update_view.html", {'object': obj, 'success':success})
+    else: 
+        return HttpResponse('<h2>Sorry you cannot edit this you are not the owner of this post </h2>')
+
+```
+- Hide create_view form
+- create_view.html
+```html
+{% include 'navbar.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <h1>Add Product Form</h1>
+    <form method="POST"  enctype="multipart/form-data">
+
+        <!-- Security token -->
+        {% csrf_token %}
+    
+        <!-- Using the formset -->
+        {{ form.as_p }}
+        
+        <button type="submit" value="Submit">SUBMIT</button>
+    </form>
+
+   
+
+    <h1 style="color: red;">
+    {{success}}
+    </h1>
+{% else %}
+
+    <h3>Login required to view this page</h3>
+{% endif %}
+</body>
+</html>
+
+```
+
+
+
+### Create users/accounts app which handles login registration and logout
+- Now make changes in the Navbar.html
+- Which creates login/registration links when user is not login and logout and welcome user when user is login
+```html
+</li>
+          </ul>
+          
+        </div>
+        {% if user.is_authenticated %}
+        Welcome {{ user.get_username }} 
+        
+          <a class="nav-link" href="{% url 'logout' %}">logout</a>
+        {% else %}
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+          <a class="nav-link" href="{% url 'registration' %}">Registration</a>
+
+        {% endif %}
+      </nav>
+      
+```
+
+## User Login and Registration and Logout
+### Registration
+
+- userTemp/registration.html
+```html
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        Username <input type="text" name="username" id="username"> <p></p>
+        First Name <input type="text" name="fname" id="fname"> <p></p>
+        Last Name <input type="text" name="lname" id="lname"><p></p>
+        Email <input type="email" name="email" id="email"><p></p>
+        Password <input type="password" name="pass1" id="pass1"><p></p>
+        Re-enter Password <input type="password" name="pass2" id="pass2"><p></p>
+        <input type="submit" value="Register"><p></p>
+    </form>
+
+    <h1 style="color: red;">{{msg}}</h1>
+</body>
+</html>
+```
+- views.py
+```python
+
+def registration(request):
+    msg = ''
+    if request.method == 'POST':
+
+        username = request.POST['username']
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        email = request.POST['email']
+        pass1 = request.POST['pass1']
+        pass2 = request.POST['pass2']
+        if pass1 == pass2:
+            myuser = User.objects.create_user(username, email, pass1)
+            myuser.first_name = fname
+            myuser.last_name = lname
+            myuser.save()
+            msg = 'Registration Done'
+            return render(request, 'userTemp/registration.html', {'msg': msg} )
+        else:
+            msg = 'Passwords are not matching'
+            return render(request, 'userTemp/registration.html', {'msg': msg} )
+
+    else:
+        return render(request, 'userTemp/registration.html')
+
+```
+### Login
+- login.html
+```html
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>LOGIN</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        Username <input type="text" name="username" id="username"> <p></p>
+        Password <input type="password" name="password" id="password"> <p></p>
+        <input type="submit" value="Submit">
+    </form>
+    <h1 style="color: red;">{{msg}}</h1>
+</body>
+</html>
+```
+- views.py
+```python
+
+def loginfun(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'index.html')
+        else:
+            return render(request, 'userTemp/login.html', {'msg': 'Invalid username or password'})
+
+    else:
+        return render(request, 'userTemp/login.html')
+
+
+```
+### logout
+- views.py
+```python
+def logoutfun(request):
+    logout(request)
+    return redirect('login')
+```
 <!-- 
 
-### User in Models 
 ### Login user
 ### Registration user
 ### Login Required Pages Decorators 
