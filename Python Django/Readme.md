@@ -1406,11 +1406,47 @@ def logoutfun(request):
     logout(request)
     return redirect('login')
 ```
-<!-- 
 
-### Login user
-### Registration user
-### Login Required Pages Decorators 
-### Git/github
-### Deployment on AZURE
-!-->
+## Deployment and Git/Github
+### Git vs Github
+### Configuration on project
+- install
+```
+pip install whitenoise
+
+and then
+
+pip install gunicorn
+```
+- Add Procfile and Following content
+```
+web: gunicorn projectname.wsgi 
+```
+- change setting.py MIDDLEWARE
+```python
+MIDDLEWARE = [
+    ...,
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...,
+    ...,
+]
+```
+- change settings.py STATIC_ROOT
+```python
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
+
+```
+- Run command
+- `python manage.py collectstatic`
+- Generate requirements.txt
+- `pip freeze > requirements.txt`
+
+- Now create github repo and push code 
+- Create Account on `heroku.com`
+- change settings.py
+```python
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'appname.herokuapp.com'
+]
+```
