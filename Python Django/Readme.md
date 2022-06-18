@@ -1538,7 +1538,7 @@ ALLOWED_HOSTS = [
 
 - So, just click to connect to the GitHub button. Once you’ve connected you GitHub account then search that repository where your django project is available. And then Connect it
 
-![search](https://www.codechit.com/wp-content/uploads/2021/01/image-14-1536x345.png)
+![search](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/search.png)
 
 ### 15. Enable Auto deployment Option:
 - Now scroll down and there you will see option **Enable Automatic Deploys**, click on it to enable this feature.
