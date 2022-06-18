@@ -1,0 +1,41 @@
+{% include 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    {% if user.is_authenticated %}
+
+    <h1>Add Products</h1>
+    <div id="createform">
+        
+    <form method="POST" enctype="multipart/form-data">
+
+        <!-- Security token -->
+        {% csrf_token %}
+    
+        <!-- Using the formset -->
+        {{ form.as_p }}
+        
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+    <h1 style="color: red;">
+        {{success}}
+        </h1>
+    {% else %}
+
+    <h2>Login required</h2>
+
+    {% endif %}
+    
+</body>
+</html>

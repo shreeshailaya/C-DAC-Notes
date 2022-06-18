@@ -1,0 +1,25 @@
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        Username <input type="text" name="username" id="username"> <p></p>
+        First Name <input type="text" name="fname" id="fname"> <p></p>
+        Last Name <input type="text" name="lname" id="lname"><p></p>
+        Email <input type="email" name="email" id="email"><p></p>
+        Password <input type="password" name="pass1" id="pass1"><p></p>
+        Re-enter Password <input type="password" name="pass2" id="pass2"><p></p>
+        <input type="submit" value="Register"><p></p>
+    </form>
+
+    <h1 style="color: red;">{{msg}}</h1>
+</body>
+</html>

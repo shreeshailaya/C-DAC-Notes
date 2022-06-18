@@ -1,0 +1,33 @@
+{% include 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <script src="{% static 'js/update_view.js' %}"></script>
+
+</head>
+<body>
+    <h1>Update Product</h1>
+    <div class="main">
+        <!-- Create a Form -->
+        <form method="POST" action="{% url 'updateData' %}">
+            <!-- Security token by Django -->
+            {% csrf_token %}
+            ID <input type="text" name="id" value="{{object.id}}" readonly="readonly" onclick="idUpdateError()">
+
+            Name<input type="text" name="name" value="{{ object.name }}" id="">
+            Price <input type="number" name="price" id="" value="{{object.price}}">
+            Quantity <input type="number" name="quantity" value="{{object.quantity}}">
+            <input type="submit" value="Update">
+        </form>
+        <p id="idupdate" style="color: red;"></p>
+    
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% include 'navbar.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>   
+<body>
+       
+   
+    <title>Display Products</title>
+    <h1>Products</h1>
+    <div id="products">
+    {% for i in products%}
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Name : {{i.name}}</div>
+        <div class="card-body">
+            <img src="{{ i.img.url }}" alt="" width="250" height="250">
+            <h5 class="card-title">ID : {{i.id}}</h5>
+          <h5 class="card-title">Price : {{i.price}}</h5>
+          <h5 class="card-title">Seller : {{i.seller}}</h5>
+          <p class="card-text">Quantity : {{i.quantity}}</p>
+          {% if user.is_authenticated %}
+          <a href="/delete/{{ i.id }}"><Button>DELETE</Button></a>
+          <a href="/update/{{ i.id }}"><Button>UPDATE</Button></a>
+            {% endif %}
+          </div>
+      </div>
+   
+
+    {% endfor %}
+</div>
+    <h1 style="color: red;">{{success}}</h1>
+    
+</body>
+</html>
