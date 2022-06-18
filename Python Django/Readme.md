@@ -1450,3 +1450,97 @@ ALLOWED_HOSTS = [
     'appname.herokuapp.com'
 ]
 ```
+
+
+1. Install gunicorn and whitenoise
+```
+pip install whitenoise
+
+and then
+
+pip install gunicorn
+```
+
+2. Add Procfile and Following content
+![Procfile](https://www.codechit.com/wp-content/uploads/2021/01/image-8.png)
+
+3. Now you need to add **Procfile** inside root directory. This file will not have any extension and name should be exactly same as Procfile. Now open this Procfile and add following line
+
+- `web: gunicorn projectname.wsgi `
+
+- Because my project name is pass_gen, therefore my Procfile will contain something like this: **web: gunicorn pass_gen.wsgi**
+
+4. Add Following MIDDLEWARE:
+- Now you need to add the above item right after the first item inside the MIDDLEWARE list of settings.py
+```
+MIDDLEWARE = [
+    ...,
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...,
+    ...,
+]
+```
+
+5. Now add STATIC_ROOT Path in Settings.py:
+- Now you need to add STATIC_ROOT Path in settings.py to tell where to look for static files e.g, css, js, etc.
+```python
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
+```
+6. Run following command
+- `python manage.py collectstatic`
+- check staticroot folder is created or not
+
+7. Add requirements.txt File:
+- Now add requirements.txt file to your root directory. So, that heroku could install all the required packages that they need to run this app on their server.
+
+- To add requirements.txt file:
+- `pip freeze > requirements.txt`
+
+8. Create account on github and create a new repository and push your project code in that repository.
+- Use VS code shell or install git and use git bash
+![github](https://www.codechit.com/wp-content/uploads/2021/01/image-9.png)
+
+9. Step no 8 commands only push readme.md file for push whole project use following commands
+```
+git add .
+git commit -m 'base project'
+git push origin main
+```
+
+10. Create account on heroku 
+11. Create new app on heroku
+![create app](https://www.codechit.com/wp-content/uploads/2021/01/image-12.png)
+
+12. Once you’ve selected name for your app then add your app_domain inside your ALLOWED_HOST in settings.py
+- `appname.herokuapp.com`
+- settings.py in main project dir
+
+```python
+ALLOWED_HOSTS = [
+    '127.0.0.1'
+    'appname.herokuapp.com'
+]
+```
+13. Now again, commit and push these changes to your github.
+```shell
+> git add .
+> git commit -m "Allowed Hosts"
+> git push -u origin main
+```
+14. Connect GitHub to You Heroku App:
+- Now you need connect that github repository to your heroku app. Where your configured django project is available.
+
+![heroku](https://www.codechit.com/wp-content/uploads/2021/01/image-13-1536x695.png)
+
+- So, just click to connect to the GitHub button. Once you’ve connected you GitHub account then search that repository where your django project is available. And then Connect it
+1[search](https://www.codechit.com/wp-content/uploads/2021/01/image-14-1536x345.png)
+
+15. Enable Auto deployment Option:
+- Now scroll down and there you will see option **Enable Automatic Deploys**, click on it to enable this feature.
+- And Now whenever you will make and new changes in your repository then it will automatically fetch your changes and then will apply those changes to deployed app.
+![ab](https://www.codechit.com/wp-content/uploads/2021/01/image-17.png)
+
+
+- Then Finally click on **deploy branch**:
+- And now your site will be fully live on url: yourappname.herokuapp.com.
+![deploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/deploy.png)
