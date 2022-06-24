@@ -60,6 +60,24 @@
 	print("Here is my 'Laptop'")	
 
 ```
+### Special Meaning for character
+| Keyword | Description |
+| --- | ---  | 
+| \n - Newline |
+| \t- Horizontal tab |
+| \r| Carriage return |
+| \b| Backspace |
+| \f| Form feed |
+| \'| Single Quote |
+| \"| double quote |
+| \\ |Backslash |
+| \v |vertical tab |
+| \N | N is the number for Unicode character |
+| \NNN | NNN is digits for Octal value
+| \xNN | NN is a hex value; 
+| \x is used to denote following is a hex value. |
+| \a | bell sound, actually default chime |
+
 - To escape the special meaning of any quote you can use \
 - To use internal query as it is you can use `print(r'Here is my 'laptop'')`
 - You can use number with string to `'facebook' * 10` It will print facebook 10 times 
@@ -80,12 +98,38 @@
 - fetch book <== name[4:8]
 - String has indexing starting from 0 
 - changing the f to a name[a] = 'a'(not possible)
-- String are immutable that means we cannot change the string once it is decleared
+- String are immutable that means we cannot change the string once it is declared
 - len() function give you length of the String
+
+## Memory Management in Python
+- Python Is a Dynamically Typed Language.
+- We don’t declare the type of a variable when we assign a value to the variable in Python.
+- Python has names, not variables
+- A Python object is stored in memory with names and references
+- A name is just a label for an object, so one object can have many names. A reference is a name(pointer) that refers to an object.
+- Every Python object has 3 things.
+- Type
+	- When we assign a name to a variable, its type is automatically detected by Python
+- Value
+	- Value is declared while defining the object.
+- Reference count
+	- Reference count is the number of names pointing that object.
+
+### Garbage Collector 
+- Garbage collection is to release memory when the object is no longer in use.
+- This system destroys the unused object and reuses its memory slot for new objects. You can imagine this as a recycling system in computers.
+- Python has an automated garbage collection. It has an algorithm to deallocate objects which are no longer needed. 
+
+
 
 ### Keywords in Python
 - 33 keywords
 - import keyword <== keyword.kwlist
+```python
+>>> import keyword
+>>> kwlist = keyword.kwlist
+>>> kwlist
+```
   
 | Keyword | Description |
 | --- | ---  | 
@@ -131,8 +175,10 @@
 - a+=3
 
 ### Unary Operator 
+- A unary operator is an operator which works on a single operand. Python support unary minus operator(-). When an operand is preceded by a minus sign, then the unary operator negates its value.
+
 - a = 8
-= -a = -8
+- a = -8
 - a = -a
 
 ### Relational Operations 
@@ -236,14 +282,28 @@
 	- Float
 	- Boolean
 	- Complex (Its a combination of real number equation and imiginary number)
+		```python
+		>>> c = 3 +6j
+		>>> print(type(c))
+		<class 'complex'>
+		>>> print(c)
+		(3+6j)
+		>>>
+		>>> c1 = complex(3,6)
+		>>> print(type(c1))
+		<class 'complex'>
+		>>> print(c1)
+		(3+6j)
+		```
 3. List 
 4. Tuples
 5. Set 
 6. String 
 7. Range
-	- range() wich accept 3 parameter 
-	- List,set with range 
-	- Difference in range datatype and and list
+	- range() which accept 3 parameter 
+	- **start**	Optional. An integer number specifying at which position to start. Default is 0
+	- **stop**	Required. An integer number specifying at which position to stop (not included).
+	- **step**	Optional. An integer number specifying the incrementation. Default is 1
 8. Dict
 
 
@@ -416,6 +476,7 @@ print(MyCass.a)
 - 97-122 lowercase
 - 48-57 digit
 - remaining are special char
+ - [Refer this program](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python/Assignments/Day-6/4.py)
 
 ### While loop 
 - With the while loop we can execute a set of statements as long as a condition is true.
