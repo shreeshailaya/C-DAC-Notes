@@ -1624,3 +1624,13 @@ application = MyProject.wsgi.application
 
 ### 13
 ![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy13.png)
+
+***
+
+Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
+	
+Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
+
+***
+
+
