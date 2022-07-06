@@ -1549,3 +1549,78 @@ ALLOWED_HOSTS = [
 - Then Finally click on **deploy branch**:
 - And now your site will be fully live on url: yourappname.herokuapp.com.
 ![deploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/deploy.png)
+
+## Deploy on Cpanel
+### 1
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy1.png)
+
+
+
+
+### 2
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy2.png)
+
+### 3
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy3.png)
+
+### 4
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy4.png)
+
+
+### 5
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy5.png)
+
+
+### 6
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy6.png)
+
+
+### 7
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy7.png)
+
+
+### 8
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy8.png)
+
+### 9
+```
+[vitkarte@s ~]$ ls
+demopython.vitkar.tech
+[vitkarte@s ~]$ cd demopython.vitkar.tech/
+[vitkarte@s demopython.vitkar.tech]$ dir
+passenger_wsgi.py  public  tmp
+[vitkarte@s demopython.vitkar.tech]$ git clone https://github.com/shreeshailaya/deployment-of-django.git
+Cloning into 'deployment-of-django'...
+remote: Enumerating objects: 253, done.
+remote: Counting objects: 100% (253/253), done.
+remote: Compressing objects: 100% (194/194), done.
+remote: Total 253 (delta 54), reused 250 (delta 51), pack-reused 0
+Receiving objects: 100% (253/253), 695.11 KiB | 3.99 MiB/s, done.
+Resolving deltas: 100% (54/54), done.
+[vitkarte@slime demopython.vitkar.tech]$ source /home/vitkarte/virtualenv/demopython.vitkar.tech/3.8/bin/activate && cd /home/vitkarte/demopython.vitkar.tech
+(demopython.vitkar.tech:3.8)[vitkarte@slime demopython.vitkar.tech]$ dir
+deployment-of-django  passenger_wsgi.py  public  tmp
+(demopython.vitkar.tech:3.8)[vitkarte@slime demopython.vitkar.tech]$ cd deployment-of-django/
+(demopython.vitkar.tech:3.8)[vitkarte@slime deployment-of-django]$ pip install -r requirements.txt
+```
+
+
+
+### 10
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy10.png)
+
+### 11
+
+- passenger_wsgi.py
+```python
+import os
+import sys
+
+import MyProject.wsgi
+application = MyProject.wsgi.application
+```
+### 12
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy12.png)
+
+### 13
+![cdeploy](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Python%20Django/media/cdeploy13.png)
