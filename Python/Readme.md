@@ -439,7 +439,19 @@ else:
 - Code of block with Indentation
 - if else with even odd numbers
 - else comes with if 
-- 
+5. "ternary" expressions:
+```python 
+
+if a > 7:
+   i = 5
+else:
+   i = 0
+   
+ # This can be written as
+ 
+i = 5 if a > 7 else 0
+
+```
 ### Indentation
 - Indentation refers to the spaces at the beginning of a code line.
 - Python uses indentation to indicate a block of code.
