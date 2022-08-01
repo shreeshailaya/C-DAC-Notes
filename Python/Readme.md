@@ -2,7 +2,7 @@
 ## Day-1 Introduction
 - Python was founded by  Guido van Rossum in 1989 at National Research institute Netherland
 - and it release to public in 20 February 1991 
-- python is general purpose highlevel programming language
+- python is general purpose high level programming language
 - Dynamically typed language
 - Name is came from TV serial on BBC (British Broadcasting Company) 1969-1974 - TV show called Monty Python Flying Circus
 - TWO DIFFERENT VERSION HAS DIFFERENT STORY
@@ -14,12 +14,12 @@
 - Object-Oriented Approach
 - High-Level Language
 - Integrated by Nature
-	- Excute code line by line easy to compile
+	- Execute code line by line easy to compile
 - Highly Portable
 - Highly Dynamic 
-	- No need to declear as int 
+	- No need to declare as int 
 - Integrated Language
-- Large Standred library
+- Large Standard library
 	- BINOD
 
 ### Features from other languages 
@@ -52,7 +52,7 @@
 
 
 ### Playing with String and print()
--  If you want to type in single ' ' in python outer quote shoud be in " " viceverse
+-  If you want to type in single ' ' in python outer quote should be in " " vice versa
 - eg:-
 ```py
 
@@ -88,7 +88,7 @@
 - Syntax `name = value`
 - Add variable and integer you can do this a=5 `a+5` then it will give 10
 - Variable means the value which can be changed
-- You can take previous output referance by _ 
+- You can take previous output reference by _ 
 - You can Store String into a variable 
 - String can be a concatenate 
 - String Store in Array  
@@ -118,7 +118,7 @@
 ### Garbage Collector 
 - Garbage collection is to release memory when the object is no longer in use.
 - This system destroys the unused object and reuses its memory slot for new objects. You can imagine this as a recycling system in computers.
-- Python has an automated garbage collection. It has an algorithm to deallocate objects which are no longer needed. 
+- Python has an automated garbage collection. It has an algorithm to de allocate objects which are no longer needed. 
 
 
 
@@ -170,7 +170,7 @@
 ### Day-3
 
 ### Operators in Python 
-### Arthmathic 
+### Arithmetic
 - a=a+1
 - a+=3
 
@@ -235,21 +235,21 @@
 ### Tuples 
 - Defined by ()
 - Syntax `a= (2,4,9)`
-- Tuples are imutable we cannot change value in it
-- Itteration is faster because it is imutable
+- Tuples are immutable we cannot change value in it
+- Iteration is faster because it is immutable
 - but indexing is allowed 
 - Two methods i.e count and index
-- Count counts number of occurance of the perticular number `a.count(number)`
-- Index gives index value of the perticular number 
+- Count counts number of occurrence of the particular number `a.count(number)`
+- Index gives index value of the particular number 
 - You can store any data type in Tuples
 
 ### Sets 
 - Defined by {}
 - Syntax `a={1,2,5,4}`
 - It is a collection of unique elements
-- It dont follow the Sequence
+- It don't follow the Sequence
 - Every value is Unique 
-- Indexing is not supported  because it dont follow sequence
+- Indexing is not supported  because it don't follow sequence
 - Some functions in sets 
 
 ### Dictionary
@@ -269,10 +269,10 @@
 
 
 ### More about Variables and Data type
-- assiging value and check the address 
-- Every variable referance is there value not variable name 
+- assigning value and check the address 
+- Every variable reference is there value not variable name 
 - Garbage Collector not assigned variable are in gc
-- There is no concept of constant in python, but you can make it as CAPITAL variable declearation
+- There is no concept of constant in python, but you can make it as CAPITAL variable declaration
 - Variable assign is done by right to left
 - DATA TYPES :
 1. NONE
@@ -281,7 +281,7 @@
 	- Integer
 	- Float
 	- Boolean
-	- Complex (Its a combination of real number equation and imiginary number)
+	- Complex (Its a combination of real number equation and imaginary number)
 		```python
 		>>> c = 3 +6j
 		>>> print(type(c))
@@ -312,16 +312,16 @@
 	       
 ## Day-5
 ### from console to .py
-- Python uses extention .py to identify python file 
+- Python uses extension .py to identify python file 
 - Before running the python program you need to do some changes(as follow), if python command cannot recognized by the Command prompt
 - Setting of path
 - Copy the address of python installed folder in my case it is `C:\Users\YOUR_USERNAME\AppData\Local\Programs\Python\Python310`
 - and past it into `My Computer > Properties > Advanced System Settings > Environment Variables > path > New `
 - Create file with .py extension 
 - then open command prompt go to the file location with the help of commands like `cd` and `dir`
-- For execuation of python program you need to type `python program_name.py`
+- For execution of python program you need to type `python program_name.py`
 	
-### Swipping the numbers 
+### Swapping the numbers  
 - using third variable
 ```python
 a=2
@@ -456,7 +456,7 @@ i = 5 if a > 7 else 0
 - Indentation refers to the spaces at the beginning of a code line.
 - Python uses indentation to indicate a block of code.
 
-### Excuation and reassignment of variable 
+### Execution and reassignment of variable  
 
 ```python
 a = input('ENTER NO')
@@ -474,7 +474,7 @@ print(MyCass.a)
 
 ### Import in Python
 - import math
-- sqrt()==> Squre root function
+- sqrt()==> Square root function
 - floor(lower) and ceil(higher) functions
 - pow(num, power) function
 - Some constant math.pi, math.e
@@ -544,7 +544,7 @@ for val in numbers:
 ### Keywords pass, break, continue
 1. pass
 - In Python, the pass keyword is used to execute nothing
-- it means, when we dont want to execute code, the pass can be used to execute empty
+- it means, when we don't want to execute code, the pass can be used to execute empty
 ```python
 
 for i in range(5):
@@ -556,8 +556,8 @@ for i in range(5):
 ```
 
 2. break 
-- break keyword break the loop and excute the code that is written after code
-- break entire loop after fullfiling the condition
+- break keyword break the loop and execute the code that is written after code
+- break entire loop after fulfilling the condition
 - toffies example 
 ```python
 
@@ -581,7 +581,7 @@ for i in range(16):
 
 ### for and else 
 - for running for else loop for should be contain break statement if the condition is true
-- gernally for else is not used in industry
+- Generally for else is not used in industry
 ```python
 for i in range(1,10):
 	if i%7==0:
@@ -598,10 +598,10 @@ else:
 - import array 
 - vals = array('i',[2,9,5,6])
 - in array, array is method
-- Array takes two parameter one is type and and secound is list of arrray
+- Array takes two parameter one is type and and second is list of array
 - Append value in array arr.append(val)
 - ask user to add values in array
-- To find values from array two methods one is manual and secound is with `arr.index(val)`
+- To find values from array two methods one is manual and second is with `arr.index(val)`
 
 
 #### Functions in Python
@@ -621,7 +621,7 @@ def greet(name):
 - return multiple values in functions 
 - `a,b = add_sub(val1,val2)`
 - tracking the values passed to function
-- mutabale values can be change like list, variables cannot 
+- mutable values can be change like list, variables cannot 
 ```python
 def myFun(x):
 	x[1]=10
@@ -671,7 +671,7 @@ print('in fun',a)
 myFun()
 print('outside fun',a)
 ```  
-- local and global has different referance of variable 
+- local and global has different reference of variable 
 - use `global a` to access global variable from function
 - you can use same name for global and local variable 
 - but if you want to change the global variable you need to use globals() in function which gives all global variables
@@ -707,10 +707,24 @@ print(myFun(5))
 - filter with lambda
 - `list(filter(lambda n: n%2==0, nums))`
 
-### Decorators 
-- Decorators are a very powerful and useful tool in Python since it allows programmers to modify the behaviour of function or class
+```python 
+x = lambda a : a + 10
+print(x(5))
 
-- Decorators allow us to wrap another function in order to extend the behaviour of the wrapped function, without permanently modifying it. 
+# OR
+
+x = lambda a, b : a * b
+print(x(5, 6))
+
+#OR
+
+
+```
+
+### Decorators 
+- Decorators are a very powerful and useful tool in Python since it allows programmers to modify the behavior of function or class
+
+- Decorators allow us to wrap another function in order to extend the behavior of the wrapped function, without permanently modifying it. 
 
 - A function is an instance of the Object type.
 - You can store the function in a variable.
@@ -855,7 +869,7 @@ print(myfunc())
 
 ```
 
-### Clouser
+### Closures
 
 ```python
 
@@ -957,7 +971,7 @@ print(x.next())
 
 - Thus it can be used to check whether the current script is being run on its own or being imported somewhere else
 
-- When the module is begin run the the value of `__name__` is `__main__` if its imported from someware else then it is module name 
+- When the module is begin run the the value of `__name__` is `__main__` if its imported from some where  else then it is module name 
 
 ### Regular Expressions 
 - A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.
@@ -970,7 +984,7 @@ print(x.next())
 - split()	Returns a list where the string has been split at each match
 - sub()		Replaces one or many matches with a string
 
-- Metacharacters
+- Meta Characters
 ```python
 import re
 
@@ -1342,8 +1356,8 @@ class Parrot:
 - Which are present in class 
 - 
 ### Special Method __init__()
-- It is similar to the constrector in java
-- It is used to inlitization of the variables  
+- It is similar to the constructor in java
+- It is used to initialization of the variables  
 
 ```python
 class Parrot:
@@ -1374,7 +1388,7 @@ print("{} is {} years old".format( woo.name, woo.age))
 - The self keyword is used to represent an instance (object) of the given class.
 - In this case, the two Cat objects cat1 and cat2 have their own name and age attributes
 - If there was no self argument, the same class couldn't hold the information for both these objects.
-- explicitly defined everytime because of following reason
+- explicitly defined every time because of following reason
 ```python
 class Cat:
     name = ''
@@ -1402,7 +1416,7 @@ Cat.info(cat2)
 
 #### Compare()
 - when you do obj1 == obj2 the it will compare address of the obj which is false by default
-- declear the compare in class 
+- Declare the compare in class 
 - to compare the values is the object
 ```python
 from operator import truediv
@@ -1574,7 +1588,7 @@ obj.feature1()
 - super() calling for method
 - Method resolution order
 	- Order takes left to right
-	- For method also if there is two same method in multiple inheritance then it will excure R to L
+	- For method also if there is two same method in multiple inheritance then it will execute R to L
 
 ```python
 class A:
@@ -1709,9 +1723,9 @@ print(obj.add(1,2,3))
 - Logical Error
 - Runtime
 	- Divide by 0
-- In expection handling we work on handling the error
-- Expection error useually client side error 
-- To handle and to avoid the whole apllication for stoping server we use expection handling
+- In expectation handling we work on handling the error
+- Expectation error usually client side error 
+- To handle and to avoid the whole application for stopping server we use expectation handling
 
 #### TRY EXPECT FINALLY
 - The `try` block lets you test a block of code for errors.
