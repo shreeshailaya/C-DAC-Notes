@@ -439,7 +439,19 @@ else:
 - Code of block with Indentation
 - if else with even odd numbers
 - else comes with if 
-- 
+5. "ternary" expressions:
+```python 
+
+if a > 7:
+   i = 5
+else:
+   i = 0
+   
+ # This can be written as
+ 
+i = 5 if a > 7 else 0
+
+```
 ### Indentation
 - Indentation refers to the spaces at the beginning of a code line.
 - Python uses indentation to indicate a block of code.
@@ -764,6 +776,28 @@ print(add_15(10))
 - Decorators
 
 ```python
+
+def stars(fun):
+	def inner(msg):
+		print('*' * 10)
+		fun(msg)
+		print('*' * 10)
+		return 
+	return inner 
+		
+
+
+@stars
+def printmsg(msg):
+	print(msg)
+
+printmsg('Hello World')
+
+
+
+```
+
+```python
 def div(a,b):
     return a/b
 
@@ -779,6 +813,28 @@ def smart_div(fun):
 div1 = smart_div(div)
 
 print(div1(2,10))
+
+# OR
+
+print('hello')
+
+def smart_div(fun):
+	def inner(a,b):
+		if a < b:
+			a,b = b,a 
+		return fun(a,b)
+	return inner 
+
+
+
+
+@smart_div
+def div(a,b):
+	return a/b
+
+a = div(2,10)
+print(a)
+
 ```
 ### Non-local variables 
 - The nonlocal keyword is used to work with variables inside nested functions, where the variable should not belong to the inner function
