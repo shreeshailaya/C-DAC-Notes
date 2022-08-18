@@ -102,6 +102,7 @@
 - len() function give you length of the String
 
 ## Memory Management in Python
+![execution](https://media.geeksforgeeks.org/wp-content/uploads/20200703190408/Capture.PNG)
 - Python Is a Dynamically Typed Language.
 - We don’t declare the type of a variable when we assign a value to the variable in Python.
 - Python has names, not variables
