@@ -1,0 +1,69 @@
+# Azure Fundamentals 
+![azure](https://wallpaperaccess.com/full/2670514.jpg)
+## What is cloud computing
+- Cloud computing is the delivery of computing services over the internet.
+- Computing services include common IT infrastructure such as virtual machines, storage, databases, and networking
+- Cloud services also expand the traditional IT offerings to include things like Internet of Things (IoT), machine learning (ML), and artificial intelligence (AI).
+- Because cloud computing uses the internet to deliver these services, it doesn’t have to be constrained by physical infrastructure the same way that a traditional datacenter is.
+- That means if you need to increase your IT infrastructure rapidly, you don’t have to wait to build a new datacenter—you can use the cloud to rapidly expand your IT footprint.
+
+## Cloud Models 
+### Private Cloud 
+- A private cloud is, in some ways, the natural evolution from a corporate datacenter. It’s a cloud (delivering IT services over the internet) that’s used by a single entity.
+- Private cloud provides much greater control for the company and its IT department.
+### Public Cloud 
+- A public cloud is built, controlled, and maintained by a third-party cloud provider
+-  With a public cloud, anyone that wants to purchase cloud services can access and use resources.
+- The general public availability is a key difference between public and private clouds.
+
+### Hybrid Cloud 
+- A hybrid cloud is a computing environment that uses both public and private clouds in an inter-connected environment
+- Hybrid cloud can be used to provide an extra layer of security. For example, users can flexibly choose which services to keep in public cloud and which to deploy to their private cloud infrastructure.
+### Multi Cloud 
+### Azure Arc
+---
+## Describe the consumption-based model
+- When comparing IT infrastructure models, there are two types of expenses to consider. Capital expenditure (CapEx) and operational expenditure (OpEx).
+- CapEx is typically a one-time, up-front expenditure to purchase or secure tangible resources. A new building, repaving the parking lot, building a datacenter, or buying a company vehicle are examples of CapEx.
+- Cloud computing falls under OpEx because cloud computing operates on a consumption-based model. 
+
+- This consumption-based model has many benefits, including:
+    - No upfront costs.
+    - No need to purchase and manage costly infrastructure that users might not use to its fullest potential.
+    - The ability to pay for more resources when they're needed.
+    - The ability to stop paying for resources that are no longer needed.
+
+- In a cloud-based model, you don’t have to worry about getting the resource needs just right. If you find that you need more virtual machines, you add more
+-  If the demand drops and you don’t need as many virtual machines, you remove machines as needed. Either way, you’re only paying for the virtual machines that you use, not the “extra capacity” that the cloud provider has on hand.
+---
+## High availability and Scalability
+- When building or deploying a cloud application, two of the biggest considerations are uptime (or availability) and the ability to handle demand (or scale).
+
+### High availability 
+- When you’re deploying an application, a service, or any IT resources, it’s important the resources are available when needed. 
+- High availability focuses on ensuring maximum availability, regardless of disruptions or events that may occur.
+- When you’re architecting your solution, you’ll need to account for service availability guarantees. 
+- These guarantees are part of the service-level agreements (SLAs).
+
+### SLA ( Service Level Agreement )
+- SLA is a standard industry term
+- It's a formal agreement between service provider and the customer guarantees customer a state level of service 
+- SLA in azure represent availability of azure service
+- If the service is available 100% up time then the SLA is 100%
+- In reality 100% SLA is impossible 
+- If you want more SLA than you have to pay more to Azure 
+- So they can make replica/duplicate every single data point and component to make sure everything will go smooth even in maintenance and upgrade.
+- So there is three SLA 99%, 99.9% and 99.95%
+- 99.99% is also available in some services 
+- Difference in 99% and 99.9% SLA
+- 99% is service not available 1.68hrs in week and 7.2hrs for months 
+- 99.9% is service not available 10min in week and 43.2min in month
+- Depends on your business you can take SLA 
+
+### Scalability
+- Another major benefit of cloud computing is the scalability of cloud resources. Scalability refers to the ability to adjust resources to meet demand
+- Scaling generally comes in two varieties: vertical and horizontal.
+- Vertical scaling is focused on increasing or decreasing the capabilities of resources. Horizontal scaling is adding or subtracting the number of resources.
+- With vertical scaling, if you were developing an app and you needed more/less processing power, you could vertically scale up to add/remove more CPUs or RAM to the virtual machine.
+- With horizontal scaling, if you suddenly experienced a steep jump in demand, your deployed resources could be scaled out (either automatically or manually).For example, you could add additional virtual machines or containers, scaling out.
+
