@@ -67,3 +67,49 @@
 - With vertical scaling, if you were developing an app and you needed more/less processing power, you could vertically scale up to add/remove more CPUs or RAM to the virtual machine.
 - With horizontal scaling, if you suddenly experienced a steep jump in demand, your deployed resources could be scaled out (either automatically or manually).For example, you could add additional virtual machines or containers, scaling out.
 
+### Reliability
+- Reliability is the ability of a system to recover from failures and continue to function. It's also one of the pillars of the Microsoft Azure Well-Architected Framework.
+- With this global scale, even if one region has a catastrophic event other regions are still up and running. You can design your applications to automatically take advantage of this increased reliability
+
+### Predictability
+- Predictability in the cloud lets you move forward with confidence. Predictability can be focused on performance predictability or cost predictability. 
+- Cost predictability is focused on predicting or forecasting the cost of the cloud spend
+- By operating in the cloud and using cloud analytics and information, you can predict future costs and adjust your resources as needed. 
+- You can even use tools like the Total Cost of Ownership (TCO) or Pricing Calculator to get an estimate of potential cloud spend.
+
+
+### Performance
+- Performance predictability focuses on predicting the resources needed to deliver a positive experience for your customers.
+- Autoscaling, load balancing, and high availability are just some of the cloud concepts that support performance predictability.
+
+## IAAS (  Infrastructure as a Service )
+- Infrastructure as a service (IaaS) is the most flexible category of cloud services, as it provides you the **maximum amount of control** for your cloud resources.
+- In an IaaS model, the cloud provider is responsible for maintaining the hardware, network connectivity (to the internet), and physical security.
+- You’re responsible for everything else: operating system installation, configuration, and maintenance; network configuration; database and storage configuration; and so on.
+- With IaaS, you’re essentially renting the hardware in a cloud datacenter, but what you do with that hardware is **up to you**.
+- Some common scenarios where IaaS might make sense include:
+    - Lift-and-shift migration
+    - Testing and development
+## PAAS ( Platform as a Service )
+- Platform as a service (PaaS) is a middle ground between renting space in a datacenter (infrastructure as a service) and paying for a complete and deployed solution (software as a service).
+- In a PaaS environment, the cloud provider maintains the physical infrastructure, physical security, and connection to the internet. 
+- They also maintain the operating systems, middleware, development tools, and business intelligence services that make up a cloud solution.
+- In a PaaS scenario, you don't have to worry about the licensing or patching for operating systems and databases.
+- Some common scenarios where PaaS might make sense include:
+    - Development framework
+    - Analytics or business intelligence
+        - Tools provided as a service with PaaS allow organizations to analyze and mine their data, finding insights and patterns and predicting outcomes to improve forecasting, product design decisions, investment returns, and other business decisions.
+    - eg Heroku.
+## SAAS ( Software as a Service )
+- Software as a service (SaaS) is the most complete cloud service model from a product perspective.
+- With SaaS, you’re essentially renting or using a fully developed application.
+- Email, financial software, messaging applications, and connectivity software are all common examples of a SaaS implementation.
+- While the SaaS model may be the least flexible, it’s also the easiest to get up and running. It requires the least amount of technical knowledge or expertise to fully employ.
+- Some common scenarios for SaaS are:
+    - Email and messaging.
+    - Business productivity applications.
+    - Finance and expense tracking.
+
+
+
+
