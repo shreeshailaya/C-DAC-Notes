@@ -81,7 +81,8 @@
 ### Performance
 - Performance predictability focuses on predicting the resources needed to deliver a positive experience for your customers.
 - Autoscaling, load balancing, and high availability are just some of the cloud concepts that support performance predictability.
-
+---
+## Services Types
 ## IAAS (  Infrastructure as a Service )
 - Infrastructure as a service (IaaS) is the most flexible category of cloud services, as it provides you the **maximum amount of control** for your cloud resources.
 - In an IaaS model, the cloud provider is responsible for maintaining the hardware, network connectivity (to the internet), and physical security.
@@ -109,7 +110,66 @@
     - Email and messaging.
     - Business productivity applications.
     - Finance and expense tracking.
-
+---
 ## Shared responsibility model
 
 ![Shared responsibility model](https://docs.microsoft.com/en-us/learn/wwl-azure/describe-cloud-service-types/media/shared-responsibility-b3829bfe.svg)
+
+---
+# Core Architectural Components of Azure 
+
+### Get started with Azure accounts
+![Azure](https://docs.microsoft.com/en-us/learn/wwl-azure/describe-core-architectural-components-of-azure/media/account-scope-levels-9ceb3abd.png)
+
+### Learn Power Shell and Bash
+### Task-1 (use power shell)
+- Use the PowerShell Get-date command to get the current date and time.
+```Get-date```
+- Most Azure specific commands will start with the letters az. 
+```az version```
+### Task-2 (Bash)
+- Enter into bash command CLI  ```bash```
+- ```Get-date``` is power shell specified command so it will not work in bash
+- ```date``` is command for date in bash
+- ```az upgrade``` to upgrade in bash
+### Task-3 (Interactive Mode)
+- To activate interactive mode use ```az interactive```
+- Then try ```upgrade``` and ```version``` with interactive
+- ```exit``` for exit from interactive mode
+
+---
+## Azure physical infrastructure
+- The core architectural components of Azure may be broken down into two main groupings: the physical infrastructure, and the management infrastructure.
+
+- The physical infrastructure for Azure starts with datacenters. Conceptually, the datacenters are the same as large corporate datacenters.
+- They’re facilities with resources arranged in racks, with dedicated power, cooling, and networking infrastructure.
+
+## Regions
+- A region is a geographical area on the planet that contains at least one, but potentially multiple datacenters that are nearby and networked together with a low-latency network.
+- Azure intelligently assigns and controls the resources within each region to ensure workloads are appropriately balanced.
+- Some services or virtual machine (VM) features are only available in certain regions, such as specific VM sizes or storage types.
+- There are also some global Azure services that don't require you to select a particular region, such as Azure Active Directory, Azure Traffic Manager, and Azure DNS.
+
+## Availability Zones
+- Availability zones are physically separate datacenters within an Azure region. 
+- Each availability zone is made up of one or more datacenters equipped with independent power, cooling, and networking.
+- If one zone goes down, the other continues working. Availability zones are connected through high-speed, private fiber-optic networks.
+- ![Availability Zone](https://docs.microsoft.com/en-us/learn/wwl-azure/describe-core-architectural-components-of-azure/media/availability-zones-c22f95a3.png)
+
+- Important :
+    - To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions. However, not all Azure Regions currently support availability zones.
+
+## Region pairs
+- Most Azure regions are paired with another region within the same geography (such as US, Europe, or Asia) at least 300 miles away. 
+- This approach allows for the replication of resources across a geography that helps reduce the likelihood of interruptions because of events such as natural disasters, civil unrest, power outages, or physical network outages that affect an entire region. 
+- West US <==> East US
+- West India => South India => Central 
+- Brazil South => South Central US (Outside of region)
+
+## Sovereign Regions
+- US DoD Central, US Gov Virginia, US Gov Iowa and more: 
+- China East, China North, and more: 
+
+---
+
+
