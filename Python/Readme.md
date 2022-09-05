@@ -679,6 +679,20 @@ print('outside fun',a)
 - but if you want to change the global variable you need to use globals() in function which gives all global variables
 - `globals()['variable_name']`
 
+```python 
+
+a = 5
+print(a)
+def myFun():
+    myFun.a = 10
+    globals()['a'] = 77
+    print(a)
+    
+myFun()
+print(a)
+print(myFun.a)
+```
+
 ### Recursion
 - Recursion is calling function itself from function
 - Recursion limit is 1000
