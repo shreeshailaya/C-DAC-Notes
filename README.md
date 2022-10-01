@@ -1,4 +1,6 @@
 
+## Welcome all Hacktoberfest 2022 Contributors
+
 <p align="center">
 
 <img src="https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Media/1_logo.jpeg" alt="drawing" width="200"/>
