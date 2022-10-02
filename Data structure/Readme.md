@@ -5,16 +5,16 @@
 - We uses DS for abstract data type
 
 - What is data structure?
- Defination -> working -> real life example 
- - In computer terms a ds is a specific way to store and organize data in computers memory so that these data can be used efficiently later
+ Definition -> working -> real life example 
+ - In computer terms a DS is a specific way to store and organize data in computers memory so that these data can be used efficiently later
  - It belong to structuring the data 
  
  - Need of Data Structure
 	 - Effiency
-	 - Reusability
+	 - Re-usability
 	 - Abstraction
 
-- There is two types of DS
+- There are two types of DS
 	- Linear 
 	- Non-Linearas
 - Linear 
@@ -122,17 +122,17 @@ class Program
 
 ### Linked List 
 
-- It is Linear Data Structure 
-- It connected via links 
+- It is a Linear Data Structure 
+- It is connected via links 
 
-- Disadventage of Array
-	- Slow searching in array so linked list come 
-	- Inseration and deletion is slow in array
-	- fixed size in array
-	- memory weastage in array
-- Because of this disadvantages of array linked list is come in picture	
-- In other hand linked list able to grow in size as needed
-- Does not required the shifting of items during inseration or deletion.
+- Disadvantages of Arrays
+	- Slow searching is slow 
+	- Insertion and deletion is slow
+	- fixed size
+	- memory wastage
+- Because of these disadvantages of array linked list came into the picture	
+- In other hand linked list are able to grow in size as needed
+- Does not required the shifting of items during insertion or deletion.
 - Each data value is linked with address of next value
 - Each element is called node 
 - Data values need not be stored in adjacent memory cell
@@ -233,7 +233,7 @@ public class Linkedlist
 ```
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/5_linkedList.gif)
 
-- Inseration in linked list
+- Insertion in linked list
 
 ```
 move.setLink(newnode);
@@ -581,9 +581,9 @@ private int arr[];
 
 ```
 
-- Push take parameter
-- pop return parameter
-- so pop always return something
+- Push takes parameter
+- pop returns parameter
+- so pop always returns something
 
 
 ### Dynamaic Stack (LikeList stack)
@@ -791,7 +791,7 @@ i = (int) ((i-1)-(size*Math.floor((i-1)/size)));
 
 ### Queue 
 
-- there is two element i.e front and rear
+- there are two elements. i.e, front and rear
 - there is enqueue=insert and dequeue=retrive
 - Insert element
 	- check whether queue is full or not 
@@ -1540,7 +1540,73 @@ public class FindTheOccurenceOfCharacter {
  ```
 
 
-### time complixity 
+### time complexity 
+
+	Time complexity of a program is basically the amount of time it takes to run for a program.
+
+	In other words, it is:
+
+	"The time complexity of an algorithm quantifies the amount of time taken by an algorithm to run as a function of the length of the input. Note that the time to run is a function of the length of the input and not the actual execution time of the machine on which the algorithm is running on."
+
+	How to calculate time complexity?
+
+   Time Complexity Calculation Examples
+
+
+  1)
+
+  #include <stdio.h>
+  int main()
+  {
+    int a = 4;
+    int b = 6;
+    int c;
+    c = a + b;
+    printf(%d, c);
+  }
+
+
+  Time Complexity Calculation: The time complexity of the above-given program is O(1), as this program consists of only assignment, arithmetic operations and all those will be executed only once.
+
+
+
+  2)
+
+  int count(int arr[], int n)
+  {
+    int sum = 0, i;
+    for(i = 0; i < n; i++)  //Control statement
+  {
+     sum = sum + arr[i];
+  }
+    return sum;
+  }
+
+
+  Time Complexity Calculation: In the above-given snippet, we have a control statement which executes for n times. Along with that we also have operations like assignment, arithmetic and a return statement. Hence, the time complexity is O(n + 3).
+
+  For larger values of n, the constant values become negligible. So if a program consists of a control statement, then the complexities of assignment, arithmetic, logical and return statements can be ignored.
+
+
+
+  Hence, the final time complexity of the above-given snippet is O(n).
+
+
+
+  3)
+
+  int i,j, n = 8;
+  for (i = 1; i <= n; i++)
+  {
+    for (j = 1; j <= n; j++)
+    {
+      printf("FACE Prep");
+  } } }
+
+
+  Time Complexity Calculation: In the above snippet, the first & the second for loops get executed n times individually. So the time complexity accounts to n*n = O(n^2).
+
+
 ### kruskal Algorithm
 ### Prime's Algo
 ### AVL Tree Balanced Factor
@@ -1557,7 +1623,7 @@ public class FindTheOccurenceOfCharacter {
 ***
 # Sorting
 
-### Buebble Sort
+### Bubble Sort
 ### Cyclic Sort
 ### Insertion Sort
 ### Selection Sort
@@ -1568,7 +1634,7 @@ public class FindTheOccurenceOfCharacter {
 ***
 ***
 
-| Concept | What | Why | Where | Comment | Referance |
+| Concept | What | Why | Where | Comment | Reference |
 |---|---|---|---|---|---|
 | Data Structure | A data structure is a particular way of organizing data in a computer so that it can be used effectively. | Data structures are used as a framework for organizing and storing information in virtual memory forms. | In evey application | - | - |
 | Array | An array is a collection of items stored at contiguous memory locations. | For Storing data | in heap | - | [Array](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/17juneDay2/assignment1.java) |
