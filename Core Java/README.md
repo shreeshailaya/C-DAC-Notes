@@ -223,7 +223,7 @@ public class DateDemo
 
 # 24/05 (Association Relation, Wrapper Classes)
  #### reference equality
- ![reference Equality](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/10_reference_equ.png)
+ ![reference Equality](https://github.com/shreeshailaya/c-dac/blob/main/Core%20Java/Media/10_referance_equ.png)
 
 ### Association Relationship/has a relationship
 - General rule of Encaplusation is declare *Data Member as private* and method public.
