@@ -1540,7 +1540,119 @@ public class FindTheOccurenceOfCharacter {
  ```
 
 
-### time complixity 
+# Time Complixity 
+Time complexity is defined as the amount of time taken by an algorithm to run, as a function of the length of the input. It measures the time taken to execute each statement of code in an algorithm. It is not going to examine the total execution time of an algorithm.
+So, if computing 10 elements take 1 second, computing 100 elements takes 2 seconds, 1000 elements take 3 seconds, and so on.
+
+![image](https://user-images.githubusercontent.com/83773953/194247559-d6cd607c-f3ca-415c-bf3f-308014182988.png)
+
+## What are the Different Types of Time complexity Notation Used?
+As we have seen, Time complexity is given by time as a function of the length of the input. And, there exists a relation between the input data size (n) and the number of operations performed (N) with respect to time. This relation is denoted as Order of growth in Time complexity and given notation O[n] where O is the order of growth and n is the length of the input. It is also called as ‘Big O Notation’
+
+Big O Notation expresses the run time of an algorithm in terms of how quickly it grows relative to the input ‘n’ by defining the N number of operations that are done on it. Thus, the time complexity of an algorithm is denoted by the combination of all O[n] assigned for each line of function.
+
+![image](https://user-images.githubusercontent.com/83773953/194246720-a07cfe73-c069-4173-bff8-20ab7faa9052.png)
+
+There are different types of time complexities used, let’s see one by one:
+
+1. Constant time – O (1)
+
+2. Linear time – O (n)
+
+3. Logarithmic time – O (log n)
+
+4. Quadratic time – O (n^2)
+
+5. Cubic time – O (n^3) 
+
+and many more complex notations like Exponential time, Quasilinear time, factorial time, etc. are used based on the type of functions defined.
+
+## Lets Understand With Some Examples:
+``` java 
+import java.io.*;
+
+class TC {
+	public static void main(String[] args)
+	{
+		System.out.print("Hello World");
+	}
+}
+
+output : Hello World
+```
+Time Complexity: In the above code “Hello World” is printed only once on the screen. 
+So, the time complexity is constant: O(1) i.e. every time a constant amount of time is required to execute code, no matter which operating system or which machine configurations you are using. 
+
+``` java 
+class TC {
+ 
+    public static void main(String[] args)
+    {
+        int i, n = 8;
+        for (i = 1; i <= n; i++) {
+            System.out.printf("Hello World !!!\n");
+        }
+    }
+}
+
+Output :
+
+Hello World !!!
+Hello World !!!
+Hello World !!!
+Hello World !!!
+Hello World !!!
+Hello World !!!
+Hello World !!!
+Hello World !!!
+```
+Time Complexity: In the above code “Hello World !!!” is printed only n times on the screen, as the value of n can change. 
+So, the time complexity is linear: O(n) i.e. every time, a linear amount of time is required to execute code.
+
+## Comparison of functions on the basis of time complexity 
+
+It follows the following order in case of time complexity: 
+
+O(nn) > O(n!) > O(n3) > O(n2) > O(n.log(n)) > O(n.log(log(n))) > O(n) > O(sqrt(n)) > O(log(n)) > O(1) 
+
+Note: Reverse is the order for better performance of a code with corresponding time complexity, i.e. a program with less time complexity is more efficient. 
+
+## Space Complexity 
+Space complexity of an algorithm quantifies the amount of time taken by a program to run as a function of length of the input. It is directly proportional to the largest memory your program acquires at any instance during run time. 
+For example: int consumes 4 bytes of memory.
+
+![image](https://user-images.githubusercontent.com/83773953/194251611-437a7482-3c4d-4070-ad11-550a4bcb45c7.png)
+
+## How Significant Are Space and Time Complexity?
+
+Significant in Terms of Time Complexity
+The input size has a strong relationship with time complexity. As the size of the input increases, so does the runtime, or the amount of time it takes the algorithm to run.
+
+## Here is an example.
+
+Assume you have a set of numbers S= (10, 50, 20, 15, 30)
+
+There are numerous algorithms for sorting the given numbers. However, not all of them are effective. To determine which is the most effective, you must perform computational analysis on each algorithm.
+
+![image](https://user-images.githubusercontent.com/83773953/194253255-b69b6b37-fc60-4e16-844e-1c569f5a071e.png) 
+
+## Here are some of the most critical findings from the graph:
+
+* This test revealed the following sorting algorithms: Quicksort, Insertion sort, Bubble sort, and Heapsort.
+* Python is the programming language used to complete the task, and the input size ranges from 50 to 500 characters.
+* The results were as follows: "Heap Sort algorithms performed well despite the length of the lists; on the other hand, you discovered that Insertion sort and Bubble sort algorithms performed far worse, significantly increasing computing time." See the graph above for the results.
+* Before you can run an analysis on any algorithm, you must first determine its stability. Understanding your data is the most important aspect of conducting a successful analysis.
+
+## Time Complexity vs. Space Complexity
+You now understand space and time complexity fundamentals and how to calculate it for an algorithm or program. In this section, you will summarise all previous discussions and list the key differences in a table.
+
+|     Time Complexity                 |     Space Complexity |
+| ------------------------------------| ---------------------|
+|Calculates the time required         | Estimates the space memory required  |
+|Time is counted for all statements   | Memory space is counted for all variables, inputs, and outputs.|
+|The size of the input data is the primary determinant. | Primarily determined by the auxiliary variable size|
+| More crucial in terms of solution optimization | More essential in terms of solution optimization| 
+
 ### kruskal Algorithm
 ### Prime's Algo
 ### AVL Tree Balanced Factor
