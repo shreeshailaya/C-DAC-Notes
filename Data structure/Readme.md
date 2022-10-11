@@ -1654,14 +1654,299 @@ You now understand space and time complexity fundamentals and how to calculate i
 | More crucial in terms of solution optimization | More essential in terms of solution optimization| 
 
 ### kruskal Algorithm
+**Defenition:** Kruskal's Algorithm is used to find the minimum spanning tree for a connected weighted graph.
+**Minimum Spanning Tree** Contains all the vertices in the graph but has the minimum sum of weights among all the trees that can be formed from the graph.
+
+**How does it work**
+
+Kruskal's algorithm is a greedy algorithm that finds a local optimum as an initiation step to find the global optimum. 
+
+The steps for implementing Kruskal's algorithm are as follows:
+
+**1.** Sort all the edges from low weight to high.
+
+**2.** Take the edge with the lowest weight and add it to the spanning tree. If adding the edge created a cycle, then reject this edge.
+
+**3.** Keep adding edges until all vertices are reached.
+
+Let us consider a graph. Now the minimum spanning tree using Kruskal's algorithm can be created as follows 
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-1.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-2.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-3.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-4.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-5.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-6.webp)
+
+**Time Complexity:** This algorithm has a time complexity of O(e*log(e)) where e is the number of edges in the graph
+
+For the code snipet the weight of the edges are as given below.
+
+|Edge  |0-1|0-2|1-2|2-3|2-5|2-4|3-4|5-4|
+|Weight| 4 | 4 | 2 | 5 | 2 | 4 | 3 | 3 |
+
+Next step is to sort the table according to the ascending order of the weights
+
+Which will given the following result.
+
+|Edge  |1-2|2-5|3-4|5-4|0-1|0-2|2-4|2-3|
+|Weight| 2 | 2 | 3 | 3 | 4 | 4 | 4 | 5 |
+
+```java
+ // Kruskal's algorithm in Java
+
+import java.util.*;
+
+class kruskal {
+  class Edge implements Comparable<Edge> {
+    int src, dest, weight;
+
+    public int compareTo(Edge compareEdge) {
+      return this.weight - compareEdge.weight;
+    }
+  };
+
+  // Union
+  class subset {
+    int parent, rank;
+  };
+
+  int vertices, edges;
+  Edge edge[];
+
+  // Graph creation
+  kruskal(int v, int e) {
+    vertices = v;
+    edges = e;
+    edge = new Edge[edges];
+    for (int i = 0; i < e; ++i)
+      edge[i] = new Edge();
+  }
+
+  int find(subset subsets[], int i) {
+    if (subsets[i].parent != i)
+      subsets[i].parent = find(subsets, subsets[i].parent);
+    return subsets[i].parent;
+  }
+
+  void Union(subset subsets[], int x, int y) {
+    int xroot = find(subsets, x);
+    int yroot = find(subsets, y);
+
+    if (subsets[xroot].rank < subsets[yroot].rank)
+      subsets[xroot].parent = yroot;
+    else if (subsets[xroot].rank > subsets[yroot].rank)
+      subsets[yroot].parent = xroot;
+    else {
+      subsets[yroot].parent = xroot;
+      subsets[xroot].rank++;
+    }
+  }
+
+  // Applying Krushkal Algorithm
+  void KruskalAlgo() {
+    Edge result[] = new Edge[vertices];
+    int e = 0;
+    int i = 0;
+    for (i = 0; i < vertices; ++i)
+      result[i] = new Edge();
+
+    // Sorting the edges
+    Arrays.sort(edge);
+    subset subsets[] = new subset[vertices];
+    for (i = 0; i < vertices; ++i)
+      subsets[i] = new subset();
+
+    for (int v = 0; v < vertices; ++v) {
+      subsets[v].parent = v;
+      subsets[v].rank = 0;
+    }
+    i = 0;
+    while (e < vertices - 1) {
+      Edge next_edge = new Edge();
+      next_edge = edge[i++];
+      int x = find(subsets, next_edge.src);
+      int y = find(subsets, next_edge.dest);
+      if (x != y) {
+        result[e++] = next_edge;
+        Union(subsets, x, y);
+      }
+    }
+    for (i = 0; i < e; ++i)
+      System.out.println(result[i].src + " - " + result[i].dest + ": " + result[i].weight);
+  }
+
+  public static void main(String[] args) {
+    int vertices = 6; // Number of vertices
+    int edges = 8; // Number of edges
+    kruskal G = new kruskal(vertices, edges);
+
+    G.edge[0].src = 0;
+    G.edge[0].dest = 1;
+    G.edge[0].weight = 4;
+
+    G.edge[1].src = 0;
+    G.edge[1].dest = 2;
+    G.edge[1].weight = 4;
+
+    G.edge[2].src = 1;
+    G.edge[2].dest = 2;
+    G.edge[2].weight = 2;
+
+    G.edge[3].src = 2;
+    G.edge[3].dest = 3;
+    G.edge[3].weight = 3;
+
+    G.edge[4].src = 2;
+    G.edge[4].dest = 5;
+    G.edge[4].weight = 2;
+
+    G.edge[5].src = 2;
+    G.edge[5].dest = 4;
+    G.edge[5].weight = 4;
+
+    G.edge[6].src = 3;
+    G.edge[6].dest = 4;
+    G.edge[6].weight = 3;
+
+    G.edge[7].src = 5;
+    G.edge[7].dest = 4;
+    G.edge[7].weight = 3;
+    G.KruskalAlgo();
+  }
+}
+ ```
+
 ### Prime's Algo
+**Defenition:** Prim's algorithm is used to find the minimum spanning tree from a graph. This algorithm gives the same output as that of the Kruskal Algorithm. 
+
+**How does it work** 
+Like Kruskal's algorithm Prim's algoritm is also a greedy algorithm.
+
+The steps for implementing Prim's algorithm are as follows:
+
+**1.** Initialize the minimun spanning tree by choosing a random vertex from the graph.
+
+**2.** Add to the spanning tree the vertex which is connectd to the first vertex with least weight.
+
+**3.** Keep choosing the next nearest (lowest weight) vertex not in the spanning tree.
+
+**4.** Repeat step 3 util the spanning tree has all the vertices as in the original graph.
+
+Let us consider a graph. Prim's algorithm finds the minimum spanning tree as follows
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_1.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_2.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_3.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_4.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_5.webp)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_6.webp)
+
+**Time complexity** The time complexity of Prim's algorithm is O(e*log(v)) where e is the number of edges in the graph and v the number of vertices in the graph.
+
+For the code snippet weight of each edges of the graph are as given below
+
+|Edge  |0-1|0-2|1-2|1-3|1-4|2-3|2-4|3-4|
+|Weight| 9 | 75| 95| 19| 42| 51| 66| 31|
+
+```java
+// Prim's Algorithm
+import java.util.Arrays;
+
+class PGraph {
+
+  public void Prim(int G[][], int V) {
+
+    int INF = 9999999;
+
+    int no_edge; // number of edge
+
+    // create a array to track selected vertex
+    // selected will become true otherwise false
+    boolean[] selected = new boolean[V];
+
+    // set selected false initially
+    Arrays.fill(selected, false);
+
+    // set number of edge to 0
+    no_edge = 0;
+
+    // the number of egde in minimum spanning tree will be
+    // always less than (V -1), where V is number of vertices in
+    // graph
+
+    // choose 0th vertex and make it true
+    selected[0] = true;
+
+    // print for edge and weight
+    System.out.println("Edge : Weight");
+
+    while (no_edge < V - 1) {
+      // For every vertex in the set S, find the all adjacent vertices
+      // , calculate the distance from the vertex selected at step 1.
+      // if the vertex is already in the set S, discard it otherwise
+      // choose another vertex nearest to selected vertex at step 1.
+
+      int min = INF;
+      int x = 0; // row number
+      int y = 0; // col number
+
+      for (int i = 0; i < V; i++) {
+        if (selected[i] == true) {
+          for (int j = 0; j < V; j++) {
+            // not in selected and there is an edge
+            if (!selected[j] && G[i][j] != 0) {
+              if (min > G[i][j]) {
+                min = G[i][j];
+                x = i;
+                y = j;
+              }
+            }
+          }
+        }
+      }
+      System.out.println(x + " - " + y + " :  " + G[x][y]);
+      selected[y] = true;
+      no_edge++;
+    }
+  }
+
+  public static void main(String[] args) {
+    PGraph g = new PGraph();
+    // number of vertices in grapj
+    int V = 5;
+    // create a 2d array of size 5x5
+    // the adjacency matrix to represent graph
+    int[][] G = { { 0, 9, 75, 0, 0 }, { 9, 0, 95, 19, 42 }, { 75, 95, 0, 51, 66 }, { 0, 19, 51, 0, 31 },
+        { 0, 42, 66, 31, 0 } };
+
+    g.Prim(G, V);
+  }
+}
+```
 ### AVL Tree Balanced Factor
 
+**Defenition:** Balance factor of an AVL Tree is the height difference between the left and rigth subtree of a vertex in the AVL Tree.Each vertex in an AVL Tree sholud have a balance factor 1,0 or -1.
 
+**AVL Tree:** A Binary tree with each vertex having a balance factor of 1,0 or -1 is an AVL Tree.
 
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/avltree%20unbalanced.webp)
 
+In the above diagram since three of the vertices are having balance factor as 2 it is not an AVL Tree.Such Binary trees can be converted to AVL Tree by any of the four rotation methods.
 
+![image](https://github.com/Blaize99/C-DAC-Notes/blob/main/Data%20structure/Media/avl%20balance.png)
 
+In the above diagram the numbers noted above each vertex is the balance factor of that vertex.Since each vertex is having either balance factor 1,0 or -1 it is an AVL Tree.
 
 
 ### Sort
