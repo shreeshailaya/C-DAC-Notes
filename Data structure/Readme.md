@@ -1942,7 +1942,7 @@ class PGraph {
 
 ![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/avltree%20unbalanced.webp)
 
-In the above diagram since three of the vertices are having balance factor as 2 it is not an AVL Tree.Such Binary trees can be converted to AVL Tree by any of the four rotation methods.
+In the above diagram since three of the vertices are having balance factor as 2 it is not an AVL Tree.Such Binary trees can be converted to AVL Tree by any of the four rotation methods. 
 
 ![image](https://github.com/Blaize99/C-DAC-Notes/blob/main/Data%20structure/Media/avl%20balance.png)
 
@@ -1979,48 +1979,50 @@ is swapped.*
 
 *Let,s take an array of 5 elements:*
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_0.jpg)
+
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_0 copy.jpg)
+
 
 * Bubble sort starts with very first two elements, comparing them to check which one is greater.
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_1.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_1.jpg)
 * In this case, value 33 is greater than 14, so it is already in sorted locations. Next, we compare 33 with 27.
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_2.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_2.jpg)
 * We find that 27 is smaller than 33 and these two values must be swapped.
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_3.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_3.jpg)
 * The new array should look like this −
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_4.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_4.jpg)
 * Next we compare 33 and 35. We find that both are in already sorted positions.
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_5.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_5.jpg)
 * Then we move to the next two values, 35 and 10.
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_6.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_6.jpg)
 * We know then that 10 is smaller 35. Hence they are not sorted.
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_7.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_7.jpg)
 * We swap these values. We find that we have reached the end of the array. After one iteration, the array should look like this −
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_8.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_8.jpg)
 * To be precise, we are now showing how an array should look like after each iteration. After the second iteration, it should look like this −
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_9.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_9.jpg)
 * Notice that after each iteration, at least one value moves at the end.
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_10.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_10.jpg)
 * And when there's no swap required, bubble sorts learns that an array is completely sorted.
 
-![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_11.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_11.jpg)
 
 
 **GIF example:**
  
  *Below is a GIF example for better understanding*
 
-![App Screenshot](https://camo.githubusercontent.com/4e8a95d4d21c217332eb200220a33aa883a1e163/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f636f6465636164656d792d636f6e74656e742f70726f6772616d732f7464642d6a732f61727469636c65732f427562626c65536f72742e676966)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_gif.png)
 
 
 **Time complexity of Bubble Sort:**
