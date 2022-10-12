@@ -1954,13 +1954,132 @@ In the above diagram the numbers noted above each vertex is the balance factor o
 ***
 # Sorting
 
-### Buebble Sort
+### Bubble Sort
 ### Cyclic Sort
 ### Insertion Sort
 ### Selection Sort
 ### Merge Sort
 ### Shell sort
 
+
+
+# Bubble Sort:
+
+**Definition:** Bubble Sort is the *simplest* sorting algorithm. 
+In bubble sort algorithm, *array is traversed from first element 
+to last element*. Here, current element is compared with the next 
+element. *If current element is greater than the next element, it 
+is swapped.*
+
+*Note:* This algorithm is not suitable for large data sets as its average
+ and worst-case time complexity is quite high.
+
+**How does it work:**
+
+
+*Let,s take an array of 5 elements:*
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_0.jpg)
+
+* Bubble sort starts with very first two elements, comparing them to check which one is greater.
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_1.jpg)
+* In this case, value 33 is greater than 14, so it is already in sorted locations. Next, we compare 33 with 27.
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_2.jpg)
+* We find that 27 is smaller than 33 and these two values must be swapped.
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_3.jpg)
+* The new array should look like this −
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_4.jpg)
+* Next we compare 33 and 35. We find that both are in already sorted positions.
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_5.jpg)
+* Then we move to the next two values, 35 and 10.
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_6.jpg)
+* We know then that 10 is smaller 35. Hence they are not sorted.
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_7.jpg)
+* We swap these values. We find that we have reached the end of the array. After one iteration, the array should look like this −
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_8.jpg)
+* To be precise, we are now showing how an array should look like after each iteration. After the second iteration, it should look like this −
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_9.jpg)
+* Notice that after each iteration, at least one value moves at the end.
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_10.jpg)
+* And when there's no swap required, bubble sorts learns that an array is completely sorted.
+
+![App Screenshot](https://www.tutorialspoint.com/data_structures_algorithms/images/bubble_sort_11.jpg)
+
+
+**GIF example:**
+ 
+ *Below is a GIF example for better understanding*
+
+![App Screenshot](https://camo.githubusercontent.com/4e8a95d4d21c217332eb200220a33aa883a1e163/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f636f6465636164656d792d636f6e74656e742f70726f6772616d732f7464642d6a732f61727469636c65732f427562626c65536f72742e676966)
+
+
+**Time complexity of Bubble Sort:**
+
+* Bubble sort employs two loops: an inner loop and an outer loop.
+* The inner loop performs O(n) comparisons deterministically.
+
+*Worst Case:*
+* In the worst-case scenario, the outer loop runs O(n) times.
+* As a result, the worst-case time complexity of bubble sort is O(n x n) = O(n x n) (n2).
+
+*Best Case:*
+* In the best-case scenario, the array is already sorted, but just in case, bubble sort performs O(n) comparisons.
+* As a result, the time complexity of bubble sort in the best-case scenario is O(n).
+
+*Average Case:*
+* Bubble sort may require (n/2) passes and O(n) comparisons for each pass in the average case.
+* As a result, the average case time complexity of bubble sort is O(n/2 x n) = O(n/2 x n) = O(n/2 x n) = O(n/2 x n) = O (n2).
+
+
+
+**Code Snippet:**
+```
+public class BubbleSortExample {  
+    static void bubbleSort(int[] arr) {  
+        int n = arr.length;  
+        int temp = 0;  
+         for(int i=0; i < n; i++){  
+                 for(int j=1; j < (n-i); j++){  
+                          if(arr[j-1] > arr[j]){  
+                                 //swap elements  
+                                 temp = arr[j-1];  
+                                 arr[j-1] = arr[j];  
+                                 arr[j] = temp;  
+                         }  
+                          
+                 }  
+         }  
+  
+    }  
+    public static void main(String[] args) {  
+                int arr[] ={3,60,35,2,45,320,5};  
+                 
+                System.out.println("Array Before Bubble Sort");  
+                for(int i=0; i < arr.length; i++){  
+                        System.out.print(arr[i] + " ");  
+                }  
+                System.out.println();  
+                  
+                bubbleSort(arr);//sorting array elements using bubble sort  
+                 
+                System.out.println("Array After Bubble Sort");  
+                for(int i=0; i < arr.length; i++){  
+                        System.out.print(arr[i] + " ");  
+                }  
+   
+        }  
+}  
+```
 
 ***
 ***
