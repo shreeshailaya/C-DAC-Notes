@@ -230,7 +230,7 @@ Early operating system could execute various programs at the same time, although
 
 **Definition:** A thread is a path which is followed during a program’s execution. Majority of programs written now a days run as a single thread.Lets say, for example a program is not capable of reading keystrokes while making drawings. These tasks cannot be executed by the program at the same time. This problem can be solved through multitasking so that two or more tasks can be executed simultaneously.
 
-![image](https://github.com/shreeshailaya/c-dac/blob/main/Operating%20system/Media/multithreading_01.png)
+![image](https://github.com/shreeshailaya/c-dac/blob/main/Operating%20system/Media/multithreading_01.jpg)
 
 **Multitasking is of two types:** 
 
