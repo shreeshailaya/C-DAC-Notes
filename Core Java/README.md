@@ -1343,8 +1343,10 @@ bw.close();
 
 
 ```
-
- 
+### Utility Classes
+- Classes that are included in the java.util package is called utility classes
+- These classes are often commonly used and some examples are StringTokenizer, Scanner, StringBuffer...etc
+- To use these classes an object of them needs to be created
 
 ### Collection Framework
 - It gives ready-made classes which have implemented a particular data structure
@@ -1354,6 +1356,10 @@ bw.close();
 - It is a class which acts as a data structure 
 - Classes are based on set of interfaces 
 - BAse interface is Collection 
+
+- Types of collections classes
+  ![image](https://github.com/Blaize99/C-DAC-Notes/blob/main/Core%20Java/Media/Java-Collection-Types.png)
+
 - There are few methods which are required in all collections like -
 	- add();
 	- remove();
@@ -1376,90 +1382,391 @@ bw.close();
 - Two important list classes are 
 	- ArrayList
 	- LinkedList
-- ArrayList is most used collection
-- ArrayList can dynamically grow and shrink and workded as array
-- When there is a requirment to search data, we use ArrayList
-- When there is a requirment to add/delete data, then we use LinkedList
-```java
 
-List l = new ArrayList();
-l.add("bakul");
-l.add(new Person());
+		- Array list
+		   - ArrayList is most used collection
+		   - Array list class is a resizable array
+		   - The elements in arraylist can be dynamically inserted or deleted
+		   - Array lists are commonly used when the size of the data is unknown.
 
-String s = (String)l.get(2); 	// It will genetrate class castclassexception
-// we cannoct convert Person object as string
+		  ```java
+		  import java.util.ArrayList;
+          public class dog {
+          public static void main(String[] args) {
+			  //creating an array list
+          ArrayList<String> dogs = new ArrayList<String>();
+		  //here <String> badge is to specify that only string values can be stored in ArrayList
+		  // adding elements into the array list
+          dogs.add("Poodle");
+          dogs.add("Labrador");
+          dogs.add("Bulldog");
+          dogs.add("Pug");
+          dogs.add("Boxer");
+          for (int i = 0; i < dogs.size(); i++) {
+          System.out.println(dogs.get(i));
+            }
+           }
+          }
+		  ```
 
-// care has to be taken at the time of adding the element
+		- Linked List
+		- In linked list data items are not stored in continuous memory locations
+		- Every node (data storage space) conatins the value as well as the address to the next node
+		- Elements in linked list can only be accessed sequentially
+		- Better to insert and delete elements than in arrays but searching is slower
 
-List <String> l = new ArrayList<>();
-// because of <String> i can only pass/add string so there will not need of type cast
+		  ```java
+		     import java.util.LinkedList;
+             import java.util.Iterator;
+             public class linkedlist{
+                public static void main(String args[]){  
+					//creating a linked list
+             LinkedList<String> cars=new LinkedList<String>(); \
+			 //adding elements into the linked list 
+             cars.add("Rolls Royce");  
+             cars.add("Lamborghini");  
+             cars.add("Bugatti");  
+             cars.add("Ferrari");  
+             Iterator<String> itr = cars.iterator();  
+             while(itr.hasNext()){  
+              System.out.println(itr.next());  
+             }  
+            }  
+            }  
+		```
+	- Set 
+	    - The major difference between a list and a set is that list can contain duplicate values but set cannot.
+		- The two important sets are:
+		    - Hash Set
+			- Tree Set
 
-```
+		- Hash Set
+		 - Hash set only stores unique elements by the mechanism of hashing
+		 - Hash set doen't maintain the insertion order rather elements are inserted based on their hashcode
+		 - This is the best datastructure for search operation.
 
-- <String> is generics which will add type safety to the collection 
-- Because of this we can only add string, no need of typecast
+		```java
+		import java.util.HashSet; 
+        import java.util.Iterator;
 
-```java
-
-//without using generic 
-
-class Demo
-{
-
-	//List l = new ArrayList();	//This will generate error
-	List <String> l = new ArrayList<>();
-	l.add(new String("Welcome"));
-	//l.add(new Date());
-	//l.add(new Integer(45));
-	
-	//String s = (String)l.get(1);
-	// String s = l.get(0);
-	
-	Sysout(l); //call toString print all elements
-	
-	l.add(2,"xyz"); //addded to index 2
-	l.remove(3);	//remove element
-	l.remove("xyz"); // remove by value
-	
-	
-	// advanced loop
-	for( String s : 1)
-		sysout(s.toUpperCase());
-}
-
-```
-
-# 9/7(Collections)
-### Utility Classes
-- It is a collection of objects
-- You can add any object to collection 
-- Base of collection is lied on set interface
-- Collections is an interface that has some methods add,remove..etc
-- Collections is extended to List, Set and Queue
-- In list, duplicates are allowed
+        class hash {  
+        public static void main(String args[]){  
+        //Creating HashSet and adding elements  
+        HashSet<String> set=new HashSet();  
+           set.add("One");    
+           set.add("Two");    
+           set.add("Three");   
+           set.add("Four");  
+           set.add("Five");  
+           // creating an iterator for the set
+           Iterator<String> i=set.iterator();  
+           while(i.hasNext())  
+           {  
+           System.out.println(i.next());  
+           } 
+		   // Output elements may not be in the inserted format 
+          }  
+        }  
+		 ```
 
 
-### Iterator method for ittration data from collection
+		- Tree Set
+		  - Tree set is a sorted set which means that the elements stored in the tree set are in sorted fashion
+		  - Tree set uses a tree data structure to store the elements
+		  - This is basically a self balancing binary search tree
 
-**** // Collection upto Reversion
-
-#### Collection freame work 
-- Types of collections classes
-	- List 
-		- al
-		- ll
-	- set 
-		- hs 
-		- ts
+		  ```java
+		  import java.util.TreeSet;
+          import java.util.Iterator;
+          public class tree {
+             public static void main(String args[]) {
+          TreeSet<Integer> ts = new TreeSet();
+          // Add elements to the tree set
+          ts.add(5);
+          ts.add(9);
+          ts.add(4);
+          ts.add(3);
+          ts.add(0);
+          ts.add(1);
+          Iterator<Integer> i = ts.iterator();
+           while(i.hasNext()){
+              System.out.println(i.next());
+           }
+           // The output will be sorted
+          }
+        }
+		  ```  
 	
 	- queue
-		- pq
-- adding, removing, Itreating
-- common algos Collections (class with static methods)
-- Map key value map --> set
-- lagecy classes 
-	- stack
+		- Queue is a data structure that follows the First-in-First-out method
+		-Different types of queues are
+		  - Dequeue (Double ended queue)
+		  - Priority Queue
 
+		- Dequeue
+		  - In an ordinary queue data structure insertion and deletion only happens at the rear end
+		  - In a dequeue elements can be inserted or deleted from both the ends
+
+		 ```java
+		       import java.util.*;
+               public class dqueue {
+	           public static void main(String[] args)
+	           {
+		        Deque<String> deque = new LinkedList<String>();
+		        // Add at the last
+		        deque.add("1");
+		        // Add at the first
+		        deque.addFirst("2");
+		        // Add at the last
+		        deque.addLast("3");
+		        // Add at the first
+		        deque.push("4");
+		        // Add at the last
+		        deque.offer("5");
+		        // Add at the first
+		        deque.offerFirst("6");
+		        System.out.println(deque + "\n");
+		        // Removing the first element
+		        deque.removeFirst();
+                // Removing the last element
+		        deque.removeLast();
+		        System.out.println("Deque after removing first and last elements is : "+ deque);
+	        }
+        }
+
+		``` 
+		- Priority Queue
+		   - Similar to a normal queue but each element is associated with a priority
+		   - The elements in the priority queue are stored according to their priority
+		   - If two elements are having same priority then they are arranged according to First-in-First-out format
+
+		   ```java
+		   import java.util.*; 
+            class priorityqueue {
+	         public static void main(String args[]) 
+	         { 
+	         	// Creating empty priority queue 
+	         	PriorityQueue<Integer> pQueue = new PriorityQueue<Integer>(); 
+	         	// Adding items to the pQueue using add() 
+	         	pQueue.add(90); 
+	         	pQueue.add(50); 
+	         	pQueue.add(1); 
+	         	// Printing the top element of PriorityQueue 
+	         	System.out.println(pQueue.peek());
+				// Printing the priority queue elements
+	         	System.out.println("The priority queue elements are:"+pQueue);
+	         } 
+         } 
+		   ```
+- Adding Elements to Collections
+  - add() function is used to add an object to the collection
+  - object.add(value) is the syntax for adding an element 'value' to the collection
+  - This function returns true if element is sucessfully added else false
+
+- Removing Elements to Collections
+  - remove() function is used to remove or delete an element from the collection
+  - object.remove(index/element) is the syntax of remove
+  - If a numerical value is given as parameter it is considered as index, and removes element at that index
+  - If element is given that particular element is removed
+  - removeAll() function can be used to remove all the elements in the collection
+   ```java
+		     import java.util.LinkedList;
+             import java.util.Iterator;
+             public class remove{
+                public static void main(String args[]){  
+					//creating a linked list
+             LinkedList<String> cars=new LinkedList<String>(); 
+			 //adding elements into the linked list 
+             cars.add("Rolls Royce");  
+             cars.add("Lamborghini");  
+             cars.add("Bugatti");  
+             cars.add("Ferrari");  
+             Iterator<String> itr = cars.iterator();  
+             while(itr.hasNext()){  
+              System.out.println(itr.next());  
+             }  
+			 //removing element at index 1
+			 cars.remove(1);
+			 System.out.println("After removing the second element from the list:");  
+			 Iterator<String> itr2 = cars.iterator();  
+			 while(itr2.hasNext()){  
+			  System.out.println(itr2.next());  
+			 }  
+			}  
+		   }  
+		```
+### Iterator method for iteration data from collection
+
+**Iterator Class** The Iterator class is a utility class that can be used to create an iterator over the elements in a collection. 
+ Below is an example program 
+ ```java
+import java.util.Collection;  
+import java.util.Iterator;  
+import java.util.concurrent.ConcurrentLinkedQueue;  
+public class iterator {   
+    static int i = 1;  
+    public static void main(String[] args) {  
+        Collection<Integer> collection = new ConcurrentLinkedQueue<Integer>();  
+        
+        collection.add(12);
+        collection.add(13);
+        collection.add(14);
+        collection.add(15);
+        collection.add(16);
+        
+        //creating an object for iterator class over collection
+        Iterator<Integer> iterator = collection.iterator();
+
+        while (iterator.hasNext()) {  
+            System.out.println(i++ + ". " + iterator.next());  
+        }  
+    }  
+}  
+ ``` 
+
+- Common Algorithms in Collection
+  - There are many collection algorithms defined that can be used to make specific changes to the collections
+  - These are defined as static methods in Collection class
+  - These methods are highly efficient when compared to their user implementations
+  - sort(),reverse(),max(),min(),copy()...etc are few examples of these functions
+```java
+  import java.util.*;
+   public class collections {
+   public static void main(String args[]) {
+      // Create and initialize linked list
+      LinkedList ll = new LinkedList();
+      ll.add(5);
+      ll.add(3);
+      ll.add(0);
+      ll.add(7);
+      Collections.sort(ll);
+      // Get iterator
+      Iterator li = ll.iterator();
+      System.out.print("List in sorted form: ");
+      while(li.hasNext()) {
+         System.out.print(li.next() + " ");
+      }
+      Collections.shuffle(ll);
+      
+      // display randomized list
+      li = ll.iterator();
+      System.out.print("List shuffled: ");
+      
+      while(li.hasNext()) {
+         System.out.print(li.next() + " ");
+      }
+      System.out.println("Minimum: " + Collections.min(ll));//to get the maximum element in the collection
+      System.out.println("Maximum: " + Collections.max(ll));//to get the minimum element in the collection
+   }
+}
+  ```
+### Map Interface
+   - Represents a mapping between a key and a value
+   - It is faster for searching purposes
+   - Every key is associated with a value which can accessed using the key 
+   - some examples of maps are HashMap,LinkedHashMap,TreeMap
+
+   - HashMap
+     - Used to store elements in key value pairs
+ ```java
+	 import java.util.HashMap;
+
+     public class hashmap {
+     public static void main(String[] args) {
+     // Create a HashMap object called people
+     HashMap<String, Integer> people = new HashMap<String, Integer>();
+     // Add keys and values (Name, Age)
+	 //put function used to inset the value in the hashmap
+      people.put("John", 32);
+     people.put("Steve", 30);
+      people.put("Angie", 33);
+	 people.put("Blaize",22);
+	 //get function used to get the value from the hashmap
+	 //keyset function used to get the set of keys from the hashmap
+      for (String i : people.keySet()) {
+        System.out.println("key: " + i + " value: " + people.get(i));
+      }
+	 //removing element using remob=ve function
+	 people.remove("John");
+	 System.out.println("After removing John");
+	 for (String i : people.keySet()) {
+	   System.out.println("key: " + i + " value: " + people.get(i));
+      }
+    }
+	 ```
+
+	- TreeMap
+	  - In tree map the elements are stored in sorted form.
+	  - Sorting happens according to the key values
+
+	```java
+	import java.util.*; 
+    public class treemap{
+	public static void main(String[] args) {
+		// creating a Tree Map object
+		TreeMap<Integer, String> tree_map = new TreeMap<Integer, String>(); 
+		
+		// Mapping string values to int keys 
+		tree_map.put(10, "Red"); 
+		tree_map.put(15, "green"); 
+		tree_map.put(20, "orange"); 
+		tree_map.put(5, "white"); 
+		tree_map.put(30, "yellow"); 
+
+		// Printing the elements of TreeMap 
+		System.out.println("TreeMap: " + tree_map);  
+	} 
+}
+
+	```
+### Legacy Classes
+    - Classes and interfaces that formed the collections framework in the older version of Java are known as Legacy classes.
+	- There are 5 legacy classes defined by java.util package 
+	- 1.HashTable
+	- 2.Stack
+	- 3.Dictionary
+	- 4.Properties
+	- 5.Vector
+
+	- HashTable
+	  - Similar to HashMap
+	  - Stores elements as key value pair
+	
+    - Stack
+	  - Stack follows the Last-in-First-out format
+      - Elements are inserted and deleted from the front
+```java
+ 		import java.util.Stack;   
+         public class stack{  
+        public static void main(String[] args)   {  
+        //creating an instance of Stack class  
+        Stack<Integer> stk= new Stack<>();  
+        // pushing elements into stack  
+        stk.push(78);  
+        stk.push(113);  
+        stk.push(90);  
+        stk.push(120);  
+        //prints elements of the stack  
+        System.out.println("Elements in Stack: " + stk);  
+        System.out.println("Deleting the first element form the stack " + stk.pop());
+        System.out.println("The stack after deletion" + stk);  
+        }  
+        }  
+```
+    - Dictionary
+	  - Dictionary is a subset of the HashTable 
+	  - Similar to hashtable stores values as key value pair
+
+	- Properties
+	  - Properties is a subset of the Hashtable class
+	  - The properties object contains key and value pair both as a string
+	  - It can be used to get the properties of a system  
+	  - This can be used to get property value based on the property key
+
+	- Vector 
+	  - These are dynamic arrays similar to ArrayList
+	  - Any number of elements can be added to a vector
+	  - Recommended to use only in thread-safe implementation else ArrayList is more preffered    
 ****
 
 
