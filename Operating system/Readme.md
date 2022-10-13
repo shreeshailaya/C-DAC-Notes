@@ -118,6 +118,38 @@ become available, working around the various program's I/O operations.
 
 ### MultiProcessing
 
+**Definition:**
+Multiprocessing refers to the ability of a system to support more than one processor at the same time. Applications in a multiprocessing system are broken to smaller routines that run independently. The operating system allocates these threads to the processors improving performance of the system.
+
+![image](https://github.com/shreeshailaya/c-dac/blob/main/Operating%20system/Media/multiprocessing_01.png)
+
+**Advantages:**
+
+* The advantages of multiprocessor systems are as follows −
+
+  * If there are multiple processors working at the same time, more processes can be executed parallel at the same time. Therefore the throughput of the system will increase.
+
+  * Multiprocessor systems are more reliable. Due to the fact that there are more than one processor, in case of failure of any one processor will not make the system come to a halt. Although the system will become slow if it happens but still it will work.
+
+  * Electricity consumption of a multiprocessor system is less than the single processor system. This is because, in single processor systems, many processes have to be executed by only one processor so there is a lot of load on it. But in case of multiple processor systems, there are many processors to execute the processes so the load on each processor will be comparatively less so electricity consumed will also be less.
+
+**Fields:**
+
+* The different fields of multiprocessor operating systems used are as follows −
+
+  * Asymmetric Multiprocessor − Every processor is given seeded tasks in this operating system, and the master processor has the power for running the entire system. In the course, it uses the master-slave relationship.
+
+  * Symmetric Multiprocessor − In this system, every processor owns a similar copy of the OS, and they can make communication in between one another. All processors are connected with peering relationship nature, meaning it won’t be using master & slave relation.
+
+  * Shared memory Multiprocessor − As the name indicates, each central processing unit contains distributable common memory.
+
+  * Uniform Memory Access Multiprocessor (UMA) − In this system, it allows accessing all memory at a consistent speed rate for all processors.
+
+  * Distributed memory Multiprocessor − A computer system consisting of a range of processors, each with its own local memory, connected through a network, which means all the kinds of processors consist of their own private memory.
+
+  * NUMA Multiprocessor − The abbreviation of NUMA is Non-Uniform Memory Access Multiprocessor. It entails some areas of the memory for approaching at a swift rate and the remaining parts of memory are used for other tasks.
+
+* **The best Operating system in multiprocessor and parallel computing environment is *UNIX*.**
 ---
 
 ### MultiTasking
