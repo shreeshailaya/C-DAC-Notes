@@ -586,4 +586,13 @@ views are said to be complex. DML operations are not supported on these views.
 - Indexes should be created on shorter (INT, CHAR, …) columns to save disk space.
 - Few RDBMS do not allow indexes on external columns i.e. TEXT, BLOB.
 
+<hr/>
+
+ Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
+  </br>
+ Feel free to fork [@C-dac Notes](https://github.com/shreeshailaya/C-DAC-Notes)
+ 
+<hr/>
+
+
 
