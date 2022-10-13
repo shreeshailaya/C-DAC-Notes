@@ -161,6 +161,8 @@ Multitasking is a logical extension of a multiprogramming system that enables th
 * Multitasking
 Early operating system could execute various programs at the same time, although multitasking was not fully supported. As a result, a single software could consume the entire CPU of the computer while completing a certain activity. Basic operating system functions, such as file copying, prevented the user from completing other tasks, such as opening and closing windows. Fortunately, because modern operating systems have complete multitasking capability, numerous programs can run concurrently without interfering with one other. In addition, many operating system processes can run at the same time.
 
+* Examples of multitasking OS are MS-DOS, CP/M, PalmOS, Windows up to Win95, MacOS up to MacOS 9.
+
 ![image](https://github.com/shreeshailaya/c-dac/blob/main/Operating%20system/Media/multitasking_01.png)
 
 **Types of Multitasking:**
@@ -224,7 +226,26 @@ Early operating system could execute various programs at the same time, although
 
 ---
 
-### Multithreading
+### Multithreading:
+
+**Definition:** A thread is a path which is followed during a program’s execution. Majority of programs written now a days run as a single thread.Lets say, for example a program is not capable of reading keystrokes while making drawings. These tasks cannot be executed by the program at the same time. This problem can be solved through multitasking so that two or more tasks can be executed simultaneously.
+
+![image](https://github.com/shreeshailaya/c-dac/blob/main/Operating%20system/Media/multithreading_01.png)
+
+**Multitasking is of two types:** 
+
+* Processor based and thread based. Processor based multitasking is totally managed by the OS, however multitasking through multithreading can be controlled by the programmer to some extent.
+
+* The concept of multi-threading needs proper understanding of these two terms – a process and a thread. A process is a program being executed. A process can be further divided into independent units known as threads.
+
+* A thread is like a small light-weight process within a process. Or we can say a collection of threads is what is known as a process.
+
+
+
+
+* Threading is used widely in almost every field. Most widely it is seen over the internet now days where we are using transaction processing of every type like recharges, online transfer, banking etc. Threading is a segment which divide the code into small parts that are of very light weight and has less burden on CPU memory so that it can be easily worked out and can achieve goal in desired field. The concept of threading is designed due to the problem of fast and regular changes in technology and less the work in different areas due to less application. Then as says “need is the generation of creation or innovation” hence by following this approach human mind develop the concept of thread to enhance the capability of programming.
+
+
 
 ---
 
