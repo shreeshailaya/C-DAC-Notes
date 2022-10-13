@@ -1980,7 +1980,7 @@ is swapped.*
 *Let,s take an array of 5 elements:*
 
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_0 copy.jpg)
+![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/bubble_sort_0.jpg)
 
 
 * Bubble sort starts with very first two elements, comparing them to check which one is greater.
