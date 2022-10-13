@@ -588,9 +588,9 @@ views are said to be complex. DML operations are not supported on these views.
 
 <hr/>
 
- **Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya).**
+ Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya).
  </br>
- **Feel free to fork [@ C-dac Notes](https://github.com/shreeshailaya/C-DAC-Notes)**
+ Feel free to fork [@ C-dac Notes](https://github.com/shreeshailaya/C-DAC-Notes)
  
 <hr/>
 
