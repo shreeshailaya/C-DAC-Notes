@@ -152,7 +152,75 @@ Multiprocessing refers to the ability of a system to support more than one proce
 * **The best Operating system in multiprocessor and parallel computing environment is *UNIX*.**
 ---
 
-### MultiTasking
+### MultiTasking:
+
+
+**Definition:**
+Multitasking is a logical extension of a multiprogramming system that enables the execution of multiple programs simultaneously. In an operating system, multitasking allows a user to perform more than one computer task simultaneously. Multiple tasks are also known as processes that share similar processing resources like a CPU. The operating system keeps track of where you are in each of these jobs and allows you to transition between them without losing data.
+
+* Multitasking
+Early operating system could execute various programs at the same time, although multitasking was not fully supported. As a result, a single software could consume the entire CPU of the computer while completing a certain activity. Basic operating system functions, such as file copying, prevented the user from completing other tasks, such as opening and closing windows. Fortunately, because modern operating systems have complete multitasking capability, numerous programs can run concurrently without interfering with one other. In addition, many operating system processes can run at the same time.
+
+![image](https://github.com/shreeshailaya/c-dac/blob/main/Operating%20system/Media/multitasking_01.png)
+
+**Types of Multitasking:**
+* There are mainly two types of multitasking. These are as follows:
+
+  * Preemptive Multitasking
+  * Cooperative Multitasking
+* **Preemptive Multitasking:**
+
+  * Preemptive multitasking is a special task assigned to a computer operating system. It decides how much time one task spends before assigning another task to use the operating system. Because the operating system controls the entire process, it is referred to as 'preemptive'.
+
+  * Preemptive multitasking is used in desktop operating systems. Unix was the first operating system to use this method of multitasking. Windows NT and Windows 95 were the first versions of Windows that use preemptive multitasking. With OS X, the Macintosh acquired proactive multitasking. This operating system notifies programs when it's time for another program to take over the CPU.
+
+* **Cooperative Multitasking:**
+
+  * The term 'Non-Preemptive Multitasking' refers to cooperative multitasking. The main purpose of cooperative multitasking is to run the present task while releasing the CPU to allow another process to run. This task is carried out by using taskYIELD (). When the taskYIELD() function is called, context-switch is executed.
+
+  * Windows and MacOS used cooperative multitasking. A Windows program will respond to a message by performing some short unit of work before handing the CPU over to the operating system until the program receives another message. It worked perfectly as long as all programs were written with other programs in mind and bug-free.
+
+**Advantages and Disadvantages of Multitasking:**
+
+
+**Advantages:**
+
+* **Manage Several Users:**
+
+  * This operating system is more suited to supporting multiple users simultaneously, and multiple apps can run smoothly without interfering with system performance.
+
+* **Virtual Memory**
+
+  * The greatest virtual memory system is found in multitasking operating systems. Because of virtual memory, any program does not require a long wait time to complete its tasks; if this problem arises, those programs are moved to virtual memory.
+
+* **Good Reliability**
+
+  * Multitasking operating systems give more flexibility to several users, and they are happier as a result. On which each user can execute single or multiple programs simultaneously.
+
+* **Secured Memory**
+
+  * The multitasking operating systems have well-defined memory management. Due to this operating system does not allow any types of permissions for undesirable programs to waste memory.
+
+* **Time Shareable**
+
+  * All tasks are allotted a specified amount of time so that they do not have to wait for the CPU.
+
+
+
+**Disadvantages:**
+
+
+* **Processor Boundation**
+
+  * The system may run programs slowly because of the poor speed of their processors, and their reaction time might rise when processing many programs. To solve this problem, more processing power is required.
+
+* **Memory Boundation**
+
+  * The computer's performance may get slow performance due to the multiple programs run at the same time because the main memory gets overloaded while loading multiple programs. Because the CPU is unable to provide different times for each program, reaction time increases. The primary cause of this issue is that it makes use of low-capacity RAM. As a result, the RAM capacity can be raised to provide a solution.
+
+* **CPU Heat Up**
+
+  * The multiple processors are busier at the same time to complete any task in a multitasking environment, so the CPU generates more heat.
 
 ---
 
