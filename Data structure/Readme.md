@@ -1671,17 +1671,17 @@ The steps for implementing Kruskal's algorithm are as follows:
 
 Let us consider a graph. Now the minimum spanning tree using Kruskal's algorithm can be created as follows 
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-1.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/ka-1.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-2.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/ka-2.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-3.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/ka-3.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-4.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/ka-4.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-5.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/ka-5.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/ka-6.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/ka-6.webp)
 
 **Time Complexity:** This algorithm has a time complexity of O(e*log(e)) where e is the number of edges in the graph
 
@@ -1840,17 +1840,17 @@ The steps for implementing Prim's algorithm are as follows:
 
 Let us consider a graph. Prim's algorithm finds the minimum spanning tree as follows
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_1.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/pa_1.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_2.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/pa_2.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_3.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/pa_3.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_4.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/pa_4.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_5.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/pa_5.webp)
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/pa_6.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/pa_6.webp)
 
 **Time complexity** The time complexity of Prim's algorithm is O(e*log(v)) where e is the number of edges in the graph and v the number of vertices in the graph.
 
@@ -1940,11 +1940,11 @@ class PGraph {
 
 **AVL Tree:** A Binary tree with each vertex having a balance factor of 1,0 or -1 is an AVL Tree.
 
-![image](https://raw.githubusercontent.com/Blaize99/C-DAC-Notes/main/Data%20structure/Media/avltree%20unbalanced.webp)
+![image](https://raw.githubusercontent.com/shreeshailaya/C-DAC-Notes/main/Data%20structure/Media/avltree%20unbalanced.webp)
 
 In the above diagram since three of the vertices are having balance factor as 2 it is not an AVL Tree.Such Binary trees can be converted to AVL Tree by any of the four rotation methods.
 
-![image](https://github.com/Blaize99/C-DAC-Notes/blob/main/Data%20structure/Media/avl%20balance.png)
+![image](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Data%20structure/Media/avl%20balance.png)
 
 In the above diagram the numbers noted above each vertex is the balance factor of that vertex.Since each vertex is having either balance factor 1,0 or -1 it is an AVL Tree.
 
