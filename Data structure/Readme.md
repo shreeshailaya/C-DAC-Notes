@@ -1971,17 +1971,18 @@ In the above diagram the numbers noted above each vertex is the balance factor o
 
 For better understanding lets grasp this concept by a pictorial view.
 
-![image](https://github.com/Rohit-R2000/C-DAC-Notes/blob/main/Data%20structure/Media/part%201%20Bubble%20sort.png)
+![image](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Data%20structure/Media/part%201%20Bubble%20sort.png)
 
-![image](https://github.com/Rohit-R2000/C-DAC-Notes/blob/main/Data%20structure/Media/part%202%20Bubble%20sort.png)
+![image](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Data%20structure/Media/part%202%20Bubble%20sort.png)
 
-![image](https://github.com/Rohit-R2000/C-DAC-Notes/blob/main/Data%20structure/Media/part%203%20Bubble%20sort.png)
+![image](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Data%20structure/Media/part%203%20Bubble%20sort.png)
 
-![image](https://github.com/Rohit-R2000/C-DAC-Notes/blob/main/Data%20structure/Media/part%204%20Bubble%20sort.png)
+![image](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Data%20structure/Media/part%204%20Bubble%20sort.png)
 
 On third Iteration we got our sorted array but our compiler will run this code till N Iterations where N is the number of elements in an array.
 
 **Code In Java**
+```java
 
 	class Main
 	{
@@ -2022,7 +2023,7 @@ On third Iteration we got our sorted array but our compiler will run this code t
         printArray(arr); //calling the printArray function
     }
 }
-
+```
 
 **Complexity**
 
