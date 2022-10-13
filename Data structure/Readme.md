@@ -1954,7 +1954,80 @@ In the above diagram the numbers noted above each vertex is the balance factor o
 ***
 # Sorting
 
-### Buebble Sort
+### Bubble Sort
+**Defination:** It is a comparison based sorting algorithm wherein comparing adjacent elements is a primitive operation. In each pass, it compares the adjacent elements in the array and exchanges those that are not in order.As camparision goes from bottom to top that's the reason this sorting being called BUBBLE SORT.
+
+**Working Steps:**
+
+**1.)** Start with the first element of the array.
+
+**2.)** Compare it with the next element of array. If the first one is bigger then swap the positions , if not then don't change anything.
+
+**3.)** Again do the same thing with second and third element if we find bigger then swap them. Once you cover all element , you will find that the biggest element is on the end of array.
+
+**4.)** Repeat steps again and then you will find the 2nd biggest element is on then 2nd last position on array.
+
+**5.)** Repeat all these steps until you find the sorted array.
+
+For better understanding lets grasp this concept by a pictorial view.
+
+![image](https://github.com/Rohit-R2000/C-DAC-Notes/blob/main/Data%20structure/Media/part%201%20Bubble%20sort.png)
+
+![image](https://github.com/Rohit-R2000/C-DAC-Notes/blob/main/Data%20structure/Media/part%202%20Bubble%20sort.png)
+
+![image](https://github.com/Rohit-R2000/C-DAC-Notes/blob/main/Data%20structure/Media/part%203%20Bubble%20sort.png)
+
+![image](https://github.com/Rohit-R2000/C-DAC-Notes/blob/main/Data%20structure/Media/part%204%20Bubble%20sort.png)
+
+On third Iteration we got our sorted array but our compiler will run this code till N Iterations where N is the number of elements in an array.
+
+**Code In Java**
+
+	class Main
+	{
+	    static void bubbleSort(int a[])
+    	{
+        	int len = a.length; // calculating the length of array
+        	for (int i = 0; i < len-1; i++)
+            	for (int j = 0; j < len-i-1; j++) 
+                	if (a[j] > a[j+1]) //comparing the pair of elements
+                	{
+                    	// swapping a[j+1] and a[i]
+                   	 int temp = a[j];
+                   	 a[j] = a[j+1];
+                  	 a[j+1] = temp;
+                	}
+    	}
+
+    /* Prints the array */
+    static void printArray(int a[])
+    {
+        int len = a.length;
+        for (int i = 0; i < len; i++)
+            System.out.print(a[i] + " "); 
+	    //printing the sorted array
+
+        System.out.println();
+    }
+
+    // Main method to test above
+    public static void main(String args[])
+    {
+        int arr[] = {5 , 3 , 9 , 1 , 7};
+
+        bubbleSort(arr);//calling the bubbleSort function
+
+        System.out.println("Sorted array");
+
+        printArray(arr); //calling the printArray function
+    }
+}
+
+
+**Complexity**
+
+ This algorithm has a worst-case time complexity of O(n^2). And has a space complexity of O(1).
+
 ### Cyclic Sort
 ### Insertion Sort
 ### Selection Sort
