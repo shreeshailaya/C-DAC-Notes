@@ -249,16 +249,84 @@ Early operating system could execute various programs at the same time, although
 
 ---
 
+### What is a kernel ?
+
+The kernel is a computer program at the core of a computer’s operating system and has complete control over everything in the system. It manages the operations of the computer and the hardware.
+
+* There are five types of kernels :
+
+  * A micro kernel, which only contains basic functionality;
+  * A monolithic kernel, which contains many device drivers.
+  * Hybrid Kernel
+  * Exokernel
+  * Nanokernel
+
+But here we will only look into Microkernel and Monolithic Kernel.
+  
+
 ### Monolithic architecture vs Microkernel architecture
+**Monolithic architecture:**
+
+**Definition:** kernel manages the operations of the computer, In microkernel the user services and kernel services are implemented in different address space. The user services are kept in user address space, and kernel services are kept under kernel address space.
+
+**Microkernel architecture:**
+
+**Definition:** In Monolithic kernel, the entire operating system runs as a single program in kernel mode. The user services and kernel services are implemented in same address space.
+
+
+![image](https://github.com/shreeshailaya/c-dac/blob/main/Operating%20system/Media/difference.jpeg)
+
 
 ---
 
 ### Why Windows kernel is more monolithic & no microkernel?
 
+*Like most Unix systems, Windows is a monolithic operating system. Why? Because the kernel mode protected memory space is shared by the operating system and device driver code.*
+
+
+
+* But it does have some attributes of a microkernel OS
+
+  * OS personalities running in user space as separate processes
+  * Kernel-mode components don’t reach into one another’s data structures
+  * Use formal interfaces to pass parameters and access and/or modify data structures
+
+Therefore the term “modified microkernel” is used.
+
 ---
 
 ### What happens when we turn on our Computer?
 
+Step 1: the hardware powers up
+You’ve pressed the power button. Now, using its power supply, the computer begins to deliver power to its individual components – the hardware. This includes the CPU (central processing unit), hard disk drives and solid-state drives, graphics processors, and more.
+
+Step 2: the CPU initiates the BIOS or UEFI
+CPU
+
+* The CPU now has electricity, so begins to initialise itself. The CPU locates a program generally stored on a chip on the motherboard – either a BIOS or UEFI.
+
+* Today, most PCs load what’s called a UEFI (Unified Extensible Firmware Interface). Older computers, however, loaded something called a BIOS (Basic Input/Output System). To confuse things further, some modern-day PC manufacturers refer to their UEFI as a BIOS.
+
+Step 3: the BIOS or UEFI tests and initialises your hardware
+The CPU is now ready to run the BIOS or UEFI. These programs are designed to test and initialise your PC’s hardware, including the CPU. If there’s something wrong with your hardware – for example, if you don’t have any RAM installed on your device – the bootup process will stop, and the computer will display an error. This testing process is known as the POST (Power On Self Test).
+
+* From your end, you’ll typically see the PC manufacturer’s logo on the screen. That being said, some more recent computers fly through this process so fast they don’t bother displaying anything during the POST.
+
+Step 4: the BIOS or UEFI hands responsibility over to a boot device
+When the BIOS or UEFI has finished testing and initialising your hardware (and has confirmed everything’s in working order), it hands responsibility over to your operating system’s boot loader. This is known as the ‘boot device,’ and is usually your computer’s disk drive or solid-state drive, but can also be a USB, network, DVD, or another device.
+
+* If you have more than one boot device, the BIOS or UEFI will hand over the start-up process to the device that’s listed first. If there is no bootable boot device, the process will come to a halt, and you’ll see an error message on the screen.
+
+* Modern computers using UEFI firmware are usually configured for a ‘secure boot.’ This ensures the operating system – Windows, Linux, Mac, as examples – are not running low-level malware.
+
+Step 5: the boot device loads the operating system
+The boot device is a small program, but it has a pretty hefty task – to load the entire operating system. If there is a problem with your boot loader, again, the start-up process will stop, and you’ll get a boot loader error message.
+
+* As we mentioned, the boot loader is a small program – luckily, it has help. On Windows, the Windows Boot Manager locates and starts up the Windows OS Loader. The OS Loader loads vital hardware drivers needed to run the kernel (the core of the operating system) and then runs the kernel. This then loads the Registry into memory and initialises any other hardware drivers labelled with ‘BOOT_START’.
+
+* Then Windows loads the system session, additional drivers, background services, and the welcome screen, which allows you to log in.
+
+* You might have noticed that so-called ‘start-up programs’ weren’t mentioned in our rundown of the start-up process. That’s because the programs configured to open on startup actually load after you’ve logged in.
 ---
 
 ---
