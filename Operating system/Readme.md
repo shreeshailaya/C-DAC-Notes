@@ -250,16 +250,63 @@ Early operating system could execute various programs at the same time, although
 ---
 
 ### Monolithic architecture vs Microkernel architecture
+In the monolithic approach the entire
+operating system runs as a single program in kernel mode. The operating system is
+written as a collection of procedures, linked together into a single large executable
+binary program. When this technique is used, each procedure in the system is free
+to call any other one, if the latter provides some useful computation that the former
+needs. Being able to call any procedure you want is very efficient, but having thousands of procedures that can call each other 
+without restriction may also lead to a system that is unwieldy and difficult to understand. 
+Also, a crash in any of these procedures will take down the entire operating system.
+
+The basic idea behind the microkernel design is to achieve high reliability by
+splitting the operating system up into small, well-defined modules, only one of
+which—the microkernel—runs in kernel mode and the rest run as relatively powerless ordinary user processes. 
+In particular, by running each device driver and file system as a separate user process, 
+a bug in one of these can crash that component,
+but cannot crash the entire system. Thus a bug in the audio driver will cause the
+sound to be garbled or stop, but will not crash the computer. In contrast, in a
+monolithic system with all the drivers in the kernel, a buggy audio driver can easily
+reference an invalid memory address and bring the system to a grinding halt instantly.
 
 ---
 
 ### Why Windows kernel is more monolithic & no microkernel?
+Windows NT was never a pure microkernel, but it was microkernel-ish for a long time. 
+NT 3.x had graphics drivers as a user process, and honestly NT 3.x was super stable. 
+NT 4.0 moved graphics drivers into the kernel; it was less stable but much more performant. 
+Windows kernel is basically monolithic, but drivers are still developed separately.
 
 ---
 
 ### What happens when we turn on our Computer?
 
 ---
+
+Every PC contains a motherboard, on the motherboard is a program called the system BIOS (Basic Input Output System).
+The BIOS contains low-level I/O software, including procedures to
+read the keyboard, write to the screen, and do disk I/O, among other things. 
+Nowadays, it is held in a flash RAM, which is nonvolatile but which can be updated by
+the operating system when bugs are found in the BIOS.
+When the computer is booted, the BIOS is started. It first checks to see how
+much RAM is installed and whether the keyboard and other basic devices are installed and responding correctly. 
+It starts out by scanning the PCIe and PCI buses to detect all the devices attached to them. 
+If the devices present are different from
+when the system was last booted, the new devices are configured.
+The BIOS then determines the boot device by trying a list of devices stored in
+the CMOS memory. The user can change this list by entering a BIOS configuration
+program just after booting. Typically, an attempt is made to boot from a CD-ROM
+(or sometimes USB) drive, if one is present. If that fails, the system boots from the
+hard disk. The first sector from the boot device is read into memory and executed.
+This sector contains a program that normally examines the partition table at the
+end of the boot sector to determine which partition is active. Then a secondary boot
+loader is read in from that partition. This loader reads in the operating system
+from the active partition and starts it.
+The operating system then queries the BIOS to get the configuration information. For each device, 
+it checks to see if it has the device driver. If not, it asks the user to insert a CD-ROM containing the driver 
+(supplied by the device’s manufacturer) or to download it from the Internet. 
+Once it has all the device drivers, the operating system loads them into the kernel. 
+Then it initializes its tables, creates whatever background processes are needed, and starts up a login program or GUI.
 
 ---
 
