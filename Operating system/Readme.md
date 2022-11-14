@@ -250,14 +250,25 @@ Early operating system could execute various programs at the same time, although
 ---
 
 ### Monolithic architecture vs Microkernel architecture
+The monolithic operating system is a fundamental operating system in which file management, memory management, device management, and process management are directly controlled within the kernel. The kernel can access all the resources present in the system and occupies more space. Relatively slower and gets affected even if one component fails.
+
+The kernel space is utilized in the microkernel for specific purposes like inter-process communication and scheduling. And hence, occupies lesser space. It uses less number of lines and is relatively easy to debug and manage.
 
 ---
 
 ### Why Windows kernel is more monolithic & no microkernel?
-
+The Windows kernel is a hybrid kernel, which means it attempts to combine features and benefits of microkernel and monolithic kernel architectures. The idea is to simultaneously benefit from the performance monolithic kernels provide and the stability that microkernels provide.
 ---
 
 ### What happens when we turn on our Computer?
+Step 1: The hardware powers up
+Step 2: The CPU initiates the BIOS or UEFI
+Step 3: The BIOS or UEFI tests and initializes your hardware
+Step 4: The BIOS or UEFI hands responsibility to a boot device.
+Step 5: The boot device loads the operating system.
+
+
+
 
 ---
 
