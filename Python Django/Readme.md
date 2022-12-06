@@ -341,6 +341,75 @@ STATIC_URL = 'static/'
 - Post add 2 numbers
 - csrf_token 
 
+### GET form template to template
+- index.html
+```html
+    <form action="" method="get">
+        Number-1 <input type="text" name="number1" id="number1">
+        <br>
+        Number-2 <input type="text" name="number2" id="number2">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <h2>{{ans}}</h2>
+```
+- views.py
+```python
+def indexHandler(request):
+    if request.GET.get("number1"):
+        num1 = request.GET.get("number1")
+        num2 = request.GET.get("number2")
+        answer = int(num1)+int(num2)
+    else:
+        answer = ""
+    context = {
+       "ans": answer
+    }
+    return render(request, 'index.html', context)
+```
+- app.urls.py
+```python
+# No need to change in urls.py
+```
+### POST form template to another template
+- index.html
+```html
+<h1>POST METHOD FORM</h1>
+    <form action="submitform/" method="POST">
+        {% csrf_token %}
+        Number-1 <input type="text" name="number1" id="number1">
+        <br>
+        Number-2 <input type="text" name="number2" id="number2">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+```
+
+- views.py
+```python
+def submitFormHandler(request):
+    no1 = request.POST.get('number1')
+    no2 = request.POST.get('number2')
+    print(no1, no2)
+    answer = int(no2)+int(no1)
+    context = {
+        "ans":answer
+    }
+    return render(request, "answer.html", context)
+
+```
+- urls.py
+```python
+    path('submitform/',views.submitFormHandler, name="submit" )
+
+```
+- answer.html
+```html
+<body>
+    <h1>This is answer : {{ans }}</h1>
+</body>
+```
 ### Models
 - A Django model is the built-in feature that Django uses to create tables, their fields, and various constraints.
 - Each model is a Python class that subclasses django.db.models.Model.
