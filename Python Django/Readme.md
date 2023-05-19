@@ -51,7 +51,8 @@
 4. > deactivate
 
 ---
-*Creating Django Project*
+- Avoid VS Code Script Execution Error Run Command : **Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned**
+### *Creating Django Project*
 - Create a folder which contain requirements.txt which contain the packages would you like to install in your virtual environment
 - install packages using command `pip install -r requirements.txt`
 - else you can install it directly with pip install with package name
