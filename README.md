@@ -1,5 +1,4 @@
 
-## Welcome all Hacktoberfest 2022 Contributors
 
 <p align="center">
 
@@ -145,3 +144,6 @@ Compiled by [Shreeshail Vitkar](https://github.com/shreeshailaya)
 Feel free to fork @ [C-dac Notes](https://github.com/shreeshailaya/c-dac)
 
 ***
+
+<a href="https://notbyai.fyi/"><img src="https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Media/Written-By-Human-Not-By-AI-Badge-white%402x.png"  width=150px alt="Written by Human, Not by AI"/></a>
+
