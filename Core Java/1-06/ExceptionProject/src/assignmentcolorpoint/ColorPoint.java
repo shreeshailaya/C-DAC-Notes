@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ColorPoint {
-	private static List<String> Colors=Arrays.asList("Red","Black,Blue");
+	private static List<String> listColors=Arrays.asList("Red","Black,Blue");
 	private String color;
 	
 	public ColorPoint(String color) throws InvalidColorException {
-		if (!Colors.contains(color)) {
+		if (!listColors.contains(color)) {
             throw new InvalidColorException("Invalid color: " + color);
         }
         this.color = color;
