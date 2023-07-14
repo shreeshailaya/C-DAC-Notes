@@ -39,11 +39,61 @@
 
 ### Types of OS
 
-- Batched OS
-- Time Sharing OS
-- Distributed OS
-- Network OS
-- Real Time OS
+- Batched OS - A batched operating system, also known as a batch processing operating system, is a type of operating system that executes multiple tasks or jobs    in a batch or batched mode without requiring real-time user interaction. In a batched OS, a series of jobs or tasks are grouped together 
+  and processed sequentially, one after another, without the need for immediate user intervention.
+  
+    - This operating system doesn't interact with the computer directly. There is an operator that takes as input similar jobs which are all having similar     
+      requirements and then the operator groups those jobs into batches.
+    - It's quite difficult to find out the time required for any job to finish. Processors of this Batch OS know how long the job would be when it is in queue.
+    - Multiple users are allowed to share the batch systems.
+    - The idle time of these systems is very less.
+    - It is a lot easier to manage large jobs repeatedly in these systems.
+      
+- Time Sharing OS-A time-sharing operating system (OS) is a type of operating system that enables multiple users or processes to concurrently share a single 
+  physical or virtual computing resource, such as a computer or a server. In a time-sharing OS, the CPU time is divided and allocated among multiple users or 
+  processes, allowing them to execute their tasks or programs in an interleaved or overlapping manner.
+  
+    - For all operations, each user sets aside time.
+    - At the same time, multiple online users can utilise the same computer.
+    - End users believe they have complete control over the computer system.
+    - Interaction among users and computers is improved.
+    - User inquiries can result in quick responses.
+    - It is no longer necessary to wait for the previous task to complete before using the processor.
+    - It can do a large number of tasks quickly.
+      
+- Distributed OS - A distributed operating system (OS) is an operating system that runs on multiple interconnected computers or nodes and enables them to work 
+  together as a single, integrated system. In a distributed OS, the underlying hardware and software components are distributed across multiple machines, forming 
+  a networked computing environment.
+ 
+    - A distributed operating system allows multiple processes to execute simultaneously on different machines.
+    - Resources such as memory, storage, and processing power can be shared across multiple machines.
+    - The system can easily be scaled up or down by adding or removing nodes, making it highly adaptable to changing demands.
+    - Distributed operating systems are designed to continue functioning even in the event of node failures.
+    - The system makes it appear as if all resources are available locally, even though they may be located on a different machine.
+  
+- Network OS - A network operating system (NOS) is an operating system specifically designed to support and manage the operations of a computer network. It 
+  provides the necessary functionality and services to enable communication, resource sharing, and network management among multiple computers or devices 
+  connected within a network.
+
+    - Basic support for OSes, including protocol and processor support, hardware detection and multiprocessing.
+    - Printer and application sharing.
+    - Common file system and database sharing.
+    - Network security capabilities, such as user authentication and access control.
+    - Directory services.
+    - Backup and web services.
+    - Internetworking.
+      
+- Real Time OS - A real-time operating system (RTOS) is an operating system designed to provide deterministic and predictable behavior for applications that have 
+  strict timing requirements. In an RTOS, tasks or processes are guaranteed to meet specific timing constraints, allowing them to respond to events or stimuli 
+  within predetermined time limits.
+ 
+    -  Repeating an input will result in the same output.
+    -  RTOS systems are fast and responsive, often executing actions within a small fraction of the time needed by a general OS.
+    -  RTOSes are frequently used in critical systems when failures can have catastrophic consequences, such as robotics or flight controllers. To protect those 
+        around them, they must have higher security standards and more reliable safety features.
+    -   Priority scheduling means that actions assigned a high priority are executed first, and those with lower priority come after. This means that an RTOS 
+        will always execute the most important task.
+      
 
 ---
 
