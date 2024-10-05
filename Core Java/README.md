@@ -1645,7 +1645,7 @@ main()
 ```
 
 
-### Threasd Synchronization
+### Thread Synchronization
 - Because of Multiple thread we achive better performance
 - When multiple thread share common resources (object), it may lead to data inconsistancy
 - Thread Sync is needed when multiple thread share common resources (Object)
