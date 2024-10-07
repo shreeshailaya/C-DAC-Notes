@@ -88,7 +88,7 @@ Servlet is a Java backend package for processing requests and generating respons
 
  Servlets are not a webserver, but programs that handle clients requests obtained from the webserver. Servlets process this request and forward the respective response to the webserver. The webserver essentially acts as a proxy from the client to the Servlet program. When the Servlet receives a request from the web server, it can generate a response by pulling information from many different sources such as Databases, APIs, and other web services before sending its response.
 
- ![Servlet Architecture](./Media/servlet_architecture.png)
+ ![Servlet Architecture](./Media/1_Servlet.png)
  *Servlet Server Architecture*
 
 The Servlet is masnaged by a Servlet Container. Servlet containers provide services such as session/ cookie management, security services, and managing servlet lifecycle. The lifecycle of a Servlet is important to understanding how a Servlet operates. There are three main stages in the Servlet Life Cycle.
