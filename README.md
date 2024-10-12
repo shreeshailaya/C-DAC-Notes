@@ -143,7 +143,7 @@
     - [Arithmetic](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
     - [Unary](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
     - [Relational](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
-    - [Logical]("https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python")
+    - [Logical](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
   - [List and its Properties](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
   - [Sets and its Properties](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
   - [Dictionary and its Properties](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
@@ -168,7 +168,7 @@
 ### 🛜 Django
   - [Intro,MVT,Virtual Env](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
   - [Hello World,Template,Sending Dynamic Data](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
-  - ["Views,Conditonal Statements,Filters"](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - ["Views,Conditional Statements,Filters"](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
   - [Comments,Static Files](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
   - [GET,POST,Models](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
   - [ORM,Create,Delete,View](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
