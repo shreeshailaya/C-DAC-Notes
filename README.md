@@ -153,7 +153,7 @@
   - [Unicode,Loops,Looping Through Ranges](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
     - [While loop](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
     - [For loop](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
-  - [Pass,Break,Continue]("https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python")
+  - [Pass,Break,Continue](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
   - [Arrays and its Functions](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
   - [Type of Arguments,Global,Globles](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
   - [Recursion,Lamda Functions,Decorators](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
