@@ -9,9 +9,11 @@
 
 
   
-| Core Java | Database Technologies | Data Structure | Operating System | Web Programming | Advanced Java |
-| --- | --- | ---  | --- | --- | --- |
-| <p align="center"> ☕ | <p align="center"> 💾 | <p align="center"> ➿ | <p align="center"> 🐧 </p> | <p align="center"> :earth_asia: | <p align="center"> :leaves: |
+<!-- | Core Java | Database Technologies | Data Structure | Operating System | Web Programming | Advanced Java | Python | Django |
+| <p align="center"> ☕ | <p align="center"> 💾 | <p align="center"> ➿ | <p align="center"> 🐧 </p> | <p align="center"> :earth_asia: | <p align="center"> :leaves: | <p align="center"> 🐍 | <p align = "center"> 🛜 | -->
+| <p align="center">Core Java<br>☕</p> | <p align="center">Database Technologies<br>💾</p> | <p align="center">Data Structure<br>➿</p> | <p align="center">Operating System<br>🐧</p> |
+|:---:|:---:|:---:|:---:|
+| <p align="center">Web Programming<br>:earth_asia:</p> | <p align="center">Advanced Java<br>:leaves:</p> | <p align="center">Python<br>🐍</p> | <p align="center">Django<br>🛜</p> |
 
 
 ------------
@@ -132,6 +134,49 @@
     - [Selection Sort](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#selection-sort)
     - [Merge Sort](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#merge-sort)
     - [Shell Sort](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Data%20structure#shell-sort)
+
+### 🐍 Python
+  - [Intro,Features,Uses](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [String,Print,Variable,Memory Management](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Garbage Collector,Keywords](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Operators](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+    - [Arithmetic](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+    - [Unary](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+    - [Relational](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+    - [Logical](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [List and its Properties](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Sets and its Properties](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Dictionary and its Properties](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Datatypes,Typecasting](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Basic Programs,Input](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Conditions,Indentation,Importing Modules](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Unicode,Loops,Looping Through Ranges](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+    - [While loop](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+    - [For loop](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Pass,Break,Continue](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Arrays and its Functions](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Type of Arguments,Global,Globles](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Recursion,Lamda Functions,Decorators](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Closures,Iterator,Generator](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Modules,RegEx,PIP,Packages](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [File Handling,OOPS](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+    - [Class,Objects,init(),self](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Methods,Inheritance,Constructor,Polymorphism](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Overloading,Overiding](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+  - [Exception Handling](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python)
+
+### 🛜 Django
+  - [Intro,MVT,Virtual Env](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - [Hello World,Template,Sending Dynamic Data](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - ["Views,Conditional Statements,Filters"](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - [Comments,Static Files](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - [GET,POST,Models](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - [ORM,Create,Delete,View](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - [CDN,Forms,CRUD](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - [Class Based Views,Django Admin Customization](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - [User Model,Authentication](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - [Deployment,Git/Github](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)
+  - [Deploy On Cpanel](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Python%20Django)  
 
 ### 🐧 [Operating system](https://github.com/shreeshailaya/C-DAC-Notes/tree/main/Operating%20system)  
 
