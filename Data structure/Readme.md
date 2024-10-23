@@ -1042,7 +1042,7 @@ Display circular Queue
 
 
 ### Representation of Deque
-![queue](https://github.com/Rakhipujari/c-dac/blob/main/Data%20structure/Media/27_deque.png)
+![queue](https://github.com/Rakhipujari/C-DAC-Notes/blob/main/Data%20structure/Media/27_deque.png)
 
 
 - Operations on Deque:
@@ -1156,7 +1156,7 @@ class Deque {
 
 - For example consider the below Ascending order priority queue
 
-![Queue](https://github.com/Rakhipujari/c-dac/blob/main/Data%20structure/Media/28_priority_queue.png)
+![Queue](https://github.com/Rakhipujari/C-DAC-Notes/blob/main/Data%20structure/Media/28_priority_queue.png)
 
 - Operations of Priority queue
 1. Insertion 
