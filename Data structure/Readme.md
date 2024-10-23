@@ -1034,26 +1034,219 @@ Display circular Queue
 
 ***
 ***
-# Day 9 25/6(Dqueue)
-### Dqueue
-pushBack()
-}
-- check queue is not full
-- if rear =-1
-- increament the rear and add element
+# Day 9 25/6(Queue Types)
+### Deque 
+- Stands for Double Ended Queue.
+- Insertion and Deletion operations can be performed from both ends.
+- can be used as both stack and queue.
+
+- Representation of Deque
+![queue](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/27_deque.png)
+
+- Operations on Deque:
+- push_front()
+- push_back()
+- pop_front()
+- pop_back()
+- front()
+- back()
+
+- Implementation of Deque with the above operations:
+- using doubly linked list
+
+```java
+class Node {
+    int data;
+    Node prev, next;
+
+    public Node(int data) {
+        this.data = data;
+        this.prev = null;
+        this.next = null;
+    }
 }
 
-pushFront()
+class Deque {
+    private Node front, rear;
+
+    public Deque() {
+        this.front = null;
+        this.rear = null;
+    }
+
+    public void push_front(int data) {
+        Node newNode = new Node(data);
+        if (front == null) {
+            front = rear = newNode;
+        } else {
+            newNode.next = front;
+            front.prev = newNode;
+            front = newNode;
+        }
+    }
+
+    public void push_back(int data) {
+        Node newNode = new Node(data);
+        if (back == null) {
+            front = rear = newNode;
+        } else {
+            newNode.prev = rear;
+            back.next = newNode;
+            rear = newNode;
+        }
+    }
+
+    public int pop_front() {
+        if (front == null) {
+            System.out.println("Deque is Empty!");
+        }
+        int data = front.data;
+        front = front.next;
+        if (front != null) {
+            front.prev = null;
+        } else {
+            rear = null;
+        }
+        return data;
+    }
+
+    public int pop_back() {
+        if (rear == null) {
+            System.out.println("Deque is Empty!");
+        }
+        int data = rear.data;
+        rear = rear.prev;
+        if (rear != null) {
+            rear.next = null;
+        } else {
+            front = null;
+        }
+        return data;
+    }
+
+    public int front() {
+        if (front == null) {
+           System.out.println("Deque is Empty!");
+        }
+        return front.data;
+    }
+
+    public int back() {
+        if (rear == null) {
+            System.out.println("Deque is Empty!");
+        }
+        return rear.data;
+    }
+}
+```
+- Applications of Deque:
+1. Job scheduling algorithm
+2. Undo Redo Functionality
+
+***
+***
+
+# Day 10 26/6(Queue Types)
+### Priority Queue
+
+- Every element in the queue has some priority associated with it.
+- the element with highest priority will be the first element.
+- it supports only comparable elements and are arranged in some order.
+
+- For example consider the below Ascending order priority queue
+
+![Queue](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/28_priority_queue.png)
+
+- Operations of Priority queue
+1. Insertion 
+2. Deletion
+3. Peek
+
+- Implementation of Priority queue using linkedList
+
+```java
+
+class priorQueue
 {
-- check queue is not full 
--
+static class Node {
+    int data;
+    int priority;
+    Node next;
+    
 }
-- 
 
+static Node node = new Node();
+    
+static Node newNode(int d, int p)
+{
+    Node temp = new Node();
+    temp.data = d;
+    temp.priority = p;
+    temp.next = null;
+    
+    return temp;
+}
 
-***
-***
-# Day 10 26/6
+static int peek(Node head)
+{
+    return (head).data;
+}
+    
+static Node pop(Node head)
+{
+    Node temp = head;
+    (head) = (head).next;
+    return head;
+}
+    
+static Node push(Node head, int d, int p)
+{
+    Node start = (head);
+    
+    Node temp = newNode(d, p);
+
+    if ((head).priority < p) {
+
+        temp.next = head;
+        (head) = temp;
+    }
+    else {
+        while (start.next != null &&
+            start.next.priority > p) {
+            start = start.next;
+        }
+        temp.next = start.next;
+        start.next = temp;
+    }
+    return head;
+}
+
+static int isEmpty(Node head)
+{
+    return ((head) == null)?1:0;
+}
+    
+public static void main(String args[])
+{
+
+    Node pq = newNode(10, 0);
+    pq =push(pq, 2, 2);
+    pq =push(pq, 5, 3);
+    pq =push(pq, 4, 1);
+    
+    while (isEmpty(pq)==0) {
+        System.out.printf("%d ", peek(pq));
+        pq=pop(pq);
+    }
+    
+}
+}
+
+```
+
+- Applications of Priority queue
+1. Used in Dijkstra's shortest path and prim's algorithm.
+2. for priority based scheduling in operating system.
 
 
 # Day 11 28/6(tree,AVL Tree,Binary tree types)
