@@ -1040,19 +1040,20 @@ Display circular Queue
 - Insertion and Deletion operations can be performed from both ends.
 - can be used as both stack and queue.
 
-- Representation of Deque
-![queue](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/27_deque.png)
+
+### Representation of Deque
+![queue](https://github.com/Rakhipujari/c-dac/blob/main/Data%20structure/Media/27_deque.png)
+
 
 - Operations on Deque:
-- push_front()
-- push_back()
-- pop_front()
-- pop_back()
-- front()
-- back()
+1. push_front()
+2. push_back()
+3. pop_front()
+4. pop_back()
+5. front()
+6. back()
 
-- Implementation of Deque with the above operations:
-- using doubly linked list
+- Implementation of Deque with the above operations using doubly linked list:
 
 ```java
 class Node {
@@ -1155,7 +1156,7 @@ class Deque {
 
 - For example consider the below Ascending order priority queue
 
-![Queue](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/28_priority_queue.png)
+![Queue](https://github.com/Rakhipujari/c-dac/blob/main/Data%20structure/Media/28_priority_queue.png)
 
 - Operations of Priority queue
 1. Insertion 
@@ -1248,6 +1249,8 @@ public static void main(String args[])
 1. Used in Dijkstra's shortest path and prim's algorithm.
 2. for priority based scheduling in operating system.
 
+***
+***
 
 # Day 11 28/6(tree,AVL Tree,Binary tree types)
 
