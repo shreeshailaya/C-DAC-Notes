@@ -142,11 +142,11 @@ print(a)
 `tensor[tensor_position_start:tensor_position_end, tensor_dimension_start:tensor_dimension_end , tensor_value_start:tensor_value_end]`
 
 - Python code to access all the tensors of 1 dimension and get only 7 values in that dimension
--`print(a[0:1, 0:1, :7]) `
+        - `print(a[0:1, 0:1, :7]) `
 -  Python code to access all the tensors of all dimensions and get only 3 values in each dimension
-- `print(a[0:1, 0:2, :3])`
+        - `print(a[0:1, 0:2, :3])`
 - Access 8 elements in 1 dimension on all tensors
-- `print(a[0:2, 1, 0:8]) `
+        - `print(a[0:2, 1, 0:8]) `
 
 ## Math Operations 
 - Here are some Examples of some basic math operations
