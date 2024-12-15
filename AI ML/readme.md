@@ -109,5 +109,58 @@ my_torch1 = my_torch.reshape(2,5)
 ```py
 my_torch1 = my_torch.reshape(2,-1)
 ```
+- It will only valid for one side (-1,2) or either (2,-1)
 
+### Rules for reshape and view
+```py
+mytensor = torch.arange(10)
+mytensor1 = mytensor.reshape(2,5)
+print(mytensor)
+print(mytensor1)
 
+mytensor[1] = 100
+print(mytensor)
+print(mytensor1)
+```
+
+- If i change the value of mytensor1 to 100 the same value will be replicate to mytensor as well
+
+## Slice in Torch 
+
+```py
+# create an 3 D tensor with 8 elements each 
+a = torch.tensor([[[1, 2, 3, 4, 5, 6, 7, 8], 
+				[10, 11, 12, 13, 14, 15, 16, 17]], 
+					
+				[[71, 72, 73, 74, 75, 76, 77, 78], 
+				[81, 82, 83, 84, 85, 86, 87, 88]]]) 
+
+# display actual tensor 
+print(a) 
+```
+- Syntax for Slice 
+`tensor[tensor_position_start:tensor_position_end, tensor_dimension_start:tensor_dimension_end , tensor_value_start:tensor_value_end]`
+
+- Python code to access all the tensors of 1 dimension and get only 7 values in that dimension
+-`print(a[0:1, 0:1, :7]) `
+-  Python code to access all the tensors of all dimensions and get only 3 values in each dimension
+- `print(a[0:1, 0:2, :3])`
+- Access 8 elements in 1 dimension on all tensors
+- `print(a[0:2, 1, 0:8]) `
+
+## Math Operations 
+- Here are some Examples of some basic math operations
+```py
+tensor_1 = torch.tensor([1, 2, 3])
+tensor_2 = torch.tensor([4, 5, 6])
+print(tensor_1 + tensor_2)
+print(torch.add(tensor_1, tensor_2))
+```
+- Same goes with all math operations following is list of operations
+        - Remainder `torch.remainder(tensor_1, tensor_2)`
+        - Power `torch.pow(tensor_1, tensor_2)`
+### Re-assignment with _  
+```py
+tensor_1.add_(tensor_2)
+# this is equals to tensor_1 = tensor_1+tensor_2
+```
