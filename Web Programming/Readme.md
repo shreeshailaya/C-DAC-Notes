@@ -6,26 +6,71 @@
  
 
 # HTML
-### HTML forms
+### HTML tags
+There are plenty of different HTML tags, although nowadays most website are pretty much mostly written with `<div>`s.
+> As much as most websites nowadays mostly write `<div>`s, it is good practice to use HTML tags which give meaningful context.
+
+You can write out html tags using the following syntax. The first is more common as complex layouts and websites are built by wrapping many different `<divs>`. You can use the second syntax if you do not need to write text or child HTML tags within.
+
+```html
+<!-- This is a HTML comment, it will not affect your code when it is run. -->
+<div></div>
+<div/>
+```
+
+##### HTML Lists
+###### Unordered Lists
+With unordered lists, the list items are marked with bullet points.
+
+Example usage:
+```html
+<ul>
+    <li></li>
+</ul>
+```
+
+> `<li></li>` denotes a list item.
+
+###### Ordered Lists
+With ordered lists, the list items are marked with numbers or letters
+
+Example usage:
+```html
+<ol>
+    <li></li>
+<
+```
+
+
+##### HTML forms
 | Attribute | Description |
 |---|---|
 | name | Specifices the name of attribute |
 | action | Specifies the URL of the program where to send the form data |
 | method | Specifice the HTTP method used for sending the data |
-| target | Specifice where to display the response that is received after submitting the form. possible values are _blank, _self, _parent, _top |
+| target | Specifice where to display the response that is received after submitting the form. possible values are _blank, _self, _parent, _top. 
+_blank opens the response in a new window or tab, _self opens the response in the current windows. |
 | enctype | Specify how the form data should be encoded |
 
+Example usage:
+```html
+<form action="/server_code.php" target="_blank">
+<!-- Rest of the form attributes -->
+</form>
+```
 
+# CSS 
+Lets you change and modify the general look and feel for the website.
+> More precisely, it is a set of instructions which tells your browser how to render specific HTML elements by criteria such as class, id, specificity
 
- # CSS 
- - External
- - Internal 
- - Inline
+With CSS, there are three different ways of referencing a stylesheet within your HTML document.
+- External
+- Internal 
+- Inline
  
  ### External 
- - Styling info will be written separately 
- - .css file
- - General look and feed for the website
+- Reference an external stylesheet in your HTML file, can be local (writing your own custom `.css` in another file)
+- or loading one remotely via a CDN
  
  ```html
  
@@ -373,28 +418,28 @@ alert("hi");
 
 
 # 26/6 Node JS
-
 - It is a server side language
-- Ryan Dahl used JS v8 engine to develope Node js (v8 engine was a part of chrome )
+- Ryan Dahl used JS v8 engine to develop Node js (v8 engine was a part of chrome )
 - Node JS runs as a single thread application which is called event loop
-- Event loop recive and send request maintained in queue
-- Advantage is Scability and Performance
-- Opensource with MIT licence
+- Event loop receives and send request maintained in queue
+- Advantage is Scalability and Performance
+- Open source with MIT licence
 - Lightweight framework which include bare minimum module
-- When you install Node it will automatically install NPM(Node package manager)
+- When you install Node it will automatically install NPM (Node package manager)
 - It is used to install various node modules
-- These node modules are avalible in center respo
+- These node modules are available in central repositories
 ```js
-node firstnodeapp.js
-
+> node firstnodeapp.js
 ```
+
 ### Node Modules
 - Core Module
 - Local Module
 - Third party module
 - Use of http module to create server
 
-
 # React 
 - States and modifing it with functions 
 
+# More Resources
+- https://www.w3schools.com/
