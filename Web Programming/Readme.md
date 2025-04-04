@@ -1,9 +1,9 @@
  # 15/7
  ### Introduction to Web
- 
  - Network of Networks
  - ARPANET project undertaken by US defence
- 
+
+> Needs expansion
 
 # HTML
 ### HTML tags
@@ -17,6 +17,43 @@ You can write out html tags using the following syntax. The first is more common
 <div></div>
 <div/>
 ```
+
+#### Link tag
+```html
+<a></a>
+```
+
+#### Paragraph tag
+```html
+<p></p>
+```
+
+#### Article tag
+```html
+<article></article>
+```
+
+#### Section tag
+```html
+<section></section>
+```
+
+#### Table tag
+> Before grid and flexbox, complex layouts were hacked together using tables.
+
+```html
+<table>
+    <tr>
+        <th></th>
+    </tr>
+    <tr> 
+        <td></td>
+    </tr>
+</table>
+```
+- `<tr>` denotes table row, `<th>` denotes table heading, `<td>` denotes table data.
+> there are numerous other ways to write tables but they will not be covered here
+
 
 ##### HTML Lists
 ###### Unordered Lists
@@ -38,9 +75,8 @@ Example usage:
 ```html
 <ol>
     <li></li>
-<
+</ol>
 ```
-
 
 ##### HTML forms
 | Attribute | Description |
@@ -48,13 +84,14 @@ Example usage:
 | name | Specifices the name of attribute |
 | action | Specifies the URL of the program where to send the form data |
 | method | Specifice the HTTP method used for sending the data |
-| target | Specifice where to display the response that is received after submitting the form. possible values are _blank, _self, _parent, _top. 
-_blank opens the response in a new window or tab, _self opens the response in the current windows. |
+| target | Specifice where to display the response that is received after submitting the form. possible values are _blank, _self, _parent, _top. |
 | enctype | Specify how the form data should be encoded |
+
+`_blank` opens the response in a new window or tab, _self opens the response in the current windows. 
 
 Example usage:
 ```html
-<form action="/server_code.php" target="_blank">
+<form name="my_form" method="post" action="/server_code.php" target="_blank" enctype="multipart/form-data">
 <!-- Rest of the form attributes -->
 </form>
 ```
@@ -67,54 +104,52 @@ With CSS, there are three different ways of referencing a stylesheet within your
 - External
 - Internal 
 - Inline
+
+Consider the following when choosing which of the three approaches to use:
+- Is the styling very specific to a small number of HTML elements? If yes, inline styling is the answer.
+- Is the custom css you write small enough (e.g. less than 100 lines of code) that you do not to dedicate a custom css file to? If yes, use internal styling.
+- Else, use external styling (recommended for most cases)
+> You can be flexible and use a combination of the three, though larger projects would mostly use a CSS preprocessor like [SASS](https://sass-lang.com/)
  
- ### External 
+### External 
 - Reference an external stylesheet in your HTML file, can be local (writing your own custom `.css` in another file)
 - or loading one remotely via a CDN
  
- ```html
- 
- <head>
- 
- <link href="path.css" type="text/css" rel="stylesheet" />
- 
- </head>
- 
- ```
- ```css
- selector 
- {
- 
- attribute : value;
- attribute : value;
- 
- }
- 
- p	//tag selector
- {
- 	color : green;	
- }
- ```
+```html
+<head>
+ <link href="./path_to_your_css.css" type="text/css" rel="stylesheet" />
+</head>
+```
+
+```css
+selector {
+ // attribute : value;
+ // ...
+}
+
+//html tag selector
+p	{
+color : green;	
+}
+
+```
  - Selector should be the tag
  
  
- ### Internal 
- - Styling info will be writterrn in the same HTML page wing style tag in head section
+### Internal 
+- Styling info will be writterrn in the same HTML page wing style tag in head section
 
 ```html
-
 <head>
-<style>
-h1
-{
-
-attribute : value;	//style rules
-
-}
-</style>
-
+    <style>
+        h1 {
+            // style rules
+        }
+    </style>
 </head>
-
+<body>
+    <!-- Rest of your HTML document -->
+</body>
 ```
 
 ### Inline
@@ -123,56 +158,96 @@ attribute : value;	//style rules
 - with the tag-specific	
 
 ```html
-<p style="color:geen">dkfjdkjfksjdkfj</p>
+<p style="color:green">test text</p>
 ```
 
-### Cascading 
-- intotal 
-- Everypage web page can take css from external(font),internal(paddding) and inline(color)
+### Cascading order
+- Every web page can take css from external (e.g. font), internal (e.g. padding) and inline (e.g. color)
+- Rendering order of css
+	- browser engine's implementation
+	- inline styles
+	- internal styles
+	- external styles
 
-- Domination of css
-	- browser
-	- inline
-	- internal
-	- external
+#### ID and Class selectors
+##### ID selector
+ID is unique name given to one element.
 
-- ID and Class
-- ID is unique name 
-- Class is we classify in one catagory
--  . is used in css for class selection
+```html
+<!-- ... --->
+<p id="red_bg"> 
+    I will have a red background 
+</p>
+<!-- ... --->
+```
+```css
+#red_bg {
+    background-color: red;
+}
+```
+> This code tells the browser to set the background color to red for HTML elements with an id of `#red_bg`
+
+#### Class selector
+Classes can be assigned styling to a group of multiple HTML elements.
+
+```html
+<!-- ... --->
+<p class="red_bg"> 
+    I will have a red background 
+</p>
+<!-- ... --->
+```
+```css
+.red_bg {
+    background-color: red;
+}
+.blue_text {
+    color: blue;
+}
+```
+
+You can stack calls to different classes e.g.
+```html
+<p class="red_bg blue_text">
+    I will have a red background and blue text
+</p>
+```
+
+#### Specificity
+See https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity for more.
 
 
-# Java Script
+# JavaScript
 - It used as client side scripting language
-- To avoid load on server we need Js
-- Every thing cannot be send to server
+- To avoid load on server we need JavaScript
+- Not everything can or should be send to the server/backend
 - It is also called client side scripting
-- Js is intrepted language '
-- Errors will be releved at the the of excuation
-- Browser is the interpeter of js language 
+- JavaScript is interpreted language, it is not compiled to bytecode or binary
+- Errors will be show up at runtime only (this is a bad thing, which is which tools like TypeScript exist)
+- Browser is the interpreter of JavaScript language 
 - JS is called as lightweight language
-- Js interpreter is very small size
-- Loosely typed language
-- Does not have support for fileIO and DB
+- JS interpreter is very small size
+- Loosely typed language (no type safety, which is also where TypeScript comes in)
+- Does not have support for file I/O operations and direct database access (although you can use REST API calls to query databases)
 - It is used or generating dynamic HTML
 - It is used for data validation on client side 
-- JS can be empaded in a existing HTML for this we use `<script>`
-- Js can be even written in external file 
+- JS can be embedded in a existing HTML for this we use `<script>`
+- JS can be also be written in external file 
 
-
+```js
 document.write("Hello World");
+```
 
-
-
+Like CSS, you can use external, internal or inline scripts. The factors to consider are analogous.
 
 ### JS Objects
-- 1.Language Supported
-- 2.Browser Objects
-- 3.DOM Objects
+1. Language Supported
+2. Browser Objects
+3. DOM Objects
 
 - Objects contain one or more key-value pairs
 - The key portion can be anything string  and value can be anything in value in number,string
-- As it turns out, nearly everything in js is an object like arrays,functions, numbers even string
+- As it turns out, nearly everything in JavaScript is an object like arrays,functions, numbers even string
 - And they all have properties and methods.
 
 ```js
@@ -188,7 +263,6 @@ console.log(myObject.myName); //console sayali
 
 ```
 
-
 ### Functions in JS
 ```js
 function myFunction(p1, p2) {
@@ -196,7 +270,7 @@ function myFunction(p1, p2) {
 }
 ```
 
-- Function Return 
+- Function returning a value
 
 ```js
 
@@ -208,16 +282,12 @@ function myFunction(a, b) {
 
 ```
 
-
-
-
 ### Dynamic HTML
 
 - Factorial in JS
 ```js
-
 <script>
-    function findFactoial(no){
+    function findFactorial(no){
         var i,fact;
         fact = 1;
         for (i = 1; i <= no; i++)
@@ -229,14 +299,15 @@ function myFunction(a, b) {
     }
 
 </script>
-
 ```
+
+> The runtime will be quite bad for larger values of `no` in the `findFactorial` function as JS is single-threaded.
 
 
 ### Array and Build in Objects JS
 - All array demo and code ![ALL Array Demos](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Web%20Programming/21-7-d6/21june1/ass1.html)
 
-### Regular Expression in js
+### Regular Expression in JS
 ```js
 <script>
     function check()
@@ -277,7 +348,6 @@ function myFunction(a, b) {
 - AJAX = Asynchronous JavaScript And XML.
 - AJAX is not a programming language.
 - AJAX just uses a combination of:
-
 	- A browser built-in XMLHttpRequest object (to request data from a web server)
 	- JavaScript and HTML DOM (to display or use the data)
 
@@ -325,7 +395,7 @@ function loadDoc() {
 - [Handling Validation in AJAX](https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Web%20Programming/27-7-d11/Assignments/3/RegistrationDetails.html)
 
 
-# Jquery
+# jQuery
 ### Intro
 ```js
 
@@ -419,7 +489,7 @@ alert("hi");
 
 # 26/6 Node JS
 - It is a server side language
-- Ryan Dahl used JS v8 engine to develop Node js (v8 engine was a part of chrome )
+- Ryan Dahl used JS v8 engine to develop Node js (v8 engine was a part of chrome)
 - Node JS runs as a single thread application which is called event loop
 - Event loop receives and send request maintained in queue
 - Advantage is Scalability and Performance
@@ -428,6 +498,7 @@ alert("hi");
 - When you install Node it will automatically install NPM (Node package manager)
 - It is used to install various node modules
 - These node modules are available in central repositories
+
 ```js
 > node firstnodeapp.js
 ```
@@ -443,3 +514,4 @@ alert("hi");
 
 # More Resources
 - https://www.w3schools.com/
+- https://developer.mozilla.org/en-US/
