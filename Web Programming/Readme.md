@@ -6,26 +6,95 @@
  
 
 # HTML
-### HTML forms
+
+### What is HTML?
+HTML (HyperText Markup Language) is the standard language for creating web pages. It defines the structure and content of a webpage using a system of elements and tags.
+
+### Basic Structure of an HTML Document
+```
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First Page</title>
+</head>
+<body>
+  <h1>Hello, world!</h1>
+  <p>This is a paragraph.</p>
+</body>
+</html>
+```
+ - `<!DOCTYPE html>` declares the document type.
+ - `<html>` is the root element.
+ - `<head>` contains meta-information (title, styles, links).
+ - `<body>` contains visible content.
+
+### HTML Elements
+Common tags include:
+
+ - `<h1>` to `<h6>` — Headings
+ - `<p>` — Paragraphs
+ - `<a>` — Links
+ - `<img>` — Images
+ - `<ul>`, `<ol>`, `<li>` — Lists
+ - `<div>`, `<span>` — Layout/containers
+
+### Forms in HTML
+HTML forms are used to collect user input.
+
+#### Example Form
+```
+<form action="/submit" method="post" target="_blank" enctype="multipart/form-data">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" />
+
+  <label for="email">Email:</label>
+  <input type="email" name="email" id="email" />
+
+  <input type="submit" value="Submit" />
+</form>
+
+```
+
+#### Important Attributes
 | Attribute | Description |
 |---|---|
-| name | Specifices the name of attribute |
+| name | Specifies the name of attribute |
 | action | Specifies the URL of the program where to send the form data |
-| method | Specifice the HTTP method used for sending the data |
-| target | Specifice where to display the response that is received after submitting the form. possible values are _blank, _self, _parent, _top |
+| method | Specifies the HTTP method used for sending the data |
+| target | Specifies where to display the response that is received after submitting the form. possible values are _blank, _self, _parent, _top |
 | enctype | Specify how the form data should be encoded |
 
+### Semantic HTML
+Semantic tags give meaning to the HTML content:
+ - `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>` — used for better structure and accessibility.
+ - Helps screen readers and improves SEO.
+
+### HTML Media
+ - Images: `<img src="image.jpg" alt="Description" />`
+ - Video: `<video controls src="video.mp4"></video>`
+ - Audio: `<audio controls src="audio.mp3"></audio>`
+
+### HTML Resources
+ - https://developer.mozilla.org/en-US/docs/Web/HTML
+ - https://www.w3schools.com/html
 
 
- # CSS 
- - External
- - Internal 
- - Inline
+# CSS 
+ CSS (Cascading Style Sheets) is used to control the appearance of HTML elements. It allows you to define layout, colors, fonts, spacing, and more.
+
+
+### Types of CSS
+
+- **External** – CSS is written in a separate `.css` file.
+- **Internal** – CSS is written inside a `<style>` tag within the HTML `<head>`.
+- **Inline** – CSS is applied directly to an element using the `style` attribute.
+
  
- ### External 
+### External CSS
  - Styling info will be written separately 
  - .css file
- - General look and feed for the website
+ - General look and feel for the website
+ - Useful for applying consistent styling across multiple   pages.
  
  ```html
  
@@ -37,65 +106,110 @@
  
  ```
  ```css
- selector 
- {
- 
+ selector  {
  attribute : value;
- attribute : value;
- 
  }
  
- p	//tag selector
- {
- 	color : green;	
- }
+/* styles.css */
+p {
+  color: green;
+  font-size: 16px;
+}
+
  ```
- - Selector should be the tag
+ - The example shows a tag selector
  
  
- ### Internal 
- - Styling info will be writterrn in the same HTML page wing style tag in head section
+ ### Internal CSS
+ - Styles are written in the same HTML page using a <style> tag in head section
+ - Best for single-page styling or quick overrides.
 
 ```html
 
 <head>
-<style>
-h1
-{
-
-attribute : value;	//style rules
-
-}
-</style>
-
+  <style>
+    h1 {
+      color: blue;
+      font-family: Arial, sans-serif;
+    }
+  </style>
 </head>
+
 
 ```
 
 ### Inline
 - Styling info will be written along with element
-- Style attribute
-- with the tag-specific	
+- Inline styles are added directly to the HTML tag using the style attribute	
 
 ```html
-<p style="color:geen">dkfjdkjfksjdkfj</p>
+<p style="color: green; font-weight: bold;">Inline styled paragraph</p>
+
 ```
 
-### Cascading 
-- intotal 
-- Everypage web page can take css from external(font),internal(paddding) and inline(color)
+### CSS Selectors 
+| Selector   | Example      | Description                                   |
+| ---------- | ------------ | --------------------------------------------- |
+| Tag        | `p {}`       | Targets all `<p>` elements                    |
+| Class      | `.btn {}`    | Targets elements with class="btn"             |
+| ID         | `#header {}` | Targets element with id="header"              |
+| Descendant | `div p {}`   | Targets `<p>` inside `<div>`                  |
+| Grouping   | `h1, h2 {}`  | Applies same styles to both `<h1>` and `<h2>` |
 
-- Domination of css
-	- browser
-	- inline
-	- internal
-	- external
+### CSS Specificity & Cascading 
+CSS styles can come from multiple sources. Priority (highest to lowest):
 
-- ID and Class
-- ID is unique name 
-- Class is we classify in one catagory
--  . is used in css for class selection
+1. Inline CSS
+2. Internal CSS
+3. External CSS
+4. Browser defaults
 
+### ID and Class
+ - id is unique per element. Use #id in CSS.
+ - Class can be reused. Use .class in CSS.
+```html
+<p id="intro">...</p>
+<p class="highlight">...</p>
+```
+```css
+#intro {
+  font-weight: bold;
+}
+
+.highlight {
+  color: orange;
+}
+
+```
+
+### CSS Preprocessors: SASS/SCSS
+SASS adds features like variables, nesting, and functions to CSS.
+```scss
+$primary-color: #3498db;
+
+.button {
+  background-color: $primary-color;
+  padding: 10px;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+```
+To use SASS:
+ - Install SASS CLI (npm install -g sass)
+ - Compile: sass style.scss style.css
+
+### Best Practices
+ - Keep CSS modular (use classes over IDs for reuse)
+ - Group related styles together
+ - Use naming conventions (e.g., BEM)
+ - Avoid inline styles for maintainability
+ - Use CSS variables for consistent theming
+
+### CSS Tools & Resources
+ - https://developer.mozilla.org/en-US/docs/Web/CSS
+ - https://www.w3schools.com/css
 
 # Java Script
 - It used as client side scripting language
@@ -396,5 +510,114 @@ node firstnodeapp.js
 
 
 # React 
-- States and modifing it with functions 
+React is a JavaScript library for building user interfaces, especially single-page applications. It uses a component-based architecture.
 
+### Key Concepts:
+
+#### Components:
+ - Functional Components (modern, with hooks)
+ - Class Components (older, with lifecycle methods)
+
+```jsx
+function Greeting() {
+  return <h1>Hello!</h1>;
+}
+```
+
+#### JSX
+React uses JSX, a syntax extension that allows writing HTML-like code inside JavaScript.
+
+```jsx
+const element = <h1>Welcome</h1>;
+```
+
+#### State and Hooks
+ - React's state is used to manage internal, dynamic data.
+ - Hooks are special functions that let you “hook into” React features like state and lifecycle methods in functional components.
+```jsx
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+```
+ - useState() is a React hook for state management.
+ - Hooks can only be used in functional components.
+
+#### Props
+Props allow data to be passed from one component to another, typically from parent to child.
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+Usage:
+```jsx
+<Welcome name="Alice" />
+```
+
+### Component Hierarchy 
+React apps consist of a tree of components, with a top-level App component typically rendering children.
+
+### React Lifecycle (Class Component Example)
+```jsx
+class Example extends React.Component {
+  componentDidMount() {
+    // Code runs after the component mounts
+  }
+
+  componentWillUnmount() {
+    // Cleanup before component is removed
+  }
+
+  render() {
+    return <div>Example Component</div>;
+  }
+}
+```
+### React Lifecycle (Functional Component Example)
+In functional components, lifecycle behavior is handled using the useEffect hook:
+```jsx
+import { useEffect } from 'react';
+
+function Example() {
+  useEffect(() => {
+    // Runs after the component mounts
+    console.log("Component mounted");
+
+    return () => {
+      // Cleanup before the component is removed (like componentWillUnmount)
+      console.log("Component unmounted");
+    };
+  }, []); // Empty dependency array = run once on mount and cleanup on unmount
+
+  return <div>Example Component</div>;
+}
+
+```
+
+
+### Other React Concepts 
+ - React Router – Enables navigation between views/pages in a React app.
+ - Context API – Allows sharing state globally without prop drilling.
+ - useEffect – for side effects (like fetching data)
+ ```jsx
+import { useEffect } from 'react';
+
+useEffect(() => {
+  console.log("Component mounted");
+}, []);
+ ```
+ - React Developer Tools – browser extension for debugging
+
+### Useful Resources
+ - https://react.dev
+ - https://www.w3schools.com/react
+ - https://react.dev/learn/state-a-components-memory
