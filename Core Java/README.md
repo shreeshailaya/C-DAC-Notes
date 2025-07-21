@@ -1673,8 +1673,8 @@ main()
 | JDK | Java Development Kit | Required by developers for developing and testing the application | In development environment | -- | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#jdkjre), [Java docs](https://jdk.java.net/16/)
 | JRE | Java Runtime Environment  | It is needed by client machine to run existing java application (already compiled) | In development environment | -- | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#jdkjre)
 | OOP | Object Oriented Programming | Structuring the programming language | Used in programming languages like c++/java | Object-oriented programming is a programming paradigm based on the concept of "objects", which can contain data and code | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#object-oriented-programming), [Wikipedia](https://en.wikipedia.org/wiki/Object-oriented_programming) |
-| Major Piller of OOP | --  | -- | -- | Abstration, Encapsulation, Inheritance, Polymorphim | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#four-major-piller-of-oop)
-| Minor Piller of OOP | --  | -- | -- | Strong typing, Concurrency, Persistance| [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#four-major-piller-of-oop) |
+| Major Piller of OOP | Key principles of OOP  | Help in writing modular, maintainable code |Used in OOP languages| Abstration, Encapsulation, Inheritance, Polymorphim | [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#four-major-piller-of-oop)
+| Minor Piller of OOP | Additional principles in OOP  | Enhance robustness and maintainability | Advanced OOP usage | Strong typing, Concurrency, Persistance| [Notes](https://github.com/shreeshailaya/c-dac/tree/main/Core%20Java#four-major-piller-of-oop) |
 
 
 
