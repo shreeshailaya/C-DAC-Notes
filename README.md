@@ -5,6 +5,7 @@
 <img src="https://github.com/shreeshailaya/C-DAC-Notes/blob/main/Media/1_logo.jpeg" alt="drawing" width="200"/>
   
 <p align="center"><b>Welcome to CDAC Notes</b>
+<p align="center"><b>Hacktoberfest 2025 Participants</b>
 </p>
 
 
