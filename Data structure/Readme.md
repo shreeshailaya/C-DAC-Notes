@@ -125,7 +125,7 @@ class Program
 - A linked list is a linear data structure 
 - Elements are connected using links (pointers)
 
-#### Disadventages of Arrays
+#### Disadvantages of Arrays
 
 - Searching can be slow 
 - Insertion and deletion are slow
@@ -134,9 +134,9 @@ class Program
 
 Because of these disadvantages, linked lists are often preferred in such cases.	
 
-#### Advantages of linked lists
+#### Advantages of Linked Lists
 
-- Can grow in size as needed
+- Can expand as needed
 - No shifting required during insertion or deletion
 - Each element (node) stores data and a reference to the next node
 - Data does not need to be stored in contiguous memory
