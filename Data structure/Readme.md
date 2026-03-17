@@ -122,20 +122,22 @@ class Program
 
 ### Linked List 
 
-- It is Linear Data Structure 
-- It connected via links 
+- A linked list is a linear data structure 
+- Elements are connected using links (pointers)
 
-- Disadventage of Array
-	- Slow searching in array so linked list come 
-	- Inseration and deletion is slow in array
-	- fixed size in array
-	- memory weastage in array
-- Because of this disadvantages of array linked list is come in picture	
-- In other hand linked list able to grow in size as needed
-- Does not required the shifting of items during inseration or deletion.
-- Each data value is linked with address of next value
-- Each element is called node 
-- Data values need not be stored in adjacent memory cell
+#### Disadventage of Array
+	- Searching can be slow 
+	- Insertion and deletion are slow
+	- fixed size
+	- Possible memory wastage
+
+Because of this disadvantages of array linked list is come in picture	
+
+#### Advantages of linked lists
+- Can grow in size as needed
+- No shifting required during insertion or deletion
+- Each element (node) stores data and a reference to the next node
+- Data does not need to be stored in contiguous memory
 
 ![linkedList](https://github.com/shreeshailaya/c-dac/blob/main/Data%20structure/Media/2_linkedList.png)
 
