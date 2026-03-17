@@ -120,12 +120,12 @@ class Program
 
 ```
 
-### Linked List 
+### Linked Lists 
 
 - A linked list is a linear data structure 
 - Elements are connected using links (pointers)
 
-#### Disadventages of Array
+#### Disadventages of Arrays
 
 - Searching can be slow 
 - Insertion and deletion are slow
